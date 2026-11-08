@@ -17,6 +17,7 @@ import {
   DetailRamp,
   DetailSalah,
 } from "./Detail";
+import { LatarCabai, LatarDapur, LatarKamar, LatarKontur, LatarKota, LatarLabel, LatarMeja, LatarPasar, LatarRak, LatarTanya } from "./LatarAdegan";
 import { KAMERA, KunciKam, LEMBAR_H, LEMBAR_W, SEGMEN, SEL_H, SEL_W, seg } from "./linimasa";
 
 const ease = Easing.bezier(0.65, 0, 0.35, 1);
@@ -58,11 +59,37 @@ const LATAR: Record<string, GayaLatar> = {
   "2,4": { dasar: "#173F70", terang: "#2B66AA", grid: "kotak", pusat: [540, 600], serat: true },
 };
 
-const Sel: React.FC<{ c: number; r: number; children?: React.ReactNode }> = ({ c, r, children }) => {
+// Ilustrasi latar yang mengikuti naskah tiap adegan.
+// [komponen, geser vertikal] - digeser ke area yang terlihat (di atas teks naskah & UI Instagram)
+const ILUSTRASI: Record<string, [React.FC<{ f: number }>, number]> = {
+  "0,0": [LatarPasar, -40],
+  "1,0": [LatarRak, 0],
+  "2,0": [LatarKota, -300],
+  "2,1": [LatarMeja, -420],
+  "1,1": [LatarLabel, 0],
+  "0,1": [LatarCabai, -180],
+  "1,2": [LatarTanya, -320],
+  "2,2": [LatarKontur, 0],
+  "2,3": [LatarDapur, -360],
+  "1,3": [LatarKamar, -240],
+  "2,4": [(p) => <LatarKota {...p} fajar />, -620],
+};
+
+const Sel: React.FC<{ c: number; r: number; f?: number; children?: React.ReactNode }> = ({ c, r, f = 0, children }) => {
   const g = LATAR[`${c},${r}`];
+  const ilus = ILUSTRASI[`${c},${r}`];
+  // parallax: ilustrasi latar bergeser lebih lambat dari isi saat kamera bergerak
+  const k = kameraPada(f);
+  const px = -(k.x - (c * SEL_W + 540)) * 0.14;
+  const py = -(k.y - (r * SEL_H + 960)) * 0.14;
   return (
     <g transform={`translate(${c * SEL_W} ${r * SEL_H})`}>
       {g ? <LatarSel gaya={g} id={`l${c}${r}`} h={r === 4 ? 1200 : SEL_H} /> : null}
+      {ilus ? (
+        <g transform={`translate(${px} ${py + ilus[1]})`}>
+          {React.createElement(ilus[0], { f })}
+        </g>
+      ) : null}
       {children}
     </g>
   );
@@ -72,45 +99,45 @@ const Lembar: React.FC<{ f: number }> = ({ f }) => (
   <svg width={LEMBAR_W} height={LEMBAR_H} viewBox={`0 0 ${LEMBAR_W} ${LEMBAR_H}`} style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}>
     <KertasGrid x={-2000} y={-2000} w={LEMBAR_W + 4000} h={LEMBAR_H + 4000} />
     {/* bingkai lembar */}
-    <Sel c={0} r={3} />
-    <Sel c={0} r={4} />
-    <Sel c={1} r={4} />
+    <Sel c={0} r={3} f={f} />
+    <Sel c={0} r={4} f={f} />
+    <Sel c={1} r={4} f={f} />
     <rect x={20} y={20} width={LEMBAR_W - 40} height={LEMBAR_H - 40} fill="none" stroke={bp.garis} strokeWidth={6} />
     <rect x={44} y={44} width={LEMBAR_W - 88} height={LEMBAR_H - 88} fill="none" stroke={bp.garis} strokeWidth={2} />
-    <Sel c={0} r={0}>
+    <Sel c={0} r={0} f={f}>
       <DetailJudul f={f} />
     </Sel>
-    <Sel c={1} r={0}>
+    <Sel c={1} r={0} f={f}>
       <DetailKeranjang f={f} />
     </Sel>
-    <Sel c={2} r={0}>
+    <Sel c={2} r={0} f={f}>
       <DetailGauge f={f} />
     </Sel>
-    <Sel c={2} r={1}>
+    <Sel c={2} r={1} f={f}>
       <DetailJangka f={f} />
     </Sel>
-    <Sel c={1} r={1}>
+    <Sel c={1} r={1} f={f}>
       <DetailBeda f={f} />
     </Sel>
-    <Sel c={0} r={1}>
+    <Sel c={0} r={1} f={f}>
       <DetailCabai f={f} />
     </Sel>
-    <Sel c={1} r={2}>
+    <Sel c={1} r={2} f={f}>
       <DetailSalah f={f} />
     </Sel>
-    <Sel c={2} r={2}>
+    <Sel c={2} r={2} f={f}>
       <DetailRamp f={f} />
     </Sel>
-    <Sel c={2} r={3}>
+    <Sel c={2} r={3} f={f}>
       <DetailPangan f={f} />
     </Sel>
-    <Sel c={1} r={3}>
+    <Sel c={1} r={3} f={f}>
       <DetailDompet f={f} />
     </Sel>
-    <Sel c={0} r={2}>
+    <Sel c={0} r={2} f={f}>
       <CatatanUmum />
     </Sel>
-    <Sel c={2} r={4}>
+    <Sel c={2} r={4} f={f}>
       <DetailPenutup f={f} />
     </Sel>
   </svg>
