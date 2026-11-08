@@ -142,6 +142,7 @@ export const Kalimat: React.FC<{
   tebal?: number;
   hurufKeluarga?: string;
   tinggiBaris?: number;
+  warnaSorot?: string;
 }> = ({
   teks,
   mulai = 0,
@@ -153,6 +154,7 @@ export const Kalimat: React.FC<{
   tebal = 700,
   hurufKeluarga = huruf.teks,
   tinggiBaris = 1.22,
+  warnaSorot = m.oranye,
 }) => {
   const f = useCurrentFrame();
   const kata = teks.split(" ");
@@ -183,7 +185,7 @@ export const Kalimat: React.FC<{
               marginRight: "0.26em",
               opacity: p,
               transform: `translateY(${(1 - p) * 18}px)`,
-              color: sorot ? m.oranye : undefined,
+              color: sorot ? warnaSorot : undefined,
             }}
           >
             {bersih}

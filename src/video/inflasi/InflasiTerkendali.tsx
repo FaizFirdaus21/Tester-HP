@@ -3,28 +3,44 @@ import { AbsoluteFill } from "remotion";
 import { TransitionSeries } from "@remotion/transitions";
 import { tilt, waktu, whip, zoom } from "../../komponen/Transisi";
 import { m } from "../../tema/malam";
-import { Bulanan, Judul, Keranjang, LepasLandas, SalahPaham, Tahunan } from "./AdeganA";
+import { Bulanan, Judul, Keranjang, KeLangit, SalahPaham, Tahunan } from "./AdeganA";
+import urutan from "./urutan.json";
 import { AdeganCabai, CABAI_FASE, Dompet, Disalahpahami, KESIMPULAN_FASE, Kesimpulan, Metafora, Pangan, Penutup, TahuKan } from "./AdeganB";
 
-// Urutan adegan dan transisi. `t` = transisi SETELAH adegan itu (null = potongan langsung).
-type Langkah = { id: string; durasi: number; C: React.FC; t: null | { jenis: "whip-kiri" | "whip-kanan" | "whip-atas" | "zoom" | "tilt"; durasi: number; x?: number; y?: number } };
+// Urutan, durasi, dan transisi diambil dari urutan.json (juga dipakai untuk storyboard).
+type Transisi = { jenis: "whip-kiri" | "whip-kanan" | "whip-atas" | "zoom" | "tilt"; durasi: number; x?: number; y?: number };
+type Langkah = { id: string; durasi: number; C: React.FC; t: Transisi | null };
 
-export const LANGKAH: Langkah[] = [
-  { id: "judul", durasi: 90, C: Judul, t: { jenis: "zoom", durasi: 12, x: 540, y: 980 } },
-  { id: "keranjang", durasi: 190, C: Keranjang, t: { jenis: "whip-kiri", durasi: 10 } },
-  { id: "lepas-landas", durasi: 80, C: LepasLandas, t: { jenis: "tilt", durasi: 14 } },
-  { id: "tahunan", durasi: 185, C: Tahunan, t: { jenis: "whip-kiri", durasi: 10 } },
-  { id: "bulanan", durasi: 100, C: Bulanan, t: null },
-  { id: "salah-paham", durasi: 160, C: SalahPaham, t: { jenis: "zoom", durasi: 12, x: 540, y: 640 } },
-  { id: "cabai", durasi: CABAI_FASE[0] + CABAI_FASE[1] + CABAI_FASE[2], C: AdeganCabai, t: null },
-  { id: "disalahpahami", durasi: 66, C: Disalahpahami, t: { jenis: "tilt", durasi: 14 } },
-  { id: "metafora", durasi: 160, C: Metafora, t: { jenis: "whip-kiri", durasi: 10 } },
-  { id: "pangan", durasi: 210, C: Pangan, t: { jenis: "zoom", durasi: 12, x: 540, y: 880 } },
-  { id: "dompet", durasi: 150, C: Dompet, t: { jenis: "tilt", durasi: 14 } },
-  { id: "kesimpulan", durasi: KESIMPULAN_FASE[0] + KESIMPULAN_FASE[1], C: Kesimpulan, t: { jenis: "zoom", durasi: 12, x: 540, y: 640 } },
-  { id: "tahu-kan", durasi: 76, C: TahuKan, t: { jenis: "whip-atas", durasi: 10 } },
-  { id: "penutup", durasi: 54, C: Penutup, t: null },
-];
+const KOMPONEN: Record<string, React.FC> = {
+  judul: Judul,
+  keranjang: Keranjang,
+  "ke-langit": KeLangit,
+  tahunan: Tahunan,
+  bulanan: Bulanan,
+  "salah-paham": SalahPaham,
+  cabai: AdeganCabai,
+  disalahpahami: Disalahpahami,
+  metafora: Metafora,
+  pangan: Pangan,
+  dompet: Dompet,
+  kesimpulan: Kesimpulan,
+  "tahu-kan": TahuKan,
+  penutup: Penutup,
+};
+
+export const LANGKAH: Langkah[] = (urutan as { id: string; durasi: number; transisi: Transisi | null }[]).map((u) => ({
+  id: u.id,
+  durasi: u.durasi,
+  C: KOMPONEN[u.id],
+  t: u.transisi,
+}));
+
+if (LANGKAH.find((l) => l.id === "cabai")!.durasi !== CABAI_FASE[0] + CABAI_FASE[1] + CABAI_FASE[2]) {
+  throw new Error("Durasi cabai di urutan.json tidak cocok dengan CABAI_FASE");
+}
+if (LANGKAH.find((l) => l.id === "kesimpulan")!.durasi !== KESIMPULAN_FASE[0] + KESIMPULAN_FASE[1]) {
+  throw new Error("Durasi kesimpulan di urutan.json tidak cocok dengan KESIMPULAN_FASE");
+}
 
 export const DURASI_INFLASI = LANGKAH.reduce((n, l) => n + l.durasi - (l.t ? l.t.durasi : 0), 0);
 

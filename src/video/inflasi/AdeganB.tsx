@@ -1,7 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Sequence, useCurrentFrame } from "remotion";
 import { Kamera, Kota, Langit, Sumber, Teks, lerp } from "../../komponen/Panggung";
-import { Tipo, kedipOtomatis } from "../../komponen/Tipo";
 import { huruf, m, persen } from "../../tema/malam";
 
 const Mendarat: React.FC<{ mulai: number; children: React.ReactNode; dari?: number; style?: React.CSSProperties }> = ({
@@ -100,7 +99,6 @@ export const AdeganCabai: React.FC = () => {
   const hantu = lerp(f, h + 14, h + 34, 0, 1);
   const tolak = f > h + 62;
   const geleng = tolak && f < h + 92 ? Math.sin((f - h - 62) / 2.4) * 14 * (1 - (f - h - 62) / 30) : 0;
-  const tipoMasuk = lerp(f, h + 40, h + 58, 0, 1);
   const t50 = 50 * PX_RIBU;
   const t40 = 40 * PX_RIBU;
   const persenNaik = lerp(f, 100, 118, 0, 1);
@@ -155,9 +153,6 @@ export const AdeganCabai: React.FC = () => {
               />
             </g>
           </g>
-          <g transform={`translate(${1620 + 200 * (1 - tipoMasuk)} ${DASAR}) rotate(-8) scale(0.55)`} opacity={tipoMasuk}>
-            <Tipo mata={tolak ? "kedip" : "tanya"} lihatX={-1} lenganKiri={tolak ? 60 : 10} />
-          </g>
           {/* label sumbu */}
           {["tahun lalu", "tahun ini", "bulan depan"].map((t, i) => (
             <text key={t} x={xBar[i]} y={DASAR + 66} textAnchor="middle" fontFamily={huruf.teks} fontWeight={700} fontSize={40} fill={m.bulan}>
@@ -192,15 +187,11 @@ export const AdeganCabai: React.FC = () => {
 // ---------------------------------------------------------------- 8. Disalahpahami
 export const Disalahpahami: React.FC = () => {
   const f = useCurrentFrame();
-  const angkat = lerp(f, 14, 24, 0, 70);
   return (
     <AbsoluteFill>
       <Kamera kunci={[{ f: 0, s: 1 }, { f: 65, s: 1.08 }]}>
         <Langit seed={8}>
           <Kota turun={320} jendela={false} />
-          <g transform="translate(540 1290) scale(0.72)">
-            <Tipo mata="tanya" lenganKiri={angkat} lenganKanan={angkat} />
-          </g>
         </Langit>
       </Kamera>
       <div style={{ position: "absolute", top: 420, left: 0, right: 0, textAlign: "center", fontFamily: huruf.display, fontWeight: 600 }}>
@@ -215,57 +206,79 @@ export const Disalahpahami: React.FC = () => {
   );
 };
 
-// ---------------------------------------------------------------- 9. Metafora: harga = ketinggian, inflasi = kecepatan naik
-const ketinggian = (f: number) => lerp(f, 14, 130, 0, 1); // cepat di awal, melambat panjang
+// ---------------------------------------------------------------- Grafik tingkat harga
+// Garis tingkat harga yang terus naik tapi makin landai.
+// Tinggi garis = harga. Kemiringan garis = inflasi (kecepatan naik).
+const G = { x0: 150, x1: 930, y0: 1060, y1: 470 };
+const tingkat = (t: number) => 0.18 + 0.82 * (1 - Math.pow(1 - t, 2.4));
+const titikGaris = (t: number) => [G.x0 + (G.x1 - G.x0) * t, G.y0 - (G.y0 - G.y1) * tingkat(t)] as const;
 
+const GrafikHarga: React.FC<{ gambar: number; titik: number; tangen: number; dasarAwal?: number; kurung?: number }> = ({
+  gambar,
+  titik,
+  tangen,
+  dasarAwal = 0,
+  kurung = 0,
+}) => {
+  const n = 60;
+  const pts = Array.from({ length: n + 1 }, (_, i) => titikGaris((i / n) * gambar));
+  const d = pts.map(([x, y], i) => `${i ? "L" : "M"} ${x} ${y}`).join(" ");
+  const [tx, ty] = titikGaris(titik);
+  const [ax, ay] = titikGaris(Math.max(0, titik - 0.01));
+  const [bx, by] = titikGaris(Math.min(1, titik + 0.01));
+  const sudut = (Math.atan2(by - ay, bx - ax) * 180) / Math.PI;
+  const [, yAwal] = titikGaris(0);
+  const [, yAkhir] = titikGaris(1);
+  return (
+    <g>
+      {[0.25, 0.5, 0.75].map((k) => (
+        <rect key={k} x={G.x0} y={G.y0 - (G.y0 - G.y1) * k} width={G.x1 - G.x0} height={3} fill={m.kota2} />
+      ))}
+      <rect x={G.x0} y={G.y0} width={G.x1 - G.x0} height={6} rx={3} fill={m.pudar} />
+      {dasarAwal > 0
+        ? Array.from({ length: 14 }).map((_, i) => (
+            <rect key={i} x={G.x0 + i * 58} y={yAwal - 3} width={32 * dasarAwal} height={6} rx={3} fill={m.pudar} />
+          ))
+        : null}
+      {kurung > 0 ? (
+        <g opacity={kurung}>
+          <rect x={G.x1 + 30} y={yAkhir} width={14} height={(yAwal - yAkhir) * kurung} rx={7} fill={m.oranye} />
+        </g>
+      ) : null}
+      <path d={d} stroke={m.putih} strokeWidth={14} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      {tangen > 0 ? (
+        <g transform={`translate(${tx} ${ty}) rotate(${sudut})`} opacity={tangen}>
+          <rect x={-150} y={-6} width={300} height={12} rx={6} fill={m.oranye} />
+          <path d="M 150 -22 L 186 0 L 150 22 Z" fill={m.oranye} />
+        </g>
+      ) : null}
+      {gambar > 0 ? <circle cx={tx} cy={ty} r={24} fill={m.oranye} /> : null}
+    </g>
+  );
+};
+
+// ---------------------------------------------------------------- 9. Metafora: harga = tinggi garis, inflasi = kemiringan
 export const Metafora: React.FC = () => {
   const f = useCurrentFrame();
-  const alt = ketinggian(f);
-  const laju = Math.max(0, (ketinggian(f + 1) - ketinggian(f - 1)) / 2);
-  const lajuMaks = 0.032;
-  const lajuN = Math.min(1, laju / lajuMaks);
-  const y = 1150 - 640 * alt + Math.sin(f / 15) * 8 * alt;
-  const jarumSudut = -90 + 180 * lajuN;
-  const lab1 = lerp(f, 6, 18, 0, 1);
-  const lab2 = lerp(f, 16, 28, 0, 1);
+  const gambar = lerp(f, 8, 120, 0.02, 1);
+  const lab1 = lerp(f, 20, 32, 0, 1);
+  const lab2 = lerp(f, 40, 52, 0, 1);
   return (
     <AbsoluteFill>
-      <Kamera kunci={[{ f: 0, y: 900, s: 1.05 }, { f: 155, y: 860, s: 1 }]}>
+      <Kamera kunci={[{ f: 0, x: 600, y: 900, s: 1.12 }, { f: 160, x: 540, y: 960, s: 1 }]}>
         <Langit seed={9}>
-          <circle cx={900} cy={300} r={70} fill={m.bulan} />
-          <Kota turun={520} jendela={false} />
-          {/* penggaris ketinggian */}
-          <rect x={150} y={460} width={18} height={720} rx={9} fill={m.kota2} />
-          {Array.from({ length: 8 }).map((_, i) => (
-            <rect key={i} x={132} y={480 + i * 96} width={54} height={8} rx={4} fill={m.kota3} />
-          ))}
-          <g transform={`translate(196 ${y - 200})`}>
-            <path d="M 0 0 L 36 -24 L 36 24 Z" fill={m.oranye} />
-          </g>
-          {/* garis kecepatan di bawah Tipo */}
-          {[-50, 0, 50].map((dx, i) => (
-            <rect key={i} x={540 + dx - 8} y={y + 20} width={16} height={260 * lajuN} rx={8} fill={m.bulan} opacity={0.7} />
-          ))}
-          <g transform={`translate(540 ${y}) scale(0.62)`}>
-            <Tipo mata={lajuN > 0.4 ? "senang" : kedipOtomatis(f, 50, 10)} lenganKiri={20 + 40 * lajuN} lenganKanan={20 + 40 * lajuN} />
-          </g>
-          {/* speedometer */}
-          <g transform="translate(870 870)">
-            <path d="M -120 0 A 120 120 0 0 1 120 0" stroke={m.kota2} strokeWidth={34} fill="none" strokeLinecap="round" />
-            <g transform={`rotate(${jarumSudut})`}>
-              <rect x={-7} y={-104} width={14} height={104} rx={7} fill={m.putih} />
-            </g>
-            <circle r={20} fill={m.putih} />
-          </g>
+          <circle cx={930} cy={260} r={70} fill={m.bulan} />
+          <Kota turun={560} jendela={false} />
+          <GrafikHarga gambar={gambar} titik={gambar} tangen={lerp(f, 14, 24, 0, 1)} />
         </Langit>
       </Kamera>
-      <div style={{ position: "absolute", left: 96, top: 250, opacity: lab1 }}>
-        <div style={{ fontFamily: huruf.display, fontWeight: 600, fontSize: 60, color: m.putih }}>harga</div>
-        <div style={{ fontFamily: huruf.teks, fontWeight: 700, fontSize: 36, color: m.pudar }}>= ketinggian</div>
+      <div style={{ position: "absolute", left: 96, top: 270, opacity: lab1 }}>
+        <span style={{ fontFamily: huruf.display, fontWeight: 600, fontSize: 60, color: m.putih }}>harga</span>
+        <span style={{ fontFamily: huruf.teks, fontWeight: 700, fontSize: 38, color: m.pudar }}> = tinggi garis</span>
       </div>
-      <div style={{ position: "absolute", right: 96, top: 600, textAlign: "right", opacity: lab2 }}>
-        <div style={{ fontFamily: huruf.display, fontWeight: 600, fontSize: 60, color: m.oranye }}>inflasi</div>
-        <div style={{ fontFamily: huruf.teks, fontWeight: 700, fontSize: 36, color: m.pudar }}>= kecepatan naik</div>
+      <div style={{ position: "absolute", left: 96, top: 350, opacity: lab2 }}>
+        <span style={{ fontFamily: huruf.display, fontWeight: 600, fontSize: 60, color: m.oranye }}>inflasi</span>
+        <span style={{ fontFamily: huruf.teks, fontWeight: 700, fontSize: 38, color: m.pudar }}> = kemiringan garis</span>
       </div>
       <Teks mulai={12} teks="Inflasi mengukur seberapa cepat harga *naik,* bukan seberapa *murah* harga barang." />
     </AbsoluteFill>
@@ -278,7 +291,6 @@ export const Pangan: React.FC = () => {
   const skala = 700 / 7; // px per 1%
   const a = lerp(f, 14, 44, 0, 3.23);
   const b = lerp(f, 30, 66, 0, 5.81);
-  const tunjuk = lerp(f, 60, 72, 0, 1);
   return (
     <AbsoluteFill>
       <Kamera kunci={[{ f: 0, x: 760, y: 820, s: 1.35 }, { f: 70, x: 540, y: 960, s: 1 }, { f: 210, x: 540, y: 960, s: 1.02 }]}>
@@ -287,9 +299,6 @@ export const Pangan: React.FC = () => {
           <rect x={96} y={560} width={a * skala} height={100} rx={26} fill={m.kota3} />
           <rect x={96} y={830} width={b * skala} height={100} rx={26} fill={m.oranye} />
           <Cabai x={585} y={790} s={0.6} r={-14} />
-          <g transform={`translate(${960} ${1090 + 30 * (1 - tunjuk)}) rotate(-6) scale(0.42)`} opacity={tunjuk}>
-            <Tipo mata="normal" lihatX={-1} lihatY={-0.8} lenganKiri={110} />
-          </g>
         </Langit>
       </Kamera>
       <div style={{ position: "absolute", left: 96, top: 400, fontFamily: huruf.mono, fontSize: 30, color: m.pudar }}>inflasi tahunan · Oktober 2026</div>
@@ -314,29 +323,31 @@ export const Pangan: React.FC = () => {
   );
 };
 
-// ---------------------------------------------------------------- 11. Mengintip dompet
+// ---------------------------------------------------------------- 11. Mengintip dompet dengan kaca pembesar
 export const Dompet: React.FC = () => {
   const f = useCurrentFrame();
-  const buka = lerp(f, 14, 34, 0, 1);
-  const tengok = lerp(f, 30, 46, 0, 1);
+  const buka = lerp(f, 12, 30, 0, 1);
+  const kaca = lerp(f, 26, 50, 0, 1);
+  const goyang = Math.sin(f / 14) * 10 * kaca;
   return (
     <AbsoluteFill>
-      <Kamera kunci={[{ f: 0, x: 540, y: 900, s: 1 }, { f: 150, x: 520, y: 850, s: 1.16 }]}>
+      <Kamera kunci={[{ f: 0, x: 540, y: 940, s: 1 }, { f: 150, x: 540, y: 900, s: 1.14 }]}>
         <Langit seed={11}>
           <Kota turun={300} jendela={false} />
-          {/* isi dompet yang terlihat */}
           <rect x={330} y={700 + 60 * (1 - buka)} width={300} height={120} rx={18} fill={m.bulan} />
           <circle cx={640} cy={760 + 60 * (1 - buka)} r={36} fill={m.putih} />
-          {/* badan dompet */}
           <rect x={260} y={760} width={560} height={340} rx={52} fill={m.kota3} />
           <rect x={300} y={790} width={480} height={22} rx={11} fill={m.kota2} />
-          {/* tutup dompet terangkat */}
           <g transform={`translate(260 760) rotate(${-14 * buka}) translate(0 ${-150 * buka})`}>
             <rect x={0} y={0} width={560} height={170} rx={52} fill={m.kota2} />
             <rect x={470} y={60} width={80} height={56} rx={22} fill={m.bulan} />
           </g>
-          <g transform={`translate(${880 - 40 * tengok} 900) rotate(${-16 * tengok}) scale(0.7)`}>
-            <Tipo mata={f > 70 ? "lirik" : kedipOtomatis(f, 60, 20)} lihatX={-0.9} lihatY={0.9 * tengok} lenganKiri={30 * tengok} />
+          {/* kaca pembesar: cincin tebal + gagang, mengintip ke dalam dompet */}
+          <g transform={`translate(${740 + 260 * (1 - kaca) + goyang} ${640 - 120 * (1 - kaca)}) rotate(-30)`} opacity={kaca}>
+            <rect x={-18} y={110} width={36} height={170} rx={18} fill={m.oranye} />
+            <circle r={120} fill={m.putih} />
+            <circle r={88} fill={m.langit} />
+            <circle cx={-30} cy={-34} r={18} fill={m.kota3} />
           </g>
         </Langit>
       </Kamera>
@@ -350,31 +361,30 @@ export const KESIMPULAN_FASE = [125, 165] as const;
 
 export const Kesimpulan: React.FC = () => {
   const f = useCurrentFrame();
-  const y = 640 + Math.sin(f / 18) * 14;
-  const tiang = lerp(f, 8, 30, 0, 1);
-  const lab1 = lerp(f, 24, 36, 0, 1);
   const fase2 = KESIMPULAN_FASE[0];
-  const lab2 = lerp(f, fase2 + 10, fase2 + 22, 0, 1);
-  const tanah = 1190;
-  const tinggiTiang = (tanah - y - 30) * tiang;
+  const dasar = lerp(f, 10, 30, 0, 1);
+  const kurung = lerp(f, 30, 52, 0, 1);
+  const titik = lerp(f, fase2, fase2 + 50, 0.35, 0.97);
+  const lab1 = lerp(f, 40, 52, 0, 1);
+  const lab2 = lerp(f, fase2 + 30, fase2 + 42, 0, 1);
   return (
     <AbsoluteFill>
-      <Kamera kunci={[{ f: 0, x: 540, y: 980, s: 0.92 }, { f: 290, x: 540, y: 880, s: 1 }]}>
+      <Kamera kunci={[{ f: 0, x: 600, y: 900, s: 1.04 }, { f: 290, x: 560, y: 940, s: 1 }]}>
         <Langit seed={12}>
-          <circle cx={190} cy={330} r={100} fill={m.bulan} />
-          <Kota turun={260} />
-          <rect x={526} y={tanah - tinggiTiang} width={28} height={tinggiTiang} rx={14} fill={m.oranye} />
-          <g transform={`translate(540 ${y}) scale(0.6)`}>
-            <Tipo mata={kedipOtomatis(f, 70, 0)} lihatX={-0.4} lihatY={0.6} lenganKiri={25} lenganKanan={25} />
-          </g>
+          <Kota turun={560} jendela={false} />
+          <GrafikHarga gambar={1} titik={f < fase2 ? 1 : titik} tangen={f < fase2 ? 0 : lerp(f, fase2, fase2 + 10, 0, 1)} dasarAwal={dasar} kurung={kurung} />
+          <text x={G.x0} y={titikGaris(0)[1] + 54} fontFamily={huruf.mono} fontSize={28} fill={m.pudar} opacity={dasar}>
+            harga awal
+          </text>
           <g opacity={lab1}>
-            <Pil x={255} y={y + 60} teks="harga tetap tinggi" ukuran={42} />
-          </g>
-          <g opacity={lab2}>
-            <Pil x={790} y={y - 400} teks="kenaikan melambat" ukuran={46} latar={m.kota3} warna={m.bulan} />
+            <Pil x={760} y={titikGaris(1)[1] - 80} teks="harga tetap tinggi" ukuran={42} />
           </g>
         </Langit>
       </Kamera>
+      <div style={{ position: "absolute", left: 96, top: 270, opacity: lab2 }}>
+        <span style={{ fontFamily: huruf.display, fontWeight: 600, fontSize: 60, color: m.oranye }}>kenaikan</span>
+        <span style={{ fontFamily: huruf.teks, fontWeight: 700, fontSize: 38, color: m.pudar }}> makin landai</span>
+      </div>
       <Sequence durationInFrames={fase2}>
         <Teks mulai={12} teks="Kesimpulannya: harga bisa *tetap* *mahal* meskipun inflasi sudah terkendali." />
       </Sequence>
@@ -388,19 +398,22 @@ export const Kesimpulan: React.FC = () => {
 // ---------------------------------------------------------------- 13. Sekarang kamu jadi tahu, kan?
 export const TahuKan: React.FC = () => {
   const f = useCurrentFrame();
-  const mata = f < 22 ? "normal" : f < 44 ? "kedipSatu" : "senang";
-  const angguk = f > 22 && f < 40 ? Math.sin(((f - 22) / 18) * Math.PI) * 5 : 0;
   return (
     <AbsoluteFill>
-      <Kamera kunci={[{ f: 0, s: 1 }, { f: 75, s: 1.07 }]}>
+      <Kamera kunci={[{ f: 0, y: 960, s: 1 }, { f: 76, y: 940, s: 1.06 }]}>
         <Langit seed={13}>
-          <Kota turun={420} jendela={false} />
-          <g transform={`translate(540 ${1560}) rotate(${angguk}) scale(2.2)`}>
-            <Tipo mata={mata} antena={0.6 + 0.4 * Math.abs(Math.sin(f / 5))} />
-          </g>
+          <circle cx={540} cy={420} r={140} fill={m.bulan} />
+          <Kota turun={200} />
         </Langit>
       </Kamera>
-      <Teks mulai={6} posisi="atas" teks="Sekarang kamu jadi *tahu,* kan?" />
+      <div style={{ position: "absolute", top: 690, left: 0, right: 0, textAlign: "center", fontFamily: huruf.display, fontWeight: 600, color: m.putih }}>
+        <Mendarat mulai={2} style={{ fontSize: 96 }}>
+          Sekarang kamu
+        </Mendarat>
+        <Mendarat mulai={10} style={{ fontSize: 96 }}>
+          jadi tahu, <span style={{ color: m.oranye }}>kan?</span>
+        </Mendarat>
+      </div>
     </AbsoluteFill>
   );
 };
@@ -408,22 +421,15 @@ export const TahuKan: React.FC = () => {
 // ---------------------------------------------------------------- 14. Penutup
 export const Penutup: React.FC = () => {
   const f = useCurrentFrame();
-  const naik = lerp(f, 0, 14, 340, 0);
-  const tulisan = lerp(f, 8, 20, 0, 1);
-  const tag = lerp(f, 14, 26, 0, 1);
-  const TANAH = 1180;
+  const tulisan = lerp(f, 2, 14, 0, 1);
+  const tag = lerp(f, 8, 20, 0, 1);
   return (
     <AbsoluteFill>
       <Langit seed={14}>
-        <circle cx={790} cy={330} r={90} fill={m.bulan} />
-        <rect x={0} y={980} width={170} height={940} fill={m.kota2} />
-        <rect x={900} y={940} width={180} height={980} fill={m.kota2} />
-        <g transform={`translate(540 ${TANAH + 250 + naik})`}>
-          <Tipo mata={f > 30 ? "senang" : "normal"} lihatY={-0.5} />
-        </g>
-        <rect x={-200} y={TANAH} width={1480} height={800} fill={m.kota3} />
+        <circle cx={540} cy={420} r={110} fill={m.bulan} />
+        <Kota turun={240} />
       </Langit>
-      <div style={{ position: "absolute", top: 470, left: 0, right: 0, textAlign: "center" }}>
+      <div style={{ position: "absolute", top: 640, left: 0, right: 0, textAlign: "center" }}>
         <div
           style={{
             fontFamily: huruf.display,
@@ -432,23 +438,13 @@ export const Penutup: React.FC = () => {
             letterSpacing: "-0.02em",
             color: m.putih,
             opacity: tulisan,
-            transform: `translateY(${40 * (1 - tulisan)}px)`,
+            transform: `scale(${1.3 - 0.3 * tulisan})`,
           }}
         >
           intip<span style={{ color: m.bulan }}>dompet</span>
         </div>
-        <div
-          style={{
-            fontFamily: huruf.teks,
-            fontWeight: 700,
-            fontSize: 50,
-            color: m.pudar,
-            marginTop: 10,
-            opacity: tag,
-            transform: `translateY(${30 * (1 - tag)}px)`,
-          }}
-        >
-          Urusan uang, kita intip.
+        <div style={{ fontFamily: huruf.teks, fontWeight: 700, fontSize: 52, color: m.pudar, marginTop: 10, opacity: tag, transform: `translateY(${30 * (1 - tag)}px)` }}>
+          Urusan uang, kita <span style={{ color: m.oranye }}>intip.</span>
         </div>
       </div>
     </AbsoluteFill>

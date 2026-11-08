@@ -1,7 +1,6 @@
 import React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
-import { Kamera, Kota, Langit, Sumber, Teks, easeKeluar, easeMasuk, lerp } from "../../komponen/Panggung";
-import { Tipo, kedipOtomatis } from "../../komponen/Tipo";
+import { Kamera, Kota, Langit, Sumber, Teks, easeMasuk, lerp } from "../../komponen/Panggung";
 import { huruf, m, persen } from "../../tema/malam";
 
 // Muncul dari ukuran besar lalu mendarat (tanpa memantul).
@@ -42,7 +41,6 @@ const Label: React.FC<{ x: number; y: number; teks: string; warna?: string; lata
 // ---------------------------------------------------------------- 1. Judul
 export const Judul: React.FC = () => {
   const f = useCurrentFrame();
-  const naik = lerp(f, 8, 30, 380, 0);
   const tag = (i: number) => {
     const mulai = 14 + i * 7;
     const p = lerp(f, mulai, mulai + 40, 0, 1, easeMasuk);
@@ -63,10 +61,6 @@ export const Judul: React.FC = () => {
             );
           })}
           <Kota />
-          <g transform={`translate(540 ${1900 + naik})`}>
-            <Tipo mata={kedipOtomatis(f, 60, 10)} lihatY={-1} lihatX={-0.2} />
-          </g>
-          <rect x={-200} y={1640} width={1480} height={400} fill={m.kota3} />
         </Langit>
       </Kamera>
       <div
@@ -102,7 +96,6 @@ export const Keranjang: React.FC = () => {
     [660, 520, 42],
     [800, 640, 54],
   ];
-  const bingung = f > 118;
   return (
     <AbsoluteFill>
       <Kamera kunci={[{ f: 0, x: 560, y: 1010, s: 0.94 }, { f: 190, x: 590, y: 990, s: 1.04 }]}>
@@ -134,14 +127,6 @@ export const Keranjang: React.FC = () => {
               </g>
             );
           })}
-          <g transform="translate(205 1150) scale(0.62)">
-            <Tipo
-              mata={bingung ? "tanya" : kedipOtomatis(f, 70, 30)}
-              lihatX={0.9}
-              lihatY={-0.6}
-              lenganKanan={bingung ? 35 : 10}
-            />
-          </g>
         </Langit>
       </Kamera>
       <Teks
@@ -152,39 +137,22 @@ export const Keranjang: React.FC = () => {
   );
 };
 
-// ---------------------------------------------------------------- 3. Lepas landas (template)
-export const LepasLandas: React.FC = () => {
+// ---------------------------------------------------------------- 3. Kamera mendongak ke bulan
+export const KeLangit: React.FC = () => {
   const f = useCurrentFrame();
-  const PAD = 1500;
-  const jongkok = lerp(f, 6, 10, 0, 1) * (1 - lerp(f, 10, 14, 0, 1));
-  const naik = lerp(f, 12, 44, 0, 1, easeMasuk) * 640 + lerp(f, 44, 80, 0, 1, easeKeluar) * 700;
-  const putar = lerp(f, 13, 34, 0, 360);
-  const sx = 1 + 0.08 * jongkok;
-  const sy = 1 - 0.12 * jongkok;
-  const asap = [-90, 0, 90, -160, 160];
+  const lampu = (i: number) => (Math.sin(f / 9 + i * 2.1) > 0.2 ? m.bulan : m.kota1);
   return (
     <AbsoluteFill>
-      <Kamera kunci={[{ f: 0, y: 960 }, { f: 24, y: 960 }, { f: 80, y: 420 }]}>
+      <Kamera kunci={[{ f: 0, y: 1060, s: 1 }, { f: 18, y: 1040, s: 1 }, { f: 80, y: 380, s: 1.18 }]}>
         <Langit seed={3}>
-          <circle cx={800} cy={420} r={120} fill={m.bulan} />
+          <circle cx={540} cy={330} r={120} fill={m.bulan} />
           <Kota />
-          <rect x={500} y={PAD + 40} width={80} height={140} fill={m.kota2} />
-          <rect x={340} y={PAD} width={400} height={48} rx={24} fill={m.bulan} />
-          {asap.map((dx, i) => {
-            const t = lerp(f, 12 + (i % 3), 30 + (i % 3), 0, 1);
-            if (t <= 0 || t >= 1) return null;
-            return <circle key={i} cx={540 + dx * (0.6 + t)} cy={PAD - 10 - 20 * t} r={26 + 50 * t} fill={m.bulan} opacity={1 - t} />;
-          })}
-          <g transform={`translate(540 ${PAD - naik})`}>
-            <g transform={`translate(0 -200) rotate(${putar}) translate(0 200)`}>
-              <g transform={`scale(${sx} ${sy})`}>
-                <Tipo mata={f > 14 ? "senang" : "normal"} lenganKiri={f > 14 ? 40 : 0} lenganKanan={f > 14 ? 40 : 0} />
-              </g>
-            </g>
-          </g>
+          {[0, 1, 2, 3, 4, 5].map((i) => (
+            <rect key={i} x={[48, 300, 760, 900, 1000, 170][i]} y={[1300, 1350, 1290, 1420, 1330, 1440][i]} width={40} height={30} rx={6} fill={lampu(i)} />
+          ))}
         </Langit>
       </Kamera>
-      <Teks mulai={6} posisi="atas" teks="Nah, ini sebenarnya ada *penjelasannya.*" />
+      <Teks mulai={6} teks="Nah, ini sebenarnya ada *penjelasannya.*" />
     </AbsoluteFill>
   );
 };
@@ -210,10 +178,9 @@ export const Tahunan: React.FC = () => {
   const sudut = -90 + (v / MAKS) * 180;
   const angka = persen(v);
   const pita = lerp(f, 60, 74, 0, 1);
-  const melayang = Math.sin(f / 16) * 12;
   return (
     <AbsoluteFill>
-      <Kamera kunci={[{ f: 0, x: 540, y: 820, s: 1.3 }, { f: 55, y: 960, s: 1 }, { f: 185, y: 960, s: 1.02 }]}>
+      <Kamera kunci={[{ f: 0, x: 540, y: 800, s: 1.3 }, { f: 55, y: 960, s: 1 }, { f: 185, y: 960, s: 1.02 }]}>
         <Langit seed={4}>
           <circle cx={930} cy={260} r={150} fill={m.bulan} />
           <path d={busur(0, MAKS)} stroke={m.kota2} strokeWidth={70} fill="none" strokeLinecap="round" />
@@ -242,11 +209,8 @@ export const Tahunan: React.FC = () => {
           <g transform={`translate(${CX} ${CY}) rotate(${sudut})`}>
             <rect x={-11} y={-R + 40} width={22} height={R - 40} rx={11} fill={m.putih} />
           </g>
-          <circle cx={CX} cy={CY} r={36} fill={m.putih} />
-          <circle cx={CX} cy={CY} r={12} fill={m.oranye} />
-          <g transform={`translate(170 ${470 + melayang}) scale(0.32)`}>
-            <Tipo mata={kedipOtomatis(f, 80, 5)} lihatX={0.9} lihatY={0.7} />
-          </g>
+          <circle cx={CX} cy={CY} r={lerp(f, 0, 22, 120, 36)} fill={lerp(f, 0, 22, 0, 1) < 1 ? m.bulan : m.putih} />
+          <circle cx={CX} cy={CY} r={12} fill={m.oranye} opacity={lerp(f, 16, 24, 0, 1)} />
         </Langit>
       </Kamera>
       <div style={{ position: "absolute", top: 880, left: 0, right: 0, textAlign: "center" }}>
@@ -276,9 +240,6 @@ export const Bulanan: React.FC = () => {
       <Kamera kunci={[{ f: 0, x: 560, y: 900, s: 1 }, { f: 100, x: 540, y: 900, s: 1.04 }]}>
         <Langit seed={5}>
           <Kota turun={260} />
-          <g transform={`translate(905 ${1170 + Math.sin(f / 14) * 10}) rotate(-10) scale(0.5)`}>
-            <Tipo mata={kedipOtomatis(f, 60, 40)} lihatX={-1} lihatY={-0.4} />
-          </g>
         </Langit>
       </Kamera>
       <div style={{ position: "absolute", left: 96, top: 360, fontFamily: huruf.mono, fontSize: 30, color: m.pudar }}>Oktober 2026</div>
@@ -308,15 +269,11 @@ export const Bulanan: React.FC = () => {
 export const SalahPaham: React.FC = () => {
   const f = useCurrentFrame();
   const p = lerp(f, 10, 24, 0, 1);
-  const geleng = f > 30 && f < 62 ? Math.sin((f - 30) / 2.6) * 6 * (1 - (f - 30) / 32) : 0;
   return (
     <AbsoluteFill>
       <Kamera kunci={[{ f: 0, r: -3, s: 1.04 }, { f: 40, r: 0, s: 1 }, { f: 160, s: 1.03 }]}>
         <Langit seed={6}>
           <Kota turun={300} jendela={false} />
-          <g transform={`translate(890 1215) rotate(${-12 + geleng}) scale(0.62)`}>
-            <Tipo mata="seru" lihatX={-0.6} lenganKiri={f > 30 ? 70 : 20} />
-          </g>
         </Langit>
       </Kamera>
       <div style={{ position: "absolute", top: 300, left: 0, right: 0, textAlign: "center", fontFamily: huruf.display, fontWeight: 600, color: m.putih }}>

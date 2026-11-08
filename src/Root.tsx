@@ -5,6 +5,9 @@ import { DURASI_ISI, DURASI_PENUTUP, NaikBerapa, NaikBerapaProps } from "./seri/
 import { ROBOT_DURASI, RobotLiftoff } from "./seri/RobotLiftoff";
 import { DURASI_INFLASI, InflasiTerkendali } from "./video/inflasi/InflasiTerkendali";
 import "./tema/malam";
+import { BLUEPRINT_DURASI, RobotBlueprint } from "./seri/RobotBlueprint";
+import { InflasiBlueprint } from "./video/inflasiBp/InflasiBlueprint";
+import { DURASI_BP } from "./video/inflasiBp/linimasa";
 import contohNaikBerapa from "../data/naik-berapa-contoh.json";
 
 export const RemotionRoot: React.FC = () => (
@@ -22,6 +25,22 @@ export const RemotionRoot: React.FC = () => (
       id="InflasiTerkendali"
       component={InflasiTerkendali}
       durationInFrames={DURASI_INFLASI}
+      fps={REELS.fps}
+      width={REELS.width}
+      height={REELS.height}
+    />
+    <Composition
+      id="InflasiBlueprint"
+      component={InflasiBlueprint}
+      durationInFrames={DURASI_BP}
+      fps={REELS.fps}
+      width={REELS.width}
+      height={REELS.height}
+    />
+    <Composition
+      id="RobotBlueprint"
+      component={RobotBlueprint}
+      durationInFrames={BLUEPRINT_DURASI}
       fps={REELS.fps}
       width={REELS.width}
       height={REELS.height}
