@@ -150,3 +150,99 @@ export const BlokJudul: React.FC<{ x: number; y: number; baris: string[]; lebar?
     ))}
   </g>
 );
+
+// ---------- Latar sel: variasi kertas gambar teknik ----------
+export type JenisGrid = "kotak" | "iso" | "polar" | "mm" | "titik" | "arsir";
+export type GayaLatar = { dasar: string; terang: string; grid: JenisGrid; pusat?: [number, number]; serat?: boolean };
+
+const garisTipis = "rgba(255,255,255,0.12)";
+const garisTebal = "rgba(255,255,255,0.28)";
+
+export const LatarSel: React.FC<{ gaya: GayaLatar; id: string; w?: number; h?: number }> = ({ gaya, id, w = 1080, h = 1920 }) => {
+  const [px, py] = gaya.pusat ?? [540, 760];
+  const pola = (() => {
+    switch (gaya.grid) {
+      case "iso": {
+        const s = 48;
+        const t = s * Math.tan(Math.PI / 6);
+        return (
+          <pattern id={`${id}p`} width={s * 2} height={t * 2} patternUnits="userSpaceOnUse">
+            <path d={`M 0 0 L ${s * 2} ${t * 2} M ${s * 2} 0 L 0 ${t * 2} M ${s} 0 L ${s} ${t * 2}`} stroke={garisTipis} strokeWidth={1} fill="none" />
+          </pattern>
+        );
+      }
+      case "mm":
+        return (
+          <>
+            <pattern id={`${id}k`} width={10} height={10} patternUnits="userSpaceOnUse">
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(160,230,255,0.10)" strokeWidth={0.8} />
+            </pattern>
+            <pattern id={`${id}p`} width={50} height={50} patternUnits="userSpaceOnUse">
+              <rect width={50} height={50} fill={`url(#${id}k)`} />
+              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(160,230,255,0.24)" strokeWidth={1.2} />
+            </pattern>
+          </>
+        );
+      case "titik":
+        return (
+          <pattern id={`${id}p`} width={32} height={32} patternUnits="userSpaceOnUse">
+            <circle cx={16} cy={16} r={1.8} fill={garisTebal} />
+          </pattern>
+        );
+      case "arsir":
+        return (
+          <pattern id={`${id}p`} width={28} height={28} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <path d="M 0 0 L 0 28" stroke={garisTipis} strokeWidth={1.4} />
+          </pattern>
+        );
+      case "polar":
+        return null;
+      default:
+        return (
+          <>
+            <pattern id={`${id}k`} width={24} height={24} patternUnits="userSpaceOnUse">
+              <path d="M 24 0 L 0 0 0 24" fill="none" stroke={garisTipis} strokeWidth={1} />
+            </pattern>
+            <pattern id={`${id}p`} width={120} height={120} patternUnits="userSpaceOnUse">
+              <rect width={120} height={120} fill={`url(#${id}k)`} />
+              <path d="M 120 0 L 0 0 0 120" fill="none" stroke={garisTebal} strokeWidth={1.5} />
+            </pattern>
+          </>
+        );
+    }
+  })();
+  return (
+    <g>
+      <defs>
+        <radialGradient id={`${id}r`} cx={px / w} cy={py / h} r={0.85} gradientUnits="objectBoundingBox">
+          <stop offset="0" stopColor={gaya.terang} />
+          <stop offset="1" stopColor={gaya.dasar} />
+        </radialGradient>
+        {pola}
+        {gaya.serat ? (
+          <filter id={`${id}f`} x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.012 0.6" numOctaves={2} seed={3} />
+            <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0" />
+          </filter>
+        ) : null}
+      </defs>
+      <rect width={w} height={h} fill={`url(#${id}r)`} />
+      {gaya.grid === "polar" ? (
+        <g>
+          {Array.from({ length: 22 }).map((_, i) => (
+            <circle key={i} cx={px} cy={py} r={60 + i * 60} fill="none" stroke={i % 5 === 4 ? garisTebal : garisTipis} strokeWidth={i % 5 === 4 ? 1.5 : 1} />
+          ))}
+          {Array.from({ length: 24 }).map((_, i) => {
+            const a = (i / 24) * Math.PI * 2;
+            return <path key={i} d={`M ${px} ${py} L ${px + Math.cos(a) * 2000} ${py + Math.sin(a) * 2000}`} stroke={i % 6 === 0 ? garisTebal : garisTipis} strokeWidth={1} />;
+          })}
+        </g>
+      ) : (
+        <rect width={w} height={h} fill={`url(#${id}p)`} />
+      )}
+      {gaya.serat ? <rect width={w} height={h} filter={`url(#${id}f)`} /> : null}
+      {/* tepi sel sedikit gelap supaya sambungan antar-sel terasa seperti lembar-lembar yang ditempel */}
+      <rect x={6} y={6} width={w - 12} height={h - 12} fill="none" stroke="rgba(0,0,0,0.25)" strokeWidth={12} />
+    </g>
+  );
+};

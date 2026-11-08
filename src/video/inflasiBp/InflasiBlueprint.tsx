@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Easing, Sequence, interpolate, useCurrentFrame } from "remotion";
 import { Kalimat } from "../../komponen/Panggung";
-import { KertasGrid } from "../../blueprint/Gambar";
+import { GayaLatar, KertasGrid, LatarSel } from "../../blueprint/Gambar";
 import { bp, fon } from "../../blueprint/tema";
 import {
   CatatanUmum,
@@ -39,14 +39,42 @@ export const kameraPada = (f: number): Required<KunciKam> => {
   return { rx: 0, rz: 0, ...z } as Required<KunciKam>;
 };
 
-const Sel: React.FC<{ c: number; r: number; children: React.ReactNode }> = ({ c, r, children }) => (
-  <g transform={`translate(${c * SEL_W} ${r * SEL_H})`}>{children}</g>
-);
+// Tiap sel punya kertas sendiri: warna, grid, dan cahaya berbeda, tetap satu keluarga cetak biru.
+const LATAR: Record<string, GayaLatar> = {
+  "0,0": { dasar: "#173F70", terang: "#2B66AA", grid: "kotak", pusat: [540, 700], serat: true },
+  "1,0": { dasar: "#0B4450", terang: "#17788A", grid: "iso", pusat: [560, 900] },
+  "2,0": { dasar: "#1B1C4A", terang: "#3A3F95", grid: "polar", pusat: [540, 760] },
+  "2,1": { dasar: "#141D24", terang: "#25404F", grid: "mm", pusat: [600, 800] },
+  "1,1": { dasar: "#2A1838", terang: "#4E2E66", grid: "titik", pusat: [540, 680] },
+  "0,1": { dasar: "#1D232C", terang: "#4A5A70", grid: "kotak", pusat: [420, 760], serat: true },
+  "1,2": { dasar: "#101318", terang: "#262C36", grid: "titik", pusat: [540, 720] },
+  "2,2": { dasar: "#0D2E24", terang: "#1C5A45", grid: "mm", pusat: [460, 800] },
+  "2,3": { dasar: "#0B2E4A", terang: "#185E8A", grid: "arsir", pusat: [560, 760] },
+  "1,3": { dasar: "#161C3A", terang: "#2F3B78", grid: "iso", pusat: [600, 900] },
+  "0,2": { dasar: "#173F70", terang: "#2559A0", grid: "kotak" },
+  "0,3": { dasar: "#143865", terang: "#1F4E8C", grid: "kotak" },
+  "0,4": { dasar: "#173F70", terang: "#1F4E8C", grid: "kotak" },
+  "1,4": { dasar: "#173F70", terang: "#1F4E8C", grid: "kotak" },
+  "2,4": { dasar: "#173F70", terang: "#2B66AA", grid: "kotak", pusat: [540, 600], serat: true },
+};
+
+const Sel: React.FC<{ c: number; r: number; children?: React.ReactNode }> = ({ c, r, children }) => {
+  const g = LATAR[`${c},${r}`];
+  return (
+    <g transform={`translate(${c * SEL_W} ${r * SEL_H})`}>
+      {g ? <LatarSel gaya={g} id={`l${c}${r}`} h={r === 4 ? 1200 : SEL_H} /> : null}
+      {children}
+    </g>
+  );
+};
 
 const Lembar: React.FC<{ f: number }> = ({ f }) => (
   <svg width={LEMBAR_W} height={LEMBAR_H} viewBox={`0 0 ${LEMBAR_W} ${LEMBAR_H}`} style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}>
     <KertasGrid x={-2000} y={-2000} w={LEMBAR_W + 4000} h={LEMBAR_H + 4000} />
     {/* bingkai lembar */}
+    <Sel c={0} r={3} />
+    <Sel c={0} r={4} />
+    <Sel c={1} r={4} />
     <rect x={20} y={20} width={LEMBAR_W - 40} height={LEMBAR_H - 40} fill="none" stroke={bp.garis} strokeWidth={6} />
     <rect x={44} y={44} width={LEMBAR_W - 88} height={LEMBAR_H - 88} fill="none" stroke={bp.garis} strokeWidth={2} />
     <Sel c={0} r={0}>
