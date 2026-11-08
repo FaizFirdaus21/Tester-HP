@@ -10,15 +10,19 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@react-three/fiber": "9.8.2",
     "@remotion/cli": "4.0.538",
     "@remotion/fonts": "4.0.538",
+    "@remotion/three": "4.0.538",
     "@remotion/transitions": "4.0.538",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "remotion": "4.0.538"
+    "remotion": "4.0.538",
+    "three": "0.186.1"
   },
   "devDependencies": {
     "@types/react": "19.1.8",
+    "@types/three": "0.186.0",
     "typescript": "5.8.3"
   },
   "overrides": {

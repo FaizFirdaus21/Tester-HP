@@ -12,11 +12,13 @@ if (!id || !outDir || !frames) {
 }
 const bi = rest.indexOf("--browser");
 const browserExecutable = bi >= 0 ? rest[bi + 1] : null;
+const gi = rest.indexOf("--gl");
+const chromiumOptions = gi >= 0 ? { gl: rest[gi + 1] } : {};
 fs.mkdirSync(outDir, { recursive: true });
 const serveUrl = await bundle({ entryPoint: path.resolve("src/index.ts") });
-const composition = await selectComposition({ serveUrl, id, browserExecutable });
+const composition = await selectComposition({ serveUrl, id, browserExecutable, chromiumOptions });
 for (const f of frames.split(",").map(Number)) {
   const output = path.join(outDir, `${id}-${String(f).padStart(5, "0")}.png`);
-  await renderStill({ serveUrl, composition, frame: f, output, browserExecutable });
+  await renderStill({ serveUrl, composition, frame: f, output, browserExecutable, chromiumOptions });
   console.log(output);
 }
