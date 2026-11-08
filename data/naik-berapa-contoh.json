@@ -1,0 +1,19 @@
+{
+  "contoh": true,
+  "label": "Naik Berapa?",
+  "judul": "Harga ini naik",
+  "sorot": "berapa?",
+  "satuan": "Rupiah per kg",
+  "data": [
+    { "label": "2020", "nilai": 10000 },
+    { "label": "2021", "nilai": 10800 },
+    { "label": "2022", "nilai": 11600 },
+    { "label": "2023", "nilai": 12400 },
+    { "label": "2024", "nilai": 13900 },
+    { "label": "2025", "nilai": 14900 }
+  ],
+  "naikItuBuruk": true,
+  "pertanyaan": "Gajimu ikut naik segitu?",
+  "sumber": "Sumber: (lembaga), (tahun)",
+  "ajakan": "Kirim ke temanmu yang baru gajian."
+}
