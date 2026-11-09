@@ -1,7 +1,8 @@
 // Demo template Buku Catatan dengan naskah "Inflasi terkendali, kok belanja makin mahal?".
 // Waktu ditulis dalam detik (d()) supaya mudah disesuaikan dengan voice-over.
 import React from "react";
-import { Sequence, useCurrentFrame } from "remotion";
+import { Audio, Sequence, staticFile, useCurrentFrame } from "remotion";
+import vo from "./vo-waktu.json";
 import { CatatanSobek, Coret, GarisUkur, Indeks, Kanvas, Panah, SapuanTinta, Sketsa, Stempel, Sumbu, Tulis, gelombang, garisTangan, lingkaranTangan, p01 } from "../Komponen";
 import { KunciKamera, Meja, Properti } from "../Meja";
 import { PH, PW, c, d, f } from "../tema";
@@ -15,7 +16,15 @@ const B5 = [0, 3840];
 const B6 = [1080, 3840];
 
 // jadwal bagian (detik) — ubah angka ini untuk menyamakan dengan voice-over
-const T = { b1: 0, b2: 7.2, b3: 15.6, b4: 21.4, b5: 34.2, b6: 41.4, mundur: 47.2, sobek: 49.4, akhir: 54 };
+// Tanpa VO: jadwal bawaan. Dengan VO (vo-waktu.json terisi): tiap bagian mulai tepat saat bloknya diucapkan.
+// Blok VO: 0 hook, 1 data BPS, 2 jangan salah paham, 3 cabai, 4 disalahpahami, 5 pangan & daya beli, 6 kesimpulan, 7 penutup.
+const VO = vo as { audio: string | null; total: number; blok: { mulai: number; durasi: number }[] };
+const ADA_VO = Boolean(VO.audio) && VO.blok.length >= 8;
+const AWAL_VO = 1.2; // VO mulai setelah sapuan tinta & halaman kosong sejenak, seperti referensi
+const mb = (i: number) => AWAL_VO + VO.blok[i].mulai;
+const T = ADA_VO
+  ? { b1: 0, b2: mb(1), b3: mb(2), b4: mb(3), b5: mb(4), b6: mb(5), mundur: mb(6), sobek: mb(7), akhir: AWAL_VO + VO.total + 1.4 }
+  : { b1: 0, b2: 7.2, b3: 15.6, b4: 21.4, b5: 34.2, b6: 41.4, mundur: 47.2, sobek: 49.4, akhir: 54 };
 export const DURASI_CATATAN = d(T.akhir);
 
 const pusat = (b: number[], dx = 0, dy = 0) => ({ x: b[0] + 540 + dx, y: b[1] + 960 + dy });
@@ -204,7 +213,7 @@ const Subtitel: React.FC = () => (
   </>
 );
 
-export const InflasiCatatan: React.FC<{ subtitel?: boolean }> = ({ subtitel = true }) => {
+export const InflasiCatatan: React.FC<{ subtitel?: boolean }> = ({ subtitel = !ADA_VO }) => {
   const fr = useCurrentFrame();
   const nomor = fr < d(T.b2) ? 1 : fr < d(T.b3) ? 2 : fr < d(T.b4) ? 3 : fr < d(T.b5) ? 4 : fr < d(T.b6) ? 5 : 6;
   return (
@@ -216,6 +225,11 @@ export const InflasiCatatan: React.FC<{ subtitel?: boolean }> = ({ subtitel = tr
         <>
           {fr < d(T.mundur) ? <Indeks nomor={nomor} /> : null}
           {subtitel ? <Subtitel /> : null}
+          {ADA_VO && VO.audio ? (
+            <Sequence from={d(AWAL_VO)}>
+              <Audio src={staticFile(VO.audio)} />
+            </Sequence>
+          ) : null}
           <SapuanTinta mulai={0} durasi={16} />
           <CatatanSobek
             mulai={d(T.sobek)}

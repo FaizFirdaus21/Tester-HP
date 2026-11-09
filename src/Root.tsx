@@ -33,7 +33,7 @@ export const RemotionRoot: React.FC = () => (
       width={REELS.width}
       height={REELS.height}
     />
-    <Composition id="InflasiCatatan" component={InflasiCatatan} durationInFrames={DURASI_CATATAN} fps={30} width={1080} height={1920} defaultProps={{ subtitel: true }} />
+    <Composition id="InflasiCatatan" component={InflasiCatatan} durationInFrames={DURASI_CATATAN} fps={30} width={1080} height={1920} />
     <Composition id="InflasiSinematik" component={InflasiSinematik} durationInFrames={DURASI_V3} fps={30} width={1080} height={1920} />
     <Composition id="UjiTiga" component={UjiTiga} durationInFrames={30} fps={30} width={1080} height={1920} />
     <Composition

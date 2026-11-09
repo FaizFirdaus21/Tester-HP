@@ -1,0 +1,6 @@
+{
+  "audio": null,
+  "catatan": "Diisi otomatis oleh scripts/pasang_vo.py setelah VO dibuat. audio = path di public/, blok = awal & durasi tiap blok (detik).",
+  "total": 0,
+  "blok": []
+}
