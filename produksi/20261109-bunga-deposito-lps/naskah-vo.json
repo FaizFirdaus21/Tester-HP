@@ -7,18 +7,18 @@
   "gaya_umum": "Bacakan dalam bahasa Indonesia sehari-hari yang natural, seperti narator konten edukasi keuangan di Instagram Reels yang hangat dan santai, bukan pembaca berita. Tempo sedang cenderung cepat, beri jeda pendek sebelum angka penting.",
   "blok": [
     {
-      "gaya": "Nada penasaran lalu sedikit menantang, cepat dan tajam",
-      "teks": "Bunga deposito enam persen? Enak, kan... tapi uangmu bisa nggak dijamin sama sekali.",
-      "visual": "HOOK. Tulisan besar '6%' (bunga contoh) lalu dicoret merah, di bawahnya tulisan tangan merah 'tidak dijamin?'. Angka 6% adalah contoh hipotetis, bukan penawaran bank tertentu."
+      "gaya": "Nada penasaran, cepat dan tajam, naik di akhir pertanyaan",
+      "teks": "Deposito enam persen, aman nggak?",
+      "visual": "HOOK (≤2 detik). Tulisan besar 'Deposito 6%' + tanda tanya merah 'aman?'. Label kecil 'contoh'. Angka 6% hipotetis, bukan penawaran bank tertentu."
     },
     {
-      "gaya": "Nada menjelaskan, jelas dan meyakinkan, tekankan angkanya",
-      "teks": "El pe es cuma menjamin simpanan rupiah di bank umum yang bunganya maksimal tiga koma tujuh lima persen setahun, berlaku sampai akhir Januari dua ribu dua puluh tujuh.",
-      "visual": "Angka besar '3,75%' dengan label 'batas bunga dijamin LPS, bank umum'. Catatan kecil: 'berlaku 1 Okt 2026 – 31 Jan 2027'. Garis bilangan: 0% ... 3,75% (garis merah) ... 6%."
+      "gaya": "Nada menjelaskan, 'belum tentu' tegas lalu jelas dan meyakinkan, tekankan angkanya",
+      "teks": "Belum tentu. El pe es cuma menjamin simpanan rupiah di bank umum yang bunganya maksimal tiga koma tujuh lima persen setahun, sampai akhir Januari dua ribu dua puluh tujuh.",
+      "visual": "'6%' dicoret merah, lalu angka besar '3,75%' dengan label 'batas bunga dijamin LPS, bank umum'. Catatan kecil: 'berlaku 1 Okt 2026 – 31 Jan 2027'. Garis bilangan: 0% ... 3,75% (garis merah) ... 6%."
     },
     {
-      "gaya": "Nada serius tapi ramah, tegas di kata 'salah' dan 'termasuk pokoknya'",
-      "teks": "Banyak yang kira, kalau bunganya kelewat, cuma kelebihannya yang hangus. Salah. Seluruh simpanannya nggak dijamin, termasuk pokoknya.",
+      "gaya": "Nada serius tapi ramah, tegas di 'seluruh simpanannya' dan 'termasuk pokoknya'",
+      "teks": "Banyak yang kira cuma kelebihan bunganya yang hangus. Padahal menurut aturan el pe es, seluruh simpanannya nggak dijamin, termasuk pokoknya.",
       "visual": "Dua kolom 'Dikira' vs 'Faktanya'. Dikira: 'cuma kelebihan bunga yang hangus'. Faktanya: 'pokok + bunga TIDAK dijamin' dilingkari merah. Sumber kecil: FAQ LPS."
     },
     {
