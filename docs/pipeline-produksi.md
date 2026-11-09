@@ -79,7 +79,7 @@ Nilai tiap kriteria 1–5, kalikan bobot, jumlahkan, lalu ubah ke skala 100.
 1. Baca `naskah-vo.json` (termasuk kolom `visual`), `vo-waktu.json`, dan `fakta.json`.
 2. Gaya bawaan: **template Buku Catatan** (`src/catatan/`, panduan di `docs/gaya-buku-catatan.md`). Gaya lain boleh kalau isinya menuntut, tapi tulis alasannya.
 3. Buat `src/produksi/<slug>/Video.tsx` dan daftarkan di `src/Root.tsx`. Setiap tulisan dan coretan disinkron dengan waktu blok VO, dan audio dipasang.
-4. Rencanakan seperti sutradara: satu ide visual per blok, gerak kamera, transisi, dan aset. Jaga isi di area aman (y 220–1500).
+4. Rencanakan seperti sutradara: satu ide visual per blok, gerak kamera, transisi, dan aset. Area aman: isi utama y 220–1200, subtitel tipis tanpa kotak di y 1300–1480 (default aktif), tidak ada yang penting di bawah 1500. Render pakai chrome-headless-shell (`--browser-executable`), karena unduhan browser Remotion diblokir.
 5. Buat storyboard dari frame asli: `node scripts/stills.mjs <Id> <dir> <frame,...> --browser <chrome-headless-shell>`, lalu susun jadi `storyboard.png`. Set status ke `storyboard-siap`. **Jangan render video** sebelum Orchestrator menyampaikan persetujuan user.
 6. Setelah disetujui: render, cek dengan `look.py`, kompres (`-crf 23`, di bawah 50 MB) ke `produksi/<slug>/final.mp4`, lalu set status `render-selesai`.
 
