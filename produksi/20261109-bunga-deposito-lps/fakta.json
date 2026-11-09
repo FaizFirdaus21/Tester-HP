@@ -1,0 +1,71 @@
+{
+  "slug": "20261109-bunga-deposito-lps",
+  "diakses": "2026-11-09",
+  "catatan_akses": "WebFetch/curl ke semua host diblokir jaringan sesi ini (lps.go.id, apps.lps.go.id, bi.go.id, ojk.go.id, bps.go.id, kemenkeu.go.id, kontan.co.id, bisnis.com, tiktok.com, youtube.com, instagram.com, trends.google.com). Sumber primer dicek lewat WebSearch yang dibatasi ke domain resmi (cuplikan isi halaman), lalu disilangkan dengan minimal satu media. Director/Orchestrator sebaiknya membuka tautan primer sekali lagi sebelum render bila jaringan mengizinkan.",
+  "fakta": [
+    {
+      "id": "tbp-bank-umum",
+      "klaim": "Tingkat bunga penjaminan LPS untuk simpanan rupiah di bank umum 3,75% per tahun, berlaku 1 Oktober 2026 – 31 Januari 2027 (BPR 6,25%, valas 2,00%).",
+      "di_naskah": "blok 2 & 6 ('tiga koma tujuh lima persen setahun', 'akhir Januari dua ribu dua puluh tujuh')",
+      "sumber_primer": ["https://lps.go.id/", "https://lps.go.id/lps-pertahankan-tingkat-bunga-penjaminan-menjaga-kepercayaan-masyarakat-mendukung-stabilitas-sitem-keuangan/"],
+      "sumber_silang": ["https://finansial.bisnis.com/read/20260930/90/2008443/lps-tahan-tingkat-bunga-penjaminan-berlaku-hingga-januari-2027", "https://keuangan.kontan.co.id/news/lps-pertahankan-tingkat-bunga-penjaminan-375-hingga-januari-2027", "https://pasardana.id/news/2026/9/30/lps-pertahankan-tingkat-bunga-penjaminan-berlaku-hingga-januari-2027"],
+      "tanggal_data": "RDK LPS 28 September 2026",
+      "status": "terverifikasi (cuplikan beranda lps.go.id + 3 media)"
+    },
+    {
+      "id": "bunga-lewat-tidak-dijamin-seluruhnya",
+      "klaim": "Jika bunga yang diterima melebihi tingkat bunga penjaminan, simpanan tidak dijamin secara keseluruhan (pokok dan bunga), bukan hanya kelebihannya.",
+      "di_naskah": "blok 3",
+      "sumber_primer": ["https://lps.go.id/faq/"],
+      "sumber_silang": ["https://lps.go.id/ketua-dk-lps-bunga-khusus-tidak-dilarang-tetapi-nasabah-harus-pahami-risikonya-2/"],
+      "status": "terverifikasi (FAQ resmi LPS)"
+    },
+    {
+      "id": "cashback-dihitung-bunga",
+      "klaim": "Cashback diperhitungkan sebagai komponen bunga; bila bunga + cashback melebihi TBP, simpanan tidak dijamin (PLPS No. 2/PLPS/2018 Pasal 42 ayat 3).",
+      "di_naskah": "blok 4 & 6",
+      "sumber_primer": ["https://apps.lps.go.id/kalkulator3T", "https://lps.go.id/faq/"],
+      "sumber_silang": ["https://lps.go.id/lps-bayar-klaim-simpanan-nasabah-bank-yang-dilikuidasi-sebesar-rp15-triliun/"],
+      "status": "terverifikasi (Kalkulator 3T & FAQ LPS)"
+    },
+    {
+      "id": "batas-rp2-miliar",
+      "klaim": "Nilai simpanan yang dijamin maksimal Rp2 miliar per nasabah per bank (saldo semua rekening di satu bank dijumlahkan).",
+      "di_naskah": "blok 6",
+      "sumber_primer": ["https://lps.go.id/faq/", "https://lps.go.id/laporan-tahunan-lps-2024/"],
+      "sumber_silang": ["https://akurat.co/keuangan/895065/lps-tahan-bunga-penjaminan-ini-batas-yang-perlu-diperhatikan-nasabah"],
+      "catatan": "Halaman lama lps.go.id/f.a.q masih menyebut Rp100 juta (UU LPS versi awal) — usang, abaikan.",
+      "status": "terverifikasi"
+    },
+    {
+      "id": "14-bpr-likuidasi",
+      "klaim": "14 BPR/BPRS diputuskan untuk dilikuidasi, 62.971 rekening layak bayar senilai Rp1,9 triliun, Rp643,94 miliar sudah dibayarkan.",
+      "di_naskah": "blok 5 ('Hingga Oktober tahun ini, empat belas BPR dan BPRS sudah dilikuidasi')",
+      "sumber_primer": ["https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2824026.aspx (Siaran Pers KSSK No. 04/KSSK/Pers/2026, 3 November 2026)"],
+      "sumber_silang": ["https://keuangan.kontan.co.id/news/lps-likuidasi-14-bpr-bprs-hingga-oktober-2026-klaim-simpanan-capai-rp-64394-miliar", "https://akurat.co/keuangan/904078/lps-siapkan-klaim-rp1-9-triliun-untuk-nasabah-bpr-yang-dilikuidasi"],
+      "catatan": "Cuplikan rilis KSSK memuat angka 14 tetapi frasa periodenya terpotong. Periode 'Januari–Oktober 2026' diambil dari Kontan; konsisten dengan rilis KSSK Agustus (8 BPR/BPRS di semester I). Naskah sengaja memakai 'hingga Oktober tahun ini'.",
+      "status": "terverifikasi (angka) / periode dari media"
+    },
+    {
+      "id": "contoh-10-juta-6-persen",
+      "klaim": "Contoh Rp10 juta dengan bunga 6% di bank umum.",
+      "di_naskah": "blok 1 & 4",
+      "status": "contoh hipotetis, bukan data — wajib diberi label 'contoh' di visual"
+    }
+  ],
+  "dipertimbangkan_tapi_tidak_dipakai": [
+    {
+      "klaim": "36,06% simpanan bank (Rp3.791,34 triliun) berbunga di atas TBP per September 2026, naik dari 34% di Agustus.",
+      "sumber": ["https://www.cnbcindonesia.com/market/20261103184746-17-782032/persaingan-ketat-simpanan-bunga-tinggi-di-bank-makin-marak", "https://ekonomi.republika.co.id/berita/tnyuq9490/simpanan-berbunga-tinggi-tembus-rp-3791-triliun-lps-soroti-persaingan-bank", "https://infobanknews.com/simpanan-berbunga-tinggi-tembus-3606-persen-persaingan-dana-bank-makin-ketat"],
+      "alasan": "Disampaikan Ketua DK LPS di konferensi pers KSSK 3 Nov 2026, tapi angkanya tidak muncul di cuplikan dokumen primer. Didominasi simpanan korporasi/BUMN, jadi kurang mewakili penonton ritel."
+    },
+    {
+      "klaim": "Bank digital menawarkan deposito hingga 9%.",
+      "alasan": "Hanya dari media, tanpa sumber primer; dan menyebut bank tertentu berisiko. Diganti contoh hipotetis 6%."
+    },
+    {
+      "klaim": "77% simpanan tidak layak bayar karena bunga melebihi TBP.",
+      "alasan": "Data 2019 (lps.go.id/lps-himbau-nasabah-perbankan-agar-tidak-tergiur-bunga-tinggi/), terlalu lama."
+    }
+  ]
+}

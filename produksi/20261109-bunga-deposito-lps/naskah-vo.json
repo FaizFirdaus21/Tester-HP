@@ -1,0 +1,50 @@
+{
+  "slug": "20261109-bunga-deposito-lps",
+  "judul": "Bunga deposito tinggi, tapi nggak dijamin LPS?",
+  "model": "gemini-3.8-flash-tts",
+  "suara": "Sulafat",
+  "jeda_antar_blok": 0.35,
+  "gaya_umum": "Bacakan dalam bahasa Indonesia sehari-hari yang natural, seperti narator konten edukasi keuangan di Instagram Reels yang hangat dan santai, bukan pembaca berita. Tempo sedang cenderung cepat, beri jeda pendek sebelum angka penting.",
+  "blok": [
+    {
+      "gaya": "Nada penasaran lalu sedikit menantang, cepat dan tajam",
+      "teks": "Bunga deposito enam persen? Enak, kan... tapi uangmu bisa nggak dijamin sama sekali.",
+      "visual": "HOOK. Tulisan besar '6%' (bunga contoh) lalu dicoret merah, di bawahnya tulisan tangan merah 'tidak dijamin?'. Angka 6% adalah contoh hipotetis, bukan penawaran bank tertentu."
+    },
+    {
+      "gaya": "Nada menjelaskan, jelas dan meyakinkan, tekankan angkanya",
+      "teks": "El pe es cuma menjamin simpanan rupiah di bank umum yang bunganya maksimal tiga koma tujuh lima persen setahun, berlaku sampai akhir Januari dua ribu dua puluh tujuh.",
+      "visual": "Angka besar '3,75%' dengan label 'batas bunga dijamin LPS, bank umum'. Catatan kecil: 'berlaku 1 Okt 2026 – 31 Jan 2027'. Garis bilangan: 0% ... 3,75% (garis merah) ... 6%."
+    },
+    {
+      "gaya": "Nada serius tapi ramah, tegas di kata 'salah' dan 'termasuk pokoknya'",
+      "teks": "Banyak yang kira, kalau bunganya kelewat, cuma kelebihannya yang hangus. Salah. Seluruh simpanannya nggak dijamin, termasuk pokoknya.",
+      "visual": "Dua kolom 'Dikira' vs 'Faktanya'. Dikira: 'cuma kelebihan bunga yang hangus'. Faktanya: 'pokok + bunga TIDAK dijamin' dilingkari merah. Sumber kecil: FAQ LPS."
+    },
+    {
+      "gaya": "Nada bercerita, mengajak membayangkan, pelan di angka sepuluh juta",
+      "teks": "Misalnya kamu taruh sepuluh juta rupiah dengan bunga enam persen di bank umum. Kalau banknya tutup, sepuluh juta itu bisa nggak diganti. Cashback juga dihitung bunga, lho.",
+      "visual": "Sketsa celengan/amplop 'Rp10 juta' + label 'bunga 6%' > '3,75%'. Panah ke tanda tanya merah. Stempel miring 'cashback = bunga'. Catatan kecil: 'contoh hitungan, bukan data bank tertentu'."
+    },
+    {
+      "gaya": "Nada serius dan informatif, tidak menakut-nakuti",
+      "teks": "Dan bank memang bisa tutup. Hingga Oktober tahun ini, empat belas be pe er dan be pe er es sudah dilikuidasi.",
+      "visual": "Tumpukan 14 ikon bangunan bank kecil yang muncul satu per satu dengan penghitung '1 → 14'. Label 'BPR/BPRS dilikuidasi, 2026'. Sumber kecil: KSSK, 3 Nov 2026."
+    },
+    {
+      "gaya": "Nada menekankan, pelan dan jelas, ini kalimat paling penting",
+      "teks": "Jadi, cek dulu: bunga plus cashback-nya masih di bawah batas atau nggak. Ingat juga, jaminannya maksimal dua miliar rupiah per nasabah per bank.",
+      "visual": "Checklist tulisan tangan: '☐ bunga + cashback ≤ 3,75%?' '☐ maks. Rp2 miliar / nasabah / bank'. Centang tergambar satu per satu. Catatan: 'cek di kalkulator 3T LPS'."
+    },
+    {
+      "gaya": "Nada merangkum, mantap lalu hangat",
+      "teks": "Bunga tinggi boleh saja, asal kamu tahu risikonya. Konten edukasi, bukan ajakan membeli.",
+      "visual": "Sobekan kertas berselotip naik dari bawah: 'Bunga tinggi boleh, asal tahu risikonya.' Disclaimer kecil: 'konten edukasi, bukan ajakan membeli'."
+    },
+    {
+      "gaya": "Nada ceria dan ramah, sambil tersenyum",
+      "teks": "IntipDompet. Urusan uang, kita intip.",
+      "visual": "Kamera mundur ke seluruh halaman; logo/tagline IntipDompet + panah kecil ajakan follow."
+    }
+  ]
+}
