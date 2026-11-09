@@ -2,13 +2,15 @@
 """Buat voice-over dari naskah per blok dengan Gemini TTS (mesin yang sama dengan AI Studio).
 
 Pakai:
-  GEMINI_API_KEY=... python3 scripts/tts_gemini.py data/vo-inflasi.json out/vo
+  python3 scripts/tts_gemini.py data/vo-inflasi.json out/vo
 Keluaran:
   out/vo/blok_XX.wav   satu file per blok
   out/vo/vo.wav        gabungan semua blok (dengan jeda antar-blok)
   out/vo/waktu.json    awal & durasi tiap blok (detik) untuk sinkron dengan template
 
-Key dibaca dari variabel lingkungan GEMINI_API_KEY; jangan ditulis di file mana pun.
+Key: disarankan disimpan sebagai Network secret untuk host generativelanguage.googleapis.com
+(header x-goog-api-key), sehingga proxy menyisipkannya dan key tidak pernah terlihat di sesi.
+Alternatif: variabel lingkungan GEMINI_API_KEY. Jangan tulis key di file mana pun.
 """
 import base64
 import json
@@ -24,12 +26,18 @@ RATE = 24000  # Gemini TTS mengeluarkan PCM 16-bit mono 24 kHz
 
 
 def panggil(url, data=None):
+    headers = {"Content-Type": "application/json"}
     key = os.environ.get("GEMINI_API_KEY")
-    if not key:
-        sys.exit("GEMINI_API_KEY belum diatur di environment.")
-    req = urllib.request.Request(url, data=json.dumps(data).encode() if data else None, headers={"Content-Type": "application/json", "x-goog-api-key": key})
-    with urllib.request.urlopen(req, timeout=180) as r:
-        return json.loads(r.read())
+    if key:
+        headers["x-goog-api-key"] = key  # kalau tidak ada, proxy Network secrets yang menyisipkan
+    req = urllib.request.Request(url, data=json.dumps(data).encode() if data else None, headers=headers)
+    try:
+        with urllib.request.urlopen(req, timeout=180) as r:
+            return json.loads(r.read())
+    except urllib.error.HTTPError as e:
+        if e.code in (401, 403) and not key:
+            sys.exit("Ditolak Google (belum ada API key). Tambahkan Network secret untuk generativelanguage.googleapis.com, lalu buka sesi baru.")
+        raise
 
 
 def pilih_model(diminta):
