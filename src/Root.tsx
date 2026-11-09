@@ -7,6 +7,8 @@ import { DURASI_INFLASI, InflasiTerkendali } from "./video/inflasi/InflasiTerken
 import "./tema/malam";
 import { BLUEPRINT_DURASI, RobotBlueprint } from "./seri/RobotBlueprint";
 import { UjiTiga } from "./tiga/UjiTiga";
+import "./catatan/tema";
+import { DURASI_CATATAN, InflasiCatatan } from "./catatan/demo/InflasiCatatan";
 import { DURASI_V3, InflasiSinematik } from "./video/v3/Video";
 import { InflasiBlueprint } from "./video/inflasiBp/InflasiBlueprint";
 import { DURASI_BP } from "./video/inflasiBp/linimasa";
@@ -31,6 +33,7 @@ export const RemotionRoot: React.FC = () => (
       width={REELS.width}
       height={REELS.height}
     />
+    <Composition id="InflasiCatatan" component={InflasiCatatan} durationInFrames={DURASI_CATATAN} fps={30} width={1080} height={1920} defaultProps={{ subtitel: true }} />
     <Composition id="InflasiSinematik" component={InflasiSinematik} durationInFrames={DURASI_V3} fps={30} width={1080} height={1920} />
     <Composition id="UjiTiga" component={UjiTiga} durationInFrames={30} fps={30} width={1080} height={1920} />
     <Composition
