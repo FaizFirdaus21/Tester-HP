@@ -3,26 +3,41 @@
 
 Pakai:
   python3 scripts/tts_gemini.py data/vo-inflasi.json out/vo
+  python3 scripts/tts_gemini.py data/vo-inflasi.json out/vo --satu-permintaan
 Keluaran:
-  out/vo/blok_XX.wav   satu file per blok
+  out/vo/blok_XX.wav   satu file per blok (+ blok_XX.json: kunci cache & durasi)
   out/vo/vo.wav        gabungan semua blok (dengan jeda antar-blok)
   out/vo/waktu.json    awal & durasi tiap blok (detik) untuk sinkron dengan template
+
+Melanjutkan: blok_XX.wav yang sudah ada dan masih cocok dengan naskah (model, suara,
+gaya, teks sama) dipakai ulang tanpa memanggil API. Hapus file blok untuk membuat ulang.
+
+--satu-permintaan: semua blok yang belum ada dikirim dalam SATU request (gaya per blok
+ditulis di bagian instruksi), lalu audionya dipotong per blok di titik jeda/sunyi.
+Hemat kuota (paket gratis hanya ~10 request/hari), tapi pemotongan bisa gagal kalau
+jeda antar-paragraf tidak jelas; script berhenti dengan pesan, audio mentahnya disimpan
+di vo_mentah.wav, dan cara per blok tetap bisa dipakai.
 
 Key: disarankan disimpan sebagai Network secret untuk host generativelanguage.googleapis.com
 (header x-goog-api-key), sehingga proxy menyisipkannya dan key tidak pernah terlihat di sesi.
 Alternatif: variabel lingkungan GEMINI_API_KEY. Jangan tulis key di file mana pun.
 """
+import argparse
 import base64
+import hashlib
 import json
+import math
 import os
 import sys
 import time
 import urllib.error
 import urllib.request
 import wave
+from array import array
 
 API = "https://generativelanguage.googleapis.com/v1beta"
 RATE = 24000  # Gemini TTS mengeluarkan PCM 16-bit mono 24 kHz
+VERSI_PROMPT = 2  # naikkan kalau cara menyusun prompt berubah, agar cache lama tidak dipakai
 
 
 def panggil(url, data=None):
@@ -32,7 +47,7 @@ def panggil(url, data=None):
         headers["x-goog-api-key"] = key  # kalau tidak ada, proxy Network secrets yang menyisipkan
     req = urllib.request.Request(url, data=json.dumps(data).encode() if data else None, headers=headers)
     try:
-        with urllib.request.urlopen(req, timeout=180) as r:
+        with urllib.request.urlopen(req, timeout=300) as r:
             return json.loads(r.read())
     except urllib.error.HTTPError as e:
         if e.code in (401, 403) and not key:
@@ -61,9 +76,20 @@ def prompt(gaya, teks):
             f"Jangan bacakan instruksi ini.\nTranskrip:\n{teks}")
 
 
-def tts(model, suara, gaya, teks):
+def prompt_gabungan(gaya_umum, blok):
+    """Satu prompt untuk banyak blok: gaya per paragraf di instruksi, transkrip tanpa nomor."""
+    daftar = "\n".join(f"Paragraf {i + 1}: {b['gaya'].strip()}" for i, b in enumerate(blok))
+    transkrip = "\n\n".join(b["teks"].strip() for b in blok)
+    return (f"Bacakan transkrip berikut. Gaya umum: {gaya_umum.strip()}\n"
+            f"Transkrip terdiri dari {len(blok)} paragraf. Gaya tiap paragraf:\n{daftar}\n"
+            "Beri jeda hening sekitar satu setengah detik di antara paragraf. "
+            "Jangan bacakan instruksi, nomor, atau label ini.\n"
+            f"Transkrip:\n\n{transkrip}")
+
+
+def tts(model, suara, teks_prompt):
     data = {
-        "contents": [{"parts": [{"text": prompt(gaya, teks)}]}],
+        "contents": [{"parts": [{"text": teks_prompt}]}],
         "generationConfig": {
             "responseModalities": ["AUDIO"],
             "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": suara}}},
@@ -74,10 +100,19 @@ def tts(model, suara, gaya, teks):
             r = panggil(f"{API}/models/{model}:generateContent", data)
             b64 = r["candidates"][0]["content"]["parts"][0]["inlineData"]["data"]
             return base64.b64decode(b64)
-        except (urllib.error.HTTPError, KeyError) as e:
+        except urllib.error.HTTPError as e:
+            badan = e.read().decode(errors="replace")
+            if e.code == 429 and "per day" in badan.lower():
+                sys.exit("Kuota harian Gemini TTS habis untuk model ini. Tunggu reset atau aktifkan billing; "
+                         "blok yang sudah jadi tersimpan dan akan dipakai ulang.")
             if coba == 3:
                 raise
             print("ulang karena:", e)
+            time.sleep(2 ** (coba + 1))
+        except KeyError as e:
+            if coba == 3:
+                raise
+            print("ulang karena: respons tanpa audio", e)
             time.sleep(2 ** (coba + 1))
 
 
@@ -89,27 +124,185 @@ def simpan(path, pcm):
         w.writeframes(pcm)
 
 
-def main():
-    if len(sys.argv) < 3:
-        sys.exit(__doc__)
-    naskah = json.load(open(sys.argv[1]))
-    out = sys.argv[2]
+def kunci(model, suara, gaya, teks):
+    isi = json.dumps([VERSI_PROMPT, model, suara, gaya.strip(), teks.strip()], ensure_ascii=False)
+    return hashlib.sha1(isi.encode()).hexdigest()
+
+
+def baca_cache(out, i, k):
+    """PCM blok i kalau file-nya sah dan dibuat dari naskah yang sama; selain itu None."""
+    wav, meta = os.path.join(out, f"blok_{i:02d}.wav"), os.path.join(out, f"blok_{i:02d}.json")
+    try:
+        if json.load(open(meta)).get("kunci") != k:
+            return None
+        with wave.open(wav, "rb") as w:
+            if (w.getnchannels(), w.getsampwidth(), w.getframerate()) != (1, 2, RATE):
+                return None
+            pcm = w.readframes(w.getnframes())
+    except (OSError, ValueError, EOFError, wave.Error):
+        return None
+    return pcm if len(pcm) / 2 / RATE >= 0.5 else None
+
+
+def simpan_blok(out, i, k, pcm):
+    simpan(os.path.join(out, f"blok_{i:02d}.wav"), pcm)
+    json.dump({"kunci": k, "durasi": round(len(pcm) / 2 / RATE, 3)}, open(os.path.join(out, f"blok_{i:02d}.json"), "w"))
+
+
+# --- pemotongan audio gabungan per blok -------------------------------------------------
+
+def _energi_db(pcm, rate, frame):
+    s = array("h")
+    s.frombytes(pcm[: len(pcm) // 2 * 2])
+    if sys.byteorder != "little":
+        s.byteswap()
+    n = max(1, int(rate * frame))
+    hasil = []
+    for a in range(0, len(s) - n + 1, n):
+        jumlah = sum(x * x for x in s[a:a + n])
+        hasil.append(20 * math.log10(math.sqrt(jumlah / n) / 32768 + 1e-9))
+    return hasil
+
+
+def potong(pcm, kata, rate=RATE, frame=0.02, min_sunyi=0.2, pad=0.08):
+    """Potong audio gabungan menjadi len(kata) segmen di titik sunyi.
+
+    Kandidat = rentang sunyi di tengah ucapan. Batas dipilih dengan pemrograman dinamis:
+    dekat posisi yang diharapkan dari proporsi jumlah kata, dan sunyi yang lebih panjang
+    diutamakan. Jadi jeda dramatis di dalam blok ("...") tidak mudah tertukar dengan jeda
+    antar-blok. Mengembalikan daftar (mulai, akhir) dalam detik; ValueError kalau ragu.
+    """
+    n = len(kata)
+    db = _energi_db(pcm, rate, frame)
+    if not db:
+        raise ValueError("audio kosong")
+    urut = sorted(db)
+    ambang = max(urut[int(0.95 * (len(urut) - 1))] - 30, -70)
+    bunyi = [i for i, v in enumerate(db) if v >= ambang]
+    if not bunyi:
+        raise ValueError("tidak ada suara terdeteksi")
+    s0, e0 = bunyi[0] * frame, (bunyi[-1] + 1) * frame
+    if n == 1:
+        return [(max(0.0, s0 - pad), e0 + pad)]
+
+    cand, i = [], bunyi[0]
+    while i <= bunyi[-1]:
+        if db[i] < ambang:
+            j = i
+            while db[j] < ambang:
+                j += 1
+            if (j - i) * frame >= min_sunyi:
+                cand.append((i * frame, j * frame))
+            i = j
+        else:
+            i += 1
+    if len(cand) < n - 1:
+        raise ValueError(f"hanya {len(cand)} jeda terdeteksi, butuh {n - 1}")
+
+    total, kum, durasi = sum(kata), 0, e0 - s0
+    harap = []
+    for k in kata[:-1]:
+        kum += k
+        harap.append(s0 + durasi * kum / total)
+    pjg_maks = max(b - a for a, b in cand)
+    sigma = 0.12 * durasi
+
+    def biaya(k, j):
+        a, b = cand[j]
+        return ((a + b) / 2 - harap[k]) ** 2 / sigma ** 2 - 2.0 * (b - a) / pjg_maks
+
+    m, inf = len(cand), float("inf")
+    dp = [[inf] * m for _ in range(n - 1)]
+    asal = [[-1] * m for _ in range(n - 1)]
+    for j in range(m):
+        dp[0][j] = biaya(0, j)
+    for k in range(1, n - 1):
+        terbaik, idx = inf, -1
+        for j in range(m):
+            if j > 0 and dp[k - 1][j - 1] < terbaik:
+                terbaik, idx = dp[k - 1][j - 1], j - 1
+            if idx >= 0:
+                dp[k][j] = terbaik + biaya(k, j)
+                asal[k][j] = idx
+    j = min(range(m), key=lambda x: dp[n - 2][x])
+    if dp[n - 2][j] == inf:
+        raise ValueError("gagal memilih batas blok")
+    pilih = [j]
+    for k in range(n - 2, 0, -1):
+        j = asal[k][j]
+        pilih.append(j)
+    pilih.reverse()
+
+    tepi = [s0] + [x for j in pilih for x in cand[j]] + [e0]
+    seg = [(max(0.0, tepi[2 * k] - pad), tepi[2 * k + 1] + pad) for k in range(n)]
+    bicara = sum(b - a for a, b in seg)
+    for k, (a, b) in enumerate(seg):
+        rasio = (b - a) / (bicara * kata[k] / total)
+        if not 0.45 <= rasio <= 2.2:
+            raise ValueError(f"blok {k} berdurasi {b - a:.1f} s, tidak sebanding dengan {kata[k]} kata (rasio {rasio:.2f})")
+    return seg
+
+
+def iris(pcm, a, b, rate=RATE):
+    return pcm[int(a * rate) * 2:int(b * rate) * 2]
+
+
+# --- utama ---------------------------------------------------------------------------------
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("naskah")
+    ap.add_argument("out")
+    ap.add_argument("--satu-permintaan", action="store_true", help="kirim semua blok yang belum ada dalam satu request")
+    arg = ap.parse_args(argv)
+
+    naskah = json.load(open(arg.naskah))
+    out = arg.out
     os.makedirs(out, exist_ok=True)
-    model = pilih_model(naskah.get("model"))
+    blok = naskah["blok"]
     suara = naskah.get("suara", "Sulafat")
     jeda = int(RATE * naskah.get("jeda_antar_blok", 0.35)) * 2
+    gaya_umum = naskah.get("gaya_umum", "")
+    gaya = [(gaya_umum + " " + b["gaya"]).strip() for b in blok]
+
+    model = naskah.get("model")
+    kunci_blok = [kunci(model, suara, g, b["teks"]) for g, b in zip(gaya, blok)] if model else None
+    pcm = [baca_cache(out, i, k) for i, k in enumerate(kunci_blok)] if model else [None] * len(blok)
+    for i, p in enumerate(pcm):
+        if p is not None:
+            print(f"blok {i}: pakai yang sudah ada ({len(p) / 2 / RATE:.2f} s)")
+    kurang = [i for i, p in enumerate(pcm) if p is None]
+    if kurang:
+        model = pilih_model(model)
+        kunci_blok = [kunci(model, suara, g, b["teks"]) for g, b in zip(gaya, blok)]
+
+    if kurang and arg.satu_permintaan and len(kurang) > 1:
+        print(f"satu request untuk blok {kurang}")
+        mentah = tts(model, suara, prompt_gabungan(gaya_umum, [blok[i] for i in kurang]))
+        simpan(os.path.join(out, "vo_mentah.wav"), mentah)
+        try:
+            seg = potong(mentah, [len(blok[i]["teks"].split()) for i in kurang])
+        except ValueError as e:
+            sys.exit(f"Gagal memotong audio gabungan: {e}. Audio mentah: {out}/vo_mentah.wav. "
+                     "Coba lagi atau jalankan tanpa --satu-permintaan.")
+        for i, (a, b) in zip(kurang, seg):
+            pcm[i] = iris(mentah, a, b)
+            simpan_blok(out, i, kunci_blok[i], pcm[i])
+    else:
+        for i in kurang:
+            pcm[i] = tts(model, suara, prompt(gaya[i], blok[i]["teks"]))
+            simpan_blok(out, i, kunci_blok[i], pcm[i])
+
     semua, waktu, t = b"", [], 0.0
-    for i, b in enumerate(naskah["blok"]):
-        gaya = naskah["gaya_umum"] + " " + b["gaya"]
-        pcm = tts(model, suara, gaya, b["teks"])
-        simpan(os.path.join(out, f"blok_{i:02d}.wav"), pcm)
-        dur = len(pcm) / 2 / RATE
+    for i, b in enumerate(blok):
+        dur = len(pcm[i]) / 2 / RATE
         waktu.append({"blok": i, "mulai": round(t, 3), "durasi": round(dur, 3), "teks": b["teks"]})
         print(f"blok {i}: {dur:.2f} s")
-        semua += pcm + b"\x00" * jeda
+        semua += pcm[i] + b"\x00" * jeda
         t += dur + jeda / 2 / RATE
     simpan(os.path.join(out, "vo.wav"), semua)
-    json.dump({"model": model, "suara": suara, "total": round(t, 3), "blok": waktu}, open(os.path.join(out, "waktu.json"), "w"), indent=2, ensure_ascii=False)
+    json.dump({"model": model, "suara": suara, "total": round(t, 3), "blok": waktu},
+              open(os.path.join(out, "waktu.json"), "w"), indent=2, ensure_ascii=False)
     print(f"selesai: {t:.1f} detik -> {out}/vo.wav")
 
 
