@@ -1,0 +1,15 @@
+{
+  "suara": "Sulafat",
+  "jeda_antar_blok": 0.35,
+  "gaya_umum": "Bacakan dalam bahasa Indonesia sehari-hari yang natural, seperti narator konten edukasi keuangan di Instagram Reels yang hangat dan santai, bukan pembaca berita. Tempo sedang cenderung cepat, beri jeda pendek sebelum angka penting.",
+  "blok": [
+    { "gaya": "Nada penasaran dan sedikit heran", "teks": "Pernah nggak kamu merasa... harga kebutuhan sehari-hari makin mahal? Padahal katanya, inflasi Indonesia masih terkendali." },
+    { "gaya": "Nada menjelaskan, jelas dan meyakinkan, tekankan angkanya", "teks": "Nah... ini sebenarnya ada penjelasannya. Berdasarkan data BPS, inflasi Indonesia pada Oktober dua ribu dua puluh enam tercatat sebesar tiga koma dua tiga persen secara tahunan. Sementara itu, inflasi bulanannya hanya nol koma dua dua persen." },
+    { "gaya": "Nada serius tapi ramah, tegas di kata 'bukan berarti'", "teks": "Tapi jangan salah paham. Inflasi yang rendah... bukan berarti harga barang kembali murah." },
+    { "gaya": "Nada bercerita, mengajak membayangkan, tersenyum kecil di akhir", "teks": "Bayangkan, tahun lalu harga cabai empat puluh ribu rupiah sekilo. Tahun ini naik jadi lima puluh ribu. Kalau bulan depan harganya tetap lima puluh ribu... inflasinya bisa saja nol untuk cabai tersebut. Tapi apakah harganya kembali jadi empat puluh ribu? Ya... belum tentu." },
+    { "gaya": "Nada menekankan, pelan dan jelas, ini kalimat paling penting", "teks": "Inilah yang sering disalahpahami. Inflasi mengukur seberapa cepat harga naik... bukan seberapa murah harga barang." },
+    { "gaya": "Nada serius dan informatif", "teks": "Bahkan, menurut Bank Indonesia, kelompok pangan bergejolak masih mengalami inflasi tahunan sebesar lima koma delapan satu persen pada Oktober dua ribu dua puluh enam. Jadi, meskipun inflasi melambat, bukan berarti daya beli masyarakat otomatis membaik." },
+    { "gaya": "Nada merangkum, mantap lalu hangat", "teks": "Kesimpulannya: harga bisa tetap mahal, meskipun inflasi sudah terkendali. Karena yang melambat adalah kenaikan harganya... bukan harga barangnya yang kembali turun." },
+    { "gaya": "Nada ceria dan ramah, sambil tersenyum", "teks": "Sekarang kamu jadi tahu, kan? IntipDompet. Urusan uang, kita intip." }
+  ]
+}
