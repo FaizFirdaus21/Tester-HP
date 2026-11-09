@@ -1,4 +1,5 @@
 {
+  "model": "gemini-3.8-flash-tts",
   "suara": "Sulafat",
   "jeda_antar_blok": 0.35,
   "gaya_umum": "Bacakan dalam bahasa Indonesia sehari-hari yang natural, seperti narator konten edukasi keuangan di Instagram Reels yang hangat dan santai, bukan pembaca berita. Tempo sedang cenderung cepat, beri jeda pendek sebelum angka penting.",

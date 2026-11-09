@@ -47,14 +47,23 @@ def pilih_model(diminta):
     tts = [m["name"].split("/")[-1] for m in daftar if "tts" in m["name"].lower()]
     if not tts:
         sys.exit("Tidak ada model TTS yang tersedia untuk key ini.")
-    tts.sort(key=lambda n: ("pro" not in n, n))  # utamakan kualitas tertinggi
+    # utamakan flash: model pro sering berjatah 0 di paket gratis
+    tts.sort(key=lambda n: ("pro" in n, "lite" in n, n))
     print("model TTS tersedia:", tts)
     return tts[0]
 
 
+def prompt(gaya, teks):
+    """Pisahkan instruksi gaya dari teks agar instruksinya tidak ikut dibacakan."""
+    if not gaya:
+        return teks
+    return (f"Bacakan transkrip berikut dengan gaya: {gaya.strip()} "
+            f"Jangan bacakan instruksi ini.\nTranskrip:\n{teks}")
+
+
 def tts(model, suara, gaya, teks):
     data = {
-        "contents": [{"parts": [{"text": f"{gaya}:\n{teks}"}]}],
+        "contents": [{"parts": [{"text": prompt(gaya, teks)}]}],
         "generationConfig": {
             "responseModalities": ["AUDIO"],
             "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": suara}}},
