@@ -67,13 +67,17 @@ Saturasi rata-rata rendah (0,20). Merah hanya untuk penekanan.
 
 ## 3. Membuat video baru
 
-1. Salin `src/catatan/demo/InflasiCatatan.tsx` dan ganti namanya.
-2. **Atur jadwal di objek `T` (dalam detik).** Kalau ada voice-over, isi dengan waktu kalimat di rekaman.
-3. Isi tiap bagian (B1–B6) dengan `Tulis` untuk teks dan `Coret`/`Panah`/`Sketsa`/`Stempel` untuk gambar. Semua punya `mulai` dalam frame (`t(detik)`).
-4. Jaga isi bagian di **y 250–1200** (koordinat bagian). Area bawah dipakai subtitel dan tertutup tombol Instagram.
-5. Voice-over: tambahkan `<Audio src={staticFile("vo.mp3")} />` dan matikan subtitel (`subtitel: false`), seperti di referensi.
-6. Render: `npx remotion render <IdKomposisi> out/nama.mp4`.
+1. Salin `src/catatan/demo/InflasiCatatan.tsx` ke `src/produksi/<slug>/Video.tsx`.
+2. **Tata halaman:** `tataHalaman(n, kolom = 2)` di `Meja.tsx` menyusun `n` bagian (bebas, tidak harus 6). Teruskan hasilnya ke `<Meja ukuran={TATA}>` dan `<Kanvas lebar={TATA.lebar} tinggi={TATA.tinggi}>`.
+3. **Jadwal dari VO:** `jadwalVO(vo, isyarat, cadangan)` di `Jadwal.ts`. `isyarat` memetakan nama ke indeks blok VO (atau `"selesai"` untuk akhir audio + 1,4 s). Jumlah blok bebas. Kalau VO belum ada atau kurang blok, `cadangan` (detik) dipakai dan log memberi peringatan. Untuk produksi, baca `produksi/<slug>/vo-waktu.json` dan audio `public/vo/<slug>.mp3`.
+4. **Waktu di dalam bagian:** jangan tulis `T.b4 + 11.4`. Pakai `setelah(J.r("b4"), 11.4)` (detik dari awal bagian) atau `pada(J.r("b4"), 0.8)` (fraksi bagian). Keduanya mencetak peringatan `[jadwal] ...` di log render/still bila elemen jatuh setelah kamera pindah. Perbaiki semua peringatan sebelum storyboard.
+5. **Kamera:** `kameraOtomatis(TATA, mulaiBagian, T.mundur, T.akhir)` membuat tahan + dorong pelan, whip ke bagian di baris yang sama, geser diagonal ke baris baru, lalu mundur ke seluruh halaman. Kunci kamera boleh ditulis tangan kalau perlu gerak khusus. Nomor pojok: `nomorBagian(fr, mulaiBagian)`.
+6. **Isi bagian:** `Tulis` untuk teks, `Coret`/`Panah`/`Sketsa`/`Stempel` untuk gambar. Semua `mulai` dalam frame (`d(detik)`).
+7. **Area aman (layar):** isi utama y 220–1200; subtitel di pita y 1300–1480; tidak ada yang penting di bawah 1500 (tertutup tombol Instagram).
+8. **Subtitel:** aktif bawaan (banyak penonton tanpa suara), tipis tanpa kotak: `<Subtitel baris={...} />`. Dari naskah: `subtitelDariBlok(J, teksTampil)`, dengan `teksTampil[i]` berupa bentuk tulisan blok ke-i ("3,75%", "LPS"), bukan ejaan VO. Matikan dengan prop `subtitel={false}`.
+9. **Audio:** `<Sequence from={d(J.awal)}><Audio src={staticFile(vo.audio)} /></Sequence>`.
+10. Storyboard dulu: `node scripts/stills.mjs <Id> <dir> <frame,...> --browser <chrome-headless-shell>`. Render penuh hanya setelah disetujui.
 
 ## 4. Bedanya dengan referensi
 - Template ini meniru **gaya** (warna, jenis huruf, gerak, struktur), bukan isi atau aset referensi. Semua gambar dibuat ulang dari kode, dan font diganti padanan bebas pakai dari Google Fonts.
-- Referensi memakai voice-over tanpa subtitel. Demo ini memakai subtitel karena belum ada voice-over. Subtitel dibuat **tanpa kotak**, sesuai permintaan.
+- Referensi memakai voice-over tanpa subtitel. Template ini tetap menyalakan subtitel tipis **tanpa kotak** secara bawaan, karena banyak penonton Reels menonton tanpa suara.

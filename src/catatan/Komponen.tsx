@@ -1,8 +1,9 @@
 // Komponen gambar & tulisan tangan untuk template Buku Catatan.
 // Semua posisi dalam koordinat HALAMAN kecuali yang disebut "layar".
 import React from "react";
-import { AbsoluteFill, Easing, interpolate, useCurrentFrame } from "remotion";
-import { c, f } from "./tema";
+import { AbsoluteFill, Easing, Sequence, interpolate, useCurrentFrame } from "remotion";
+import type { BarisSubtitel } from "./Jadwal";
+import { c, d, f } from "./tema";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 export const eTulis = Easing.bezier(0.33, 0, 0.25, 1);
@@ -255,8 +256,17 @@ export const Tulis: React.FC<{
                 {Array.from(kata).map((ch, i) => {
                   const idx = n++;
                   const p = p01(fr, mulai + idx * perHuruf, Math.max(2, perHuruf + 2), Easing.linear);
+                  // Huruf yang belum ditulis disembunyikan penuh. Klip saja masih menyisakan pita -5% di kiri
+                  // yang memperlihatkan serpihan huruf bertinta tebal sebelum gilirannya.
                   return (
-                    <span key={i} style={{ display: "inline-block", clipPath: `inset(-20% ${(1 - p) * 100}% -20% -5%)` }}>
+                    <span
+                      key={i}
+                      style={{
+                        display: "inline-block",
+                        visibility: p <= 0 ? "hidden" : undefined,
+                        clipPath: p >= 1 ? undefined : `inset(-20% ${(1 - p) * 100}% -20% 0)`,
+                      }}
+                    >
                       {ch}
                     </span>
                   );
@@ -402,3 +412,51 @@ export const CatatanSobek: React.FC<{ mulai: number; judul: Potongan[]; ajakan?:
     </div>
   );
 };
+
+// Subtitel tipis tanpa kotak di pita layar y 1300–1480 (di bawah isi utama, di atas tombol Instagram).
+// Aktif bawaan karena banyak penonton Reels menonton tanpa suara. Waktu dalam detik.
+export const SUBTITEL_ATAS = 1300;
+export const SUBTITEL_BAWAH = 1480;
+const BarisSub: React.FC<{ teks: string; lama: number }> = ({ teks, lama }) => {
+  const fr = useCurrentFrame();
+  const o = Math.min(p01(fr, 0, 4), 1 - p01(fr, lama - 3, 3));
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: 90,
+        right: 90,
+        top: SUBTITEL_ATAS,
+        height: SUBTITEL_BAWAH - SUBTITEL_ATAS,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        fontFamily: f.serif,
+        fontStyle: "italic",
+        fontWeight: 400,
+        fontSize: 44,
+        lineHeight: 1.22,
+        color: c.tinta,
+        opacity: o,
+        textShadow: "0 0 18px rgba(230,218,195,0.95), 0 0 6px rgba(230,218,195,0.95)",
+      }}
+    >
+      {teks}
+    </div>
+  );
+};
+
+export const Subtitel: React.FC<{ baris: BarisSubtitel[] }> = ({ baris }) => (
+  <>
+    {baris.map((b, i) => {
+      const mulai = d(b.mulai);
+      const lama = Math.max(1, d(b.selesai) - mulai);
+      return (
+        <Sequence key={i} from={mulai} durationInFrames={lama} layout="none">
+          <BarisSub teks={b.teks} lama={lama} />
+        </Sequence>
+      );
+    })}
+  </>
+);

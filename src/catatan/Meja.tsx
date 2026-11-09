@@ -1,7 +1,7 @@
 // Dunia template Buku Catatan: halaman di atas meja kayu, kamera, properti kabur, vignette.
 import React from "react";
 import { AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
-import { JARAK_GARIS, PH, PW, c } from "./tema";
+import { JARAK_GARIS, PH, PW, c, d } from "./tema";
 
 export type KunciKamera = { f: number; x: number; y: number; s: number; r?: number };
 
@@ -19,6 +19,39 @@ export const kameraPada = (fr: number, kunci: KunciKamera[]): Required<KunciKame
   }
   return { r: 0, ...kunci[kunci.length - 1] };
 };
+
+// ---------------------------------------------------------------- tata halaman & kamera otomatis
+// Halaman dibagi jadi "bagian" seukuran layar (1080×1920), `kolom` per baris, diisi kiri→kanan, atas→bawah.
+export type TataHalaman = { lebar: number; tinggi: number; asal: [number, number][]; kolom: number };
+export const tataHalaman = (jumlahBagian: number, kolom = 2): TataHalaman => {
+  const baris = Math.max(1, Math.ceil(jumlahBagian / kolom));
+  const asal = Array.from({ length: jumlahBagian }, (_, i) => [(i % kolom) * 1080, Math.floor(i / kolom) * 1920] as [number, number]);
+  return { lebar: kolom * 1080, tinggi: baris * 1920, asal, kolom };
+};
+
+// Kamera seperti referensi: tahan + dorong pelan di tiap bagian, whip (±9 frame, blur searah) ke bagian
+// di baris yang sama, geser diagonal pelan (±0,8 s) ke baris berikutnya, lalu mundur ke seluruh halaman.
+// `mulai[i]` = detik bagian i mulai; `mundur` = detik kamera mulai mundur; `akhir` = detik video selesai.
+export const kameraOtomatis = (tata: TataHalaman, mulai: number[], mundur: number, akhir: number): KunciKamera[] => {
+  const pusat = (i: number, dx = 0, dy = 0) => ({ x: tata.asal[i][0] + 540 + dx, y: tata.asal[i][1] + 960 + dy });
+  const geser = (i: number) => ((tata.asal[i][0] / 1080) % 2 === 0 ? 20 : -15);
+  const barisBaru = (i: number) => i > 0 && tata.asal[i][1] !== tata.asal[i - 1][1];
+  const kunci: KunciKamera[] = [];
+  mulai.forEach((m, i) => {
+    const berikut = i + 1 < mulai.length ? mulai[i + 1] : null;
+    const masuk = i === 0 ? 0 : barisBaru(i) ? m + 0.2 : m;
+    const keluar = berikut === null ? mundur : barisBaru(i + 1) ? berikut - 0.6 : berikut - 0.3;
+    kunci.push({ f: d(masuk), ...pusat(i, 0, i === 0 ? 40 : 0), s: 1.0 });
+    kunci.push({ f: Math.max(d(masuk) + 1, d(keluar)), ...pusat(i, i === 0 ? 10 : geser(i), i === 0 ? -10 : -30), s: 1.08 });
+  });
+  const s = Math.min(1080 / tata.lebar, 1920 / tata.tinggi) * 0.9;
+  kunci.push({ f: d(mundur + 2), x: tata.lebar / 2, y: tata.tinggi / 2 - 120 * s * 3.3, s, r: -2 });
+  kunci.push({ f: Math.max(d(mundur + 2) + 1, d(akhir)), x: tata.lebar / 2, y: tata.tinggi / 2 - 100 * s * 3.3, s: s * 1.033, r: -2.5 });
+  return kunci;
+};
+
+// Nomor bagian (1, 2, ...) yang sedang disorot pada frame `fr`.
+export const nomorBagian = (fr: number, mulai: number[]) => Math.max(1, mulai.filter((m) => fr >= d(m)).length);
 
 // Properti meja (kabur karena dekat kamera). Posisi dalam koordinat halaman; `dalam` > 1 = lebih dekat kamera.
 export type Properti = { jenis: "pensil" | "penggaris" | "cangkir"; x: number; y: number; putar?: number; dalam?: number; kabur?: number };
@@ -63,9 +96,10 @@ const Cangkir: React.FC = () => (
 export const Meja: React.FC<{
   kamera: KunciKamera[];
   properti?: Properti[];
-  halaman: React.ReactNode; // isi halaman (koordinat halaman 0..PW, 0..PH)
-  layar?: React.ReactNode; // lapisan layar (di atas vignette): indeks, sobekan, sapuan
-}> = ({ kamera, properti = [], halaman, layar }) => {
+  halaman: React.ReactNode; // isi halaman (koordinat halaman 0..lebar, 0..tinggi)
+  layar?: React.ReactNode; // lapisan layar (di atas vignette): indeks, subtitel, sobekan, sapuan
+  ukuran?: { lebar: number; tinggi: number }; // ukuran halaman; bawaan 2×3 bagian (PW×PH), lihat tataHalaman()
+}> = ({ kamera, properti = [], halaman, layar, ukuran = { lebar: PW, tinggi: PH } }) => {
   const fr = useCurrentFrame();
   const k = kameraPada(fr, kamera);
   const k1 = kameraPada(fr - 1, kamera);
@@ -93,15 +127,15 @@ export const Meja: React.FC<{
       <AbsoluteFill style={{ filter: kabur ? "url(#gerakKamera)" : undefined }}>
         {/* meja kayu di luar halaman */}
         <div style={{ position: "absolute", left: 0, top: 0, width: 1, height: 1, transformOrigin: "0 0", transform: t() }}>
-          <div style={{ position: "absolute", left: -3000, top: -3000, width: PW + 6000, height: PH + 6000, backgroundImage: `url(${staticFile("catatan/kayu-meja.png")})`, backgroundSize: "600px 600px" }} />
+          <div style={{ position: "absolute", left: -3000, top: -3000, width: ukuran.lebar + 6000, height: ukuran.tinggi + 6000, backgroundImage: `url(${staticFile("catatan/kayu-meja.png")})`, backgroundSize: "600px 600px" }} />
           {/* halaman */}
           <div
             style={{
               position: "absolute",
               left: 0,
               top: 0,
-              width: PW,
-              height: PH,
+              width: ukuran.lebar,
+              height: ukuran.tinggi,
               background: c.kertas,
               backgroundImage: `repeating-linear-gradient(to bottom, transparent 0px, transparent ${JARAK_GARIS - 2}px, ${c.garisBuku} ${JARAK_GARIS - 2}px, ${c.garisBuku} ${JARAK_GARIS}px)`,
               boxShadow: "0 30px 80px rgba(20,10,0,0.55), 0 0 0 2px rgba(80,60,40,0.25)",
@@ -110,7 +144,7 @@ export const Meja: React.FC<{
             <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${staticFile("catatan/serat-kertas.png")})`, backgroundSize: "512px 512px", opacity: 0.32, mixBlendMode: "multiply" }} />
             {/* noda cincin kopi samar */}
             <div style={{ position: "absolute", left: 860, top: 120, width: 300, height: 300, borderRadius: "50%", border: "14px solid rgba(150,110,60,0.13)", filter: "blur(2px)" }} />
-            <div style={{ position: "absolute", left: 1880, top: 3020, width: 240, height: 240, borderRadius: "50%", border: "10px solid rgba(150,110,60,0.10)", filter: "blur(2px)" }} />
+            {ukuran.lebar > 2000 && ukuran.tinggi > 3300 ? <div style={{ position: "absolute", left: 1880, top: 3020, width: 240, height: 240, borderRadius: "50%", border: "10px solid rgba(150,110,60,0.10)", filter: "blur(2px)" }} /> : null}
             {halaman}
           </div>
         </div>
