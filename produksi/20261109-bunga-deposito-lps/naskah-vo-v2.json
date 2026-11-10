@@ -16,8 +16,8 @@
     {
       "peran": "penjelasan",
       "gaya": "Nada menjelaskan, jelas dan meyakinkan, tekankan angka tiga koma tujuh lima",
-      "teks": "El pe es cuma menjamin simpanan di bank umum yang bunganya maksimal tiga koma tujuh lima persen setahun. Hingga Oktober tahun ini, empat belas be pe er dan be pe er es sudah dilikuidasi.",
-      "visual": "Garis bilangan kapur 0% ... 3,75% ... 6%; batas 3,75% digaris tebal kapur kuning dengan label 'batas LPS (bank umum)' dan catatan kecil 's.d. 31 Jan 2027'. Di pojok: 14 ikon bank kecil (ikonBank) muncul berurutan dengan penghitung '14 BPR/BPRS dilikuidasi, Jan–Okt 2026'."
+      "teks": "El pe es cuma menjamin simpanan di bank umum yang bunganya maksimal tiga koma tujuh lima persen setahun. Dan bank memang bisa tutup.",
+      "visual": "Garis bilangan kapur 0% ... 3,75% ... 6%; batas 3,75% digaris tebal kapur kuning dengan label 'batas LPS (bank umum)' dan catatan kecil 's.d. 31 Jan 2027'. Lalu sketsa kapur gedung bank kecil dengan pintu tertutup dan papan 'TUTUP'."
     },
     {
       "peran": "perumpamaan",
@@ -34,14 +34,14 @@
     {
       "peran": "akibat",
       "gaya": "Nada mengajak membayangkan, pelan di 'sepuluh juta'",
-      "teks": "Contohnya, kamu taruh sepuluh juta di bunga enam persen. Kalau banknya tutup, sepuluh juta itu bisa nggak diganti el pe es.",
-      "visual": "Sketsa kapur amplop/celengan bertuliskan 'Rp10 juta' dengan label 'contoh', lalu pintu bank digambar tertutup dan amplop dilingkari kapur merah dengan tanda tanya."
+      "teks": "Contohnya, kamu taruh sepuluh juta di bank umum dengan bunga enam persen. Kalau banknya tutup, sepuluh juta itu bisa nggak diganti el pe es.",
+      "visual": "Sketsa kapur amplop/celengan bertuliskan 'Rp10 juta' (label 'contoh', 'bank umum, bunga 6%'), lalu pintu bank digambar tertutup dan amplop dilingkari kapur merah dengan tanda tanya."
     },
     {
       "peran": "solusi",
       "gaya": "Nada menekankan, pelan dan jelas, seperti memberi checklist",
-      "teks": "Sebelum taruh uang, cek dua hal. Bunga plus cashback-nya nggak lebih dari tiga koma tujuh lima persen. Dan total saldomu di satu bank maksimal dua miliar rupiah.",
-      "visual": "Checklist kapur dua baris yang dicentang satu per satu: '☐ bunga + cashback ≤ 3,75%' dan '☐ saldo ≤ Rp2 miliar / bank'. Catatan kecil: 'cek: kalkulator 3T LPS'."
+      "teks": "Sebelum taruh uang, cek dua hal. Bunga plus cashback-nya nggak lebih dari tiga koma tujuh lima persen di bank umum, atau enam koma dua lima persen di be pe er. Dan yang dijamin cuma sampai dua miliar rupiah per bank.",
+      "visual": "Checklist kapur dua baris yang dicentang satu per satu: '☐ bunga + cashback ≤ 3,75% (bank umum) / 6,25% (BPR)' dan '☐ dijamin maks. Rp2 miliar / nasabah / bank'. Catatan kecil: 'cek: kalkulator 3T LPS'."
     },
     {
       "peran": "cta",

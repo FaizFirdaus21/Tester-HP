@@ -20,6 +20,20 @@
       "status": "terverifikasi (cuplikan beranda lps.go.id + 3 media)"
     },
     {
+      "id": "tbp-bpr",
+      "klaim": "Tingkat bunga penjaminan LPS untuk simpanan rupiah di BPR 6,25% per tahun, berlaku 1 Oktober 2026 – 31 Januari 2027.",
+      "di_naskah": "v2 blok 6 ('enam koma dua lima persen di be pe er')",
+      "sumber_primer": [
+        "https://lps.go.id/ (cuplikan beranda: periode 01 Oktober 2026 - 31 Januari 2027, BPR 6,25%)"
+      ],
+      "sumber_silang": [
+        "https://keuangan.kontan.co.id/news/lps-pertahankan-tingkat-bunga-penjaminan-375-hingga-januari-2027",
+        "https://www.investortrust.id/macro/107527/lps-naikkan-tingkat-bunga-penjaminan-bank-umum-jadi-3-75-mulai-1-juli-2026"
+      ],
+      "tanggal_data": "RDK LPS 28 September 2026 (dipertahankan dari kenaikan Juni 2026)",
+      "status": "terverifikasi (cuplikan beranda lps.go.id + media)"
+    },
+    {
       "id": "bunga-lewat-tidak-dijamin-seluruhnya",
       "klaim": "Jika bunga yang diterima melebihi tingkat bunga penjaminan, simpanan tidak dijamin secara keseluruhan (pokok dan bunga), bukan hanya kelebihannya.",
       "di_naskah": "blok 3",
@@ -47,7 +61,7 @@
     {
       "id": "batas-rp2-miliar",
       "klaim": "Nilai simpanan yang dijamin maksimal Rp2 miliar per nasabah per bank (saldo semua rekening di satu bank dijumlahkan).",
-      "di_naskah": "blok 6",
+      "di_naskah": "v1 blok 6; v2 blok 6",
       "sumber_primer": [
         "https://lps.go.id/faq/",
         "https://lps.go.id/laporan-tahunan-lps-2024/"
@@ -61,7 +75,7 @@
     {
       "id": "14-bpr-likuidasi",
       "klaim": "14 BPR/BPRS diputuskan untuk dilikuidasi, 62.971 rekening layak bayar senilai Rp1,9 triliun, Rp643,94 miliar sudah dibayarkan.",
-      "di_naskah": "blok 5 ('Hingga Oktober tahun ini, empat belas BPR dan BPRS sudah dilikuidasi')",
+      "di_naskah": "v1 blok 5; v2 blok 2 hanya sebagai dasar kalimat umum 'Dan bank memang bisa tutup.'",
       "sumber_primer": [
         "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2824026.aspx (Siaran Pers KSSK No. 04/KSSK/Pers/2026, 3 November 2026)"
       ],
