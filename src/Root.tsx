@@ -12,6 +12,7 @@ import { DURASI_CATATAN, InflasiCatatan } from "./catatan/demo/InflasiCatatan";
 import { DURASI_V3, InflasiSinematik } from "./video/v3/Video";
 import { InflasiBlueprint } from "./video/inflasiBp/InflasiBlueprint";
 import { DURASI_BP } from "./video/inflasiBp/linimasa";
+import { BungaDepositoLPS, DURASI_DEPOSITO } from "./produksi/bunga-deposito-lps/Video";
 import contohNaikBerapa from "../data/naik-berapa-contoh.json";
 
 export const RemotionRoot: React.FC = () => (
@@ -34,6 +35,7 @@ export const RemotionRoot: React.FC = () => (
       height={REELS.height}
     />
     <Composition id="InflasiCatatan" component={InflasiCatatan} durationInFrames={DURASI_CATATAN} fps={30} width={1080} height={1920} />
+    <Composition id="BungaDepositoLPS" component={BungaDepositoLPS} durationInFrames={DURASI_DEPOSITO} fps={30} width={1080} height={1920} />
     <Composition id="InflasiSinematik" component={InflasiSinematik} durationInFrames={DURASI_V3} fps={30} width={1080} height={1920} />
     <Composition id="UjiTiga" component={UjiTiga} durationInFrames={30} fps={30} width={1080} height={1920} />
     <Composition

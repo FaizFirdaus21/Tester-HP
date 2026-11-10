@@ -47,27 +47,32 @@ export type Jadwal<K extends string> = {
   awal: number; // detik saat audio mulai
   T: Record<K, number>; // detik tiap isyarat
   r: (k: K) => Rentang; // rentang dari isyarat k sampai isyarat berikutnya
-  blok: (i: number) => Rentang | null; // rentang blok VO ke-i (null tanpa VO)
+  blok: (i: number) => Rentang | null; // rentang blok VO ke-i (VO asli, atau perkiraan bila cadangan berupa DataVO)
 };
+
+const lengkap = (vo: DataVO, indeks: number[]) => vo.total > 0 && indeks.every((i) => i >= 0 && i < vo.blok.length);
 
 export const jadwalVO = <K extends string>(
   vo: DataVO,
   isyarat: Isyarat<K>,
-  cadangan: Record<K, number>, // jadwal bawaan (detik) bila VO belum ada
+  // Bila VO belum ada: jadwal bawaan per isyarat (detik), atau perkiraan VO dari naskah (perkiraanVO()).
+  cadangan: Record<K, number> | DataVO,
   opsi: { awal?: number; ekor?: number } = {},
 ): Jadwal<K> => {
   const awal = opsi.awal ?? 1.2; // sapuan tinta + halaman kosong sejenak sebelum suara, seperti referensi
   const ekor = opsi.ekor ?? 1.4;
   const kunci = Object.keys(isyarat) as K[];
   const indeks = kunci.map((k) => isyarat[k]).filter((v): v is number => v !== "selesai");
-  const ada = Boolean(vo.audio) && vo.total > 0 && indeks.every((i) => i >= 0 && i < vo.blok.length);
+  const ada = Boolean(vo.audio) && lengkap(vo, indeks);
   if (vo.audio && !ada) {
     peringatkan(`VO ada (${vo.blok.length} blok) tetapi isyarat merujuk blok ${Math.max(...indeks)}; memakai jadwal cadangan`);
   }
+  const perkiraan = "blok" in cadangan ? (cadangan as DataVO) : null;
+  const sumber = ada ? vo : perkiraan && lengkap(perkiraan, indeks) ? perkiraan : null;
   const T = {} as Record<K, number>;
   for (const k of kunci) {
     const v: number | "selesai" = isyarat[k];
-    T[k] = !ada ? cadangan[k] : v === "selesai" ? awal + vo.total + ekor : awal + vo.blok[v].mulai;
+    T[k] = !sumber ? (cadangan as Record<K, number>)[k] : v === "selesai" ? awal + sumber.total + ekor : awal + sumber.blok[v].mulai;
   }
   const r = (k: K): Rentang => {
     const mulai = T[k];
@@ -75,8 +80,40 @@ export const jadwalVO = <K extends string>(
     return { nama: k, mulai, selesai: berikut.length ? Math.min(...berikut) : mulai };
   };
   const blok = (i: number): Rentang | null =>
-    ada && vo.blok[i] ? { nama: `blok ${i}`, mulai: awal + vo.blok[i].mulai, selesai: awal + vo.blok[i].mulai + vo.blok[i].durasi } : null;
+    sumber && sumber.blok[i]
+      ? { nama: `blok ${i}`, mulai: awal + sumber.blok[i].mulai, selesai: awal + sumber.blok[i].mulai + sumber.blok[i].durasi }
+      : null;
   return { ada, awal, T, r, blok };
+};
+
+// Perkiraan waktu VO dari naskah (sebelum audio ada): ±2,3 kata per detik, ditambah jeda antar-blok.
+export const perkiraanVO = (naskah: { blok: { teks: string }[]; jeda_antar_blok?: number }, kataPerDetik = 2.3): DataVO => {
+  const jeda = naskah.jeda_antar_blok ?? 0.35;
+  let t = 0;
+  const blok = naskah.blok.map((b) => {
+    const durasi = b.teks.trim().split(/\s+/).length / kataPerDetik;
+    const hasil = { mulai: t, durasi };
+    t += durasi + jeda;
+    return hasil;
+  });
+  return { audio: null, total: t - jeda, blok, catatan: "perkiraan dari jumlah kata" };
+};
+
+// Detik saat `frasa` kira-kira diucapkan di blok ke-i: posisi huruf frasa di teks VO blok itu, dibagi panjang teks,
+// lalu dipetakan ke durasi blok. Tanpa waktu per kata dari TTS, ini perkiraan; ucapan angka yang panjang ikut terhitung
+// karena teks VO sudah berupa ejaan ("tiga koma tujuh lima persen").
+export const padaFrasa = (j: Pick<Jadwal<string>, "blok">, i: number, teksVO: string, frasa: string, geser = 0) => {
+  const r = j.blok(i);
+  if (!r) {
+    peringatkan(`blok ${i} tidak ada; "${frasa}" ditempatkan di 0`);
+    return 0;
+  }
+  const idx = teksVO.toLowerCase().indexOf(frasa.toLowerCase());
+  if (idx < 0) {
+    peringatkan(`frasa "${frasa}" tidak ditemukan di blok ${i}`);
+    return r.mulai + geser;
+  }
+  return r.mulai + ((r.selesai - r.mulai) * idx) / teksVO.length + geser;
 };
 
 // ---------------------------------------------------------------- subtitel
@@ -107,7 +144,7 @@ const pecah = (teks: string, maks: number): string[] => {
 
 // Subtitel per blok VO: teks tiap blok dipecah, waktunya dibagi sebanding jumlah huruf di dalam blok.
 // `teksTampil[i]` = teks blok ke-i dalam bentuk tulisan. String kosong = tanpa subtitel untuk blok itu.
-export const subtitelDariBlok = (j: Jadwal<string>, teksTampil: string[], maks = 64): BarisSubtitel[] => {
+export const subtitelDariBlok = (j: Pick<Jadwal<string>, "blok">, teksTampil: string[], maks = 64): BarisSubtitel[] => {
   const hasil: BarisSubtitel[] = [];
   teksTampil.forEach((teks, i) => {
     const r = j.blok(i);

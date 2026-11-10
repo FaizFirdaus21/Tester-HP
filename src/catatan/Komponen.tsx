@@ -1,7 +1,7 @@
 // Komponen gambar & tulisan tangan untuk template Buku Catatan.
 // Semua posisi dalam koordinat HALAMAN kecuali yang disebut "layar".
 import React from "react";
-import { AbsoluteFill, Easing, Sequence, interpolate, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Easing, Img, Sequence, interpolate, staticFile, useCurrentFrame } from "remotion";
 import type { BarisSubtitel } from "./Jadwal";
 import { c, d, f } from "./tema";
 
@@ -367,9 +367,19 @@ export const Indeks: React.FC<{ nomor: number }> = ({ nomor }) => (
 );
 
 // Sobekan kertas berselotip yang naik dari bawah (penutup / kesimpulan).
-export const CatatanSobek: React.FC<{ mulai: number; judul: Potongan[]; ajakan?: string; y?: number }> = ({ mulai, judul, ajakan, y = 1180 }) => {
+export const CatatanSobek: React.FC<{
+  mulai: number;
+  judul: Potongan[];
+  ajakan?: string;
+  y?: number;
+  kecil?: string; // catatan kecil di bawah judul (mis. disclaimer "konten edukasi, bukan ajakan membeli")
+  mulaiKecil?: number; // frame absolut; bawaan: setelah judul
+  mulaiAjakan?: number; // frame absolut; bawaan: mulai + 48
+  logo?: boolean; // logo IntipDompet di atas ajakan
+}> = ({ mulai, judul, ajakan, y = 1180, kecil, mulaiKecil, mulaiAjakan, logo }) => {
   const fr = useCurrentFrame();
   const p = p01(fr, mulai, 14, Easing.bezier(0.16, 1, 0.3, 1));
+  const ma = mulaiAjakan ?? mulai + 48;
   if (p <= 0) return null;
   const tepi = (atas: boolean) =>
     Array.from({ length: 31 }, (_, i) => {
@@ -392,13 +402,24 @@ export const CatatanSobek: React.FC<{ mulai: number; judul: Potongan[]; ajakan?:
     >
       <div style={{ background: c.sobek, clipPath: bentuk, padding: "70px 70px 80px", backgroundImage: "linear-gradient(rgba(255,255,255,0.18), rgba(0,0,0,0.04))" }}>
         <Tulis x={0} y={0} aliran teks={judul} ukuran={92} mulai={mulai + 10} perHuruf={2} lebar={830} />
+        {kecil ? (
+          <div style={{ fontFamily: f.tangan, fontWeight: 400, fontSize: 36, color: c.tintaPudar, marginTop: 18, opacity: p01(fr, mulaiKecil ?? mulai + 10 + lamaTulis(judul), 10) }}>
+            {kecil}
+          </div>
+        ) : null}
         <div style={{ height: 34 }} />
+        {logo ? (
+          <Img
+            src={staticFile("logo.png")}
+            style={{ display: "block", width: 330, marginLeft: 20, marginBottom: 18, opacity: p01(fr, ma - 4, 10), mixBlendMode: "multiply" }}
+          />
+        ) : null}
         {ajakan ? (
           <div style={{ display: "flex", gap: 18, alignItems: "flex-start", marginLeft: 20 }}>
             <svg width={70} height={70} style={{ flex: "none", marginTop: 10 }}>
-              <Coret d="M 8 8 C 0 40 20 56 60 56 M 46 44 L 60 56 L 46 66" mulai={mulai + 50} durasi={10} tebal={3} warna={c.tintaPudar} />
+              <Coret d="M 8 8 C 0 40 20 56 60 56 M 46 44 L 60 56 L 46 66" mulai={ma + 2} durasi={10} tebal={3} warna={c.tintaPudar} />
             </svg>
-            <div style={{ fontFamily: f.tangan, fontWeight: 300, fontSize: 40, color: c.tinta, lineHeight: 1.2, opacity: p01(fr, mulai + 48, 10) }}>{ajakan}</div>
+            <div style={{ fontFamily: f.tangan, fontWeight: 300, fontSize: 40, color: c.tinta, lineHeight: 1.2, opacity: p01(fr, ma, 10) }}>{ajakan}</div>
           </div>
         ) : null}
       </div>
