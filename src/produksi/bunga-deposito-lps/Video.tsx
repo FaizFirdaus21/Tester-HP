@@ -40,7 +40,7 @@ const J = jadwalVO(
   VO,
   { b1: 0, b2: 1, b3: 2, b4: 3, b5: 4, b6: 5, penutup: 6, tagline: 7, akhir: "selesai" },
   perkiraanVO(naskah),
-  { awal: 0.5, ekor: 2 },
+  { awal: 0.5, ekor: 0.8 }, // ekor pendek: gambar berhenti ±1 s setelah tagline (look.py: end hold)
 );
 const T = J.T;
 export const DURASI_DEPOSITO = d(T.akhir);
