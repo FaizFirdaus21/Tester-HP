@@ -8,6 +8,9 @@ Pakai:
       video produksi: public/vo/<slug>.mp3 + produksi/<tanggal>-<slug>/vo-waktu.json,
       lalu status.json di folder itu diset ke tahap "vo-siap".
       <slug> boleh dengan atau tanpa awalan tanggal (contoh: bunga-deposito-lps).
+  python3 scripts/pasang_vo.py produksi/<tanggal>-<slug>/vo-v2 --slug <slug> --versi v2
+      versi lain dari VO yang sama: public/vo/<slug>-v2.mp3 + vo-waktu-v2.json.
+      File versi sebelumnya dan status.json tidak diubah.
 """
 import argparse
 import datetime
@@ -38,14 +41,19 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("src", nargs="?", default="out/vo", help="folder keluaran tts_gemini.py")
     ap.add_argument("--slug", help="pasang untuk video di produksi/*-<slug>")
+    ap.add_argument("--versi", help="akhiran versi (mis. v2); tidak menimpa versi lain dan tidak mengubah status.json")
     arg = ap.parse_args(argv)
 
     w = json.load(open(os.path.join(arg.src, "waktu.json")))
     if arg.slug:
         folder = cari_folder(arg.slug)
         nama = slug_pendek(folder)
-        tujuan_json = os.path.join(folder, "vo-waktu.json")
+        tujuan_json = os.path.join(folder, f"vo-waktu-{arg.versi}.json" if arg.versi else "vo-waktu.json")
+        if arg.versi:
+            nama = f"{nama}-{arg.versi}"
     else:
+        if arg.versi:
+            sys.exit("--versi hanya bisa dipakai bersama --slug.")
         folder, nama, tujuan_json = None, "inflasi", "src/catatan/demo/vo-waktu.json"
 
     os.makedirs("public/vo", exist_ok=True)
@@ -61,7 +69,7 @@ def main(argv=None):
     json.dump(data, open(tujuan_json, "w"), indent=2, ensure_ascii=False)
     print("VO terpasang:", data["total"], "detik,", len(data["blok"]), "blok ->", mp3, "+", tujuan_json)
 
-    if folder:
+    if folder and not arg.versi:
         jalur = os.path.join(folder, "status.json")
         status = json.load(open(jalur)) if os.path.exists(jalur) else {"slug": os.path.basename(folder)}
         status["tahap"] = "vo-siap"

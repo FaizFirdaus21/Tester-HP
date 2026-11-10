@@ -63,6 +63,17 @@ with tempfile.TemporaryDirectory() as d:
     assert json.load(open(os.path.join(prod, "vo-waktu.json")))["audio"] == "vo/bunga-deposito-lps.mp3"
     print("ok  --slug dengan tanggal")
 
+    # 3b. --versi v2: file baru, v1 dan status.json tidak berubah
+    sebelum = {f: open(os.path.join(prod, f)).read() for f in ("vo-waktu.json", "status.json")}
+    mp3_v1 = open(os.path.join(d, "public/vo/bunga-deposito-lps.mp3"), "rb").read()
+    jalan(d, "produksi/20261109-bunga-deposito-lps/vo", "--slug", "bunga-deposito-lps", "--versi", "v2")
+    assert json.load(open(os.path.join(prod, "vo-waktu-v2.json")))["audio"] == "vo/bunga-deposito-lps-v2.mp3"
+    assert os.path.exists(os.path.join(d, "public/vo/bunga-deposito-lps-v2.mp3"))
+    assert all(open(os.path.join(prod, f)).read() == isi for f, isi in sebelum.items())
+    assert open(os.path.join(d, "public/vo/bunga-deposito-lps.mp3"), "rb").read() == mp3_v1
+    jalan(d, "out/vo", "--versi", "v2", gagal=True)
+    print("ok  --versi v2 -> file -v2, v1 dan status.json utuh")
+
     # 4. slug tidak ada / ganda -> berhenti tanpa menulis
     print("ok  slug tidak ada ditolak:", jalan(d, "out/vo", "--slug", "tidak-ada", gagal=True).strip())
     os.makedirs(os.path.join(d, "produksi/20261201-bunga-deposito-lps"))

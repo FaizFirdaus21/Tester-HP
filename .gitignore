@@ -3,4 +3,4 @@ out/
 .DS_Store
 __pycache__/
 *.pyc
-produksi/*/vo/
+produksi/*/vo*/
