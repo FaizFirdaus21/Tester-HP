@@ -70,7 +70,7 @@ Nilai tiap kriteria 1–5, kalikan bobot, jumlahkan, lalu ubah ke skala 100.
 4. Set `status.json` ke `naskah-siap`.
 
 ## 2. VO
-1. `python3 scripts/tts_gemini.py produksi/<slug>/naskah-vo.json produksi/<slug>/vo --satu-permintaan` (key dari `GEMINI_API_KEY`; jangan pernah ditampilkan atau disimpan). Paket gratis hanya 10 permintaan/hari: mode satu-permintaan = 1 video per permintaan, dan script melanjutkan blok yang sudah ada. Kalau pemotongan gagal, jalankan tanpa `--satu-permintaan` (per blok).
+1. `python3 scripts/tts_gemini.py produksi/<slug>/naskah-vo.json produksi/<slug>/vo --tanpa-gaya` (mode per blok; key dari `GEMINI_API_KEY`, jangan pernah ditampilkan atau disimpan). Model TTS kadang membacakan instruksi gaya, jadi bawaan produksi adalah teks saja; nada diatur lewat tanda baca. Satu video = 8 permintaan, sementara paket gratis hanya 10 permintaan/hari, jadi maksimal 1 video/hari. Script melanjutkan blok yang sudah ada dan menolak blok yang durasinya tidak wajar. `--satu-permintaan` masih **eksperimen** (model bisa menambah kalimat sendiri) dan tidak dipakai untuk video tayang.
 2. Cek: tiap blok berdurasi ≈ jumlah kata / 2,3 detik (±30%), audio tidak kosong, dan instruksi gaya tidak ikut terbaca.
 3. Simpan MP3 ke `public/vo/<slug>.mp3` dan salin `waktu.json` ke `produksi/<slug>/vo-waktu.json`.
 4. Set `status.json` ke `vo-siap`.
