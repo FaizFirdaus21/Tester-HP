@@ -12,11 +12,15 @@ Keluaran:
 Melanjutkan: blok_XX.wav yang sudah ada dan masih cocok dengan naskah (model, suara,
 gaya, teks sama) dipakai ulang tanpa memanggil API. Hapus file blok untuk membuat ulang.
 
---satu-permintaan: semua blok yang belum ada dikirim dalam SATU request (gaya per blok
-ditulis di bagian instruksi), lalu audionya dipotong per blok di titik jeda/sunyi.
-Hemat kuota (paket gratis hanya ~10 request/hari), tapi pemotongan bisa gagal kalau
-jeda antar-paragraf tidak jelas; script berhenti dengan pesan, audio mentahnya disimpan
-di vo_mentah.wav, dan cara per blok tetap bisa dipakai.
+Pemeriksa durasi: model TTS kadang ikut membacakan instruksi gaya. Blok yang terlalu
+panjang untuk jumlah katanya (> kata/2,3 x 1,6 + 1,5 detik) dibuat ulang sekali tanpa
+instruksi gaya; kalau masih terlalu panjang, script berhenti tanpa menyimpan blok itu.
+--tanpa-gaya: langsung kirim teks saja (nada diatur lewat tanda baca), paling hemat kuota.
+
+--satu-permintaan (EKSPERIMEN, tidak disarankan): semua blok yang belum ada dikirim dalam
+SATU request, lalu audionya dipotong di titik sunyi. Uji nyata 2026-11-10: model
+menambahkan kalimat yang tidak ada di naskah dan jeda antar-paragraf tidak lebih panjang
+dari jeda biasa, sehingga pemotongan salah. Jangan dipakai untuk video yang akan tayang.
 
 Key: disarankan disimpan sebagai Network secret untuk host generativelanguage.googleapis.com
 (header x-goog-api-key), sehingga proxy menyisipkannya dan key tidak pernah terlihat di sesi.
@@ -37,7 +41,7 @@ from array import array
 
 API = "https://generativelanguage.googleapis.com/v1beta"
 RATE = 24000  # Gemini TTS mengeluarkan PCM 16-bit mono 24 kHz
-VERSI_PROMPT = 2  # naikkan kalau cara menyusun prompt berubah, agar cache lama tidak dipakai
+VERSI_PROMPT = 3  # naikkan kalau cara menyusun prompt berubah, agar cache lama tidak dipakai
 
 
 def panggil(url, data=None):
@@ -127,6 +131,12 @@ def simpan(path, pcm):
 def kunci(model, suara, gaya, teks):
     isi = json.dumps([VERSI_PROMPT, model, suara, gaya.strip(), teks.strip()], ensure_ascii=False)
     return hashlib.sha1(isi.encode()).hexdigest()
+
+
+def wajar(detik, kata):
+    """Durasi masuk akal untuk jumlah kata? (patokan 2,3 kata/detik)"""
+    harap = kata / 2.3
+    return 0.4 * harap <= detik <= 1.6 * harap + 1.5
 
 
 def baca_cache(out, i, k):
@@ -253,7 +263,8 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("naskah")
     ap.add_argument("out")
-    ap.add_argument("--satu-permintaan", action="store_true", help="kirim semua blok yang belum ada dalam satu request")
+    ap.add_argument("--satu-permintaan", action="store_true", help="EKSPERIMEN: semua blok dalam satu request (lihat catatan di atas)")
+    ap.add_argument("--tanpa-gaya", action="store_true", help="kirim teks saja, tanpa instruksi gaya")
     arg = ap.parse_args(argv)
 
     naskah = json.load(open(arg.naskah))
@@ -266,32 +277,48 @@ def main(argv=None):
     gaya = [(gaya_umum + " " + b["gaya"]).strip() for b in blok]
 
     model = naskah.get("model")
-    kunci_blok = [kunci(model, suara, g, b["teks"]) for g, b in zip(gaya, blok)] if model else None
-    pcm = [baca_cache(out, i, k) for i, k in enumerate(kunci_blok)] if model else [None] * len(blok)
+    kata = [len(b["teks"].split()) for b in blok]
+
+    def dari_cache(i):
+        for g in (gaya[i], ""):  # blok bisa dibuat dengan atau tanpa instruksi gaya
+            p = baca_cache(out, i, kunci(model, suara, g, blok[i]["teks"]))
+            if p is not None and wajar(len(p) / 2 / RATE, kata[i]):
+                return p
+        return None
+
+    pcm = [dari_cache(i) for i in range(len(blok))] if model else [None] * len(blok)
     for i, p in enumerate(pcm):
         if p is not None:
             print(f"blok {i}: pakai yang sudah ada ({len(p) / 2 / RATE:.2f} s)")
     kurang = [i for i, p in enumerate(pcm) if p is None]
     if kurang:
         model = pilih_model(model)
-        kunci_blok = [kunci(model, suara, g, b["teks"]) for g, b in zip(gaya, blok)]
 
     if kurang and arg.satu_permintaan and len(kurang) > 1:
         print(f"satu request untuk blok {kurang}")
         mentah = tts(model, suara, prompt_gabungan(gaya_umum, [blok[i] for i in kurang]))
         simpan(os.path.join(out, "vo_mentah.wav"), mentah)
         try:
-            seg = potong(mentah, [len(blok[i]["teks"].split()) for i in kurang])
+            seg = potong(mentah, [kata[i] for i in kurang])
         except ValueError as e:
             sys.exit(f"Gagal memotong audio gabungan: {e}. Audio mentah: {out}/vo_mentah.wav. "
                      "Coba lagi atau jalankan tanpa --satu-permintaan.")
         for i, (a, b) in zip(kurang, seg):
             pcm[i] = iris(mentah, a, b)
-            simpan_blok(out, i, kunci_blok[i], pcm[i])
+            simpan_blok(out, i, kunci(model, suara, gaya[i], blok[i]["teks"]), pcm[i])
     else:
         for i in kurang:
-            pcm[i] = tts(model, suara, prompt(gaya[i], blok[i]["teks"]))
-            simpan_blok(out, i, kunci_blok[i], pcm[i])
+            g = "" if arg.tanpa_gaya else gaya[i]
+            p = tts(model, suara, prompt(g, blok[i]["teks"]))
+            if not wajar(len(p) / 2 / RATE, kata[i]) and g:
+                print(f"blok {i}: {len(p) / 2 / RATE:.1f} s untuk {kata[i]} kata, instruksi gaya diduga ikut "
+                      "terbaca; ulang tanpa instruksi gaya")
+                g = ""
+                p = tts(model, suara, prompt(g, blok[i]["teks"]))
+            if not wajar(len(p) / 2 / RATE, kata[i]):
+                sys.exit(f"blok {i}: durasi {len(p) / 2 / RATE:.1f} s tidak wajar untuk {kata[i]} kata; blok tidak disimpan.")
+            pcm[i] = p
+            simpan_blok(out, i, kunci(model, suara, g, blok[i]["teks"]), p)
 
     semua, waktu, t = b"", [], 0.0
     for i, b in enumerate(blok):

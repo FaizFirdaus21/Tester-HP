@@ -99,6 +99,8 @@ def main():
 
     # 5. main() menyeluruh dengan tts tiruan: satu request, lalu cache dipakai ulang
     panggilan = []
+    mode = {"baca_instruksi": False}
+    naskah_kini = naskah
 
     def palsu(model, suara, teks_prompt):
         panggilan.append(teks_prompt)
@@ -106,7 +108,13 @@ def main():
             jumlah = teks_prompt.count("\nParagraf ")
             sub = kata[n - jumlah:]
             return buat(sub, random.Random(6), [1.3] * (len(sub) - 1), {})[0]
-        return buat([10], random.Random(7), [], {})[0]
+        for blk in naskah_kini["blok"]:
+            if teks_prompt.endswith(blk["teks"]):
+                jml = len(blk["teks"].split())
+                if mode["baca_instruksi"] and teks_prompt != blk["teks"]:
+                    jml += 40  # model ikut membacakan instruksi gaya
+                return buat([jml], random.Random(7), [], {})[0]
+        raise AssertionError("prompt tidak dikenal")
 
     t.tts = palsu
     with tempfile.TemporaryDirectory() as d:
@@ -139,9 +147,44 @@ def main():
         ubah["blok"][0]["teks"] += " Tambahan."
         jalur = os.path.join(d, "naskah.json")
         json.dump(ubah, open(jalur, "w"), ensure_ascii=False)
+        naskah_kini = ubah
         t.main([jalur, d])
         assert len(panggilan) == 3 and ubah["blok"][0]["teks"] in panggilan[2]
         print("ok  teks berubah: hanya blok 0 dibuat ulang")
+
+    # 6. pemeriksa durasi: model membacakan instruksi -> ulang tanpa gaya, cache mengenalinya
+    naskah_kini = naskah
+    mode["baca_instruksi"] = True
+    with tempfile.TemporaryDirectory() as d:
+        panggilan.clear()
+        t.main([NASKAH, d])
+        assert len(panggilan) == 2 * n, len(panggilan)
+        assert all(panggilan[k] == naskah["blok"][k // 2]["teks"] for k in range(1, 2 * n, 2)), "ulangan harus teks saja"
+        w = json.load(open(os.path.join(d, "waktu.json")))
+        assert all(t.wajar(b["durasi"], kata[b["blok"]]) for b in w["blok"])
+        print(f"ok  instruksi terbaca -> {n} blok diulang tanpa gaya, semua durasi wajar")
+        t.main([NASKAH, d])
+        assert len(panggilan) == 2 * n
+        print("ok  blok tanpa gaya dipakai ulang dari cache")
+
+    # 7. --tanpa-gaya: satu request per blok, prompt = teks saja
+    with tempfile.TemporaryDirectory() as d:
+        panggilan.clear()
+        t.main([NASKAH, d, "--tanpa-gaya"])
+        assert panggilan == [b["teks"] for b in naskah["blok"]]
+        print(f"ok  --tanpa-gaya: {n} request, teks saja")
+
+    # 8. blok tetap terlalu panjang -> berhenti, blok tidak disimpan
+    def selalu_panjang(model, suara, teks_prompt):
+        return buat([60], random.Random(8), [], {})[0]
+    t.tts = selalu_panjang
+    with tempfile.TemporaryDirectory() as d:
+        try:
+            t.main([NASKAH, d])
+            raise AssertionError("seharusnya berhenti")
+        except SystemExit as e:
+            assert "tidak wajar" in str(e) and not os.path.exists(os.path.join(d, "blok_00.wav"))
+            print("ok  durasi tetap tidak wajar -> berhenti, tidak disimpan")
     print("semua uji lolos")
 
 

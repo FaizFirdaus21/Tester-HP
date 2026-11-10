@@ -1,6 +1,6 @@
 {
   "slug": "20261109-bunga-deposito-lps",
   "tahap": "naskah-siap",
-  "catatan": "Naskah direvisi (hook 5 kata ≈2 detik; pola 'Salah.' diganti kalimat langsung sesuai skill social/copywriting). 143 kata, 8 blok. Semua host web (termasuk lps.go.id, bi.go.id, tiktok/youtube/instagram, Google Trends) diblokir untuk fetch; sumber primer dicek via cuplikan WebSearch berdomain resmi. Bukti performa sosial seluruh kandidat 'tidak terverifikasi'. Lihat fakta.json → catatan_akses.",
-  "diperbarui": "2026-11-09T15:16:25Z"
+  "catatan": "Naskah direvisi (hook 5 kata ≈2 detik; pola 'Salah.' diganti kalimat langsung sesuai skill social/copywriting). 143 kata, 8 blok. Semua host web (termasuk lps.go.id, bi.go.id, tiktok/youtube/instagram, Google Trends) diblokir untuk fetch; sumber primer dicek via cuplikan WebSearch berdomain resmi. Bukti performa sosial seluruh kandidat 'tidak terverifikasi'. Lihat fakta.json → catatan_akses. | VO 2026-11-10: tertunda. Kuota gemini-3.8-flash-tts hari ini habis (9/10 terpakai untuk VO inflasi yang gagal: mode satu-permintaan menambah kalimat di luar naskah, mode per blok membacakan instruksi gaya). Script kini punya pemeriksa durasi dan --tanpa-gaya; VO dibuat setelah kuota reset.",
+  "diperbarui": "2026-11-10T08:41:36Z"
 }
