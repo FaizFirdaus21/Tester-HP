@@ -54,6 +54,7 @@ with tempfile.TemporaryDirectory() as d:
     s = json.load(open(os.path.join(prod, "status.json")))
     assert v["audio"] == "vo/bunga-deposito-lps.mp3" and v["blok"][1]["teks"] == "Dua."
     assert os.path.exists(os.path.join(d, "public/vo/bunga-deposito-lps.mp3"))
+    assert s["catatan"].startswith("lama | VO ")
     assert s["tahap"] == "vo-siap" and s["slug"] == "20261109-bunga-deposito-lps" and s["diperbarui"].endswith("Z")
     print("ok  --slug bunga-deposito-lps -> public/vo/bunga-deposito-lps.mp3, vo-waktu.json, status vo-siap")
 

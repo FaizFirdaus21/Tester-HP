@@ -65,7 +65,8 @@ def main(argv=None):
         jalur = os.path.join(folder, "status.json")
         status = json.load(open(jalur)) if os.path.exists(jalur) else {"slug": os.path.basename(folder)}
         status["tahap"] = "vo-siap"
-        status["catatan"] = f"VO {data['total']} detik, {len(data['blok'])} blok, {data['audio']} ({w['model']}, suara {w['suara']})."
+        lama = status.get("catatan", "")
+        status["catatan"] = (lama + " | " if lama else "") + f"VO {data['total']} detik, {len(data['blok'])} blok, {data['audio']} ({w['model']}, suara {w['suara']})."
         status["diperbarui"] = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         json.dump(status, open(jalur, "w"), indent=2, ensure_ascii=False)
         open(jalur, "a").write("\n")
