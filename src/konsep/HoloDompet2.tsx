@@ -27,7 +27,7 @@ export const P = {
   hijau: "#4CC38A",
 };
 
-const H = {
+export const H = {
   angka: '"Bricolage Grotesque", sans-serif',
   serif: '"Instrument Serif", serif',
   mono: '"IBM Plex Mono", monospace',
@@ -141,7 +141,7 @@ const teksturMukaKartu = () =>
     }
   });
 
-const useTekstur = () =>
+export const useTekstur = () =>
   useMemo(
     () => ({
       muka: (() => {
@@ -166,10 +166,10 @@ const useTekstur = () =>
     }),
     [],
   );
-type Tekstur = ReturnType<typeof useTekstur>;
+export type Tekstur = ReturnType<typeof useTekstur>;
 
 // ---------- objek 3D ----------
-const Koin2: React.FC<{ tx: Tekstur; warna?: string }> = ({ tx, warna = P.amber }) => {
+export const Koin2: React.FC<{ tx: Tekstur; warna?: string }> = ({ tx, warna = P.amber }) => {
   const sisi = <meshStandardMaterial attach="material-0" color={warna} metalness={1} roughness={0.32} bumpMap={tx.gerigi} bumpScale={1.2} />;
   const muka = (i: number) => (
     <meshStandardMaterial attach={`material-${i}`} color={warna} metalness={1} roughness={0.28} roughnessMap={tx.muka} bumpMap={tx.muka} bumpScale={2.2} />
@@ -184,14 +184,14 @@ const Koin2: React.FC<{ tx: Tekstur; warna?: string }> = ({ tx, warna = P.amber 
   );
 };
 
-const BayanganKontak: React.FC<{ tx: Tekstur; x?: number; z?: number; s: number; o?: number }> = ({ tx, x = 0, z = 0, s, o = 0.8 }) => (
+export const BayanganKontak: React.FC<{ tx: Tekstur; x?: number; z?: number; s: number; o?: number }> = ({ tx, x = 0, z = 0, s, o = 0.8 }) => (
   <mesh rotation={[-Math.PI / 2, 0, 0]} position={[x, -2.19, z]}>
     <planeGeometry args={[s, s]} />
     <meshBasicMaterial map={tx.bayangan} transparent opacity={o} depthWrite={false} />
   </mesh>
 );
 
-const Lantai: React.FC<{ tx: Tekstur }> = ({ tx }) => (
+export const Lantai: React.FC<{ tx: Tekstur }> = ({ tx }) => (
   <group position={[0, -2.2, 0]}>
     <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
       <planeGeometry args={[40, 40]} />
@@ -214,7 +214,7 @@ const Lantai: React.FC<{ tx: Tekstur }> = ({ tx }) => (
 );
 
 /** Meteran bergaya instrumen: segmen-segmen kecil, bukan busur polos. */
-const Meteran: React.FC<{ tx: Tekstur; isi: number; f: number }> = ({ tx, isi, f }) => {
+export const Meteran: React.FC<{ tx: Tekstur; isi: number; f: number }> = ({ tx, isi, f }) => {
   const N = 48;
   const nilaiJarum = 6 * isi;
   const sudut = (p: number) => Math.PI * (1 - p / 6);
@@ -256,7 +256,7 @@ const Meteran: React.FC<{ tx: Tekstur; isi: number; f: number }> = ({ tx, isi, f
   );
 };
 
-const Kartu: React.FC<{ tx: Tekstur }> = ({ tx }) => (
+export const Kartu: React.FC<{ tx: Tekstur }> = ({ tx }) => (
   <group>
     <mesh castShadow>
       <boxGeometry args={[3.2, 2.0, 0.05]} />
@@ -275,7 +275,7 @@ const Kartu: React.FC<{ tx: Tekstur }> = ({ tx }) => (
 
 // ---------- lapisan 2D ----------
 /** Butiran film: bintik gelap dan terang beralfa rendah (tanpa mix-blend, karena blend tidak bekerja di atas kanvas WebGL). */
-const Butiran: React.FC<{ f: number }> = ({ f }) => (
+export const Butiran: React.FC<{ f: number }> = ({ f }) => (
   <AbsoluteFill style={{ pointerEvents: "none" }}>
     <svg width="1080" height="1920">
       <filter id="butirGelap" x="0" y="0" width="100%" height="100%">
@@ -292,7 +292,7 @@ const Butiran: React.FC<{ f: number }> = ({ f }) => (
   </AbsoluteFill>
 );
 
-const TandaSudut: React.FC = () => {
+export const TandaSudut: React.FC = () => {
   const s = (x: number, y: number, rx: number, ry: number) => (
     <div style={{ position: "absolute", left: x, top: y, width: 34, height: 34, borderLeft: rx ? undefined : `2px solid ${P.abu}`, borderRight: rx ? `2px solid ${P.abu}` : undefined, borderTop: ry ? undefined : `2px solid ${P.abu}`, borderBottom: ry ? `2px solid ${P.abu}` : undefined, opacity: 0.55 }} />
   );
@@ -307,7 +307,7 @@ const TandaSudut: React.FC = () => {
 };
 
 /** Penggaris vertikal di tepi kiri: detail kecil yang membuat bingkai terasa seperti alat ukur. */
-const Penggaris: React.FC<{ f: number }> = ({ f }) => (
+export const Penggaris: React.FC<{ f: number }> = ({ f }) => (
   <div style={{ position: "absolute", left: 52, top: 300, height: 900, width: 40, overflow: "hidden", opacity: 0.5 }}>
     <div style={{ transform: `translateY(${-(f * 1.2) % 60}px)` }}>
       {Array.from({ length: 22 }).map((_, i) => (
@@ -320,7 +320,7 @@ const Penggaris: React.FC<{ f: number }> = ({ f }) => (
   </div>
 );
 
-const Kepala: React.FC<{ bab: number; judul: string }> = ({ bab, judul }) => (
+export const Kepala: React.FC<{ bab: number; judul: string }> = ({ bab, judul }) => (
   <div style={{ position: "absolute", left: 110, right: 110, top: 112, display: "flex", justifyContent: "space-between", fontFamily: H.mono, fontWeight: 500, fontSize: 22, letterSpacing: "0.16em", color: P.abu }}>
     <span>
       <span style={{ color: P.amber }}>●</span>&nbsp; INTIPDOMPET / BAB {String(bab).padStart(2, "0")}
@@ -329,7 +329,7 @@ const Kepala: React.FC<{ bab: number; judul: string }> = ({ bab, judul }) => (
   </div>
 );
 
-const Kaki: React.FC<{ sumber: string }> = ({ sumber }) => (
+export const Kaki: React.FC<{ sumber: string }> = ({ sumber }) => (
   <div style={{ position: "absolute", left: 110, right: 110, top: 1752, display: "flex", justifyContent: "space-between", fontFamily: H.mono, fontSize: 18, letterSpacing: "0.12em", color: P.abu, opacity: 0.8 }}>
     <span>{sumber}</span>
     <span>KONTEN EDUKASI</span>
@@ -337,7 +337,7 @@ const Kaki: React.FC<{ sumber: string }> = ({ sumber }) => (
 );
 
 /** Pelat label: sudut terpotong, garis 1px, bayangan jatuh realistis (bukan glow). */
-const Pelat: React.FC<{ x: number; y: number; w: number; kode: string; label: string; muncul: number; aksen?: string; children: React.ReactNode }> = ({ x, y, w, kode, label, muncul, aksen = P.amber, children }) => (
+export const Pelat: React.FC<{ x: number; y: number; w: number; kode: string; label: string; muncul: number; aksen?: string; children: React.ReactNode }> = ({ x, y, w, kode, label, muncul, aksen = P.amber, children }) => (
   <div style={{ position: "absolute", left: x, top: y, width: w, opacity: muncul, transform: `translateY(${(1 - muncul) * 24}px)`, filter: "drop-shadow(0 22px 26px rgba(0,0,0,0.55)) drop-shadow(0 2px 3px rgba(0,0,0,0.6))" }}>
     <div
       style={{
@@ -356,14 +356,14 @@ const Pelat: React.FC<{ x: number; y: number; w: number; kode: string; label: st
   </div>
 );
 
-const Subtitel: React.FC<{ teks: string }> = ({ teks }) => (
+export const Subtitel: React.FC<{ teks: string }> = ({ teks }) => (
   <>
     <div style={{ position: "absolute", left: 0, right: 0, top: 1280, height: 260, background: "linear-gradient(180deg, transparent, rgba(7,9,15,0.7) 40%, rgba(7,9,15,0.7) 70%, transparent)" }} />
     <div style={{ position: "absolute", left: 110, right: 110, top: 1340, textAlign: "center", fontFamily: H.angka, fontWeight: 600, fontSize: 46, lineHeight: 1.28, color: P.kertas, fontVariationSettings: '"opsz" 32' }}>{teks}</div>
   </>
 );
 
-const angkaGaya: React.CSSProperties = {
+export const angkaGaya: React.CSSProperties = {
   fontFamily: H.angka,
   fontWeight: 700,
   fontVariationSettings: '"opsz" 96',
