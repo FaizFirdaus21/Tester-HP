@@ -1,6 +1,6 @@
 // Deposito v2 (pilot struktur edukatif 7 blok) dengan template Papan Kapur.
 // Naskah: produksi/20261109-bunga-deposito-lps/naskah-vo-v2.json. Satu blok = satu bagian papan:
-//   A hook · B penjelasan (batas 3,75% + 14 BPR) · C perumpamaan (sketsa garansi HP) · D efek · E akibat · F solusi · G CTA (lebar 2 kolom)
+//   A hook · B penjelasan (batas 3,75% + bank bisa tutup) · C perumpamaan (sketsa garansi HP) · D efek · E akibat · F solusi · G CTA (lebar 2 kolom)
 //
 // Sinkron: padaFrasa + jangkar jeda kalimat dari audio. vo-waktu.json di folder ini dibuat dengan:
 //   python3 scripts/sinkron_vo.py produksi/20261109-bunga-deposito-lps/vo-waktu-v2.json src/produksi/bunga-deposito-lps-v2/vo-waktu.json
@@ -177,22 +177,15 @@ const IsiPapan: React.FC = () => {
       <Coret pts={garis(gx(3.75), gy - 4, gx(6), gy - 4, 22, 1)} mulai={W(1, "setahun")} lama={10} tebal={16} warna={k.merah} kapur={false} />
       <Tulis x={(gx(3.75) + gx(6)) / 2} y={gy - 56} teks="tidak dijamin" ukuran={40} warna={k.merah} mulai={W(1, "setahun") + 8} perHuruf={1.2} rata="center" />
       <Tulis x={B.x} y={gy + 125} teks="berlaku s.d. 31 Jan 2027" ukuran={38} gaya="tipis" warna={k.biru} mulai={W(1, "setahun", 0.4)} perHuruf={1} rata="center" />
-      {Array.from({ length: 14 }).map((_, i) => {
-        const cx = B.x0 + 180 + (i % 7) * 120;
-        const cy = B.y0 + (i < 7 ? 935 : 1020);
-        const muncul = W(1, "Hingga") + i * 3;
-        const silang = W(1, "dilikuidasi", -0.5) + Math.round(i * 1.2);
-        return (
-          <React.Fragment key={i}>
-            {ikonBank(cx, cy, 72, i * 7).map((pts, j) => (
-              <Coret key={j} pts={pts} mulai={muncul + j} lama={6} tebal={3.5} kapur={false} />
-            ))}
-            <Coret pts={garis(cx - 38, cy + 34, cx + 38, cy - 38, i + 70, 2)} mulai={silang} lama={5} warna={k.merah} tebal={5} kapur={false} />
-          </React.Fragment>
-        );
-      })}
-      <Tulis x={B.x} y={B.y0 + 1105} teks="14 BPR & BPRS dilikuidasi" ukuran={56} gaya="tebal" warna={k.kuning} mulai={W(1, "empat belas")} perHuruf={1.2} rata="center" />
-      <Tulis x={B.x} y={B.y0 + 1165} teks="Jan–Okt 2026 · sumber: KSSK, 3 Nov 2026" ukuran={32} gaya="tipis" warna={k.biru} mulai={W(1, "empat belas", 0.6)} perHuruf={0.6} rata="center" />
+      {/* bank kecil dengan pintu tertutup dan papan TUTUP */}
+      {ikonBank(B.x - 120, B.y0 + 985, 210, 17).map((pts, j) => (
+        <Coret key={j} pts={pts} mulai={W(1, "Dan bank", -0.2) + j * 2} lama={8} tebal={5} kapur={j === 0} />
+      ))}
+      <Coret pts={kotak(B.x - 150, B.y0 + 1000, 60, 80, 18)} mulai={W(1, "Dan bank", -0.2) + 14} lama={8} tebal={4} kapur={false} />
+      <Coret pts={garis(B.x + 30, B.y0 + 940, B.x + 140, B.y0 + 900, 19, 1)} mulai={W(1, "bisa tutup", -0.3)} lama={5} tebal={3} kapur={false} />
+      <Coret pts={kotakPutar(B.x + 212, B.y0 + 946, 230, 86, -8)} mulai={W(1, "bisa tutup", -0.2)} lama={10} warna={k.merah} tebal={6} />
+      <Tulis x={B.x + 210} y={B.y0 + 960} teks="TUTUP" ukuran={60} gaya="tebal" warna={k.merah} mulai={W(1, "bisa tutup")} perHuruf={1.6} rata="center" miring={-8} />
+      <Tulis x={B.x} y={B.y0 + 1150} teks="bank bisa tutup" ukuran={64} gaya="tebal" mulai={W(1, "Dan bank")} perHuruf={1.4} rata="center" />
 
       {/* ===== C: perumpamaan — sketsa garansi HP ===== */}
       <Tulis x={C.x} y={C.y0 + 220} teks="Mirip garansi HP" ukuran={92} gaya="hias" warna={k.biru} mulai={W(2, "Mirip")} perHuruf={1.6} rata="center" />
@@ -235,7 +228,7 @@ const IsiPapan: React.FC = () => {
         kapur={false}
       />
       <Tulis x={E.x0 + 345} y={E.y0 + 600} teks="Rp10 juta" ukuran={78} gaya="tebal" warna={k.kuning} mulai={W(4, "sepuluh juta")} perHuruf={1.8} rata="center" />
-      <Tulis x={E.x0 + 345} y={E.y0 + 720} teks="bunga 6% · contoh" ukuran={46} warna={k.biru} mulai={W(4, "bunga enam")} perHuruf={1.2} rata="center" />
+      <Tulis x={E.x0 + 345} y={E.y0 + 790} teks="bank umum · bunga 6% · contoh" ukuran={40} warna={k.biru} mulai={W(4, "bunga enam")} perHuruf={1.2} rata="center" />
       {/* bank dengan pintu tertutup */}
       {ikonBank(E.x0 + 820, E.y0 + 500, 250, 61).map((pts, j) => (
         <Coret key={j} pts={pts} mulai={W(4, "Kalau banknya", -0.3) + j * 2} lama={8} tebal={5} kapur={j === 0} />
@@ -252,13 +245,16 @@ const IsiPapan: React.FC = () => {
       <Coret pts={kotak(F.x0 + 110, F.y0 + 450, 80, 80, 50)} mulai={W(5, "Bunga plus", -0.3)} lama={10} tebal={5} kapur={false} />
       <Tulis x={F.x0 + 230} y={F.y0 + 470} teks="bunga + cashback" ukuran={66} mulai={W(5, "Bunga plus")} perHuruf={1.3} />
       <Tulis x={F.x0 + 230} y={F.y0 + 570} teks="≤ 3,75%" ukuran={92} gaya="tebal" warna={k.kuning} mulai={W(5, "tiga koma")} perHuruf={2.2} tebalFilter />
-      <Coret pts={centang(F.x0 + 125, F.y0 + 485, 1.1)} mulai={W(5, "persen", 0.2)} lama={8} warna={k.hijauTerang} tebal={9} />
-      <Coret pts={kotak(F.x0 + 110, F.y0 + 720, 80, 80, 60)} mulai={W(5, "Dan total", -0.3)} lama={10} tebal={5} kapur={false} />
-      <Tulis x={F.x0 + 230} y={F.y0 + 740} teks="saldo di 1 bank" ukuran={66} mulai={W(5, "Dan total")} perHuruf={1.3} />
-      <Tulis x={F.x0 + 230} y={F.y0 + 850} teks="≤ Rp2 miliar" ukuran={100} gaya="tebal" warna={k.kuning} mulai={W(5, "dua miliar")} perHuruf={2.2} tebalFilter />
-      <Coret pts={centang(F.x0 + 125, F.y0 + 755, 1.1)} mulai={W(5, "rupiah", 0.1)} lama={8} warna={k.hijauTerang} tebal={9} />
-      <Tulis x={F.x} y={F.y0 + 1070} teks="cek: kalkulator 3T LPS" ukuran={48} gaya="tipis" warna={k.biru} mulai={W(5, "persen", 0.6)} perHuruf={1} rata="center" />
-      <Coret pts={garis(F.x - 250, F.y0 + 1110, F.x + 250, F.y0 + 1106, 71, 3)} mulai={W(5, "persen", 0.6) + 22} lama={10} warna={k.biru} tebal={4} kapur={false} />
+      <Tulis x={F.x0 + 600} y={F.y0 + 585} teks="bank umum" ukuran={44} gaya="tipis" warna={k.biru} mulai={W(5, "di bank umum")} perHuruf={1} />
+      <Tulis x={F.x0 + 230} y={F.y0 + 670} teks="≤ 6,25%" ukuran={76} gaya="tebal" warna={k.kuning} mulai={W(5, "enam koma")} perHuruf={2} />
+      <Tulis x={F.x0 + 540} y={F.y0 + 680} teks="BPR" ukuran={44} gaya="tipis" warna={k.biru} mulai={W(5, "di be pe er")} perHuruf={1.2} />
+      <Coret pts={centang(F.x0 + 125, F.y0 + 485, 1.1)} mulai={W(5, "di be pe er", 0.4)} lama={8} warna={k.hijauTerang} tebal={9} />
+      <Coret pts={kotak(F.x0 + 110, F.y0 + 790, 80, 80, 60)} mulai={W(5, "Dan yang", -0.3)} lama={10} tebal={5} kapur={false} />
+      <Tulis x={F.x0 + 230} y={F.y0 + 810} teks="dijamin maks." ukuran={66} mulai={W(5, "Dan yang")} perHuruf={1.3} />
+      <Tulis x={F.x0 + 230} y={F.y0 + 920} teks="Rp2 miliar / bank" ukuran={92} gaya="tebal" warna={k.kuning} mulai={W(5, "dua miliar")} perHuruf={1.8} tebalFilter />
+      <Coret pts={centang(F.x0 + 125, F.y0 + 825, 1.1)} mulai={W(5, "per bank", 0.1)} lama={8} warna={k.hijauTerang} tebal={9} />
+      <Tulis x={F.x} y={F.y0 + 1090} teks="cek: kalkulator 3T LPS" ukuran={46} gaya="tipis" warna={k.biru} mulai={W(5, "Dan yang", -0.2)} perHuruf={1} rata="center" />
+      <Coret pts={garis(F.x - 240, F.y0 + 1128, F.x + 240, F.y0 + 1124, 71, 3)} mulai={W(5, "Dan yang", -0.2) + 22} lama={10} warna={k.biru} tebal={4} kapur={false} />
 
       {/* ===== G: CTA (kamera mundur, huruf besar) ===== */}
       <Tulis x={G.x} y={G.y0 + 320} teks="Bunga berapa?" ukuran={190} gaya="tebal" mulai={Math.max(W(6, "Kamu pernah"), d(T.b6 + 1.6))} perHuruf={2} rata="center" />
@@ -280,14 +276,14 @@ const IsiPapan: React.FC = () => {
 // Blok 0 tanpa subtitel: hook sudah tertulis besar.
 const TEKS_TAMPIL = [
   "",
-  "LPS cuma menjamin simpanan di bank umum yang bunganya maksimal 3,75% setahun. Hingga Oktober tahun ini, 14 BPR dan BPRS sudah dilikuidasi.",
+  "LPS cuma menjamin simpanan di bank umum yang bunganya maksimal 3,75% setahun. Dan bank memang bisa tutup.",
   "Mirip garansi HP. Segelnya dibongkar sedikit saja, garansi seluruh HP-nya hangus.",
   "Simpanan juga begitu: bunga plus cashback-nya lewat batas, simpanan itu nggak dijamin sama sekali, termasuk pokoknya.",
-  "Contohnya, kamu taruh Rp10 juta di bunga 6%. Kalau banknya tutup, Rp10 juta itu bisa nggak diganti LPS.",
-  "Sebelum taruh uang, cek dua hal. Bunga plus cashback-nya nggak lebih dari 3,75%. Dan total saldomu di satu bank maksimal Rp2 miliar.",
+  "Contohnya, kamu taruh Rp10 juta di bank umum dengan bunga 6%. Kalau banknya tutup, Rp10 juta itu bisa nggak diganti LPS.",
+  "Sebelum taruh uang, cek dua hal. Bunga plus cashback-nya nggak lebih dari 3,75% di bank umum, atau 6,25% di BPR. Dan yang dijamin cuma sampai Rp2 miliar per bank.",
   "Kamu pernah lihat deposito bunga berapa persen? Tulis angkanya di komen. Kirim ke teman yang lagi nyari deposito bunga tinggi.",
 ];
-const SUB: BarisSubtitel[] = subtitelDariBlok(J, TEKS_TAMPIL, 46).filter((s) => s.selesai - s.mulai > 0.2);
+const SUB: BarisSubtitel[] = subtitelDariBlok(J, TEKS_TAMPIL, 38).filter((s) => s.selesai - s.mulai > 0.2);
 
 const BarisSub: React.FC<{ teks: string; lama: number }> = ({ teks, lama }) => {
   const fr = useCurrentFrame();
