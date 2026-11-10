@@ -204,7 +204,7 @@ export const Coret: React.FC<{
           opacity={0.92}
         />
       </svg>
-      <Debu ujungPada={ujungPada} fr={fr} warna={warna} seed={Math.round(pts[0][0] + pts[0][1])} />
+      {kapur ? <Debu ujungPada={ujungPada} fr={fr} warna={warna} seed={Math.round(pts[0][0] + pts[0][1])} /> : null}
       <BatangKapur x={ujung[0]} y={ujung[1]} warna={warna} tampak={tampakKapur} />
     </>
   );
@@ -268,8 +268,9 @@ export const Tulis: React.FC<{
   rata?: "left" | "center" | "right";
   miring?: number;
   tebalFilter?: boolean;
+  // Batang kapur hanya untuk momen tertentu. Tulisan biasa muncul tanpa kapur supaya tidak mengganggu.
   kapur?: boolean;
-}> = ({ x, y, teks, ukuran = 80, gaya = "tangan", warna = k.putih, mulai, perHuruf = 2, rata = "left", miring = 0, tebalFilter, kapur = true }) => {
+}> = ({ x, y, teks, ukuran = 80, gaya = "tangan", warna = k.putih, mulai, perHuruf = 2, rata = "left", miring = 0, tebalFilter, kapur = false }) => {
   const fr = useCurrentFrame();
   const huruf = Array.from(teks);
   const lebarAwal = useMemo(() => huruf.map((_, i) => ukurLebar(huruf.slice(0, i).join(""), ukuran, gaya)), [teks, ukuran, gaya]);
@@ -331,7 +332,7 @@ export const Tulis: React.FC<{
           );
         })}
       </div>
-      <Debu ujungPada={ujungPada} fr={fr} warna={warna} seed={Math.round(x + y)} />
+      {kapur ? <Debu ujungPada={ujungPada} fr={fr} warna={warna} seed={Math.round(x + y)} /> : null}
       {ujung || tampakKapur > 0 ? (
         <BatangKapur x={(ujung ?? ujungPada(Math.min(fr, mulai + lama - 1)) ?? [kiri + lebarTotal, y])[0]} y={(ujung ?? [0, y + ukuran * 0.05])[1]} warna={warna} tampak={tampakKapur} skala={Math.max(0.7, Math.min(1.3, ukuran / 110))} />
       ) : null}

@@ -59,15 +59,32 @@ Nilai tiap kriteria 1–5, kalikan bobot, jumlahkan, lalu ubah ke skala 100.
 ### Keluaran riset
 1. `riset.md`: 10 ide terbaik dengan skor per kriteria, bukti tautan, lalu ide #1 terpilih beserta alasannya.
 2. `fakta.json`: semua angka di naskah beserta sumber primer dan tanggal akses. Klaim tanpa sumber tidak boleh masuk naskah.
-3. `naskah-vo.json`, dengan aturan:
-   - 120–150 kata (±45–60 detik), 6–8 blok.
-   - Blok 1 adalah hook berupa pertanyaan atau angka, terbaca dalam 2 detik.
-   - Alur: hook → data → salah kaprah → contoh sehari-hari → inti → kesimpulan → tagline **"IntipDompet. Urusan uang, kita intip."**
-   - Gaya merek: sapa "kamu", santai; tanpa kata "cuan", "auto kaya", "pasti untung"; tidak menyuruh membeli saham, kripto, atau produk tertentu; konten investasi ditutup dengan "konten edukasi, bukan ajakan membeli".
-   - Angka ditulis sebagai kata ("tiga koma dua tiga persen"), dan singkatan dieja sesuai cara baca.
-   - Tiap blok punya `gaya` (ekspresi) dan `visual` (kata kunci, angka, ide gambar untuk Director).
-   - Format: lihat `data/vo-inflasi.json`, ditambah `"model": "gemini-3.8-flash-tts"`.
+3. `naskah-vo.json`, dengan aturan di bagian **Struktur naskah** di bawah.
 4. Set `status.json` ke `naskah-siap`.
+
+### Struktur naskah (wajib)
+@intipdompet adalah media edukasi. Tiap video menjelaskan satu hal, apa efeknya, lalu apa yang bisa dilakukan penonton.
+
+| Blok | Isi | Panjang |
+|---|---|---|
+| 1. Hook | Pertanyaan, angka, atau pernyataan yang membuat penasaran. Harus terbaca dalam 2 detik dan langsung menyentuh dompet penonton. | 4–8 kata |
+| 2. Penjelasan | Apa yang terjadi, dengan data resmi (sumber di `fakta.json`). | 1–2 kalimat |
+| 3. Perumpamaan | Analogi sehari-hari yang sederhana (warung, kos, gaji, ojol, belanja bulanan) supaya orang awam paham tanpa istilah. | 1–2 kalimat |
+| 4. Efek | Apa yang berubah karena hal itu. | 1 kalimat |
+| 5. Akibat | Dampak langsung ke uang penonton, sebaiknya dengan contoh angka (diberi label "contoh"). | 1–2 kalimat |
+| 6. Solusi | Kalau topiknya masalah: 1–3 langkah konkret yang bisa dilakukan hari ini. Kalau bukan masalah: satu hal yang perlu diingat. Tidak menyuruh membeli produk tertentu. | 1–3 kalimat |
+| 7. CTA | Pertanyaan spesifik yang mudah dijawab di komentar, plus ajakan kirim/simpan, lalu tagline. | 2–3 kalimat |
+
+Aturan tambahan:
+- 120–150 kata (±50–60 detik), 7 blok sesuai tabel. Kalau topiknya sederhana, lebih pendek lebih baik.
+- Bahasa lisan anak muda Indonesia: sapa "kamu", kalimat pendek, satu ide per kalimat. Hindari istilah teknis; kalau terpaksa, langsung jelaskan dengan bahasa sehari-hari.
+- **CTA harus bisa dijawab dalam satu kata atau satu angka**, supaya orang mau komen. Contoh bagus: "Kamu pernah taruh deposito di bunga berapa? Tulis angkanya di komen." / "Tim nabung di bank atau di e-wallet? Komen di bawah." Lalu satu ajakan berbagi yang spesifik: "Kirim ke teman yang lagi nyari deposito bunga tinggi." Hindari CTA kosong seperti "Gimana menurutmu?" atau "Setuju?".
+- Tagline **"IntipDompet. Urusan uang, kita intip."** tetap diucapkan di blok 7, sebelum atau sesudah CTA.
+- Gaya merek: tanpa kata "cuan", "auto kaya", "pasti untung"; tidak menyuruh membeli saham, kripto, atau produk tertentu; konten investasi menyebut "konten edukasi, bukan ajakan membeli".
+- Hindari pola tulisan AI: "bukan X, tapi Y" sebagai kejutan, "Hasilnya? ...", daftar "tanpa X, tanpa Y, tanpa Z", dan frasa klise ("ternyata oh ternyata", "simak sampai habis").
+- Angka ditulis sebagai kata ("tiga koma dua tiga persen"), singkatan dieja sesuai cara baca.
+- Tiap blok punya `peran` (salah satu dari 7 peran di atas), `gaya` (ekspresi), `teks`, dan `visual` (kata kunci, angka, ide gambar untuk Director).
+- Format: lihat `data/vo-inflasi.json`, ditambah `"model"` dan kolom `peran`.
 
 ## 2. VO
 1. `python3 scripts/tts_gemini.py produksi/<slug>/naskah-vo.json produksi/<slug>/vo --tanpa-gaya` (mode per blok; key dari `GEMINI_API_KEY`, jangan pernah ditampilkan atau disimpan). Model TTS kadang membacakan instruksi gaya, jadi bawaan produksi adalah teks saja; nada diatur lewat tanda baca. Satu video = 8 permintaan, sementara paket gratis hanya 10 permintaan/hari, jadi maksimal 1 video/hari. Script melanjutkan blok yang sudah ada dan menolak blok yang durasinya tidak wajar. `--satu-permintaan` masih **eksperimen** (model bisa menambah kalimat sendiri) dan tidak dipakai untuk video tayang.
@@ -77,7 +94,10 @@ Nilai tiap kriteria 1–5, kalikan bobot, jumlahkan, lalu ubah ke skala 100.
 
 ## 3. Director
 1. Baca `naskah-vo.json` (termasuk kolom `visual`), `vo-waktu.json`, dan `fakta.json`.
-2. Gaya bawaan: **template Buku Catatan** (`src/catatan/`, panduan di `docs/gaya-buku-catatan.md`). Gaya lain boleh kalau isinya menuntut, tapi tulis alasannya.
+2. Gaya bawaan: **template Papan Kapur** (`src/papan/`, contoh lengkap `src/papan/demo/DepositoPapan.tsx`, tekstur dari `scripts/buat_tekstur_papan.py`). Template Buku Catatan (`src/catatan/`) tetap tersedia sebagai cadangan. Aturan Papan Kapur:
+   - Batang kapur hanya muncul saat **mencoret, melingkari, menggambar, menandai, atau menggaris bawahi** (`Coret`, `Panah`, atau `Tulis kapur`). Tulisan biasa muncul tanpa batang kapur.
+   - Efek 2,5D (`Angkat`, kamera miring) dipakai sesekali untuk momen penting saja, maksimal 2–3 kali per video.
+   - Satu blok naskah = satu bagian papan. Blok "Perumpamaan" sebaiknya digambar (sketsa kapur), bukan hanya ditulis.
 3. Buat `src/produksi/<slug>/Video.tsx` dan daftarkan di `src/Root.tsx`. Setiap tulisan dan coretan disinkron dengan waktu blok VO, dan audio dipasang.
 4. Rencanakan seperti sutradara: satu ide visual per blok, gerak kamera, transisi, dan aset. Area aman: isi utama y 220–1200, subtitel tipis tanpa kotak di y 1300–1480 (default aktif), tidak ada yang penting di bawah 1500. Render pakai chrome-headless-shell (`--browser-executable`), karena unduhan browser Remotion diblokir.
 5. Buat storyboard dari frame asli: `node scripts/stills.mjs <Id> <dir> <frame,...> --browser <chrome-headless-shell>`, lalu susun jadi `storyboard.png`. Set status ke `storyboard-siap`. **Jangan render video** sebelum Orchestrator menyampaikan persetujuan user.
