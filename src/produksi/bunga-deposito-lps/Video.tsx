@@ -18,8 +18,9 @@ import { c, d, f } from "../../catatan/tema";
 // Blok VO yang dipakai. Membuang blok (mis. 3 = contoh Rp10 juta, 4 = 14 BPR) cukup dengan menghapus indeksnya:
 // audio blok itu tidak diputar, bagiannya hilang dari halaman, dan kamera menyesuaikan. Tidak perlu VO ulang.
 const BLOK_DIPAKAI = [0, 1, 2, 3, 4, 5, 6, 7];
-// true = angka lurus (lining) untuk semua tulisan di halaman; false = angka gaya lama seperti referensi.
-const ANGKA_LURUS = false;
+// Angka besar & judul memakai angka lurus (keputusan user: angka uang tidak boleh salah baca).
+// Catatan tangan kecil tetap angka gaya lama.
+const ANGKA_LURUS = true;
 // Jeda antar-blok (detik) setelah hening di ujung tiap blok TTS dibuang.
 const JEDA_BLOK = 0.4;
 
@@ -145,15 +146,15 @@ const Halaman: React.FC = () => {
 
       {/* ---------- teks B1 */}
       <Tulis x={B1[0] + 540} y={B1[1] + 470} rata="center" gaya="tinta" ukuran={140} mulai={8} perHuruf={2} teks="Deposito" />
-      <Tulis x={B1[0] + 540} y={B1[1] + 780} rata="center" gaya="tinta" ukuran={340} mulai={22} perHuruf={4} teks="6%" />
+      <Tulis x={B1[0] + 540} y={B1[1] + 780} rata="center" gaya="tinta" ukuran={340} mulai={22} perHuruf={4} teks="6%" angkaLurus={ANGKA_LURUS} />
       <Tulis x={B1[0] + 830} y={B1[1] + 600} gaya="tangan" ukuran={36} warna={c.tintaPudar} mulai={30} perHuruf={1} miring={-6} teks="(contoh)" />
       <Tulis x={B1[0] + 130} y={B1[1] + 1080} gaya="spidol" warna={c.merah} ukuran={120} mulai={F(0, "aman") - 4} perHuruf={2} teks="aman?" />
 
       {/* ---------- teks B2 */}
       <Tulis x={B2[0] + 540} y={B2[1] + 340} rata="center" gaya="spidol" warna={c.merah} ukuran={84} mulai={F(1, "Belum")} perHuruf={2} teks="Belum tentu." />
-      <Tulis x={B2[0] + 210} y={B2[1] + 470} rata="center" gaya="tinta" ukuran={96} mulai={F(1, "Belum")} perHuruf={2} warna={c.tintaPudar} teks="6%" />
+      <Tulis x={B2[0] + 210} y={B2[1] + 470} rata="center" gaya="tinta" ukuran={96} mulai={F(1, "Belum")} perHuruf={2} warna={c.tintaPudar} teks="6%" angkaLurus={ANGKA_LURUS} />
       <Stempel x={B2[0] + 760} y={B2[1] + 470} teks="LPS · bank umum" mulai={F(1, "El pe es")} />
-      <Tulis x={B2[0] + 540} y={B2[1] + 650} rata="center" gaya="tinta" ukuran={230} mulai={F(1, "tiga koma")} perHuruf={3} teks="3,75%" />
+      <Tulis x={B2[0] + 540} y={B2[1] + 650} rata="center" gaya="tinta" ukuran={230} mulai={F(1, "tiga koma")} perHuruf={3} teks="3,75%" angkaLurus={ANGKA_LURUS} />
       <Tulis x={B2[0] + 540} y={B2[1] + 830} rata="center" gaya="tangan" ukuran={46} mulai={F(1, "setahun")} perHuruf={1} teks="batas bunga yang dijamin LPS" />
       <Tulis x={B2[0] + 540} y={B2[1] + 895} rata="center" gaya="tangan" ukuran={34} mulai={F(1, "sampai akhir")} perHuruf={1} warna={c.tintaPudar} teks="berlaku 1 Okt 2026 – 31 Jan 2027" />
       <Tulis x={B2[0] + xPersen(1.9)} y={B2[1] + 1010} rata="center" gaya="tangan" ukuran={34} mulai={F(1, "tiga koma", 0.6)} perHuruf={1} teks="dijamin" />
@@ -163,7 +164,7 @@ const Halaman: React.FC = () => {
         [3.75, "3,75%"],
         [6, "6%"],
       ].map(([v, t]) => (
-        <Tulis key={t as string} x={B2[0] + xPersen(v as number)} y={B2[1] + 1130} rata="center" gaya="serif" ukuran={40} mulai={F(1, "bunganya", 0.4)} perHuruf={1} teks={t as string} />
+        <Tulis key={t as string} x={B2[0] + xPersen(v as number)} y={B2[1] + 1130} rata="center" gaya="serif" ukuran={40} mulai={F(1, "bunganya", 0.4)} perHuruf={1} teks={t as string} angkaLurus={ANGKA_LURUS} />
       ))}
 
       {/* ---------- teks B3 */}
@@ -176,8 +177,8 @@ const Halaman: React.FC = () => {
       <Tulis x={B3[0] + 790} y={B3[1] + 1120} rata="center" gaya="tangan" ukuran={30} warna={c.tintaPudar} mulai={F(2, "aturan")} perHuruf={1} teks="sumber: FAQ LPS" />
 
       {/* ---------- teks B4 */}
-      <Tulis x={B4[0] + 372} y={B4[1] + 570} rata="center" gaya="tinta" ukuran={84} mulai={F(3, "sepuluh juta")} perHuruf={2} teks="Rp10 juta" />
-      <Tulis x={B4[0] + 540} y={B4[1] + 770} rata="center" gaya="tinta" ukuran={80} mulai={F(3, "bunga enam")} perHuruf={2} teks={[{ t: "bunga " }, { t: "6%", warna: c.merah }, { t: " > 3,75%" }]} />
+      <Tulis x={B4[0] + 372} y={B4[1] + 570} rata="center" gaya="tinta" ukuran={84} mulai={F(3, "sepuluh juta")} perHuruf={2} teks="Rp10 juta" angkaLurus={ANGKA_LURUS} />
+      <Tulis x={B4[0] + 540} y={B4[1] + 770} rata="center" gaya="tinta" ukuran={80} mulai={F(3, "bunga enam")} perHuruf={2} teks={[{ t: "bunga " }, { t: "6%", warna: c.merah }, { t: " > 3,75%" }]} angkaLurus={ANGKA_LURUS} />
       <Tulis x={B4[0] + 540} y={B4[1] + 885} rata="center" gaya="tangan" ukuran={50} mulai={F(3, "bisa nggak")} perHuruf={1} teks="bisa nggak diganti" />
       <Stempel x={B4[0] + 540} y={B4[1] + 1010} teks="cashback = bunga" mulai={F(3, "Cashback")} miring={-6} ukuran={52} />
       <Tulis x={B4[0] + 540} y={B4[1] + 1140} rata="center" gaya="tangan" ukuran={30} warna={c.tintaPudar} mulai={F(3, "Misalnya", 1)} perHuruf={1} teks="contoh hitungan, bukan data bank tertentu" />
@@ -185,7 +186,7 @@ const Halaman: React.FC = () => {
       {/* ---------- teks B5 */}
       <Tulis x={B5[0] + 540} y={B5[1] + 360} rata="center" gaya="serif" ukuran={86} mulai={F(4, "Dan bank")} perHuruf={2} teks="Bank bisa tutup" />
       {jumlahBank > 0 ? (
-        <div style={{ position: "absolute", left: B5[0] + 540, top: B5[1] + 950, transform: "translate(-50%, -50%)", fontFamily: f.tinta, fontSize: 170, letterSpacing: "0.04em", WebkitTextStroke: "0.035em currentColor", color: c.tinta }}>
+        <div style={{ position: "absolute", left: B5[0] + 540, top: B5[1] + 950, transform: "translate(-50%, -50%)", ...(ANGKA_LURUS ? { fontFamily: f.serif, fontWeight: 700, fontVariantNumeric: "lining-nums" } : { fontFamily: f.tinta, WebkitTextStroke: "0.035em currentColor" }), fontSize: 170, letterSpacing: "0.04em", color: c.tinta }}>
           {jumlahBank}
         </div>
       ) : null}
@@ -194,9 +195,9 @@ const Halaman: React.FC = () => {
 
       {/* ---------- teks B6 */}
       <Tulis x={B6[0] + 100} y={B6[1] + 350} gaya="spidol" warna={c.merah} ukuran={92} mulai={F(5, "cek dulu")} perHuruf={2} teks="Cek dulu:" />
-      <Tulis x={B6[0] + 190} y={B6[1] + 520} gaya="serif" ukuran={62} mulai={F(5, "bunga plus")} perHuruf={1} teks="bunga + cashback ≤ 3,75%" />
+      <Tulis x={B6[0] + 190} y={B6[1] + 520} gaya="serif" ukuran={62} mulai={F(5, "bunga plus")} perHuruf={1} teks="bunga + cashback ≤ 3,75%" angkaLurus={ANGKA_LURUS} />
       <Tulis x={B6[0] + 190} y={B6[1] + 600} gaya="tangan" ukuran={38} warna={c.tintaPudar} mulai={F(5, "di bawah batas")} perHuruf={1} teks="masih di bawah batas LPS?" />
-      <Tulis x={B6[0] + 190} y={B6[1] + 770} gaya="serif" ukuran={62} mulai={F(5, "Ingat")} perHuruf={1} teks="jaminan maks. Rp2 miliar" />
+      <Tulis x={B6[0] + 190} y={B6[1] + 770} gaya="serif" ukuran={62} mulai={F(5, "Ingat")} perHuruf={1} teks="jaminan maks. Rp2 miliar" angkaLurus={ANGKA_LURUS} />
       <Tulis x={B6[0] + 190} y={B6[1] + 850} gaya="tangan" ukuran={38} warna={c.tintaPudar} mulai={F(5, "per nasabah")} perHuruf={1} teks="per nasabah, per bank" />
       <Tulis x={B6[0] + 540} y={B6[1] + 1060} rata="center" gaya="tangan" ukuran={38} mulai={F(5, "Ingat", 0.6)} perHuruf={1} teks="cek di kalkulator 3T LPS" />
     </>
@@ -224,11 +225,7 @@ export const BungaDepositoLPS: React.FC<{ subtitel?: boolean }> = ({ subtitel = 
       ukuran={TATA}
       kamera={KAMERA}
       properti={PROPERTI}
-      halaman={
-        <div style={{ fontVariantNumeric: ANGKA_LURUS ? "lining-nums" : undefined }}>
-          <Halaman />
-        </div>
-      }
+      halaman={<Halaman />}
       layar={
         <>
           {fr < d(MUNDUR) ? <Indeks nomor={nomorBagian(fr, MULAI_BAGIAN)} /> : null}

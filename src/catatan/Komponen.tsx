@@ -209,6 +209,13 @@ const gayaHuruf: Record<Gaya, React.CSSProperties> = {
 
 export type Potongan = { t: string; warna?: string; gaya?: Gaya };
 
+// Angka lurus: EB Garamond punya fitur lnum. Huruf "tinta" (IM Fell English) hanya punya angka gaya lama,
+// jadi digitnya dipinjam dari EB Garamond tebal supaya tetap serasi dengan huruf bertinta di sekitarnya.
+const angkaLurusGaya = (g: Gaya): React.CSSProperties =>
+  g === "tinta"
+    ? { fontFamily: f.serif, fontWeight: 700, fontVariantNumeric: "lining-nums", WebkitTextStroke: "0.01em currentColor" }
+    : { fontVariantNumeric: "lining-nums" };
+
 // Tulisan yang muncul huruf demi huruf seperti sedang ditulis (tiap huruf "disapu" dari kiri).
 export const Tulis: React.FC<{
   x: number;
@@ -223,7 +230,10 @@ export const Tulis: React.FC<{
   miring?: number; // derajat
   lebar?: number;
   aliran?: boolean; // true = ikut alur dokumen (bukan posisi absolut)
-}> = ({ x, y, teks, ukuran = 80, gaya = "serif", warna = c.tinta, mulai, perHuruf = 2, rata = "left", miring = 0, lebar, aliran }) => {
+  // true = angka lurus (lining) supaya angka uang/persen tidak salah baca ("Rp10" bukan "Rp1o").
+  // Pakai untuk angka besar dan judul; catatan tangan kecil boleh tetap angka gaya lama.
+  angkaLurus?: boolean;
+}> = ({ x, y, teks, ukuran = 80, gaya = "serif", warna = c.tinta, mulai, perHuruf = 2, rata = "left", miring = 0, lebar, aliran, angkaLurus }) => {
   const fr = useCurrentFrame();
   const bagianTeks: Potongan[] = typeof teks === "string" ? [{ t: teks }] : teks;
   let n = 0;
@@ -262,6 +272,7 @@ export const Tulis: React.FC<{
                     <span
                       key={i}
                       style={{
+                        ...(angkaLurus && /[0-9]/.test(ch) ? angkaLurusGaya(b.gaya ?? gaya) : {}),
                         display: "inline-block",
                         visibility: p <= 0 ? "hidden" : undefined,
                         clipPath: p >= 1 ? undefined : `inset(-20% ${(1 - p) * 100}% -20% 0)`,
