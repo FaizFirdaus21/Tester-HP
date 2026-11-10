@@ -25,7 +25,7 @@ import {
   useTekstur,
 } from "./HoloDompet2";
 
-export const DURASI_UJI_GERAK = 300;
+export const DURASI_UJI_GERAK = 480;
 
 // Posisi tiap "stasiun" di dunia yang sama.
 const KOIN: [number, number, number] = [0, 1.1, 0];
@@ -34,50 +34,58 @@ const KARTU: [number, number, number] = [20, 0, 0];
 
 type Kunci = { f: number; pos: [number, number, number]; lihat: [number, number, number]; fov: number; guling: number };
 
-// Kunci kamera. Antar-kunci memakai ease in-out; perpindahan antar-stasiun sengaja cepat (±16 frame).
+// Titik kunci kamera. Jalurnya spline kubik (Catmull-Rom berwaktu), jadi kamera tidak pernah berhenti
+// di titik tengah: kecepatannya menyambung mulus dari satu titik ke titik berikutnya.
 const KUNCI: Kunci[] = [
-  { f: 0, pos: [1.4, -1.2, 3.6], lihat: [0, 1.2, 0], fov: 48, guling: -0.06 }, // sudut rendah, dekat
-  { f: 40, pos: [-0.6, -0.5, 5.8], lihat: [0, 0.3, 0], fov: 42, guling: 0.02 }, // orbit ke kiri sambil mundur
-  { f: 92, pos: [-2.0, 0.7, 8.2], lihat: [0.2, -0.3, 0], fov: 36, guling: 0.03 }, // terungkap penuh
-  { f: 108, pos: [7.0, 1.8, 10.5], lihat: [10, -0.1, -2], fov: 40, guling: -0.08 }, // terbang ke meteran
-  { f: 118, pos: [9.3, 1.4, 12.2], lihat: [10, -0.1, -2], fov: 38, guling: 0 },
-  { f: 190, pos: [10.9, 0.3, 10.4], lihat: [10, -0.1, -2], fov: 36, guling: 0.02 }, // dorong masuk pelan
-  { f: 206, pos: [17.0, 3.4, 8.6], lihat: [20, 0.5, 0], fov: 40, guling: 0.07 }, // terbang ke kartu, dari atas
-  { f: 216, pos: [18.2, 2.6, 8.6], lihat: [20, 0.8, 0], fov: 38, guling: 0.03 },
-  { f: 300, pos: [22.6, -0.1, 8.8], lihat: [20, 0.8, 0], fov: 33, guling: -0.04 }, // orbit kanan + zoom
+  { f: 0, pos: [1.4, -1.0, 4.4], lihat: [0, 1.0, 0], fov: 46, guling: -0.05 }, // sudut rendah, dekat
+  { f: 75, pos: [-0.4, -0.4, 6.3], lihat: [0, 0.3, 0], fov: 42, guling: 0.01 }, // orbit kiri sambil mundur
+  { f: 145, pos: [-1.8, 0.6, 8.3], lihat: [0.4, -0.2, 0], fov: 38, guling: 0.03 }, // terungkap penuh
+  { f: 182, pos: [4.6, 1.8, 10.9], lihat: [8.6, -0.2, -1.8], fov: 40, guling: -0.03 }, // melayang ke meteran
+  { f: 218, pos: [9.4, 1.3, 12.0], lihat: [10, -0.1, -2], fov: 38, guling: 0 },
+  { f: 312, pos: [10.9, 0.3, 10.4], lihat: [10, -0.1, -2], fov: 36, guling: 0.02 }, // dorong masuk pelan
+  { f: 348, pos: [14.6, 2.8, 10.6], lihat: [18.6, 0.6, -0.4], fov: 39, guling: 0.04 }, // melayang ke kartu
+  { f: 384, pos: [18.2, 2.6, 8.8], lihat: [20, 0.8, 0], fov: 38, guling: 0.03 },
+  { f: 480, pos: [22.6, -0.1, 8.8], lihat: [20, 0.8, 0], fov: 33, guling: -0.04 }, // orbit kanan + zoom
 ];
 
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-const ease = Easing.bezier(0.65, 0, 0.35, 1);
 
-const kameraPada = (f: number) => {
+/** Hermite kubik dengan tangen Catmull-Rom berwaktu (C1: posisi dan kecepatan menyambung). */
+const spline = (f: number, ambil: (k: Kunci) => number) => {
+  const n = KUNCI.length;
+  if (f <= KUNCI[0].f) return ambil(KUNCI[0]);
+  if (f >= KUNCI[n - 1].f) return ambil(KUNCI[n - 1]);
   let i = 0;
-  while (i < KUNCI.length - 2 && f >= KUNCI[i + 1].f) i++;
-  const a = KUNCI[i];
-  const b = KUNCI[i + 1];
-  const t = ease(Math.min(1, Math.max(0, (f - a.f) / (b.f - a.f))));
-  return {
-    pos: a.pos.map((v, k) => lerp(v, b.pos[k], t)) as [number, number, number],
-    lihat: a.lihat.map((v, k) => lerp(v, b.lihat[k], t)) as [number, number, number],
-    fov: lerp(a.fov, b.fov, t),
-    guling: lerp(a.guling, b.guling, t),
+  while (f >= KUNCI[i + 1].f) i++;
+  const tangen = (j: number) => {
+    if (j === 0 || j === n - 1) return 0; // mulai dan berhenti lembut
+    return (ambil(KUNCI[j + 1]) - ambil(KUNCI[j - 1])) / (KUNCI[j + 1].f - KUNCI[j - 1].f);
   };
+  const t0 = KUNCI[i].f;
+  const t1 = KUNCI[i + 1].f;
+  const h = t1 - t0;
+  const t = (f - t0) / h;
+  const p0 = ambil(KUNCI[i]);
+  const p1 = ambil(KUNCI[i + 1]);
+  const m0 = tangen(i) * h;
+  const m1 = tangen(i + 1) * h;
+  const t2 = t * t;
+  const t3 = t2 * t;
+  return (2 * t3 - 3 * t2 + 1) * p0 + (t3 - 2 * t2 + t) * m0 + (-2 * t3 + 3 * t2) * p1 + (t3 - t2) * m1;
 };
 
-/** Kecepatan kamera di layar (untuk besar blur). */
-const kecepatan = (f: number) => {
-  const a = kameraPada(f - 1);
-  const b = kameraPada(f + 1);
-  const dx = b.lihat[0] - a.lihat[0] + (b.pos[0] - a.pos[0]);
-  const dy = b.lihat[1] - a.lihat[1] + (b.pos[1] - a.pos[1]);
-  return { dx, dy, v: Math.hypot(dx, dy) };
-};
+const kameraPada = (f: number) => ({
+  pos: [0, 1, 2].map((k) => spline(f, (q) => q.pos[k])) as [number, number, number],
+  lihat: [0, 1, 2].map((k) => spline(f, (q) => q.lihat[k])) as [number, number, number],
+  fov: spline(f, (q) => q.fov),
+  guling: spline(f, (q) => q.guling),
+});
 
 const Kamera: React.FC<{ f: number }> = ({ f }) => {
   const { camera } = useThree();
   const k = kameraPada(f);
   // goyang tangan halus supaya tidak terasa seperti kamera komputer
-  const goyang = [Math.sin(f / 23) * 0.025, Math.sin(f / 31 + 1) * 0.02, 0];
+  const goyang = [Math.sin(f / 37) * 0.012, Math.sin(f / 49 + 1) * 0.01, 0];
   useLayoutEffect(() => {
     camera.position.set(k.pos[0] + goyang[0], k.pos[1] + goyang[1], k.pos[2]);
     camera.up.set(0, 1, 0);
@@ -106,7 +114,7 @@ const Debu: React.FC<{ f: number }> = ({ f }) => {
     return g;
   }, []);
   return (
-    <points geometry={geo} position={[Math.sin(f / 60) * 0.2, (f * 0.004) % 1, 0]}>
+    <points geometry={geo} position={[Math.sin(f / 90) * 0.2, f * 0.0025, 0]}>
       <pointsMaterial color="#f6dcae" size={0.035} sizeAttenuation transparent opacity={0.55} depthWrite={false} />
     </points>
   );
@@ -115,8 +123,8 @@ const Debu: React.FC<{ f: number }> = ({ f }) => {
 /** Lantai panjang yang menutupi ketiga stasiun. */
 const LantaiPanjang: React.FC<{ tx: Tekstur }> = ({ tx }) => (
   <group position={[10, -2.2, 0]}>
-    <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-      <planeGeometry args={[90, 60]} />
+    <mesh rotation={[-Math.PI / 2, 0, 0]}>
+      <planeGeometry args={[240, 240]} />
       <meshPhongMaterial color="#080c18" specular="#1b2440" shininess={18} specularMap={tx.sikatGelap} />
     </mesh>
     {Array.from({ length: 31 }).map((_, i) => (
@@ -167,31 +175,20 @@ const hilang = (f: number, a: number, lama = 8) => interpolate(f, [a, a + lama],
 export const HoloUjiGerak: React.FC = () => {
   const f = useCurrentFrame();
   const tx = useTekstur();
-  const { dx, dy, v } = kecepatan(f);
-  // blur searah gerak kamera saat perpindahan cepat
-  const blurX = Math.min(28, Math.abs(dx) * 22);
-  const blurY = Math.min(16, Math.abs(dy) * 22);
-  const blurAktif = v > 0.12;
-
   // koin jatuh berputar lalu melayang
-  const jatuh = interpolate(f, [0, 26], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.back(1.4)) });
+  const jatuh = interpolate(f, [0, 48], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.back(1.15)) });
   const koinY = lerp(3.6, KOIN[1], jatuh) + Math.sin(f / 14) * 0.05;
-  const koinPutarX = lerp(Math.PI * 3, 0.12, jatuh);
-  const isiMeter = interpolate(f, [128, 176], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
+  const koinPutarX = lerp(Math.PI * 2, 0.12, jatuh);
+  const isiMeter = interpolate(f, [222, 296], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
 
   // geser teks searah perpindahan kamera supaya teks terasa "menempel" di dunia
-  const geserTeks = (mulai: number, akhir: number) => interpolate(f, [mulai, akhir], [0, -900], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.in(Easing.cubic) });
+  const geserTeks = (mulai: number, akhir: number) => interpolate(f, [mulai, akhir], [0, -420], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.sin) });
 
   return (
     <AbsoluteFill style={{ background: P.tinta }}>
       <AbsoluteFill style={{ background: `radial-gradient(60% 40% at 28% 22%, rgba(242,179,61,0.10), transparent 70%), radial-gradient(70% 45% at 70% 85%, rgba(42,74,154,0.28), transparent 70%), linear-gradient(180deg, ${P.dalam}, ${P.tinta})` }} />
 
-      <svg width="0" height="0" style={{ position: "absolute" }}>
-        <filter id="blurGerak">
-          <feGaussianBlur stdDeviation={`${blurAktif ? blurX : 0} ${blurAktif ? blurY : 0}`} />
-        </filter>
-      </svg>
-      <AbsoluteFill style={{ filter: blurAktif ? "url(#blurGerak)" : undefined }}>
+<AbsoluteFill>
         <ThreeCanvas
           width={1080}
           height={1920}
@@ -201,7 +198,8 @@ export const HoloUjiGerak: React.FC = () => {
         >
           <Kamera f={f} />
           <Lingkungan kuat={0.55} />
-          <fog attach="fog" args={[P.tinta, 8, 24]} />
+          <color attach="background" args={["#090c16"]} />
+          <fog attach="fog" args={["#090c16", 9, 30]} />
           <ambientLight intensity={0.12} color="#8ea2d8" />
           {/* kunci hangat mengikuti stasiun yang aktif supaya bayangan selalu jatuh di dekat objek */}
           <CahayaKunci x={kameraPada(f).lihat[0]} />
@@ -244,36 +242,36 @@ export const HoloUjiGerak: React.FC = () => {
       <Penggaris f={f} />
 
       {/* ---------- teks per stasiun ---------- */}
-      {f < 116 ? (
-        <AbsoluteFill style={{ transform: `translateX(${geserTeks(98, 114)}px)` }}>
+      {f < 190 ? (
+        <AbsoluteFill style={{ opacity: hilang(f, 156, 28), transform: `translateX(${geserTeks(150, 188)}px)` }}>
           <Kepala bab={1} judul="DEPOSITO · CONTOH" />
-          <div style={{ position: "absolute", top: 1130, width: "100%", textAlign: "center", ...angkaGaya, fontSize: 300, lineHeight: 0.9, transform: `scale(${interpolate(f, [0, 8], [1.25, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) })})` }}>
+          <div style={{ position: "absolute", top: 1130, width: "100%", textAlign: "center", ...angkaGaya, fontSize: 300, lineHeight: 0.9, transform: `scale(${interpolate(f, [0, 18], [1.12, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) })})` }}>
             6<span style={{ fontSize: 170, verticalAlign: "top", marginLeft: 8 }}>%</span>
           </div>
-          <div style={{ position: "absolute", top: 1400, width: "100%", textAlign: "center", fontFamily: H.serif, fontStyle: "italic", fontSize: 108, color: P.amber, opacity: muncul(f, 22), transform: `translateY(${(1 - muncul(f, 22)) * 18}px)`, textShadow: "0 10px 30px rgba(0,0,0,0.6)" }}>
+          <div style={{ position: "absolute", top: 1400, width: "100%", textAlign: "center", fontFamily: H.serif, fontStyle: "italic", fontSize: 108, color: P.amber, opacity: muncul(f, 40, 16), transform: `translateY(${(1 - muncul(f, 40, 18)) * 18}px)`, textShadow: "0 10px 30px rgba(0,0,0,0.6)" }}>
             aman nggak?
           </div>
           <Kaki sumber="BUNGA CONTOH, BUKAN DATA BANK TERTENTU" />
         </AbsoluteFill>
       ) : null}
 
-      {f >= 112 && f < 214 ? (
-        <AbsoluteFill style={{ opacity: hilang(f, 196) * muncul(f, 112, 8), transform: `translateX(${geserTeks(196, 212)}px)` }}>
+      {f >= 190 && f < 352 ? (
+        <AbsoluteFill style={{ opacity: hilang(f, 318, 28) * muncul(f, 196, 20), transform: `translateX(${geserTeks(314, 350) + (1 - muncul(f, 196, 24)) * 300}px)` }}>
           <Kepala bab={2} judul="BATAS PENJAMINAN" />
-          <Pelat x={110} y={250} w={860} kode="LPS-01" label="TINGKAT BUNGA PENJAMINAN" muncul={muncul(f, 122)}>
+          <Pelat x={110} y={250} w={860} kode="LPS-01" label="TINGKAT BUNGA PENJAMINAN" muncul={muncul(f, 210, 18)}>
             <div style={{ ...angkaGaya, fontSize: 176, lineHeight: 1 }}>3,75%</div>
             <div style={{ fontFamily: H.mono, fontSize: 22, letterSpacing: "0.08em", color: P.abu, marginTop: 10 }}>RUPIAH · BANK UMUM · 01.10.2026 – 31.01.2027</div>
           </Pelat>
-          <div style={{ position: "absolute", right: 130, top: 1170, fontFamily: H.mono, fontSize: 26, color: P.merah, letterSpacing: "0.1em", opacity: muncul(f, 168) }}>6% → TIDAK DIJAMIN</div>
+          <div style={{ position: "absolute", right: 130, top: 1170, fontFamily: H.mono, fontSize: 26, color: P.merah, letterSpacing: "0.1em", opacity: muncul(f, 280, 16) }}>6% → TIDAK DIJAMIN</div>
           <Subtitel teks="Di atas 3,75%, seluruh simpananmu nggak dijamin." />
           <Kaki sumber="SUMBER: LPS · DIAKSES 09.11.2026" />
         </AbsoluteFill>
       ) : null}
 
-      {f >= 208 ? (
-        <AbsoluteFill style={{ opacity: muncul(f, 208, 8) }}>
+      {f >= 352 ? (
+        <AbsoluteFill style={{ opacity: muncul(f, 356, 22), transform: `translateX(${(1 - muncul(f, 356, 26)) * 300}px)` }}>
           <Kepala bab={3} judul="NILAI MAKSIMAL" />
-          <Pelat x={110} y={250} w={600} kode="LPS-02" label="JAMINAN MAKSIMAL" muncul={muncul(f, 220)}>
+          <Pelat x={110} y={250} w={600} kode="LPS-02" label="JAMINAN MAKSIMAL" muncul={muncul(f, 378, 18)}>
             <div style={{ ...angkaGaya, fontSize: 128, lineHeight: 1 }}>
               Rp2<span style={{ fontSize: 64, letterSpacing: "-0.01em", marginLeft: 14 }}>miliar</span>
             </div>
