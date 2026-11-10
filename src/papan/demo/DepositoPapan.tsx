@@ -164,7 +164,7 @@ const IsiPapan: React.FC = () => {
           <Coret pts={garis(40, 490, 400, 486, 15, 3)} mulai={w(2, "pokoknya")} lama={8} warna={k.kuning} tebal={7} />
         </div>
       </Angkat>
-      <Coret pts={lingkaran(795, C.y0 + 700, 250, 330, 6)} mulai={w(2, "termasuk", -0.2)} lama={16} warna={k.merah} tebal={6} />
+      <Coret pts={lingkaran(795, C.y0 + 700, 225, 320, 6)} mulai={w(2, "termasuk", -0.2)} lama={16} warna={k.merah} tebal={6} />
 
       {/* ===== D: contoh Rp10 juta ===== */}
       <Tulis x={D.x0 + 110} y={D.y0 + 210} teks="Misal:" ukuran={84} gaya="hias" warna={k.biru} mulai={w(3, "Misalnya")} perHuruf={2} />
@@ -173,7 +173,6 @@ const IsiPapan: React.FC = () => {
           {[2, 1, 0].map((n) => (
             <Coret key={n} pts={kotak(30 + n * 18, 40 + n * 22, 500, 270, 30 + n)} mulai={w(3, "sepuluh juta") - 20 + (2 - n) * 6} lama={16} tebal={6} kapur={n === 0} />
           ))}
-          <Coret pts={lingkaran(280, 175, 70, 70, 8)} mulai={w(3, "sepuluh juta") + 6} lama={10} tebal={5} kapur={false} />
           <Tulis x={280} y={180} teks="Rp10 juta" ukuran={82} gaya="tebal" warna={k.kuning} mulai={w(3, "sepuluh juta")} perHuruf={2} rata="center" />
         </div>
       </Angkat>
@@ -190,7 +189,7 @@ const IsiPapan: React.FC = () => {
         const kol = i % 5;
         const n = bar < 2 ? 5 : 4;
         const cx = E.x - ((n - 1) * 180) / 2 + kol * 180;
-        const cy = E.y0 + 500 + bar * 150;
+        const cy = E.y0 + 460 + bar * 130;
         const mulai = w(4, "Hingga") + i * 4;
         const silang = w(4, "empat belas") + i * 3;
         return (
