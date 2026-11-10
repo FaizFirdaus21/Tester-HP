@@ -44,6 +44,25 @@ const Rak: React.FC = () => (
   </div>
 );
 
+/** Cahaya jendela miring di permukaan papan (koordinat papan, jadi ikut bergerak bersama papan). */
+const CahayaJendela: React.FC = () => (
+  <>
+    {[
+      { x: -400, y: 300, w: 1500, h: 2600 },
+      { x: 900, y: 3300, w: 1400, h: 2400 },
+      { x: -300, y: 5600, w: 1700, h: 2300 },
+    ].map((j, i) => (
+      <div key={i} style={{ position: "absolute", left: j.x, top: j.y, width: j.w, height: j.h, transform: "skewX(-24deg)", mixBlendMode: "screen", opacity: 0.55 }}>
+        {/* dua panel kaca dipisah kusen: berkas terang dengan bayangan kusen */}
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, transparent 0%, rgba(255,240,205,0.10) 12%, rgba(255,240,205,0.13) 44%, transparent 47%, transparent 53%, rgba(255,240,205,0.13) 56%, rgba(255,240,205,0.10) 88%, transparent 100%)", filter: "blur(18px)" }} />
+        <div style={{ position: "absolute", left: 0, right: 0, top: "48%", height: 60, background: "rgba(0,0,0,0.5)", mixBlendMode: "multiply", filter: "blur(16px)" }} />
+      </div>
+    ))}
+    {/* bayangan rak di bawah papan */}
+    <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 260, background: "linear-gradient(0deg, rgba(0,0,0,0.45), transparent)" }} />
+  </>
+);
+
 /** Papan + bingkai + rak dalam koordinat papan. Anak-anak = isi papan (tulisan, coretan). */
 export const Papan: React.FC<{ kunci: KunciKamera[]; children: React.ReactNode; layar?: React.ReactNode }> = ({ kunci, children, layar }) => {
   const fr = useCurrentFrame();
@@ -51,6 +70,10 @@ export const Papan: React.FC<{ kunci: KunciKamera[]; children: React.ReactNode; 
   // goyang kamera tangan yang sangat halus
   const gx = Math.sin(fr / 41) * 3;
   const gy = Math.sin(fr / 53 + 2) * 3;
+  // papan selalu terasa benda fisik: kemiringan 3D sangat kecil yang terus bergerak
+  const nx = Math.sin(fr / 95) * 1.2;
+  const ny = Math.sin(fr / 120 + 1) * 1.6;
+  const nz = Math.sin(fr / 140 + 2) * 0.35;
   return (
     <AbsoluteFill style={{ background: "radial-gradient(120% 70% at 50% 40%, #2a2620 0%, #0f0d0b 70%)", overflow: "hidden" }}>
       <AbsoluteFill style={{ perspective: 2200, perspectiveOrigin: "50% 45%" }}>
@@ -63,16 +86,32 @@ export const Papan: React.FC<{ kunci: KunciKamera[]; children: React.ReactNode; 
             height: PAPAN_H,
             transformOrigin: "0 0",
             transformStyle: "preserve-3d",
-            transform: `translate(${540 + gx}px, ${960 + gy}px) rotateX(${c.rx}deg) rotateY(${c.ry}deg) rotateZ(${c.rz}deg) scale(${c.s}) translate(${-c.x}px, ${-c.y}px)`,
+            transform: `translate(${540 + gx}px, ${960 + gy}px) rotateX(${c.rx + nx}deg) rotateY(${c.ry + ny}deg) rotateZ(${c.rz + nz}deg) scale(${c.s}) translate(${-c.x}px, ${-c.y}px)`,
           }}
         >
           {/* bingkai kayu */}
           <div style={{ position: "absolute", left: -BINGKAI, top: -BINGKAI, width: PAPAN_W + BINGKAI * 2, height: PAPAN_H + BINGKAI * 2, background: `linear-gradient(135deg, #8b6440, ${k.bingkai} 50%, #4a321e)`, boxShadow: "0 60px 120px rgba(0,0,0,0.7)" }}>
             <Img src={staticFile("catatan/kayu-meja.png")} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", mixBlendMode: "multiply", opacity: 0.5 }} />
+            {/* bevel: tepi atas-kiri kena cahaya, bawah-kanan gelap */}
+            <div style={{ position: "absolute", inset: 0, boxShadow: "inset 6px 6px 0 rgba(255,220,170,0.25), inset -8px -8px 0 rgba(0,0,0,0.35), inset 0 0 0 1px rgba(0,0,0,0.4)" }} />
+            <div style={{ position: "absolute", left: BINGKAI - 10, top: BINGKAI - 10, right: BINGKAI - 10, bottom: BINGKAI - 10, boxShadow: "0 0 0 10px rgba(40,25,12,0.55)" }} />
+            {[
+              [BINGKAI / 2, BINGKAI / 2],
+              [PAPAN_W + BINGKAI * 1.5, BINGKAI / 2],
+              [BINGKAI / 2, PAPAN_H + BINGKAI * 1.5],
+              [PAPAN_W + BINGKAI * 1.5, PAPAN_H + BINGKAI * 1.5],
+            ].map(([sx, sy], i) => (
+              <div key={i} style={{ position: "absolute", left: sx - 11, top: sy - 11, width: 22, height: 22, borderRadius: "50%", background: "radial-gradient(circle at 35% 35%, #e8e2d2, #8d8576 55%, #3b362e)", boxShadow: "1px 2px 3px rgba(0,0,0,0.6)" }}>
+                <div style={{ position: "absolute", left: 4, top: 10, width: 14, height: 2, background: "rgba(40,36,30,0.7)", transform: `rotate(${i * 37}deg)` }} />
+              </div>
+            ))}
           </div>
           {/* permukaan papan */}
-          <div style={{ position: "absolute", left: 0, top: 0, width: PAPAN_W, height: PAPAN_H, overflow: "hidden", boxShadow: "inset 0 0 60px rgba(0,0,0,0.55)" }}>
+          <div style={{ position: "absolute", left: 0, top: 0, width: PAPAN_W, height: PAPAN_H, overflow: "hidden" }}>
             <Img src={staticFile("papan/papan.jpg")} style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} />
+            <CahayaJendela />
+            {/* papan sedikit masuk ke dalam bingkai: bayangan bibir bingkai di tepi atas & kiri */}
+            <div style={{ position: "absolute", inset: 0, boxShadow: "inset 0 46px 50px -20px rgba(0,0,0,0.7), inset 40px 0 50px -24px rgba(0,0,0,0.55), inset -20px -20px 40px -20px rgba(0,0,0,0.4)" }} />
           </div>
           <Rak />
           {/* isi papan */}

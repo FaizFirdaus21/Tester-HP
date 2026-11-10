@@ -23,7 +23,7 @@ export const FilterKapur: React.FC = () => (
         { id: "kapur", butir: 1.1, ambang: 2.15, kasar: 2.2 },
         { id: "kapurTebal", butir: 0.8, ambang: 2.05, kasar: 3.2 },
       ].map((f) => (
-        <filter key={f.id} id={f.id} x="-5%" y="-10%" width="110%" height="120%" colorInterpolationFilters="sRGB">
+        <filter key={f.id} id={f.id} x="-12%" y="-25%" width="124%" height="150%" colorInterpolationFilters="sRGB">
           <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves={2} seed={4} result="geser" />
           <feDisplacementMap in="SourceGraphic" in2="geser" scale={f.kasar} xChannelSelector="R" yChannelSelector="G" result="kasar" />
           <feTurbulence type="fractalNoise" baseFrequency={f.butir} numOctaves={1} seed={9} result="butir" />
@@ -31,9 +31,26 @@ export const FilterKapur: React.FC = () => (
           <feColorMatrix in="butir" type="matrix" values={`0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -2.4 0 0 0 ${f.ambang}`} result="topeng" />
           <feComposite in="kasar" in2="topeng" operator="in" result="berbutir" />
           <feGaussianBlur in="berbutir" stdDeviation={0.3} result="halus" />
+          {/* bayangan tipis: kapur menempel di papan dan punya sedikit tebal */}
+          <feGaussianBlur in="berbutir" stdDeviation={1.6} result="kabur" />
+          <feOffset in="kabur" dx={2.4} dy={3.2} result="geserBayang" />
+          <feColorMatrix in="geserBayang" type="matrix" values="0 0 0 0 0  0 0 0 0 0.03  0 0 0 0 0.02  0 0 0 0.5 0" result="bayangan" />
+          {/* halo debu kapur di sekitar goresan */}
+          <feGaussianBlur in="berbutir" stdDeviation={7} result="kaburLebar" />
+          <feColorMatrix in="kaburLebar" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.2 0" result="halo" />
+          {/* volume: cahaya spekular dari kiri atas di atas permukaan kapur yang bergelombang */}
+          <feGaussianBlur in="berbutir" stdDeviation={1.1} result="tinggi" />
+          <feSpecularLighting in="tinggi" surfaceScale={2.4} specularConstant={0.7} specularExponent={16} lightingColor="#ffffff" result="kilap">
+            <feDistantLight azimuth={225} elevation={48} />
+          </feSpecularLighting>
+          <feComposite in="kilap" in2="berbutir" operator="in" result="kilapKapur" />
+          <feColorMatrix in="kilapKapur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.35 0" result="kilapLembut" />
           <feMerge>
+            <feMergeNode in="bayangan" />
+            <feMergeNode in="halo" />
             <feMergeNode in="halus" />
             <feMergeNode in="halus" />
+            <feMergeNode in="kilapLembut" />
           </feMerge>
         </filter>
       ))}
@@ -104,25 +121,23 @@ const titikPada = (pts: Titik[], cum: number[], p: number): Titik => {
 /** Batang kapur kecil dengan bayangan; ujungnya tepat di titik (x,y). */
 export const BatangKapur: React.FC<{ x: number; y: number; warna?: string; tampak: number; skala?: number }> = ({ x, y, warna = k.putih, tampak, skala = 1 }) => {
   if (tampak <= 0) return null;
-  const angkat = (1 - tampak) * 40;
+  const angkat = (1 - tampak) * 50;
+  const L = 160 * skala;
+  const T = 30 * skala;
   return (
     <div style={{ position: "absolute", left: x, top: y, width: 0, height: 0, opacity: tampak, pointerEvents: "none", zIndex: 50 }}>
-      {/* bayangan di papan */}
-      <div style={{ position: "absolute", left: 18 * skala, top: 26 * skala, width: 150 * skala, height: 30 * skala, borderRadius: 15 * skala, background: "rgba(0,0,0,0.35)", filter: `blur(${8 * skala}px)`, transform: "rotate(-38deg)", transformOrigin: "0 50%" }} />
-      <div
-        style={{
-          position: "absolute",
-          left: 0,
-          top: -14 * skala - angkat,
-          width: 150 * skala,
-          height: 28 * skala,
-          borderRadius: `${6 * skala}px ${14 * skala}px ${14 * skala}px ${6 * skala}px`,
-          background: `linear-gradient(180deg, #ffffff 0%, ${warna} 45%, #b9bcb2 100%)`,
-          boxShadow: "inset -10px 0 12px rgba(0,0,0,0.12)",
-          transform: "rotate(-38deg)",
-          transformOrigin: "0 50%",
-        }}
-      />
+      {/* bayangan di papan: makin jauh dan kabur saat kapur diangkat */}
+      <div style={{ position: "absolute", left: (14 + angkat * 0.5) * skala, top: (20 + angkat * 0.7) * skala, width: L, height: T * 0.9, borderRadius: T, background: "rgba(5,15,10,0.5)", filter: `blur(${(6 + angkat * 0.25) * skala}px)`, transform: "rotate(-36deg)", transformOrigin: "0 50%" }} />
+      <div style={{ position: "absolute", left: 0, top: -T / 2 - angkat, width: L, height: T, transform: "rotate(-36deg)", transformOrigin: "0 50%" }}>
+        {/* badan silinder */}
+        <div style={{ position: "absolute", inset: 0, borderRadius: `${T * 0.3}px ${T / 2}px ${T / 2}px ${T * 0.3}px`, background: `linear-gradient(180deg, #ffffff 0%, ${warna} 30%, ${warna} 55%, #9a9d93 100%)`, boxShadow: `inset -${12 * skala}px 0 ${14 * skala}px rgba(0,0,0,0.15)` }} />
+        {/* serat kapur */}
+        <div style={{ position: "absolute", inset: 0, borderRadius: T / 2, background: "repeating-linear-gradient(90deg, rgba(0,0,0,0.04) 0 3px, transparent 3px 9px)" }} />
+        {/* ujung aus yang menempel ke papan */}
+        <div style={{ position: "absolute", left: -T * 0.18, top: T * 0.08, width: T * 0.55, height: T * 0.84, borderRadius: "50%", background: "radial-gradient(circle at 60% 40%, #ffffff, #d9dbd2 70%)" }} />
+        {/* debu yang menempel di ujung */}
+        <div style={{ position: "absolute", left: 0, top: 0, width: T * 1.4, height: T, borderRadius: T / 2, background: "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.45), transparent 70%)" }} />
+      </div>
     </div>
   );
 };
@@ -299,7 +314,18 @@ export const Tulis: React.FC<{
         {huruf.map((ch, i) => {
           const p = p01(fr, mulai + i * perHuruf, perHuruf + 1);
           return (
-            <span key={i} style={{ display: "inline-block", whiteSpace: "pre", visibility: p <= 0 ? "hidden" : undefined, clipPath: p >= 1 ? undefined : `inset(-25% ${(1 - p) * 100}% -25% 0)` }}>
+            <span
+              key={i}
+              style={{
+                display: "inline-block",
+                whiteSpace: "pre",
+                visibility: p <= 0 ? "hidden" : undefined,
+                clipPath: p >= 1 ? undefined : `inset(-25% ${(1 - p) * 100}% -25% 0)`,
+                // tangan manusia: tiap huruf sedikit miring, naik-turun, dan tekanan kapurnya beda
+                transform: `translateY(${(acak(i * 3 + x) - 0.5) * ukuran * 0.06}px) rotate(${(acak(i * 7 + y) - 0.5) * 5}deg) scale(${0.96 + acak(i * 11 + x) * 0.08})`,
+                opacity: 0.84 + acak(i * 5 + y) * 0.16,
+              }}
+            >
               {ch}
             </span>
           );
