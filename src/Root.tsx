@@ -20,6 +20,7 @@ import { DURASI_PAPAN, DepositoPapan } from "./papan/demo/DepositoPapan";
 import { DURASI_UJI_GERAK, HoloUjiGerak } from "./konsep/HoloUjiGerak";
 import { ChromeMinimal } from "./konsep/ChromeMinimal";
 import { DURASI_KONSEP } from "./konsep/umum";
+import { BungaDepositoLPSv2, DURASI_DEPOSITO_V2 } from "./produksi/bunga-deposito-lps-v2/Video";
 import contohNaikBerapa from "../data/naik-berapa-contoh.json";
 
 export const RemotionRoot: React.FC = () => (
@@ -42,6 +43,7 @@ export const RemotionRoot: React.FC = () => (
       height={REELS.height}
     />
     <Composition id="InflasiCatatan" component={InflasiCatatan} durationInFrames={DURASI_CATATAN} fps={30} width={1080} height={1920} />
+    <Composition id="BungaDepositoLPSv2" component={BungaDepositoLPSv2} durationInFrames={DURASI_DEPOSITO_V2} fps={30} width={1080} height={1920} />
     <Composition id="BungaDepositoLPS" component={BungaDepositoLPS} durationInFrames={DURASI_DEPOSITO} fps={30} width={1080} height={1920} />
     <Composition id="InflasiSinematik" component={InflasiSinematik} durationInFrames={DURASI_V3} fps={30} width={1080} height={1920} />
     <Composition id="KonsepHolo" component={HoloDompet} durationInFrames={DURASI_KONSEP} fps={30} width={1080} height={1920} />

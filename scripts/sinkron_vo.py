@@ -2,6 +2,7 @@
 """Perkaya vo-waktu.json dengan batas bicara dan jangkar kalimat dari audio, untuk sinkron visual (Director).
 
 Pakai: python3 scripts/sinkron_vo.py produksi/<tanggal>-<slug> src/produksi/<slug>/vo-waktu.json
+       python3 scripts/sinkron_vo.py produksi/<tanggal>-<slug>/vo-waktu-v2.json src/produksi/<slug>-v2/vo-waktu.json
 
 Untuk tiap blok ditambahkan:
   bicara  : [awal, akhir] suara benar-benar terdengar (detik di file audio), tanpa hening di ujung blok
@@ -32,7 +33,8 @@ def hening(audio):
 
 def main():
     folder, tujuan = sys.argv[1], sys.argv[2]
-    vo = json.load(open(os.path.join(folder, "vo-waktu.json")))
+    sumber = folder if os.path.isfile(folder) else os.path.join(folder, "vo-waktu.json")
+    vo = json.load(open(sumber))
     sel = hening(os.path.join("public", vo["audio"]))
     for b in vo["blok"]:
         m, s = b["mulai"], b["mulai"] + b["durasi"]
