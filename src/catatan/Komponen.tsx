@@ -1,8 +1,8 @@
 // Komponen gambar & tulisan tangan untuk template Buku Catatan.
 // Semua posisi dalam koordinat HALAMAN kecuali yang disebut "layar".
 import React from "react";
-import { AbsoluteFill, Easing, Img, Sequence, interpolate, staticFile, useCurrentFrame } from "remotion";
-import type { BarisSubtitel } from "./Jadwal";
+import { AbsoluteFill, Audio, Easing, Img, Sequence, interpolate, staticFile, useCurrentFrame } from "remotion";
+import type { BarisSubtitel, DataVO } from "./Jadwal";
 import { c, d, f } from "./tema";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
@@ -481,3 +481,27 @@ export const Subtitel: React.FC<{ baris: BarisSubtitel[] }> = ({ baris }) => (
     })}
   </>
 );
+
+// Suara VO: satu potongan audio per blok (hasil rapatkanVO), atau satu file utuh bila blok tidak punya `sumber`.
+export const SuaraVO: React.FC<{ vo: DataVO; awal: number }> = ({ vo, awal }) => {
+  if (!vo.audio) return null;
+  const src = staticFile(vo.audio);
+  if (!vo.blok.some((b) => b.sumber)) {
+    return (
+      <Sequence from={d(awal)} layout="none">
+        <Audio src={src} />
+      </Sequence>
+    );
+  }
+  return (
+    <>
+      {vo.blok.map((b, i) =>
+        b.sumber && !b.buang ? (
+          <Sequence key={i} from={d(awal + (b.putar ?? b.mulai))} durationInFrames={d(b.sumber[1] - b.sumber[0]) + 1} layout="none">
+            <Audio src={src} trimBefore={d(b.sumber[0])} trimAfter={d(b.sumber[1]) + 1} />
+          </Sequence>
+        ) : null,
+      )}
+    </>
+  );
+};

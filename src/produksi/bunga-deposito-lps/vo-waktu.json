@@ -1,6 +1,223 @@
 {
-  "audio": null,
-  "catatan": "Salinan produksi/20261109-bunga-deposito-lps/vo-waktu.json. Ganti dengan salinan terbaru setiap kali VO dibuat ulang; selama audio null, Video.tsx memakai perkiraan dari naskah.",
-  "total": 0,
-  "blok": []
+  "audio": "vo/bunga-deposito-lps.mp3",
+  "catatan": "Dibuat dengan gemini-3.1-flash-tts-preview, suara Sulafat. Diperkaya scripts/sinkron_vo.py (bicara + jangkar kalimat).",
+  "total": 71.08,
+  "blok": [
+    {
+      "mulai": 0.0,
+      "durasi": 3.2,
+      "teks": "Deposito enam persen, aman nggak?",
+      "bicara": [
+        0.268,
+        2.759
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 22,
+          "detik": 1.91
+        },
+        {
+          "huruf": 33,
+          "detik": 2.491
+        }
+      ]
+    },
+    {
+      "mulai": 3.55,
+      "durasi": 11.44,
+      "teks": "Belum tentu. El pe es cuma menjamin simpanan rupiah di bank umum yang bunganya maksimal tiga koma tujuh lima persen setahun, sampai akhir Januari dua ribu dua puluh tujuh.",
+      "bicara": [
+        3.806,
+        14.613
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 13,
+          "detik": 1.559
+        },
+        {
+          "huruf": 171,
+          "detik": 10.808
+        }
+      ]
+    },
+    {
+      "mulai": 15.34,
+      "durasi": 10.64,
+      "teks": "Banyak yang kira cuma kelebihan bunganya yang hangus. Padahal menurut aturan el pe es, seluruh simpanannya nggak dijamin, termasuk pokoknya.",
+      "bicara": [
+        15.609,
+        25.68
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 54,
+          "detik": 3.7
+        },
+        {
+          "huruf": 122,
+          "detik": 8.624
+        },
+        {
+          "huruf": 140,
+          "detik": 10.072
+        }
+      ]
+    },
+    {
+      "mulai": 26.33,
+      "durasi": 11.56,
+      "teks": "Misalnya kamu taruh sepuluh juta rupiah dengan bunga enam persen di bank umum. Kalau banknya tutup, sepuluh juta itu bisa nggak diganti. Cashback juga dihitung bunga, lho.",
+      "bicara": [
+        26.612,
+        37.503
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 79,
+          "detik": 5.288
+        },
+        {
+          "huruf": 100,
+          "detik": 6.584
+        },
+        {
+          "huruf": 137,
+          "detik": 9.214
+        },
+        {
+          "huruf": 171,
+          "detik": 10.891
+        }
+      ]
+    },
+    {
+      "mulai": 38.24,
+      "durasi": 8.12,
+      "teks": "Dan bank memang bisa tutup. Hingga Oktober tahun ini, empat belas be pe er dan be pe er es sudah dilikuidasi.",
+      "bicara": [
+        38.522,
+        46.047
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 28,
+          "detik": 2.387
+        },
+        {
+          "huruf": 109,
+          "detik": 7.526
+        }
+      ]
+    },
+    {
+      "mulai": 46.71,
+      "durasi": 11.52,
+      "teks": "Jadi, cek dulu: bunga plus cashback-nya masih di bawah batas atau nggak. Ingat juga, jaminannya maksimal dua miliar rupiah per nasabah per bank.",
+      "bicara": [
+        47.001,
+        57.923
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 6,
+          "detik": 0.883
+        },
+        {
+          "huruf": 16,
+          "detik": 1.753
+        },
+        {
+          "huruf": 73,
+          "detik": 5.75
+        },
+        {
+          "huruf": 144,
+          "detik": 10.923
+        }
+      ]
+    },
+    {
+      "mulai": 58.58,
+      "durasi": 7.48,
+      "teks": "Bunga tinggi boleh saja, asal kamu tahu risikonya. Konten edukasi, bukan ajakan membeli.",
+      "bicara": [
+        58.838,
+        65.774
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 25,
+          "detik": 1.92
+        },
+        {
+          "huruf": 51,
+          "detik": 4.388
+        },
+        {
+          "huruf": 67,
+          "detik": 5.617
+        },
+        {
+          "huruf": 88,
+          "detik": 6.936
+        }
+      ]
+    },
+    {
+      "mulai": 66.41,
+      "durasi": 4.32,
+      "teks": "IntipDompet. Urusan uang, kita intip.",
+      "bicara": [
+        66.683,
+        70.383
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 13,
+          "detik": 1.573
+        },
+        {
+          "huruf": 26,
+          "detik": 2.785
+        },
+        {
+          "huruf": 37,
+          "detik": 3.701
+        }
+      ]
+    }
+  ]
 }

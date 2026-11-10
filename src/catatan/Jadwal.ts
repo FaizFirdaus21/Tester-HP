@@ -8,7 +8,17 @@
 //   pada(J.r("b2"), 0.5)       -> tengah bagian b2
 // Peringatan muncul di log render dengan awalan [jadwal].
 
-export type BlokVO = { mulai: number; durasi: number };
+export type Jangkar = { huruf: number; detik: number }; // posisi huruf di teks VO -> detik relatif awal bicara
+export type BlokVO = {
+  mulai: number;
+  durasi: number;
+  teks?: string;
+  bicara?: [number, number]; // suara terdengar (detik di file audio), dari scripts/sinkron_vo.py
+  jangkar?: Jangkar[];
+  sumber?: [number, number]; // potongan file audio yang diputar untuk blok ini (diisi rapatkanVO)
+  putar?: number; // detik (relatif awal VO) saat potongan `sumber` mulai diputar
+  buang?: boolean; // blok tidak dipakai (rapatkanVO dengan opsi pakai)
+};
 export type DataVO = { audio: string | null; total: number; blok: BlokVO[]; catatan?: string };
 export type Rentang = { nama: string; mulai: number; selesai: number };
 
@@ -48,6 +58,7 @@ export type Jadwal<K extends string> = {
   T: Record<K, number>; // detik tiap isyarat
   r: (k: K) => Rentang; // rentang dari isyarat k sampai isyarat berikutnya
   blok: (i: number) => Rentang | null; // rentang blok VO ke-i (VO asli, atau perkiraan bila cadangan berupa DataVO)
+  data: (i: number) => BlokVO | null; // data mentah blok ke-i dari sumber jadwal
 };
 
 const lengkap = (vo: DataVO, indeks: number[]) => vo.total > 0 && indeks.every((i) => i >= 0 && i < vo.blok.length);
@@ -83,7 +94,30 @@ export const jadwalVO = <K extends string>(
     sumber && sumber.blok[i]
       ? { nama: `blok ${i}`, mulai: awal + sumber.blok[i].mulai, selesai: awal + sumber.blok[i].mulai + sumber.blok[i].durasi }
       : null;
-  return { ada, awal, T, r, blok };
+  const data = (i: number): BlokVO | null => (sumber && sumber.blok[i] ? sumber.blok[i] : null);
+  return { ada, awal, T, r, blok, data };
+};
+
+// Rapatkan VO: tiap blok hanya diputar selama suaranya terdengar (bicara), dengan `jeda` seragam di antara blok.
+// Membuang hening panjang di ujung blok hasil TTS, dan memungkinkan membuang blok (opsi `pakai`) tanpa membuat VO ulang.
+// Butuh vo-waktu.json yang sudah diperkaya scripts/sinkron_vo.py; tanpa `bicara`, blok dipakai utuh.
+export const rapatkanVO = (vo: DataVO, opsi: { pakai?: number[]; jeda?: number; tepi?: [number, number] } = {}): DataVO => {
+  if (!vo.audio || !vo.blok.length) return vo;
+  const jeda = opsi.jeda ?? 0.4;
+  const [tepiAwal, tepiAkhir] = opsi.tepi ?? [0.06, 0.12]; // sisakan sedikit napas supaya konsonan tidak terpotong
+  const pakai = new Set(opsi.pakai ?? vo.blok.map((_, i) => i));
+  let t = 0;
+  let terakhir = 0;
+  const blok = vo.blok.map((b, i): BlokVO => {
+    const [bm, be] = b.bicara ?? [b.mulai, b.mulai + b.durasi];
+    if (!pakai.has(i)) return { ...b, mulai: t, durasi: 0, buang: true };
+    const sumber: [number, number] = [Math.max(0, bm - tepiAwal), be + tepiAkhir];
+    const hasil = { ...b, mulai: t + (bm - sumber[0]), durasi: be - bm, sumber, putar: t };
+    terakhir = t + (sumber[1] - sumber[0]);
+    t = terakhir + jeda;
+    return hasil;
+  });
+  return { ...vo, total: terakhir, blok };
 };
 
 // Perkiraan waktu VO dari naskah (sebelum audio ada): ±2,3 kata per detik, ditambah jeda antar-blok.
@@ -102,7 +136,7 @@ export const perkiraanVO = (naskah: { blok: { teks: string }[]; jeda_antar_blok?
 // Detik saat `frasa` kira-kira diucapkan di blok ke-i: posisi huruf frasa di teks VO blok itu, dibagi panjang teks,
 // lalu dipetakan ke durasi blok. Tanpa waktu per kata dari TTS, ini perkiraan; ucapan angka yang panjang ikut terhitung
 // karena teks VO sudah berupa ejaan ("tiga koma tujuh lima persen").
-export const padaFrasa = (j: Pick<Jadwal<string>, "blok">, i: number, teksVO: string, frasa: string, geser = 0) => {
+export const padaFrasa = (j: Pick<Jadwal<string>, "blok" | "data">, i: number, teksVO: string, frasa: string, geser = 0) => {
   const r = j.blok(i);
   if (!r) {
     peringatkan(`blok ${i} tidak ada; "${frasa}" ditempatkan di 0`);
@@ -112,6 +146,18 @@ export const padaFrasa = (j: Pick<Jadwal<string>, "blok">, i: number, teksVO: st
   if (idx < 0) {
     peringatkan(`frasa "${frasa}" tidak ditemukan di blok ${i}`);
     return r.mulai + geser;
+  }
+  const jk = j.data(i)?.jangkar;
+  if (jk && jk.length >= 2) {
+    // interpolasi per huruf di antara jangkar (jeda kalimat yang terdeteksi di audio)
+    for (let k = 0; k < jk.length - 1; k++) {
+      const a = jk[k];
+      const b = jk[k + 1];
+      if (idx >= a.huruf && idx <= b.huruf) {
+        const u = b.huruf === a.huruf ? 0 : (idx - a.huruf) / (b.huruf - a.huruf);
+        return r.mulai + a.detik + (b.detik - a.detik) * u + geser;
+      }
+    }
   }
   return r.mulai + ((r.selesai - r.mulai) * idx) / teksVO.length + geser;
 };

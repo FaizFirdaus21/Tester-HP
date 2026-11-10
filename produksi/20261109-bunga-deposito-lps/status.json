@@ -1,6 +1,6 @@
 {
   "slug": "20261109-bunga-deposito-lps",
-  "tahap": "vo-siap",
-  "catatan": "Naskah direvisi (hook 5 kata ≈2 detik; pola 'Salah.' diganti kalimat langsung sesuai skill social/copywriting). 143 kata, 8 blok. Semua host web (termasuk lps.go.id, bi.go.id, tiktok/youtube/instagram, Google Trends) diblokir untuk fetch; sumber primer dicek via cuplikan WebSearch berdomain resmi. Bukti performa sosial seluruh kandidat 'tidak terverifikasi'. Lihat fakta.json → catatan_akses. | Model TTS diganti ke gemini-3.1-flash-tts-preview (kuota gemini-3.8-flash-tts habis), mode per blok --tanpa-gaya. | VO 71.08 detik, 8 blok, vo/bunga-deposito-lps.mp3 (gemini-3.1-flash-tts-preview, suara Sulafat).",
-  "diperbarui": "2026-11-10T09:36:21Z"
+  "tahap": "storyboard-siap",
+  "catatan": "Naskah direvisi (hook 5 kata ≈2 detik; pola 'Salah.' diganti kalimat langsung sesuai skill social/copywriting). 143 kata, 8 blok. Semua host web (termasuk lps.go.id, bi.go.id, tiktok/youtube/instagram, Google Trends) diblokir untuk fetch; sumber primer dicek via cuplikan WebSearch berdomain resmi. Bukti performa sosial seluruh kandidat 'tidak terverifikasi'. Lihat fakta.json → catatan_akses. | Model TTS diganti ke gemini-3.1-flash-tts-preview (kuota gemini-3.8-flash-tts habis), mode per blok --tanpa-gaya. | VO 71.08 detik, 8 blok, vo/bunga-deposito-lps.mp3 (gemini-3.1-flash-tts-preview, suara Sulafat). | Director: storyboard.png dari 12 frame asli, sinkron ke VO asli (jangkar jeda kalimat dari audio). Hening di ujung tiap blok TTS dibuang (jeda antar-blok 0,4 s): durasi video 69,6 s. Masih di atas 60 s; membuang blok cukup edit BLOK_DIPAKAI di src/produksi/bunga-deposito-lps/Video.tsx (tanpa VO ulang). Angka gaya lama masih bawaan; ANGKA_LURUS=true untuk angka lurus. Belum render video penuh; menunggu persetujuan user.",
+  "diperbarui": "2026-11-10T09:41:03Z"
 }

@@ -1,24 +1,42 @@
 // "Bunga deposito tinggi, tapi nggak dijamin LPS?" (produksi/20261109-bunga-deposito-lps)
 // Gaya: template Buku Catatan. Satu bagian halaman per blok VO 0–5, lalu mundur ke seluruh halaman dan sobekan penutup.
 //
-// Sinkron: tiap tulisan/coretan ditempatkan pada frasa yang diucapkan (padaFrasa), dari teks VO di naskah-vo.json.
-// vo-waktu.json di folder ini adalah salinan produksi/20261109-bunga-deposito-lps/vo-waktu.json. Selama audio belum ada,
-// waktunya diperkirakan dari jumlah kata naskah (perkiraanVO), jadi storyboard tetap bisa dibuat.
+// Sinkron: tiap tulisan/coretan ditempatkan pada frasa yang diucapkan (padaFrasa), memakai jangkar jeda kalimat
+// dari audio. vo-waktu.json di folder ini dibuat dengan:
+//   python3 scripts/sinkron_vo.py produksi/20261109-bunga-deposito-lps src/produksi/bunga-deposito-lps/vo-waktu.json
+// Jalankan ulang setiap kali VO dibuat ulang. Tanpa audio, waktunya diperkirakan dari jumlah kata naskah (perkiraanVO).
 import React from "react";
-import { Audio, Sequence, staticFile, useCurrentFrame } from "remotion";
+import { useCurrentFrame } from "remotion";
 import naskah from "../../../produksi/20261109-bunga-deposito-lps/naskah-vo.json";
 import vo from "./vo-waktu.json";
-import { CatatanSobek, Coret, GarisUkur, Indeks, Kanvas, Panah, SapuanTinta, Stempel, Subtitel, Sumbu, Tulis, garisTangan, lingkaranTangan, p01 } from "../../catatan/Komponen";
-import { DataVO, jadwalVO, padaFrasa, perkiraanVO, subtitelDariBlok } from "../../catatan/Jadwal";
+import { CatatanSobek, Coret, GarisUkur, Indeks, Kanvas, Panah, SapuanTinta, Stempel, Subtitel, SuaraVO, Sumbu, Tulis, garisTangan, lingkaranTangan, p01 } from "../../catatan/Komponen";
+import { DataVO, jadwalVO, padaFrasa, perkiraanVO, rapatkanVO, subtitelDariBlok } from "../../catatan/Jadwal";
 import { Meja, Properti, kameraOtomatis, nomorBagian, tataHalaman } from "../../catatan/Meja";
 import { c, d, f } from "../../catatan/tema";
 
-const TATA = tataHalaman(6);
-const [B1, B2, B3, B4, B5, B6] = TATA.asal;
+// ---------------------------------------------------------------- pilihan yang menunggu keputusan user
+// Blok VO yang dipakai. Membuang blok (mis. 3 = contoh Rp10 juta, 4 = 14 BPR) cukup dengan menghapus indeksnya:
+// audio blok itu tidak diputar, bagiannya hilang dari halaman, dan kamera menyesuaikan. Tidak perlu VO ulang.
+const BLOK_DIPAKAI = [0, 1, 2, 3, 4, 5, 6, 7];
+// true = angka lurus (lining) untuk semua tulisan di halaman; false = angka gaya lama seperti referensi.
+const ANGKA_LURUS = false;
+// Jeda antar-blok (detik) setelah hening di ujung tiap blok TTS dibuang.
+const JEDA_BLOK = 0.4;
 
-// Hook harus terbaca dalam 2 detik: suara mulai 0,5 s (setelah sapuan tinta), bukan 1,2 s seperti referensi.
+// ---------------------------------------------------------------- jadwal
+const VO = rapatkanVO(vo as DataVO, { pakai: BLOK_DIPAKAI, jeda: JEDA_BLOK });
+const dipakai = (i: number) => BLOK_DIPAKAI.includes(i);
+
+// Bagian halaman = blok 0–5 yang dipakai, berurutan.
+const BAGIAN = [0, 1, 2, 3, 4, 5].filter(dipakai);
+const TATA = tataHalaman(BAGIAN.length);
+const LUAR: [number, number] = [-50000, -50000]; // bagian yang dibuang digambar jauh di luar halaman
+const asal = (i: number) => (dipakai(i) ? TATA.asal[BAGIAN.indexOf(i)] : LUAR);
+const [B1, B2, B3, B4, B5, B6] = [0, 1, 2, 3, 4, 5].map(asal);
+
+// Hook harus terbaca secepatnya: suara mulai 0,5 s (setelah sapuan tinta), bukan 1,2 s seperti referensi.
 const J = jadwalVO(
-  vo as DataVO,
+  VO,
   { b1: 0, b2: 1, b3: 2, b4: 3, b5: 4, b6: 5, penutup: 6, tagline: 7, akhir: "selesai" },
   perkiraanVO(naskah),
   { awal: 0.5, ekor: 2 },
@@ -29,7 +47,7 @@ export const DURASI_DEPOSITO = d(T.akhir);
 // Frame saat `frasa` diucapkan di blok i (geser dalam detik).
 const F = (i: number, frasa: string, geser = 0) => d(padaFrasa(J, i, naskah.blok[i].teks, frasa, geser));
 
-const MULAI_BAGIAN = [0, T.b2, T.b3, T.b4, T.b5, T.b6];
+const MULAI_BAGIAN = BAGIAN.map((i, k) => (k === 0 ? 0 : [T.b1, T.b2, T.b3, T.b4, T.b5, T.b6][i]));
 const MUNDUR = T.penutup - 0.3;
 const KAMERA = kameraOtomatis(TATA, MULAI_BAGIAN, MUNDUR, T.akhir);
 
@@ -109,7 +127,7 @@ const Halaman: React.FC = () => {
           <Coret
             key={`x${i}`}
             d={garisTangan(B5[0] + b.x - 52, B5[1] + b.y + 40, B5[0] + b.x + 52, B5[1] + b.y - 56, i + 20, 2)}
-            mulai={F(4, "dilikuidasi") + i * 2}
+            mulai={F(4, "sudah dilikuidasi") + Math.round(i * 0.8)}
             durasi={5}
             warna={c.merah}
             tebal={5}
@@ -195,7 +213,9 @@ const TEKS_TAMPIL = [
   "Dan bank memang bisa tutup. Hingga Oktober tahun ini, 14 BPR dan BPRS sudah dilikuidasi.",
   "Jadi, cek dulu: bunga plus cashback-nya masih di bawah batas atau nggak. Ingat juga, jaminannya maksimal Rp2 miliar per nasabah per bank.",
 ];
-const SUBTITEL = subtitelDariBlok(J, TEKS_TAMPIL).map((s) => ({ ...s, selesai: Math.min(s.selesai, MUNDUR) }));
+const SUBTITEL = subtitelDariBlok(J, TEKS_TAMPIL.map((t, i) => (dipakai(i) ? t : "")))
+  .map((s) => ({ ...s, selesai: Math.min(s.selesai, MUNDUR) }))
+  .filter((s) => s.selesai - s.mulai > 0.2);
 
 export const BungaDepositoLPS: React.FC<{ subtitel?: boolean }> = ({ subtitel = true }) => {
   const fr = useCurrentFrame();
@@ -204,16 +224,16 @@ export const BungaDepositoLPS: React.FC<{ subtitel?: boolean }> = ({ subtitel = 
       ukuran={TATA}
       kamera={KAMERA}
       properti={PROPERTI}
-      halaman={<Halaman />}
+      halaman={
+        <div style={{ fontVariantNumeric: ANGKA_LURUS ? "lining-nums" : undefined }}>
+          <Halaman />
+        </div>
+      }
       layar={
         <>
           {fr < d(MUNDUR) ? <Indeks nomor={nomorBagian(fr, MULAI_BAGIAN)} /> : null}
           {subtitel ? <Subtitel baris={SUBTITEL} /> : null}
-          {J.ada && vo.audio ? (
-            <Sequence from={d(J.awal)}>
-              <Audio src={staticFile(vo.audio)} />
-            </Sequence>
-          ) : null}
+          {J.ada ? <SuaraVO vo={VO} awal={J.awal} /> : null}
           <SapuanTinta mulai={0} durasi={16} />
           <CatatanSobek
             mulai={F(6, "Bunga tinggi", 1.0)}
