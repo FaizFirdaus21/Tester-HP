@@ -7,45 +7,67 @@
       "judul": "Deposito bunga",
       "angka": "6%",
       "isi": "aman nggak?",
-      "visual": "Angka besar 6% dilingkari merah, label contoh."
+      "visual": "Angka besar 6% dilingkari merah."
     },
     {
-      "peran": "poin",
+      "peran": "penjelasan",
       "judul": "LPS cuma jamin bunga sampai 3,75%",
       "angka": "3,75%",
       "gambar": "perisai",
-      "isi": "Untuk simpanan rupiah di bank umum, berlaku s.d. 31 Jan 2027. Di BPR batasnya 6,25%.",
-      "visual": "Angka besar 3,75% dan perisai kapur.",
+      "label": [
+        "batas bank umum",
+        "dijamin"
+      ],
+      "isi": "Berlaku s.d. 31 Jan 2027. Di BPR batasnya 6,25%.",
+      "visual": "Angka 3,75% di samping perisai kapur.",
       "sumber": "LPS, RDK 28 Sep 2026"
     },
     {
-      "peran": "poin",
-      "judul": "Lewat batas? Seluruh simpanan nggak dijamin",
-      "gambar": "amplop",
-      "isi": "Bukan cuma kelebihan bunganya. Pokok + bunga ikut nggak dijamin kalau bank tutup.",
-      "visual": "Amplop simpanan.",
+      "peran": "perumpamaan",
+      "judul": "Mirip garansi HP",
+      "gambar": [
+        "hp",
+        "silang"
+      ],
+      "label": [
+        "segel dibongkar",
+        "garansi hangus"
+      ],
+      "panah": true,
+      "isi": "Segelnya rusak sedikit, garansi seluruh HP-nya hangus.",
+      "visual": "HP dengan segel, panah ke silang merah."
+    },
+    {
+      "peran": "efek",
+      "judul": "Lewat batas? Nggak dijamin",
+      "gambar": [
+        "uang",
+        "bank",
+        "silang"
+      ],
+      "label": [
+        "pokok + bunga",
+        "bank tutup",
+        "nggak diganti"
+      ],
+      "panah": true,
+      "isi": "Bukan cuma kelebihan bunganya. Cashback ikut dihitung bunga.",
+      "visual": "Uang ke bank tutup ke silang.",
       "sumber": "FAQ LPS"
     },
     {
-      "peran": "poin",
-      "judul": "Mirip garansi HP",
-      "gambar": "hp",
-      "isi": "Segelnya dibongkar sedikit saja, garansi seluruh HP-nya hangus.",
-      "visual": "Sketsa HP dengan segel."
-    },
-    {
-      "peran": "poin",
-      "judul": "Cashback juga dihitung bunga",
-      "gambar": "koin",
-      "isi": "Contoh: bunga 3,5% + cashback 1% = 4,5%. Sudah lewat batas 3,75%.",
-      "visual": "Tumpukan koin.",
-      "sumber": "Kalkulator 3T LPS"
-    },
-    {
-      "peran": "poin",
-      "judul": "Cek 2 hal sebelum taruh uang",
-      "isi": "✓ bunga + cashback ≤ 3,75% (bank umum) atau ≤ 6,25% (BPR)\n✓ yang dijamin maks. Rp2 miliar per nasabah per bank",
-      "visual": "Checklist kapur."
+      "peran": "solusi",
+      "judul": "Cek 2 hal dulu",
+      "gambar": [
+        "koin",
+        "perisai"
+      ],
+      "label": [
+        "bunga + cashback",
+        "maks. Rp2 miliar"
+      ],
+      "isi": "✓ bunga + cashback ≤ 3,75%\n✓ dijamin maks. Rp2 miliar/bank",
+      "visual": "Koin dan perisai, checklist."
     },
     {
       "peran": "cta",

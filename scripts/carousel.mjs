@@ -13,8 +13,8 @@ if (!masukan || !keluar) {
 const bi = sisa.indexOf("--browser");
 const browserExecutable = bi >= 0 ? sisa[bi + 1] : null;
 const data = JSON.parse(fs.readFileSync(masukan, "utf8"));
-const n = Math.min(data.slide.length, 8);
-if (data.slide.length < 5 || data.slide.length > 8) console.warn(`Peringatan: ${data.slide.length} slide (aturan 5–8).`);
+const n = Math.min(data.slide.length, 6);
+if (data.slide.length > 6) console.warn(`Peringatan: ${data.slide.length} slide; aturan maksimal 6, hanya 6 pertama yang dirender.`);
 fs.mkdirSync(keluar, { recursive: true });
 const serveUrl = await bundle({ entryPoint: path.resolve("src/index.ts") });
 const composition = await selectComposition({ serveUrl, id: "CarouselPapan", inputProps: { data, slide: 0 }, browserExecutable });

@@ -1,39 +1,45 @@
-// Carousel Instagram gaya Papan Kapur (1080×1350, 4:5, 5–8 slide, tanpa suara).
+// Carousel Instagram gaya Papan Kapur: infografis 1080×1350 (4:5), maksimal 6 slide, tanpa suara.
+// Slide 1 = hook, slide 2–5 = poin (penjelasan, perumpamaan, efek, solusi), slide 6 = CTA + logo + tagline.
+// Slide poin: ilustrasi kapur di atas (±58% tinggi), judul besar huruf kapital, isi maksimal 2 baris.
 //
 // Semua slide digambar di SATU papan panjang (lebar = jumlah slide × 1080) lalu dipotong per slide,
 // jadi tekstur papan dan coretan yang melewati batas slide bersambung saat digeser.
-// Tekstur: public/papan/papan-carousel.jpg (8640×1350, cukup untuk 8 slide), dibuat dengan
+// Tekstur: public/papan/papan-carousel.jpg (8640×1350), dibuat dengan
 //   python3 scripts/buat_tekstur_papan.py public/papan/papan-carousel.jpg 8640 1350
 //
-// Data: produksi/<slug>/carousel.json
-//   { "judul": "...", "sumber": "...", "slide": [ { "peran": "hook" | "poin" | "cta", "judul": "...", "isi": "...", "visual": "...",
-//       // opsional, diisi Director dari kolom visual:
-//       "angka": "3,75%",          // angka besar kuning
-//       "gambar": "bank" | "hp" | "amplop" | "koin" | "grafik" | "kalender" | "perisai" | "centang",
-//       "sumber": "LPS, 28 Sep 2026" } ] }
-//   isi dengan baris diawali "✓" (dipisah "\n") digambar sebagai checklist.
+// Data: produksi/<slug>/carousel.json — format lengkap di docs/carousel-papan.md.
 // Render: node scripts/carousel.mjs produksi/<slug>/carousel.json produksi/<slug> --browser <chrome-headless-shell>
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
 import { SimbolKapur, LogoKapur } from "./BrandBoard";
-import { Coret, FilterKapur, Panah, Titik, Tulis, garis, ikonBank, lingkaran } from "./Komponen";
+import { Coret, FilterKapur, Panah, Tulis, garis, lingkaran } from "./Komponen";
+import { Ilustrasi, centang, kotak, kotakBulat } from "./ilustrasi";
 import { k } from "./tema";
 
 export const SLIDE_W = 1080;
 export const SLIDE_H = 1350;
-const MAKS_SLIDE = 8;
+const MAKS_SLIDE = 6;
 const SUDAH = -9999; // tampil penuh (gambar diam)
 export const TAGLINE = "Biar dompetmu nggak kaget.";
 
-export type Gambar = "bank" | "hp" | "amplop" | "koin" | "grafik" | "kalender" | "perisai" | "centang";
-export type DataSlide = { peran: string; judul: string; isi?: string; visual?: string; angka?: string; gambar?: Gambar | string; sumber?: string };
+export type DataSlide = {
+  peran: string;
+  judul: string;
+  isi?: string;
+  visual?: string;
+  angka?: string;
+  gambar?: string | string[]; // 1–3 objek ilustrasi (lihat src/papan/ilustrasi), atau "angka:<teks>"
+  label?: string[]; // label di bawah tiap objek
+  panah?: boolean; // panah kapur di antara objek
+  sumber?: string;
+};
 export type DataCarousel = { judul: string; slide: DataSlide[]; sumber?: string };
 export type PropsCarousel = { data: DataCarousel; slide: number };
 
 // ---------------------------------------------------------------- teks
 // Pembungkus baris berdasarkan perkiraan lebar huruf (lebar rata-rata per huruf relatif ukuran font).
 // Perkiraan, bukan ukur kanvas: font belum tentu siap saat diukur, dan hasilnya harus deterministik.
-const LEBAR_HURUF = { tangan: 0.47, tebal: 0.52, tipis: 0.45, hias: 0.58 } as const;
+const LEBAR_HURUF = { tangan: 0.47, tebal: 0.52, tipis: 0.45, hias: 0.58, kapital: 0.62 } as const;
 const bungkus = (teks: string, ukuran: number, lebar: number, gaya: keyof typeof LEBAR_HURUF): string[] => {
   const maks = Math.max(8, Math.floor(lebar / (ukuran * LEBAR_HURUF[gaya])));
   const baris: string[] = [];
@@ -64,100 +70,6 @@ const Baris: React.FC<{ x: number; y: number; baris: string[]; ukuran: number; j
   <>
     {baris.map((b, i) => (
       <Tulis key={i} x={x} y={y + i * jarak} teks={b} ukuran={ukuran} gaya={gaya} warna={warna} mulai={SUDAH} rata={rata} tebalFilter={tebalFilter} />
-    ))}
-  </>
-);
-
-// ---------------------------------------------------------------- gambar kapur
-const kotak = (x: number, y: number, w: number, h: number, seed: number): Titik[] => [
-  ...garis(x, y, x + w, y, seed, 2),
-  ...garis(x + w, y, x + w, y + h, seed + 1, 2),
-  ...garis(x + w, y + h, x, y + h, seed + 2, 2),
-  ...garis(x, y + h, x, y + 4, seed + 3, 2),
-];
-const kotakBulat = (x: number, y: number, w: number, h: number, r: number): Titik[] => {
-  const pts: Titik[] = [];
-  const sudut = (cx: number, cy: number, a0: number) => {
-    for (let i = 0; i <= 6; i++) {
-      const a = a0 + (i / 6) * (Math.PI / 2);
-      pts.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]);
-    }
-  };
-  sudut(x + w - r, y + r, -Math.PI / 2);
-  sudut(x + w - r, y + h - r, 0);
-  sudut(x + r, y + h - r, Math.PI / 2);
-  sudut(x + r, y + r, Math.PI);
-  pts.push([x + w - r, y + 2]);
-  return pts;
-};
-const centang = (x: number, y: number, s = 1): Titik[] => [
-  [x, y],
-  [x + 22 * s, y + 30 * s],
-  [x + 70 * s, y - 40 * s],
-];
-
-/** Gambar kapur sederhana di sekitar (cx, cy) dengan ukuran s. Kembalikan daftar coretan + warnanya. */
-const gambarKapur = (jenis: string, cx: number, cy: number, s: number): { pts: Titik[]; warna?: string; tebal?: number }[] => {
-  const h = s / 2;
-  switch (jenis) {
-    case "bank":
-      return ikonBank(cx, cy, s, 5).map((pts) => ({ pts }));
-    case "hp":
-      return [
-        { pts: kotakBulat(cx - h * 0.55, cy - h, s * 0.55, s, s * 0.09) },
-        { pts: kotakBulat(cx - h * 0.42, cy - h * 0.86, s * 0.17, s * 0.22, s * 0.04) },
-        { pts: kotak(cx - s * 0.08, cy + h * 0.55, s * 0.18, s * 0.09, 7), warna: k.kuning },
-      ];
-    case "amplop":
-      return [
-        { pts: kotak(cx - h, cy - h * 0.62, s, s * 0.62, 11) },
-        {
-          pts: [
-            [cx - h, cy - h * 0.62],
-            [cx, cy + h * 0.05],
-            [cx + h, cy - h * 0.62],
-          ],
-        },
-      ];
-    case "koin":
-      return [0, 1, 2].map((i) => ({ pts: lingkaran(cx, cy + h * 0.5 - i * s * 0.22, h * 0.8, h * 0.28, 20 + i), warna: k.kuning }));
-    case "grafik":
-      return [
-        { pts: [[cx - h, cy - h], [cx - h, cy + h], [cx + h, cy + h]] as Titik[] },
-        { pts: [[cx - h * 0.8, cy + h * 0.6], [cx - h * 0.2, cy + h * 0.1], [cx + h * 0.2, cy + h * 0.3], [cx + h * 0.85, cy - h * 0.7]] as Titik[], warna: k.kuning, tebal: 9 },
-      ];
-    case "kalender":
-      return [
-        { pts: kotak(cx - h, cy - h * 0.8, s, s * 0.9, 31) },
-        { pts: garis(cx - h, cy - h * 0.45, cx + h, cy - h * 0.45, 32, 1) },
-        ...[0, 1, 2].flatMap((r) => [0, 1, 2, 3].map((c) => ({ pts: lingkaran(cx - h * 0.65 + c * h * 0.43, cy - h * 0.12 + r * h * 0.3, 7, 7, r * 4 + c) }))),
-      ];
-    case "perisai":
-      return [
-        {
-          pts: [
-            [cx, cy - h],
-            [cx + h * 0.8, cy - h * 0.7],
-            [cx + h * 0.7, cy + h * 0.2],
-            [cx, cy + h],
-            [cx - h * 0.7, cy + h * 0.2],
-            [cx - h * 0.8, cy - h * 0.7],
-            [cx, cy - h],
-          ] as Titik[],
-        },
-        { pts: centang(cx - h * 0.35, cy + h * 0.05, s / 200), warna: k.hijauTerang, tebal: 10 },
-      ];
-    case "centang":
-      return [{ pts: centang(cx - h * 0.5, cy + h * 0.1, s / 120), warna: k.hijauTerang, tebal: 14 }];
-    default:
-      return [];
-  }
-};
-
-const GambarKapur: React.FC<{ jenis: string; cx: number; cy: number; s: number }> = ({ jenis, cx, cy, s }) => (
-  <>
-    {gambarKapur(jenis, cx, cy, s).map((g, i) => (
-      <Coret key={i} pts={g.pts} mulai={SUDAH} warna={g.warna ?? k.putih} tebal={g.tebal ?? 6} kapur={false} />
     ))}
   </>
 );
@@ -195,45 +107,39 @@ const SlideHook: React.FC<{ x0: number; s: DataSlide }> = ({ x0, s }) => {
 };
 
 const SlidePoin: React.FC<{ x0: number; s: DataSlide }> = ({ x0, s }) => {
-  const kiri = x0 + 90;
-  const judul = bungkus(s.judul, 84, 900, "tebal");
-  const yJudul = 230;
-  const akhirJudul = yJudul + (judul.length - 1) * 96;
-  const adaVisual = Boolean(s.angka || s.gambar);
+  const cx = x0 + 540;
+  const daftar = s.gambar ? (Array.isArray(s.gambar) ? s.gambar : [s.gambar]) : [];
+  const objek = s.angka ? [`angka:${s.angka}`, ...daftar] : daftar;
+  const judul = bungkus(s.judul.toUpperCase(), 84, 940, "kapital");
+  if (judul.length > 2) console.warn(`[carousel] judul "${s.judul}" lebih dari 2 baris`);
+  const yJudul = objek.length ? 880 : 300;
+  const akhirJudul = yJudul + (judul.length - 1) * 94;
   const checklist = (s.isi ?? "").split("\n").filter((b) => b.trim().startsWith("✓"));
-  const yVisual = akhirJudul + 270;
-  let yIsi = adaVisual ? yVisual + 290 : akhirJudul + 170;
+  const isi = !checklist.length && s.isi ? bungkus(s.isi, 54, 920, "tangan") : [];
+  if (isi.length > 2) console.warn(`[carousel] isi slide "${s.judul}" ${isi.length} baris (maks. 2)`);
+  let yIsi = akhirJudul + 115;
   return (
     <>
-      <Baris x={kiri} y={yJudul} baris={judul} ukuran={84} jarak={96} gaya="tebal" />
-      <Coret pts={garis(kiri, akhirJudul + 70, kiri + 300, akhirJudul + 64, 9, 3)} mulai={SUDAH} warna={k.kuning} tebal={8} kapur={false} />
-      {s.angka && s.gambar ? (
-        <>
-          <Tulis x={x0 + 380} y={yVisual} teks={s.angka} ukuran={210} gaya="tebal" warna={k.kuning} mulai={SUDAH} rata="center" tebalFilter />
-          <GambarKapur jenis={s.gambar} cx={x0 + 820} cy={yVisual} s={230} />
-        </>
-      ) : s.angka ? (
-        <Tulis x={x0 + 540} y={yVisual} teks={s.angka} ukuran={250} gaya="tebal" warna={k.kuning} mulai={SUDAH} rata="center" tebalFilter />
-      ) : s.gambar ? (
-        <GambarKapur jenis={s.gambar} cx={x0 + 540} cy={yVisual + 20} s={340} />
-      ) : null}
+      {objek.length ? <Ilustrasi x={x0 + 90} y={140} w={900} h={640} objek={objek} label={s.label} panah={s.panah} /> : null}
+      <Baris x={cx} y={yJudul} baris={judul} ukuran={84} jarak={94} gaya="tebal" rata="center" />
+      <Coret pts={garis(cx - 150, akhirJudul + 62, cx + 150, akhirJudul + 56, 9, 3)} mulai={SUDAH} warna={k.kuning} tebal={8} kapur={false} />
       {checklist.length ? (
         checklist.map((b, i) => {
-          const baris = bungkus(b.replace(/^\s*✓\s*/, ""), 60, 800, "tangan");
+          const baris = bungkus(b.replace(/^\s*✓\s*/, ""), 50, 800, "tangan");
           const y = yIsi;
-          yIsi += baris.length * 74 + 50;
+          yIsi += baris.length * 62 + 34;
           return (
             <React.Fragment key={i}>
-              <Coret pts={kotak(kiri, y - 36, 70, 70, 40 + i)} mulai={SUDAH} tebal={5} kapur={false} />
-              <Coret pts={centang(kiri + 12, y - 4, 1)} mulai={SUDAH} warna={k.hijauTerang} tebal={9} kapur={false} />
-              <Baris x={kiri + 110} y={y} baris={baris} ukuran={60} jarak={74} gaya="tangan" />
+              <Coret pts={kotak(x0 + 110, y - 30, 58, 58, 40 + i)} mulai={SUDAH} tebal={5} kapur={false} />
+              <Coret pts={centang(x0 + 120, y - 4, 0.85)} mulai={SUDAH} warna={k.hijauTerang} tebal={8} kapur={false} />
+              <Baris x={x0 + 200} y={y} baris={baris} ukuran={50} jarak={62} gaya="tangan" />
             </React.Fragment>
           );
         })
-      ) : s.isi ? (
-        <Baris x={kiri} y={yIsi} baris={bungkus(s.isi, adaVisual ? 62 : 68, 900, "tangan")} ukuran={adaVisual ? 62 : 68} jarak={adaVisual ? 78 : 86} gaya="tangan" />
+      ) : isi.length ? (
+        <Baris x={cx} y={yIsi} baris={isi} ukuran={54} jarak={66} gaya="tangan" rata="center" />
       ) : null}
-      {s.sumber ? <Tulis x={kiri} y={1270} teks={`sumber: ${s.sumber}`} ukuran={32} gaya="tipis" warna={k.biru} mulai={SUDAH} /> : null}
+      {s.sumber ? <Tulis x={cx} y={1295} teks={`sumber: ${s.sumber}`} ukuran={30} gaya="tipis" warna={k.biru} mulai={SUDAH} rata="center" /> : null}
     </>
   );
 };
@@ -291,7 +197,7 @@ const SlideCta: React.FC<{ x0: number; s: DataSlide; sumber?: string }> = ({ x0,
 // ---------------------------------------------------------------- komposisi
 export const CarouselPapan: React.FC<PropsCarousel> = ({ data, slide }) => {
   const n = Math.min(data.slide.length, MAKS_SLIDE);
-  if (data.slide.length > MAKS_SLIDE) console.warn(`[carousel] ${data.slide.length} slide; hanya ${MAKS_SLIDE} pertama yang dipakai (tekstur 8640 px)`);
+  if (data.slide.length > MAKS_SLIDE) console.warn(`[carousel] ${data.slide.length} slide; hanya ${MAKS_SLIDE} pertama yang dipakai (aturan maks. 6 slide)`);
   return (
     <AbsoluteFill style={{ background: "#0f0d0b", overflow: "hidden" }}>
       <FilterKapur />
