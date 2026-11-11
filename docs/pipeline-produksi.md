@@ -113,7 +113,7 @@ Target: **2 konten per hari** di @intipdompet, diunggah lewat Zernio (akun Insta
 
 | Slot | Jam (WIB) | Jenis | Dibuat oleh |
 |---|---|---|---|
-| Siang | 12.00 | **Carousel Papan Kapur** (gambar diam 1080×1350, 5–8 slide, tanpa VO) | Research (isi) → Director (gambar) |
+| Siang | 12.00 | **Carousel Papan Kapur** (infografis 1080×1350, **maksimal 6 slide**, tanpa VO) | Research (isi) → Director (gambar) |
 | Malam | 19.00 | **Reels Papan Kapur** (naskah 7 blok + VO) | Research → VO → Director |
 
 Kenapa begini: kuota TTS gratis cukup untuk 1 video per hari (1 video = 7–8 permintaan). Carousel tidak butuh suara.
@@ -126,7 +126,9 @@ Semua konten dibuat **sehari sebelum** tayang:
 4. Orchestrator mengirim video, sampul, slide, dan caption ke user. **Tidak ada yang terbit sebelum user bilang "accept".**
 5. Setelah accept, Orchestrator menjadwalkan keduanya di Zernio untuk besok pukul 12.00 dan 19.00 WIB.
 
-Folder carousel: `produksi/<YYYYMMDD>-<slug>/` dengan `carousel.json`, `slide-01.png` … `slide-NN.png`, `caption.txt`.
+Folder carousel: `produksi/<YYYYMMDD>-<slug>/` dengan `carousel.json`, `slide-01.png` … `slide-06.png`, `caption.txt`.
+
+Bentuk carousel (dari referensi user): **infografis, bukan sekadar tulisan.** Tiap slide berisi ilustrasi kapur di atas (±55–60% tinggi: orang, emas, HP, kartu, dll. beserta label dan panah kecil), judul besar huruf kapital di bawahnya, dan isi maksimal 2 baris. Slide 1 = hook, slide 2–5 = penjelasan, perumpamaan, efek, solusi, slide 6 = CTA + logo + tagline. Ilustrasi dibuat dari kode (`src/papan/ilustrasi/`), karena kuota pembuatan gambar AI gratis = 0.
 
 ### Aturan caption
 - Baris pertama = hook (sama dengan hook video atau judul slide 1).
