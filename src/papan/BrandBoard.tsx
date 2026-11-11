@@ -140,8 +140,8 @@ export const BrandBoardPapan: React.FC = () => (
       <Tulis x={KIRI} y={150} teks="BRAND BOARD · gaya Papan Kapur" ukuran={40} gaya="tipis" warna={k.biru} mulai={SUDAH} />
       <Tulis x={BW - KIRI} y={150} teks="v1 · Nov 2026" ukuran={40} gaya="tipis" warna={k.biru} mulai={SUDAH} rata="right" />
       <LogoKapur x={500} y={240} s={300} />
-      <Tulis x={BW / 2} y={650} teks="Urusan uang, kita intip." ukuran={96} gaya="hias" warna={k.kuning} mulai={SUDAH} rata="center" />
-      <Coret pts={garis(760, 712, 1640, 704, 5, 4)} mulai={SUDAH} warna={k.kuning} tebal={8} kapur={false} />
+      <Tulis x={BW / 2} y={650} teks="Biar dompetmu nggak kaget." ukuran={96} gaya="hias" warna={k.kuning} mulai={SUDAH} rata="center" />
+      <Coret pts={garis(720, 712, 1680, 704, 5, 4)} mulai={SUDAH} warna={k.kuning} tebal={8} kapur={false} />
       <Tulis x={BW / 2} y={790} teks="Media edukasi keuangan untuk usia 20–35: data harian, dijelaskan di papan tulis." ukuran={44} mulai={SUDAH} rata="center" />
 
       {/* ===== 01 logo & varian ===== */}

@@ -79,7 +79,7 @@ Aturan tambahan:
 - 120–150 kata (±50–60 detik), 7 blok sesuai tabel. Kalau topiknya sederhana, lebih pendek lebih baik.
 - Bahasa lisan anak muda Indonesia: sapa "kamu", kalimat pendek, satu ide per kalimat. Hindari istilah teknis; kalau terpaksa, langsung jelaskan dengan bahasa sehari-hari.
 - **CTA harus bisa dijawab dalam satu kata atau satu angka**, supaya orang mau komen. Contoh bagus: "Kamu pernah taruh deposito di bunga berapa? Tulis angkanya di komen." / "Tim nabung di bank atau di e-wallet? Komen di bawah." Lalu satu ajakan berbagi yang spesifik: "Kirim ke teman yang lagi nyari deposito bunga tinggi." Hindari CTA kosong seperti "Gimana menurutmu?" atau "Setuju?".
-- Tagline **"IntipDompet. Urusan uang, kita intip."** tetap diucapkan di blok 7, sebelum atau sesudah CTA.
+- Tagline **"IntipDompet. Biar dompetmu nggak kaget."** diucapkan di akhir blok 7, setelah CTA.
 - Gaya merek: tanpa kata "cuan", "auto kaya", "pasti untung"; tidak menyuruh membeli saham, kripto, atau produk tertentu; konten investasi menyebut "konten edukasi, bukan ajakan membeli".
 - Hindari pola tulisan AI: "bukan X, tapi Y" sebagai kejutan, "Hasilnya? ...", daftar "tanpa X, tanpa Y, tanpa Z", dan frasa klise ("ternyata oh ternyata", "simak sampai habis").
 - Angka ditulis sebagai kata ("tiga koma dua tiga persen"), singkatan dieja sesuai cara baca.
