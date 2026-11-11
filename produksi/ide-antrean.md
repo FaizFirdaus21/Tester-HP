@@ -22,7 +22,8 @@ Topik yang sudah diproduksi: bunga deposito & LPS (20261109). Inflasi Oktober 20
 
 ## Usulan untuk tayang 13 Nov
 - **Reels:** #1 Paylater menjelang 12.12.
-- **Carousel:** #3 Pinjol TWP90 (skor 68). Emas tidak dipilih karena topiknya sudah dipakai sebagai contoh template.
+- **Carousel:** #2 Emas jual vs buyback (keputusan Orchestrator). Alasannya, paylater dan pinjol sama-sama topik utang, jadi kalau tayang di hari yang sama feed terasa monoton. Pakai demo `src/papan/demo/carousel-emas.json`, lalu perbarui angkanya dengan data nyata. Ambil harga jual dan buyback dari satu sumber pada hari produksi (Logam Mulia atau Pegadaian, jangan dicampur), tulis tanggalnya, dan ganti semua label "contoh" dengan angka asli beserta sumbernya.
+- **Pinjol TWP90 (#3):** dipindah ke hari yang Reels-nya bukan topik utang (mis. bersama #4 Rupiah atau #5 Pengangguran).
 
 ## Catatan kolom `visual` (format `docs/carousel-papan.md`)
 Kolom ini hanya boleh memakai aset yang tersedia, supaya Director bisa langsung merakitnya:
