@@ -108,8 +108,8 @@ def tulisan_lama() -> np.ndarray:
         ukuran = int(rng.uniform(60, 180))
         font = ImageFont.truetype(FONT, ukuran)
         x, y = rng.uniform(-100, W), rng.uniform(0, H)
-        g.text((x, y), teks, font=font, fill=int(rng.uniform(10, 22)))
-    lapis = lapis.rotate(-1.2, resample=Image.BICUBIC).filter(ImageFilter.GaussianBlur(9))
+        g.text((x, y), teks, font=font, fill=int(rng.uniform(5, 12)))  # samar: angka bekas tidak boleh terbaca dekat data
+    lapis = lapis.rotate(-1.2, resample=Image.BICUBIC).filter(ImageFilter.GaussianBlur(14))
     return ke_array(lapis)
 
 
