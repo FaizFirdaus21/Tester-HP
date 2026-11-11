@@ -168,3 +168,11 @@ export const Ilustrasi: React.FC<{ x: number; y: number; w: number; h: number; o
     </>
   );
 };
+
+// ---------------------------------------------------------------- adegan bergambar (orang + benda berwarna)
+export { Adegan, JENIS_BENDA } from "./adegan";
+export type { DataAdegan, Lapis, LabelAdegan, PanahAdegan } from "./adegan";
+export { Orang } from "./orang";
+export type { Ekspresi, Pose } from "./orang";
+export { BENDA } from "./benda";
+export { Bidang, Bentuk, halus } from "./dasar";

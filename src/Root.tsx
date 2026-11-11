@@ -20,7 +20,8 @@ import { DURASI_PAPAN, DepositoPapan } from "./papan/demo/DepositoPapan";
 import { BrandBoardPapan, FotoProfilPapan } from "./papan/BrandBoard";
 import { DataSampul, SampulDeposito, SampulPapan } from "./papan/Sampul";
 import { CarouselPapan, PropsCarousel, SLIDE_H, SLIDE_W } from "./papan/Carousel";
-import contohCarousel from "./papan/demo/carousel-deposito.json";
+import contohCarousel from "./papan/demo/carousel-emas.json";
+import { GaleriIlustrasi } from "./papan/demo/GaleriIlustrasi";
 import { DURASI_UJI_GERAK, HoloUjiGerak } from "./konsep/HoloUjiGerak";
 import { ChromeMinimal } from "./konsep/ChromeMinimal";
 import { DURASI_KONSEP } from "./konsep/umum";
@@ -63,6 +64,7 @@ export const RemotionRoot: React.FC = () => (
       height={1920}
       defaultProps={{ label: "sebelum taruh uang, cek ini", atas: "Deposito", angka: "6%", bawah: "aman nggak?" } as DataSampul}
     />
+    <Composition id="GaleriIlustrasi" component={GaleriIlustrasi} durationInFrames={1} fps={30} width={2200} height={1300} />
     {/* Carousel Papan Kapur: node scripts/carousel.mjs <carousel.json> <folder-keluar> */}
     <Composition
       id="CarouselPapan"

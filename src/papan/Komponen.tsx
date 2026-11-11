@@ -239,8 +239,8 @@ export const Panah: React.FC<{ x1: number; y1: number; x2: number; y2: number; t
 };
 
 // ---------------------------------------------------------------- tulisan kapur
-type Gaya = "tangan" | "tebal" | "tipis" | "hias";
-const gayaHuruf: Record<Gaya, { family: string; weight: number }> = {
+export type Gaya = "tangan" | "tebal" | "tipis" | "hias";
+export const gayaHuruf: Record<Gaya, { family: string; weight: number }> = {
   tangan: { family: font.tangan, weight: 400 },
   tebal: { family: font.tangan, weight: 700 },
   tipis: { family: font.tangan, weight: 300 },
@@ -248,7 +248,8 @@ const gayaHuruf: Record<Gaya, { family: string; weight: number }> = {
 };
 
 let kanvasUkur: CanvasRenderingContext2D | null = null;
-const ukurLebar = (teks: string, ukuran: number, g: Gaya) => {
+/** Lebar teks (px) dengan font kapur yang sama seperti Tulis, diukur di kanvas. */
+export const ukurLebar = (teks: string, ukuran: number, g: Gaya) => {
   if (!kanvasUkur) kanvasUkur = document.createElement("canvas").getContext("2d");
   const h = gayaHuruf[g];
   kanvasUkur!.font = `${h.weight} ${ukuran}px ${h.family}`;
