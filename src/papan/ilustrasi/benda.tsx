@@ -10,7 +10,7 @@ type P = [number, number];
 
 const tebalDari = (s: number) => Math.max(4, s * 0.02);
 
-const BatangEmas: React.FC<{ cx: number; cy: number; s: number }> = ({ cx, cy, s }) => {
+export const BatangEmas: React.FC<{ cx: number; cy: number; s: number }> = ({ cx, cy, s }) => {
   const S = skala(cx, cy, s);
   const t = tebalDari(s) * 0.9;
   return (

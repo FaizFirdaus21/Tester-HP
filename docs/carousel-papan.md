@@ -53,7 +53,7 @@ Research mengisi `judul`, `isi`, `visual`, dan `sumber`. Director menerjemahkan 
 
 | Jenis | Opsi |
 |---|---|
-| `orang` (setengah badan) | `pose`: `netral`, `hp`, `struk`, `mikir`, `kaget`, `jempol`, `tunjuk` · `ekspresi`: `senyum`, `kaget`, `mikir`, `datar`, `cemas` · `baju`: `biru`/`merah`/`kuning`/`hijau` · `cermin` · `teks` (di struk/gelembung pikiran) |
+| `orang` (setengah badan) | `pose`: `netral`, `hp`, `struk`, `mikir`, `kaget`, `jempol`, `tunjuk`, `emas` (memegang batang emas) · `ekspresi`: `senyum`, `kaget`, `mikir`, `datar`, `cemas` · `baju`: `biru`/`merah`/`kuning`/`hijau` · `cermin` · `teks` (di struk/gelembung pikiran) |
 | benda | `emas`, `emasTumpuk`, `koin`, `uang`, `hp`, `kartu`, `tas`, `kalender`, `bank`, `timbangan` (`miring`), `label` (label harga: `teks`, `warna`, `miring`), `kalkulator`, `meja`, `gelembung` · sebagian menerima `teks` |
 | `gambar` (raster) | `src` (path di `public/`), `w`, `h`. Dipakai untuk mengganti ilustrasi kode dengan gambar kapur AI kelak, tanpa mengubah tata letak. |
 

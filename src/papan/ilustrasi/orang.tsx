@@ -3,9 +3,10 @@
 import React from "react";
 import { Tulis } from "../Komponen";
 import { k } from "../tema";
+import { BatangEmas } from "./benda";
 import { Bentuk, Bidang, Gr, SUDAH, elips, halus, persegi, persegiBulat, skala } from "./dasar";
 
-export type Pose = "netral" | "hp" | "struk" | "mikir" | "kaget" | "jempol" | "tunjuk";
+export type Pose = "netral" | "hp" | "struk" | "mikir" | "kaget" | "jempol" | "tunjuk" | "emas";
 export type Ekspresi = "senyum" | "kaget" | "mikir" | "datar" | "cemas";
 
 type P = [number, number];
@@ -52,6 +53,7 @@ export const Orang: React.FC<{ cx: number; cy: number; s: number; pose?: Pose; e
   if (pose === "mikir") aktif = [bahuK, [0.3, 0.68], [0.06, 0.31]];
   if (pose === "jempol") aktif = [bahuK, [0.48, 0.66], [0.46, 0.4]];
   if (pose === "tunjuk") aktif = [bahuK, [0.47, 0.52], [0.64, 0.43]];
+  if (pose === "emas") aktif = [bahuK, [0.46, 0.7], [0.3, 0.5]];
   if (pose === "kaget") {
     aktif = [bahuK, [0.47, 0.42], [0.36, 0.19]];
     pasif = [bahuKi, [-0.47, 0.42], [-0.36, 0.19]];
@@ -116,6 +118,7 @@ export const Orang: React.FC<{ cx: number; cy: number; s: number; pose?: Pose; e
           {teks ? <Tulis x={cx + 0.46 * m * s} y={top + 0.04 * s} teks={teks} ukuran={s * 0.06} gaya="tebal" warna={k.kuning} mulai={SUDAH} rata="center" /> : null}
         </>
       ) : null}
+      {pose === "emas" ? <BatangEmas cx={cx + 0.3 * m * s} cy={top + 0.43 * s} s={0.36 * s} /> : null}
       {pose === "jempol" ? <Gr pts={S([[0.47, 0.37], [0.47, 0.25]])} warna={k.putih} tebal={s * 0.035} /> : null}
       {pose === "tunjuk" ? <Gr pts={S([[0.68, 0.425], [0.76, 0.41]])} warna={k.putih} tebal={s * 0.025} /> : null}
       {pose === "mikir" ? (

@@ -5,8 +5,8 @@ import { FilterKapur, Tulis } from "../Komponen";
 import { BENDA, Orang, Pose } from "../ilustrasi";
 import { k } from "../tema";
 
-const POSE: Pose[] = ["netral", "hp", "struk", "mikir", "kaget", "jempol", "tunjuk"];
-const EKSPRESI = { netral: "senyum", hp: "senyum", struk: "cemas", mikir: "mikir", kaget: "kaget", jempol: "senyum", tunjuk: "datar" } as const;
+const POSE: Pose[] = ["netral", "hp", "struk", "mikir", "kaget", "jempol", "tunjuk", "emas"];
+const EKSPRESI = { netral: "senyum", hp: "senyum", struk: "cemas", mikir: "mikir", kaget: "kaget", jempol: "senyum", tunjuk: "datar", emas: "senyum" } as const;
 const BAJU = [k.biru, k.merah, k.kuning, k.hijauTerang];
 const TEKS: Record<string, string> = { label: "Rp1,5 jt", kalender: "NOV", kalkulator: "10%", gelembung: "__ %", hp: "Rp1,35 jt" };
 
