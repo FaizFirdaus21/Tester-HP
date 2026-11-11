@@ -1,0 +1,42 @@
+{
+  "audio": "vo/bunga-deposito-lps-v2.mp3",
+  "catatan": "Dibuat dengan gemini-3.1-flash-tts-preview, suara Sulafat.",
+  "total": 67.17,
+  "blok": [
+    {
+      "mulai": 0.0,
+      "durasi": 4.28,
+      "teks": "Deposito bunga enam persen, uangmu aman nggak?"
+    },
+    {
+      "mulai": 4.63,
+      "durasi": 8.76,
+      "teks": "El pe es cuma menjamin simpanan di bank umum yang bunganya maksimal tiga koma tujuh lima persen setahun. Dan bank memang bisa tutup."
+    },
+    {
+      "mulai": 13.74,
+      "durasi": 6.96,
+      "teks": "Mirip garansi HP. Segelnya dibongkar sedikit saja, garansi seluruh HP-nya hangus."
+    },
+    {
+      "mulai": 21.05,
+      "durasi": 9.0,
+      "teks": "Simpanan juga begitu: bunga plus cashback-nya lewat batas, simpanan itu nggak dijamin sama sekali, termasuk pokoknya."
+    },
+    {
+      "mulai": 30.4,
+      "durasi": 10.12,
+      "teks": "Contohnya, kamu taruh sepuluh juta di bank umum dengan bunga enam persen. Kalau banknya tutup, sepuluh juta itu bisa nggak diganti el pe es."
+    },
+    {
+      "mulai": 40.87,
+      "durasi": 14.44,
+      "teks": "Sebelum taruh uang, cek dua hal. Bunga plus cashback-nya nggak lebih dari tiga koma tujuh lima persen di bank umum, atau enam koma dua lima persen di be pe er. Dan yang dijamin cuma sampai dua miliar rupiah per bank."
+    },
+    {
+      "mulai": 55.66,
+      "durasi": 11.16,
+      "teks": "Kamu pernah lihat deposito bunga berapa persen? Tulis angkanya di komen. Kirim ke teman yang lagi nyari deposito bunga tinggi. IntipDompet. Urusan uang, kita intip."
+    }
+  ]
+}
