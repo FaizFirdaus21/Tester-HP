@@ -1,7 +1,7 @@
 {
   "audio": "vo/bunga-deposito-lps-v2.mp3",
   "catatan": "Dibuat dengan gemini-3.1-flash-tts-preview, suara Sulafat.",
-  "total": 67.17,
+  "total": 67.49,
   "blok": [
     {
       "mulai": 0.0,
@@ -25,16 +25,16 @@
     },
     {
       "mulai": 30.4,
-      "durasi": 10.12,
-      "teks": "Contohnya, kamu taruh sepuluh juta di bank umum dengan bunga enam persen. Kalau banknya tutup, sepuluh juta itu bisa nggak diganti el pe es."
+      "durasi": 10.44,
+      "teks": "Contohnya, kamu taruh sepuluh juta di bank umum dengan bunga enam persen. Kalau banknya tutup, sepuluh juta itu bisa saja nggak diganti el pe es."
     },
     {
-      "mulai": 40.87,
+      "mulai": 41.19,
       "durasi": 14.44,
       "teks": "Sebelum taruh uang, cek dua hal. Bunga plus cashback-nya nggak lebih dari tiga koma tujuh lima persen di bank umum, atau enam koma dua lima persen di be pe er. Dan yang dijamin cuma sampai dua miliar rupiah per bank."
     },
     {
-      "mulai": 55.66,
+      "mulai": 55.98,
       "durasi": 11.16,
       "teks": "Kamu pernah lihat deposito bunga berapa persen? Tulis angkanya di komen. Kirim ke teman yang lagi nyari deposito bunga tinggi. IntipDompet. Urusan uang, kita intip."
     }
