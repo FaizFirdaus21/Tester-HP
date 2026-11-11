@@ -1,0 +1,57 @@
+{
+  "judul": "Deposito bunga tinggi, aman nggak?",
+  "sumber": "LPS (lps.go.id, FAQ LPS, Kalkulator 3T), data per Nov 2026",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "Deposito bunga",
+      "angka": "6%",
+      "isi": "aman nggak?",
+      "visual": "Angka besar 6% dilingkari merah, label contoh."
+    },
+    {
+      "peran": "poin",
+      "judul": "LPS cuma jamin bunga sampai 3,75%",
+      "angka": "3,75%",
+      "gambar": "perisai",
+      "isi": "Untuk simpanan rupiah di bank umum, berlaku s.d. 31 Jan 2027. Di BPR batasnya 6,25%.",
+      "visual": "Angka besar 3,75% dan perisai kapur.",
+      "sumber": "LPS, RDK 28 Sep 2026"
+    },
+    {
+      "peran": "poin",
+      "judul": "Lewat batas? Seluruh simpanan nggak dijamin",
+      "gambar": "amplop",
+      "isi": "Bukan cuma kelebihan bunganya. Pokok + bunga ikut nggak dijamin kalau bank tutup.",
+      "visual": "Amplop simpanan.",
+      "sumber": "FAQ LPS"
+    },
+    {
+      "peran": "poin",
+      "judul": "Mirip garansi HP",
+      "gambar": "hp",
+      "isi": "Segelnya dibongkar sedikit saja, garansi seluruh HP-nya hangus.",
+      "visual": "Sketsa HP dengan segel."
+    },
+    {
+      "peran": "poin",
+      "judul": "Cashback juga dihitung bunga",
+      "gambar": "koin",
+      "isi": "Contoh: bunga 3,5% + cashback 1% = 4,5%. Sudah lewat batas 3,75%.",
+      "visual": "Tumpukan koin.",
+      "sumber": "Kalkulator 3T LPS"
+    },
+    {
+      "peran": "poin",
+      "judul": "Cek 2 hal sebelum taruh uang",
+      "isi": "✓ bunga + cashback ≤ 3,75% (bank umum) atau ≤ 6,25% (BPR)\n✓ yang dijamin maks. Rp2 miliar per nasabah per bank",
+      "visual": "Checklist kapur."
+    },
+    {
+      "peran": "cta",
+      "judul": "Pernah lihat deposito bunga berapa?",
+      "isi": "Tulis angkanya di komen. Simpan biar nggak lupa.",
+      "visual": "Ikon komen dan simpan, logo, tagline."
+    }
+  ]
+}

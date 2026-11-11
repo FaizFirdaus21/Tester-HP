@@ -18,7 +18,9 @@ import { KotaUang } from "./konsep/KotaUang";
 import { HoloDompet2 } from "./konsep/HoloDompet2";
 import { DURASI_PAPAN, DepositoPapan } from "./papan/demo/DepositoPapan";
 import { BrandBoardPapan, FotoProfilPapan } from "./papan/BrandBoard";
-import { SampulDeposito } from "./papan/Sampul";
+import { DataSampul, SampulDeposito, SampulPapan } from "./papan/Sampul";
+import { CarouselPapan, PropsCarousel, SLIDE_H, SLIDE_W } from "./papan/Carousel";
+import contohCarousel from "./papan/demo/carousel-deposito.json";
 import { DURASI_UJI_GERAK, HoloUjiGerak } from "./konsep/HoloUjiGerak";
 import { ChromeMinimal } from "./konsep/ChromeMinimal";
 import { DURASI_KONSEP } from "./konsep/umum";
@@ -51,6 +53,26 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="KonsepHolo" component={HoloDompet} durationInFrames={DURASI_KONSEP} fps={30} width={1080} height={1920} />
     <Composition id="KonsepHolo2" component={HoloDompet2} durationInFrames={DURASI_KONSEP} fps={30} width={1080} height={1920} />
     <Composition id="SampulDeposito" component={SampulDeposito} durationInFrames={1} fps={30} width={1080} height={1920} />
+    {/* Sampul Reels generik: node scripts/sampul.mjs <keluar.jpg> --atas ... --angka ... --bawah ... [--label ...] */}
+    <Composition
+      id="SampulPapan"
+      component={SampulPapan}
+      durationInFrames={1}
+      fps={30}
+      width={1080}
+      height={1920}
+      defaultProps={{ label: "sebelum taruh uang, cek ini", atas: "Deposito", angka: "6%", bawah: "aman nggak?" } as DataSampul}
+    />
+    {/* Carousel Papan Kapur: node scripts/carousel.mjs <carousel.json> <folder-keluar> */}
+    <Composition
+      id="CarouselPapan"
+      component={CarouselPapan}
+      durationInFrames={1}
+      fps={30}
+      width={SLIDE_W}
+      height={SLIDE_H}
+      defaultProps={{ data: contohCarousel, slide: 0 } as PropsCarousel}
+    />
     <Composition id="BrandBoardPapan" component={BrandBoardPapan} durationInFrames={1} fps={30} width={2400} height={3000} />
     <Composition id="FotoProfilPapan" component={FotoProfilPapan} durationInFrames={1} fps={30} width={1080} height={1080} />
     <Composition id="DepositoPapan" component={DepositoPapan} durationInFrames={DURASI_PAPAN} fps={30} width={1080} height={1920} />

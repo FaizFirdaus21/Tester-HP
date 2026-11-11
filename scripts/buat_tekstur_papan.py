@@ -147,4 +147,8 @@ def main(keluar: Path) -> None:
 
 
 if __name__ == "__main__":
+    # Opsional: lebar dan tinggi lain, mis. papan panjang untuk carousel 8 slide:
+    #   python3 scripts/buat_tekstur_papan.py public/papan/papan-carousel.jpg 8640 1350
+    if len(sys.argv) > 3:
+        W, H = int(sys.argv[2]), int(sys.argv[3])
     main(Path(sys.argv[1]) if len(sys.argv) > 1 else Path("public/papan/papan.jpg"))
