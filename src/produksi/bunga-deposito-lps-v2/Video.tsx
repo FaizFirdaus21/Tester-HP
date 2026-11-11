@@ -24,7 +24,7 @@ const J = jadwalVO(
   VO,
   { b0: 0, b1: 1, b2: 2, b3: 3, b4: 4, b5: 5, b6: 6, akhir: "selesai" },
   perkiraanVO(naskah),
-  { awal: 0.4, ekor: 0.8 },
+  { awal: 0.4, ekor: 1.4 }, // slogan selesai ditulis lalu tertahan ±0,5 s
 );
 const T = J.T;
 const MULAI = [T.b0, T.b1, T.b2, T.b3, T.b4, T.b5, T.b6];
@@ -200,7 +200,7 @@ const IsiPapan: React.FC = () => {
       {/* cap: menutupi seluruh HP, bukan hanya segelnya */}
       <Coret pts={kotakPutar(C.x - 10, C.y0 + 595, 760, 170, -14)} mulai={W(2, "garansi seluruh")} lama={14} warna={k.merah} tebal={8} />
       <Tulis x={C.x} y={C.y0 + 680} teks="GARANSI HANGUS" ukuran={92} gaya="tebal" warna={k.merah} mulai={W(2, "garansi seluruh", 0.2)} perHuruf={1.4} rata="center" miring={-14} tebalFilter />
-      <Tulis x={C.x} y={C.y0 + 1150} teks="seluruh HP, bukan cuma segelnya" ukuran={46} gaya="tipis" warna={k.biru} mulai={W(2, "hangus")} perHuruf={1} rata="center" />
+      <Tulis x={C.x} y={C.y0 + 1150} teks="seluruh HP, bukan cuma segelnya" ukuran={46} gaya="tipis" warna={k.biru} mulai={W(2, "garansi seluruh", 0.8, 32)} perHuruf={1} rata="center" />
 
       {/* ===== D: efek ===== */}
       <Tulis x={D.x} y={D.y0 + 300} teks="bunga + cashback" ukuran={86} mulai={W(3, "bunga plus")} perHuruf={1.4} rata="center" />
@@ -267,7 +267,7 @@ const IsiPapan: React.FC = () => {
       ))}
       <Tulis x={G.x} y={G.y0 + 1130} teks="IntipDompet" ukuran={150} gaya="tebal" mulai={W(6, "IntipDompet")} perHuruf={2} rata="center" />
       <Tulis x={G.x} y={G.y0 + 1235} teks="Urusan uang, kita intip." ukuran={96} gaya="hias" warna={k.kuning} mulai={W(6, "Urusan")} perHuruf={1.5} rata="center" />
-      <Tulis x={G.x} y={G.y0 + 1320} teks="konten edukasi, bukan ajakan membeli" ukuran={54} gaya="tipis" warna={k.biru} mulai={W(6, "Urusan", 0.4)} perHuruf={0.8} rata="center" />
+      <Tulis x={G.x} y={G.y0 + 1320} teks="konten edukasi, bukan ajakan membeli" ukuran={54} gaya="tipis" warna={k.biru} mulai={W(6, "IntipDompet", 0.3)} perHuruf={0.5} rata="center" />
     </>
   );
 };

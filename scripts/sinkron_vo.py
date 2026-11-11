@@ -19,6 +19,7 @@ import sys
 AMBANG_DB = -38  # di bawah ini dianggap hening
 JEDA_MIN = 0.18  # detik
 CARI = 1.5  # jendela pencocokan jeda vs perkiraan (detik)
+HURUF_MIN_DETIK = 0.03  # paling cepat ±33 huruf per detik
 
 
 def hening(audio):
@@ -58,6 +59,8 @@ def main():
             _, i, a, e = min(calon)
             if e - bm <= jangkar[-1]["detik"]:
                 continue  # jaga urutan
+            if (e - bm) - jangkar[-1]["detik"] < (huruf - jangkar[-1]["huruf"]) * HURUF_MIN_DETIK:
+                continue  # terlalu cepat untuk diucapkan: jeda ini milik tanda baca lain
             dipakai.add(i)
             jangkar.append({"huruf": huruf, "detik": round(e - bm, 3)})
         jangkar.append({"huruf": n, "detik": round(be - bm, 3)})
