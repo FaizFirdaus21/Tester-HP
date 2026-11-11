@@ -1,7 +1,7 @@
 {
   "audio": "vo/bunga-deposito-lps-v2.mp3",
   "catatan": "Dibuat dengan gemini-3.1-flash-tts-preview, suara Sulafat. Diperkaya scripts/sinkron_vo.py (bicara + jangkar kalimat).",
-  "total": 67.49,
+  "total": 67.65,
   "blok": [
     {
       "mulai": 0.0,
@@ -163,11 +163,11 @@
     },
     {
       "mulai": 55.98,
-      "durasi": 11.16,
-      "teks": "Kamu pernah lihat deposito bunga berapa persen? Tulis angkanya di komen. Kirim ke teman yang lagi nyari deposito bunga tinggi. IntipDompet. Urusan uang, kita intip.",
+      "durasi": 11.32,
+      "teks": "Kamu pernah lihat deposito bunga berapa persen? Tulis angkanya di komen. Kirim ke teman yang lagi nyari deposito bunga tinggi. IntipDompet. Biar dompetmu nggak kaget.",
       "bicara": [
-        56.255,
-        66.902
+        56.391,
+        66.993
       ],
       "jangkar": [
         {
@@ -176,23 +176,23 @@
         },
         {
           "huruf": 48,
-          "detik": 2.822
+          "detik": 2.925
         },
         {
           "huruf": 73,
-          "detik": 4.537
+          "detik": 4.615
         },
         {
           "huruf": 127,
-          "detik": 8.942
+          "detik": 7.873
         },
         {
           "huruf": 140,
-          "detik": 10.129
+          "detik": 9.064
         },
         {
-          "huruf": 164,
-          "detik": 10.648
+          "huruf": 166,
+          "detik": 10.602
         }
       ]
     }
