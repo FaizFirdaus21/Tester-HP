@@ -17,6 +17,7 @@ import { HoloDompet } from "./konsep/HoloDompet";
 import { KotaUang } from "./konsep/KotaUang";
 import { HoloDompet2 } from "./konsep/HoloDompet2";
 import { DURASI_PAPAN, DepositoPapan } from "./papan/demo/DepositoPapan";
+import { BrandBoardPapan, FotoProfilPapan } from "./papan/BrandBoard";
 import { DURASI_UJI_GERAK, HoloUjiGerak } from "./konsep/HoloUjiGerak";
 import { ChromeMinimal } from "./konsep/ChromeMinimal";
 import { DURASI_KONSEP } from "./konsep/umum";
@@ -48,6 +49,8 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="InflasiSinematik" component={InflasiSinematik} durationInFrames={DURASI_V3} fps={30} width={1080} height={1920} />
     <Composition id="KonsepHolo" component={HoloDompet} durationInFrames={DURASI_KONSEP} fps={30} width={1080} height={1920} />
     <Composition id="KonsepHolo2" component={HoloDompet2} durationInFrames={DURASI_KONSEP} fps={30} width={1080} height={1920} />
+    <Composition id="BrandBoardPapan" component={BrandBoardPapan} durationInFrames={1} fps={30} width={2400} height={3000} />
+    <Composition id="FotoProfilPapan" component={FotoProfilPapan} durationInFrames={1} fps={30} width={1080} height={1080} />
     <Composition id="DepositoPapan" component={DepositoPapan} durationInFrames={DURASI_PAPAN} fps={30} width={1080} height={1920} />
     <Composition id="HoloUjiGerak" component={HoloUjiGerak} durationInFrames={DURASI_UJI_GERAK} fps={30} width={1080} height={1920} />
     <Composition id="KonsepKota" component={KotaUang} durationInFrames={DURASI_KONSEP} fps={30} width={1080} height={1920} />
