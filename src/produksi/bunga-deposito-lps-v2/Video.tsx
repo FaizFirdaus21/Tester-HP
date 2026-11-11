@@ -266,7 +266,7 @@ const IsiPapan: React.FC = () => {
         <Coret key={j} pts={pts} mulai={W(6, "Kirim", 0.2) + j * 14} lama={14} tebal={7} kapur={j === 0} />
       ))}
       <Tulis x={G.x} y={G.y0 + 1130} teks="IntipDompet" ukuran={150} gaya="tebal" mulai={W(6, "IntipDompet")} perHuruf={2} rata="center" />
-      <Tulis x={G.x} y={G.y0 + 1235} teks="Urusan uang, kita intip." ukuran={96} gaya="hias" warna={k.kuning} mulai={W(6, "Urusan")} perHuruf={1.5} rata="center" />
+      <Tulis x={G.x} y={G.y0 + 1235} teks="Biar dompetmu nggak kaget." ukuran={96} gaya="hias" warna={k.kuning} mulai={W(6, "Biar dompetmu")} perHuruf={1.5} rata="center" />
       <Tulis x={G.x} y={G.y0 + 1320} teks="konten edukasi, bukan ajakan membeli" ukuran={54} gaya="tipis" warna={k.biru} mulai={W(6, "IntipDompet", 0.3)} perHuruf={0.5} rata="center" />
     </>
   );

@@ -225,7 +225,7 @@ const IsiPapan: React.FC = () => {
       <Coret pts={garis(G.x - 760, G.y + 810, G.x + 760, G.y + 800, 80, 6)} mulai={w(6, "risikonya")} lama={14} warna={k.kuning} tebal={12} />
       <Tulis x={G.x} y={G.y + 960} teks="Konten edukasi, bukan ajakan membeli." ukuran={80} gaya="tipis" warna={k.biru} mulai={w(6, "Konten")} perHuruf={1.2} rata="center" />
       <Tulis x={G.x} y={G.y + 1200} teks="IntipDompet" ukuran={180} gaya="tebal" mulai={w(7, "IntipDompet")} perHuruf={2.2} rata="center" />
-      <Tulis x={G.x} y={G.y + 1400} teks="Urusan uang, kita intip." ukuran={120} gaya="hias" warna={k.kuning} mulai={w(7, "Urusan")} perHuruf={1.8} rata="center" />
+      <Tulis x={G.x} y={G.y + 1400} teks="Biar dompetmu nggak kaget." ukuran={120} gaya="hias" warna={k.kuning} mulai={w(7, "Urusan")} perHuruf={1.8} rata="center" />
     </>
   );
 };
