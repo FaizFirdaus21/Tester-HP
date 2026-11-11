@@ -26,3 +26,11 @@ Disalin apa adanya (lisensi MIT) pada 2026-11-09. Dua skill diganti nama karena 
 | iart-ai/youtube-video-skills | f3df381 |
 | cloudai-x/threejs-skills | 0e18186 |
 | Tejashmakwana/motionmaxxing | 8c8ec0f (lihat motionmaxxing/SUMBER.md) |
+
+## Ilustrasi & infografis (11 Nov 2026)
+| Skill | Sumber | Catatan |
+|---|---|---|
+| canvas-design | anthropics/skills (resmi, ★192k) | Desain poster/gambar diam dengan kode (tanpa API gambar). Dipakai untuk komposisi slide carousel. |
+| baoyu-xhs-images | JimLiu/baoyu-skills (★27k) | Seri kartu infografis media sosial (layout, gaya, palet). Butuh backend gambar untuk ilustrasi. |
+| baoyu-infographic | JimLiu/baoyu-skills | 21 layout × 22 gaya infografis. Kerangka layout bisa dipakai tanpa API gambar. |
+| baoyu-image-gen | JimLiu/baoyu-skills | Backend gambar (Google/Gemini, OpenAI, dll.). Aktif hanya kalau billing Gemini dinyalakan; kuota gratis gambar = 0. Jangan pakai provider codex-cli (menjalankan proses dengan akses penuh). |

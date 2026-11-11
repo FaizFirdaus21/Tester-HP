@@ -10,6 +10,6 @@ Tulisan yang disimpan (kode, komentar, commit, docs, naskah VO, pesan ke sesi la
 | Orchestrator | `find-skills`, `superpowers:dispatching-parallel-agents` |
 | Media Research | `content-strategy`, `social`, `customer-research`, `marketing-psychology`, `copywriting`, `copy-editing` |
 | VO | `copywriting` (naskah lisan), `copy-editing` (rapikan naskah) |
-| Director | `remotion-best-practices`, `remotion-markup`, `remotion-render`, `remotion-captions`, `remotion-maps`, `remotion-docs`, `video`, `motionmaxxing`, `shot-composition`, `beat-sync-editing` |
+| Director | `canvas-design`, `baoyu-xhs-images`, `baoyu-infographic` (carousel), `remotion-best-practices`, `remotion-markup`, `remotion-render`, `remotion-captions`, `remotion-maps`, `remotion-docs`, `video`, `motionmaxxing`, `shot-composition`, `beat-sync-editing` |
 
 Aturan pipeline lengkap: `docs/pipeline-produksi.md`.

@@ -1,6 +1,30 @@
 {
   "version": 1,
   "skills": {
+    "baoyu-image-gen": {
+      "source": "JimLiu/baoyu-skills",
+      "sourceType": "github",
+      "skillPath": "skills/baoyu-image-gen/SKILL.md",
+      "computedHash": "2864047ed0e6418716379baccd410bdd6cc06f1004f2e24aa1f07ad90cba8dbf"
+    },
+    "baoyu-infographic": {
+      "source": "JimLiu/baoyu-skills",
+      "sourceType": "github",
+      "skillPath": "skills/baoyu-infographic/SKILL.md",
+      "computedHash": "162187270bd8ee1d33283f83e5139b6ba79c67cfa4ca285e80cbfff05bfa64f7"
+    },
+    "baoyu-xhs-images": {
+      "source": "JimLiu/baoyu-skills",
+      "sourceType": "github",
+      "skillPath": "skills/baoyu-xhs-images/SKILL.md",
+      "computedHash": "768e45b8813b03667e837db9fe18f2027bca066cb72aff7bda4c9af7555f53b6"
+    },
+    "canvas-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/canvas-design/SKILL.md",
+      "computedHash": "3fa7ea60170023ad8268bf9fd734ea75dd404279a2ef8ddf5abaa1102ad8e5f4"
+    },
     "caveman": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
