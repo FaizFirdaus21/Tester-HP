@@ -102,6 +102,10 @@ const TeksWarna: React.FC<{ cx: number; y: number; teks: string; ukuran: number;
 }) => {
   const baris = bungkusWarna(teks, ukuran, gaya, LEBAR_TEKS, warna, kapital);
   if (baris.length > maksBaris) console.warn(`[carousel] ${label} "${teks}" jadi ${baris.length} baris (maks. ${maksBaris})`);
+  for (const b of baris) {
+    const lebar = b.reduce((n, p) => n + ukurLebar(p.t, ukuran, gaya), 0);
+    if (lebar > 1020) console.warn(`[carousel] ${label}: baris "${b.map((p) => p.t).join("")}" lebih lebar dari slide (${Math.round(lebar)} px)`);
+  }
   return (
     <>
       {baris.map((b, i) => {
@@ -134,11 +138,15 @@ const IlustrasiSlide: React.FC<{ x0: number; s: DataSlide; h?: number }> = ({ x0
   return <Ilustrasi x={x0 + KOTAK.x} y={KOTAK.y + 40} w={KOTAK.w} h={h - 80} objek={objek} label={s.label} panah={s.panah} />;
 };
 
-const JudulDanIsi: React.FC<{ x0: number; s: DataSlide; y: number; ukuran: number }> = ({ x0, s, y, ukuran }) => {
+// `batas` = y terbawah yang boleh dipakai isi sebelum menabrak elemen bawah (sumber, "geser", logo).
+const JudulDanIsi: React.FC<{ x0: number; s: DataSlide; y: number; ukuran: number; batas: number }> = ({ x0, s, y, ukuran, batas }) => {
   const cx = x0 + 540;
   const jarak = Math.round(ukuran * 1.1);
   const n = jumlahBaris(s.judul, ukuran, "tebal", true);
   const yIsi = y + (n - 1) * jarak + Math.round(ukuran * 0.95);
+  const nIsi = s.isi ? jumlahBaris(s.isi, 42, "tangan", false) : 0;
+  const bawah = nIsi ? yIsi + (nIsi - 1) * 54 + 26 : y + (n - 1) * jarak + ukuran * 0.6;
+  if (bawah > batas) console.warn(`[carousel] teks slide "${s.judul}" turun sampai y ${Math.round(bawah)}, menabrak elemen bawah (batas ${batas})`);
   return (
     <>
       <TeksWarna cx={cx} y={y} teks={s.judul} ukuran={ukuran} jarak={jarak} gaya="tebal" kapital maksBaris={3} label="judul" tebalFilter />
@@ -156,7 +164,7 @@ const SlideHook: React.FC<{ x0: number; s: DataSlide }> = ({ x0, s }) => (
     <SimbolKapur x={x0 + 66} y={38} s={56} />
     <Tulis x={x0 + 136} y={68} teks="@intipdompet" ukuran={36} gaya="tebal" mulai={SUDAH} />
     <IlustrasiSlide x0={x0} s={s} />
-    <JudulDanIsi x0={x0} s={s} y={880} ukuran={88} />
+    <JudulDanIsi x0={x0} s={s} y={880} ukuran={88} batas={1262} />
     {/* ajakan geser: panahnya melewati batas slide, ujungnya muncul di tepi kiri slide 2 */}
     <Tulis x={x0 + 760} y={1296} teks="geser" ukuran={46} gaya="tipis" warna={k.biru} mulai={SUDAH} rata="right" />
     <Panah x1={x0 + 785} y1={1300} x2={x0 + 1150} y2={1296} tinggi={22} mulai={SUDAH} lama={1} warna={k.biru} tebal={5} />
@@ -166,7 +174,7 @@ const SlideHook: React.FC<{ x0: number; s: DataSlide }> = ({ x0, s }) => (
 const SlidePoin: React.FC<{ x0: number; s: DataSlide }> = ({ x0, s }) => (
   <>
     <IlustrasiSlide x0={x0} s={s} />
-    <JudulDanIsi x0={x0} s={s} y={880} ukuran={80} />
+    <JudulDanIsi x0={x0} s={s} y={880} ukuran={80} batas={s.sumber ? 1280 : 1320} />
     {s.sumber ? <Sumber x0={x0} teks={`sumber: ${s.sumber}`} /> : null}
   </>
 );
@@ -176,7 +184,7 @@ const SlideCta: React.FC<{ x0: number; s: DataSlide; sumber?: string }> = ({ x0,
   return (
     <>
       <IlustrasiSlide x0={x0} s={s} h={570} />
-      <JudulDanIsi x0={x0} s={s} y={745} ukuran={76} />
+      <JudulDanIsi x0={x0} s={s} y={745} ukuran={76} batas={1070} />
       <LogoKapur x={cx - 205} y={1085} s={78} />
       <Tulis x={cx} y={1222} teks={TAGLINE} ukuran={60} gaya="hias" warna={k.kuning} mulai={SUDAH} rata="center" />
       {sumber ? <Tulis x={cx} y={1282} teks={`sumber: ${sumber}`} ukuran={26} gaya="tipis" warna={k.biru} mulai={SUDAH} rata="center" /> : null}

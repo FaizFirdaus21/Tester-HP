@@ -63,7 +63,18 @@ Cara cepat tanpa adegan: `"gambar": ["hp", "bank"]`, `"label": [...]`, `"panah":
 ```
 node scripts/carousel.mjs produksi/<slug>/carousel.json produksi/<slug> --browser <chrome-headless-shell>
 ```
-Hasil: `slide-01.png` … `slide-06.png` (±20 detik).
+Hasil: `slide-01.png` … `slide-06.png` + `pratinjau.png` (6 slide berdampingan), ±25 detik.
+
+### QC otomatis (carousel tayang tanpa dicek manusia)
+`carousel.mjs` mengumpulkan semua peringatan dari template. Bila ada satu saja, skrip keluar dengan **kode 2** dan carousel **tidak boleh diterbitkan** sebelum `carousel.json` diperbaiki dan dirender ulang. Yang diperiksa:
+- judul lebih dari 3 baris atau isi lebih dari 2 baris;
+- satu baris lebih lebar dari slide;
+- teks turun sampai menabrak elemen bawah (sumber, "geser", logo);
+- label ilustrasi atau objek keluar dari tepi slide;
+- slide tanpa ilustrasi, atau jenis ilustrasi tidak dikenal;
+- lebih dari 6 slide.
+
+`--izinkan-peringatan` hanya untuk percobaan, bukan untuk produksi.
 
 ## Sampul Reels (setiap video)
 1080×1920 JPEG dari `SampulPapan` (`src/papan/Sampul.tsx`). Isi penting di tengah supaya aman untuk potongan grid profil (3:4) dan feed (4:5).

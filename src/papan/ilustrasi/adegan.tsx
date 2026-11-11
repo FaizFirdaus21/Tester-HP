@@ -5,7 +5,7 @@
 // ilustrasi kode dengan gambar kapur AI kelak, tanpa mengubah tata letak slide.
 import React from "react";
 import { Img, staticFile } from "remotion";
-import { Panah, Tulis } from "../Komponen";
+import { Panah, Tulis, ukurLebar } from "../Komponen";
 import { k } from "../tema";
 import { BENDA } from "./benda";
 import { SUDAH } from "./dasar";
@@ -36,8 +36,27 @@ export type DataAdegan = { lapis: Lapis[]; label?: LabelAdegan[]; panah?: PanahA
 
 export const JENIS_BENDA = Object.keys(BENDA);
 
-export const Adegan: React.FC<{ x: number; y: number; w: number; h: number; adegan: DataAdegan }> = ({ x, y, adegan }) => (
+// Batas aman di dalam slide 1080 px, relatif ke kotak adegan yang mulai di x = 90 (margin 30 px dari tepi slide).
+const KIRI_AMAN = -60;
+const KANAN_AMAN = 960;
+
+const periksa = (adegan: DataAdegan, h: number) => {
+  for (const t of adegan.label ?? []) {
+    const lebar = ukurLebar(t.teks, t.ukuran ?? 40, "tangan");
+    const rata = t.rata ?? "center";
+    const kiri = rata === "center" ? t.x - lebar / 2 : rata === "right" ? t.x - lebar : t.x;
+    if (kiri < KIRI_AMAN || kiri + lebar > KANAN_AMAN) console.warn(`[ilustrasi] label "${t.teks}" keluar dari slide (x ${Math.round(kiri)}..${Math.round(kiri + lebar)})`);
+    if (t.y < -40 || t.y > h + 40) console.warn(`[ilustrasi] label "${t.teks}" di luar kotak adegan (y ${t.y})`);
+  }
+  for (const l of adegan.lapis) {
+    const setengah = l.jenis === "orang" ? l.s * 0.5 : l.s * 0.55;
+    if (l.x - setengah < KIRI_AMAN || l.x + setengah > KANAN_AMAN) console.warn(`[ilustrasi] ${l.jenis} di x ${l.x} (s ${l.s}) terpotong tepi slide`);
+  }
+};
+
+export const Adegan: React.FC<{ x: number; y: number; w: number; h: number; adegan: DataAdegan }> = ({ x, y, h, adegan }) => (
   <>
+    {periksa(adegan, h) ?? null}
     {adegan.lapis.map((l, i) => {
       const cx = x + l.x;
       const cy = y + l.y;
