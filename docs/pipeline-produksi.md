@@ -108,23 +108,31 @@ Aturan tambahan:
 - Akhiri pesan commit dengan baris atribusi yang diberikan sesi.
 - Kalau terhambat (host diblokir, kuota habis, data tidak ada), tulis di `status.json` → `catatan`, lalu berhenti. Jangan mengakali dengan data karangan.
 
-## Jadwal rutin harian (mulai 12 Nov 2026)
-Target: **2 konten per hari** di @intipdompet, diunggah lewat Zernio (akun Instagram `6af4880b6c69865762dc37aa`).
+## Jadwal rutin harian (mulai 13 Nov 2026)
+Target: **3 konten per hari** di @intipdompet, diunggah lewat Zernio (akun Instagram `6af4880b6c69865762dc37aa`).
 
-| Slot | Jam (WIB) | Jenis | Dibuat oleh |
+| Slot | Jam (WIB) | Jenis | Persetujuan user |
 |---|---|---|---|
-| Siang | 12.00 | **Carousel Papan Kapur** (infografis 1080×1350, **maksimal 6 slide**, tanpa VO) | Research (isi) → Director (gambar) |
-| Malam | 19.00 | **Reels Papan Kapur** (naskah 7 blok + VO) | Research → VO → Director |
+| Pagi | 07.00 | **Carousel Papan Kapur A** (infografis 1080×1350, **maksimal 6 slide**, tanpa VO) | **Tidak perlu**: Orchestrator langsung menjadwalkan setelah lolos QC |
+| Siang | 12.00 | **Carousel Papan Kapur B** | **Tidak perlu**: Orchestrator langsung menjadwalkan setelah lolos QC |
+| Malam | 19.00 | **Reels Papan Kapur** (naskah 7 blok + VO) | **Wajib "accept"** dari user |
 
-Kenapa begini: kuota TTS gratis cukup untuk 1 video per hari (1 video = 7–8 permintaan). Carousel tidak butuh suara.
+Kuota TTS gratis cukup untuk 1 video per hari (1 video = 7–8 permintaan). Carousel tidak butuh suara.
 
 ### Alur harian (dimulai 15.20 WIB, setelah kuota TTS reset 15.00 WIB)
 Semua konten dibuat **sehari sebelum** tayang:
 1. Orchestrator memulai produksi untuk tayang besok.
-2. Research memilih 2 topik (1 video, 1 carousel) dengan rubrik skor yang sama, menulis `naskah-vo.json` (video) dan `carousel.json` (carousel: judul per slide, isi, ide gambar), plus `fakta.json` dan `caption.txt` untuk masing-masing.
-3. VO membuat suara video. Director membuat video, sampul, dan slide carousel.
-4. Orchestrator mengirim video, sampul, slide, dan caption ke user. **Tidak ada yang terbit sebelum user bilang "accept".**
-5. Setelah accept, Orchestrator menjadwalkan keduanya di Zernio untuk besok pukul 12.00 dan 19.00 WIB.
+2. Research memilih **3 topik berbeda** (1 video, 2 carousel). Dalam satu hari, ketiganya tidak boleh berasal dari kategori yang sama (mis. jangan dua topik utang). Research menulis `naskah-vo.json` (video), `carousel.json` (tiap carousel), `fakta.json`, dan `caption.txt` untuk masing-masing.
+3. VO membuat suara video. Director membuat video, sampul, dan slide kedua carousel.
+4. **Carousel**: Orchestrator menjalankan QC (lihat di bawah). Kalau lolos, langsung dijadwalkan di Zernio untuk besok pukul 07.00 dan 12.00 WIB, lalu user diberi tahu (tautan dan pratinjau). Kalau tidak lolos, dikembalikan ke Research/Director. Jangan terbitkan carousel yang ragu.
+5. **Reels**: video, sampul, dan caption dikirim ke user. **Tidak terbit sebelum user bilang "accept"**. Setelah accept, dijadwalkan besok pukul 19.00 WIB.
+
+### QC carousel (wajib, karena terbit tanpa persetujuan user)
+- Setiap angka di slide dan caption ada di `fakta.json` dengan sumber primer atau media kredibel yang mengutipnya, beserta tanggalnya. Angka tanpa sumber = gagal.
+- Tidak ada label "contoh" yang tertinggal pada angka yang seharusnya data asli. Angka ilustrasi tetap diberi label "contoh".
+- Tidak ada ajakan membeli produk tertentu, dan tidak ada kata terlarang (cuan, auto kaya, pasti untung).
+- Render bersih: tidak ada peringatan `[carousel]` (teks kepanjangan, slide tanpa gambar), tidak ada teks terpotong, 6 slide atau kurang.
+- Caption mengikuti aturan caption di bawah.
 
 Folder carousel: `produksi/<YYYYMMDD>-<slug>/` dengan `carousel.json`, `slide-01.png` … `slide-06.png`, `caption.txt`.
 
