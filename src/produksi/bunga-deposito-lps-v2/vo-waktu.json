@@ -1,7 +1,7 @@
 {
   "audio": "vo/bunga-deposito-lps-v2.mp3",
   "catatan": "Dibuat dengan gemini-3.1-flash-tts-preview, suara Sulafat. Diperkaya scripts/sinkron_vo.py (bicara + jangkar kalimat).",
-  "total": 67.17,
+  "total": 67.49,
   "blok": [
     {
       "mulai": 0.0,
@@ -105,11 +105,11 @@
     },
     {
       "mulai": 30.4,
-      "durasi": 10.12,
-      "teks": "Contohnya, kamu taruh sepuluh juta di bank umum dengan bunga enam persen. Kalau banknya tutup, sepuluh juta itu bisa nggak diganti el pe es.",
+      "durasi": 10.44,
+      "teks": "Contohnya, kamu taruh sepuluh juta di bank umum dengan bunga enam persen. Kalau banknya tutup, sepuluh juta itu bisa saja nggak diganti el pe es.",
       "bicara": [
-        30.731,
-        40.09
+        30.659,
+        40.53
       ],
       "jangkar": [
         {
@@ -118,29 +118,29 @@
         },
         {
           "huruf": 11,
-          "detik": 1.293
+          "detik": 1.232
         },
         {
           "huruf": 74,
-          "detik": 5.493
+          "detik": 5.533
         },
         {
           "huruf": 95,
-          "detik": 6.727
+          "detik": 6.83
         },
         {
-          "huruf": 140,
-          "detik": 9.358
+          "huruf": 145,
+          "detik": 9.872
         }
       ]
     },
     {
-      "mulai": 40.87,
+      "mulai": 41.19,
       "durasi": 14.44,
       "teks": "Sebelum taruh uang, cek dua hal. Bunga plus cashback-nya nggak lebih dari tiga koma tujuh lima persen di bank umum, atau enam koma dua lima persen di be pe er. Dan yang dijamin cuma sampai dua miliar rupiah per bank.",
       "bicara": [
-        41.038,
-        54.981
+        41.358,
+        55.301
       ],
       "jangkar": [
         {
@@ -162,12 +162,12 @@
       ]
     },
     {
-      "mulai": 55.66,
+      "mulai": 55.98,
       "durasi": 11.16,
       "teks": "Kamu pernah lihat deposito bunga berapa persen? Tulis angkanya di komen. Kirim ke teman yang lagi nyari deposito bunga tinggi. IntipDompet. Urusan uang, kita intip.",
       "bicara": [
-        55.935,
-        66.582
+        56.255,
+        66.902
       ],
       "jangkar": [
         {
@@ -176,11 +176,11 @@
         },
         {
           "huruf": 48,
-          "detik": 2.821
+          "detik": 2.822
         },
         {
           "huruf": 73,
-          "detik": 4.539
+          "detik": 4.537
         },
         {
           "huruf": 127,
@@ -192,7 +192,7 @@
         },
         {
           "huruf": 164,
-          "detik": 10.647
+          "detik": 10.648
         }
       ]
     }

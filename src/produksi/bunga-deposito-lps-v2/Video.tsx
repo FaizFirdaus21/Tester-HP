@@ -236,8 +236,8 @@ const IsiPapan: React.FC = () => {
       <Coret pts={garis(E.x0 + 700, E.y0 + 620, E.x0 + 940, E.y0 + 470, 63, 3)} mulai={W(4, "tutup")} lama={6} warna={k.merah} tebal={8} kapur={false} />
       <Coret pts={garis(E.x0 + 700, E.y0 + 470, E.x0 + 940, E.y0 + 620, 64, 3)} mulai={W(4, "tutup") + 6} lama={6} warna={k.merah} tebal={8} kapur={false} />
       <Tulis x={E.x0 + 820} y={E.y0 + 720} teks="TUTUP" ukuran={56} gaya="tebal" warna={k.merah} mulai={W(4, "tutup", 0.1)} perHuruf={1.6} rata="center" />
-      <Coret pts={lingkaran(E.x0 + 345, E.y0 + 520, 300, 220, 8)} mulai={W(4, "bisa nggak")} lama={14} warna={k.merah} tebal={6} />
-      <Tulis x={E.x} y={E.y0 + 930} teks="bisa nggak diganti LPS" ukuran={70} gaya="tebal" warna={k.merah} mulai={W(4, "bisa nggak", 0.2)} perHuruf={1.3} rata="center" />
+      <Coret pts={lingkaran(E.x0 + 345, E.y0 + 520, 300, 220, 8)} mulai={W(4, "bisa saja")} lama={14} warna={k.merah} tebal={6} />
+      <Tulis x={E.x} y={E.y0 + 930} teks="bisa saja nggak diganti LPS" ukuran={64} gaya="tebal" warna={k.merah} mulai={W(4, "bisa saja", 0.2)} perHuruf={1.3} rata="center" />
       <Tulis x={E.x} y={E.y0 + 1080} teks="contoh hitungan, bukan data bank tertentu" ukuran={36} gaya="tipis" warna={k.biru} mulai={W(4, "Contohnya", 0.8)} perHuruf={0.6} rata="center" />
 
       {/* ===== F: solusi ===== */}
@@ -279,7 +279,7 @@ const TEKS_TAMPIL = [
   "LPS cuma menjamin simpanan di bank umum yang bunganya maksimal 3,75% setahun. Dan bank memang bisa tutup.",
   "Mirip garansi HP. Segelnya dibongkar sedikit saja, garansi seluruh HP-nya hangus.",
   "Simpanan juga begitu: bunga plus cashback-nya lewat batas, simpanan itu nggak dijamin sama sekali, termasuk pokoknya.",
-  "Contohnya, kamu taruh Rp10 juta di bank umum dengan bunga 6%. Kalau banknya tutup, Rp10 juta itu bisa nggak diganti LPS.",
+  "Contohnya, kamu taruh Rp10 juta di bank umum dengan bunga 6%. Kalau banknya tutup, Rp10 juta itu bisa saja nggak diganti LPS.",
   "Sebelum taruh uang, cek dua hal. Bunga plus cashback-nya nggak lebih dari 3,75% di bank umum, atau 6,25% di BPR. Dan yang dijamin cuma sampai Rp2 miliar per bank.",
   "Kamu pernah lihat deposito bunga berapa persen? Tulis angkanya di komen. Kirim ke teman yang lagi nyari deposito bunga tinggi.",
 ];

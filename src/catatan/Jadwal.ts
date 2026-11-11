@@ -178,6 +178,11 @@ const pecah = (teks: string, maks: number): string[] => {
         baris = w;
       } else baris = baris ? `${baris} ${w}` : w;
     }
+    // potongan sangat pendek (mis. "LPS.") digabung ke potongan sebelumnya supaya tidak berkedip sendirian
+    if (baris && baris.length < 12 && hasil.length && !/[.!?]$/.test(hasil[hasil.length - 1])) {
+      hasil[hasil.length - 1] = `${hasil[hasil.length - 1]} ${baris}`;
+      continue;
+    }
     if (baris) {
       // gabungkan potongan pendek dengan sebelumnya bila masih muat
       const akhir = hasil[hasil.length - 1];
