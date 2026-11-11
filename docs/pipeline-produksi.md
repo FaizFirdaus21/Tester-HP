@@ -107,3 +107,30 @@ Aturan tambahan:
 - Sebelum push: `git pull --rebase origin claude/instagram-niche-research-remotion-lqjmj6`. Ubah hanya file milik tahapmu.
 - Akhiri pesan commit dengan baris atribusi yang diberikan sesi.
 - Kalau terhambat (host diblokir, kuota habis, data tidak ada), tulis di `status.json` → `catatan`, lalu berhenti. Jangan mengakali dengan data karangan.
+
+## Jadwal rutin harian (mulai 12 Nov 2026)
+Target: **2 konten per hari** di @intipdompet, diunggah lewat Zernio (akun Instagram `6af4880b6c69865762dc37aa`).
+
+| Slot | Jam (WIB) | Jenis | Dibuat oleh |
+|---|---|---|---|
+| Siang | 12.00 | **Carousel Papan Kapur** (gambar diam 1080×1350, 5–8 slide, tanpa VO) | Research (isi) → Director (gambar) |
+| Malam | 19.00 | **Reels Papan Kapur** (naskah 7 blok + VO) | Research → VO → Director |
+
+Kenapa begini: kuota TTS gratis cukup untuk 1 video per hari (1 video = 7–8 permintaan). Carousel tidak butuh suara.
+
+### Alur harian (dimulai 15.20 WIB, setelah kuota TTS reset 15.00 WIB)
+Semua konten dibuat **sehari sebelum** tayang:
+1. Orchestrator memulai produksi untuk tayang besok.
+2. Research memilih 2 topik (1 video, 1 carousel) dengan rubrik skor yang sama, menulis `naskah-vo.json` (video) dan `carousel.json` (carousel: judul per slide, isi, ide gambar), plus `fakta.json` dan `caption.txt` untuk masing-masing.
+3. VO membuat suara video. Director membuat video, sampul, dan slide carousel.
+4. Orchestrator mengirim video, sampul, slide, dan caption ke user. **Tidak ada yang terbit sebelum user bilang "accept".**
+5. Setelah accept, Orchestrator menjadwalkan keduanya di Zernio untuk besok pukul 12.00 dan 19.00 WIB.
+
+Folder carousel: `produksi/<YYYYMMDD>-<slug>/` dengan `carousel.json`, `slide-01.png` … `slide-NN.png`, `caption.txt`.
+
+### Aturan caption
+- Baris pertama = hook (sama dengan hook video atau judul slide 1).
+- 2–4 kalimat ringkasan, poin cek pakai tanda ✓.
+- CTA komentar yang bisa dijawab satu kata atau angka, plus ajakan simpan atau kirim.
+- Sumber data + "Konten edukasi, bukan ajakan ...".
+- 5–8 hashtag yang relevan, termasuk #intipdompet.
