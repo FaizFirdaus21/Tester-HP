@@ -75,7 +75,9 @@ const bungkusWarna = (teks: string, ukuran: number, gaya: Gaya, lebar: number, d
   for (const p of potong) {
     const spasi = /^\s+$/.test(p.t);
     const lp = ukurLebar(p.t, ukuran, gaya);
-    if (!spasi && w + lp > lebar && baris[baris.length - 1].length) {
+    // tanda baca yang menempel ke kata sebelumnya ("{10% sebulan}?") tidak boleh pindah sendirian ke baris baru
+    const tandaBaca = /^[?!.,:;)]+$/.test(p.t);
+    if (!spasi && !tandaBaca && w + lp > lebar && baris[baris.length - 1].length) {
       const b = baris[baris.length - 1];
       while (b.length && /^\s+$/.test(b[b.length - 1].t)) b.pop();
       baris.push([]);

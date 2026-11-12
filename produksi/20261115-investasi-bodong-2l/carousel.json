@@ -24,14 +24,6 @@
             "y": 210,
             "s": 380,
             "teks": "untung 10%/bln!"
-          },
-          {
-            "jenis": "label",
-            "x": 700,
-            "y": 500,
-            "s": 230,
-            "teks": "!",
-            "warna": "merah"
           }
         ],
         "label": [
@@ -40,6 +32,13 @@
             "x": 640,
             "y": 380,
             "ukuran": 32
+          },
+          {
+            "teks": "terlalu bagus?",
+            "x": 660,
+            "y": 470,
+            "ukuran": 46,
+            "warna": "merah"
           }
         ]
       }
@@ -76,29 +75,29 @@
           },
           {
             "jenis": "centang",
-            "x": 230,
-            "y": 340,
-            "s": 120
+            "x": 400,
+            "y": 180,
+            "s": 100
           },
           {
             "jenis": "centang",
-            "x": 680,
-            "y": 340,
-            "s": 120
+            "x": 850,
+            "y": 180,
+            "s": 100
           }
         ],
         "label": [
           {
             "teks": "izin otoritas",
             "x": 230,
-            "y": 420,
+            "y": 275,
             "ukuran": 34,
             "warna": "kuning"
           },
           {
             "teks": "masuk akal",
             "x": 680,
-            "y": 420,
+            "y": 275,
             "ukuran": 34,
             "warna": "biru"
           }
