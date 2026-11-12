@@ -1,0 +1,30 @@
+{
+  "slug": "20261112-cek-diskon-asli",
+  "format": "carousel",
+  "tayang": "2026-11-12T19:00:00+07:00",
+  "diakses": "2026-11-12",
+  "catatan_akses": "Teks resmi UU di peraturan.bpk.go.id tidak dibuka (host tidak dicoba karena keterbatasan waktu dan jaringan). Isi pasal dicek lewat ringkasan hukum dan teks pasal di situs basis data peraturan.",
+  "fakta": [
+    {
+      "id": "uu-pk-diskon",
+      "klaim": "UU No. 8 Tahun 1999 tentang Perlindungan Konsumen melarang pelaku usaha menawarkan/mempromosikan barang seolah-olah memiliki potongan harga secara tidak benar (Pasal 9 ayat 1 huruf a) dan membuat pernyataan tidak benar atau menyesatkan, termasuk soal potongan harga (Pasal 10).",
+      "di_slide": "2",
+      "sumber_primer": "UU No. 8 Tahun 1999 (teks pasal: https://api-law.crpg.info/peraturan/uu/8/1999/pasal/9)",
+      "sumber_media": [
+        "https://www.hukumonline.com/klinik/a/sanksi-bagi-pemberi-diskon-palsu-lt53c61d820fb19/",
+        "https://www.hukumonline.com/klinik/a/hukumnya-penjual-yang-menipu-konsumen-dengan-bundling-lt5db47abf6acbb/"
+      ],
+      "status": "dasar hukum + 2 rujukan hukum; tanpa angka statistik"
+    },
+    {
+      "id": "contoh-angka",
+      "klaim": "Diskon 70%, harga Rp300 rb, bakso Rp15 rb/Rp30 rb, diskon 50%.",
+      "di_slide": "1, 3",
+      "status": "contoh hipotetis — wajib label 'contoh' di slide 1 dan 3"
+    }
+  ],
+  "tidak_dipakai": [
+    {"klaim": "Sanksi pidana 5 tahun / denda Rp2 miliar (Pasal 62)", "alasan": "tidak perlu untuk pesan utama; hindari kesan menakut-nakuti tanpa cek teks resmi"},
+    {"klaim": "Nilai transaksi Harbolnas", "alasan": "data terbaru 2026 tidak ditemukan dari sumber resmi"}
+  ]
+}

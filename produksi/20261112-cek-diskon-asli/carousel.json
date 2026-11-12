@@ -1,0 +1,43 @@
+{
+  "judul": "Diskon gede, beneran murah?",
+  "sumber": "UU No. 8 Tahun 1999 tentang Perlindungan Konsumen, Pasal 9 & 10",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "Diskon {70%}, beneran murah?",
+      "isi": "Harga coret belum tentu harga normal. Cek dulu sebelum checkout.",
+      "visual": "Orang (pose hp, ekspresi kaget) menatap HP; label harga besar merah miring '-70%' dengan label kecil 'contoh'; label harga kedua dicoret kapur 'Rp300 rb'."
+    },
+    {
+      "peran": "penjelasan",
+      "judul": "Diskon palsu itu {dilarang}",
+      "isi": "UU Perlindungan Konsumen melarang klaim [potongan harga] yang tidak benar.",
+      "visual": "Timbangan (simbol hukum) di tengah; label 'UU 8/1999' di atasnya; label harga dicoret silang merah di sampingnya. Orang menunjuk (pose tunjuk, ekspresi datar).",
+      "sumber": "UU 8/1999 Pasal 9 ayat (1) huruf a & Pasal 10"
+    },
+    {
+      "peran": "perumpamaan",
+      "judul": "Mirip warung yang {naikin harga dulu}",
+      "isi": "Bakso Rp15 ribu ditulis Rp30 ribu, lalu \"diskon 50%\". Bayarnya tetap Rp15 ribu.",
+      "visual": "SKETSA: meja warung dengan mangkuk (pakai meja + label); label harga 'Rp30 rb' dicoret, panah ke label 'diskon 50% = Rp15 rb'; label kecil 'contoh'. Orang (pose struk, ekspresi mikir) memegang struk 'Rp15 rb'."
+    },
+    {
+      "peran": "efek",
+      "judul": "Kita belanja karena [angka diskon]",
+      "isi": "Angka diskon besar bikin buru-buru checkout, padahal hematnya belum tentu ada.",
+      "visual": "Tas belanja penuh, kartu, dan gelembung pikiran bertulisan '-70%!'; panah kapur ke label 'hemat?' dengan tanda tanya merah."
+    },
+    {
+      "peran": "solusi",
+      "judul": "Catat harga [sebelum promo]",
+      "isi": "Masukkan ke keranjang dari sekarang, catat harganya, lalu bandingkan saat promo.",
+      "visual": "Orang (pose hp, ekspresi senyum), kalender dengan dua tanggal dilingkari, kalkulator; checklist kapur '☐ catat harga ☐ bandingkan ☐ baru checkout'."
+    },
+    {
+      "peran": "cta",
+      "judul": "Diskon terbesarmu [berapa persen]?",
+      "isi": "Tulis angkanya di komen. {Simpan} buat cek sebelum checkout.",
+      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ %', label 'komen ↓ · simpan'."
+    }
+  ]
+}
