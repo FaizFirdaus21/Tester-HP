@@ -1,0 +1,43 @@
+{
+  "judul": "BI Rate 5,75%: dompetku kena apa?",
+  "sumber": "Bank Indonesia: siaran pers RDG 18 Jun & 21 Okt 2026, tabel BI-Rate",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "BI Rate {5,75%}. Dompetku kena apa?",
+      "isi": "Dalam sebulan (Mei–Juni 2026), BI menaikkannya [1 poin persen].",
+      "visual": "Orang (pose kaget, ekspresi kaget) di samping gedung bank; label harga besar merah '5,75%' miring di atas bank; panah kapur naik dari label kecil '4,75%' ke '5,75%'."
+    },
+    {
+      "peran": "penjelasan",
+      "judul": "BI Rate = [patokan] bunga bank",
+      "isi": "Naik dari 4,75% ke 5,75%, lalu ditahan 4 kali: Juli sampai Oktober 2026.",
+      "visual": "Kalender dengan teks 'MEI–JUN' dan panah naik '4,75% → 5,75%'; di sebelahnya kalender kedua bertulisan 'JUL–OKT' dengan label 'TETAP 5,75%'. Orang menunjuk (pose tunjuk, ekspresi datar).",
+      "sumber": "Bank Indonesia, RDG Mei–Okt 2026"
+    },
+    {
+      "peran": "perumpamaan",
+      "judul": "Mirip harga {grosir} naik",
+      "isi": "Grosir naik harga, warung pelan-pelan ikut naik. Bunga bank juga begitu.",
+      "visual": "SKETSA: meja warung dengan tas belanja dan label harga; panah kapur dari label 'grosir ↑' ke label 'warung ↑'. Orang (pose mikir) di belakang meja."
+    },
+    {
+      "peran": "efek",
+      "judul": "Bunga [kredit] & {simpanan} ikut bergerak",
+      "isi": "Bank biasanya ikut menyesuaikan bunga kredit dan simpanan, pelan-pelan.",
+      "visual": "Timbangan dengan dua sisi: kiri kartu (label 'kredit'), kanan koin/uang (label 'simpanan'); panah kecil naik di kedua sisi; label kecil 'pelan-pelan'."
+    },
+    {
+      "peran": "solusi",
+      "judul": "Cek [kontrak] cicilanmu",
+      "isi": "Bunganya tetap atau mengambang? Kapan masa bunga tetap habis? Catat tanggalnya.",
+      "visual": "Orang memegang struk (pose struk, ekspresi mikir, teks struk 'KPR'), kalender bertulisan 'FIX HABIS?', kalkulator; label 'tetap / floating?'."
+    },
+    {
+      "peran": "cta",
+      "judul": "Cicilanmu bunga [tetap] atau {floating}?",
+      "isi": "Jawab satu kata di komen. {Simpan} buat cek kontrak nanti.",
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'tetap / floating', label 'komen ↓ · simpan'."
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "20261112-bi-rate-575",
+  "format": "carousel",
+  "tayang": "2026-11-13T07:00:00+07:00",
+  "diakses": "2026-11-12",
+  "catatan_akses": "bi.go.id tidak bisa di-fetch dari sesi Research. Isi siaran pers dicek lewat cuplikan WebSearch berdomain bi.go.id, lalu disilangkan dengan media.",
+  "fakta": [
+    {
+      "id": "bi-rate-okt",
+      "klaim": "RDG BI 20–21 Oktober 2026 mempertahankan BI-Rate 5,75% (Deposit Facility naik ke 5,00%, Lending Facility 6,50%).",
+      "di_slide": "1, 2",
+      "sumber_primer": "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2823326.aspx",
+      "sumber_media": [
+        "https://finansial.bisnis.com/read/20261021/11/2014413/breaking-bank-indonesia-tahan-bi-rate-575-pada-rdg-oktober-2026",
+        "https://pusatdata.kontan.co.id/infografik/284/BI-Rate-Oktober-2026-Tetap-di-Angka-575",
+        "https://rri.co.id/voice-of-indonesia/business/2664084/bi-holds-benchmark-rate-at-575-percent-amid-rupiah-pressure-global-uncertainty",
+        "https://databoks.katadata.co.id/en/monetary/statistics/6ad8ad464d013/bi-rate-unchanged-at-575-deposit-facility-rises-to-5-in-october-2026"
+      ],
+      "tanggal_data": "2026-10-21",
+      "status": "resmi + 4 media"
+    },
+    {
+      "id": "kenaikan-mei-jun",
+      "klaim": "BI-Rate naik total 1 poin persen (100 bps) dalam sebulan: 19–20 Mei +50 bps ke 5,25%; 9 Juni +25 bps ke 5,50%; 17–18 Juni +25 bps ke 5,75%. Sebelumnya 4,75%.",
+      "di_slide": "1 ('1 poin persen', 'Mei–Juni 2026'), 2 ('4,75% ke 5,75%')",
+      "sumber_primer": [
+        "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2812626.aspx (BI-Rate Naik 25 bps Menjadi 5,75%, RDG 17–18 Juni 2026)",
+        "https://www.bi.go.id/id/statistik/indikator/bi-rate.aspx (tabel: 9 Jun 2026 5,50%; 18 Jun 2026 5,75%)"
+      ],
+      "sumber_media": [
+        "https://www.cnnindonesia.com/ekonomi/20260618143411-78-1370442/bi-rate-naik-25-bps-lagi-jadi-575-persen-per-18-juni",
+        "https://jatim.antaranews.com/berita/1074755/bi-rate-naik-jadi-575-persen-guna-jaga-stabilitas-rupiah",
+        "https://economy.okezone.com/read/2026/06/21/320/3225647/7-fakta-bi-rate-naik-lagi-jadi-5-75-persen?page=all"
+      ],
+      "catatan": "Level 4,75% sebelum Mei: kenaikan 50 bps ke 5,25% pada 20 Mei berarti dasar 4,75%; konsisten dengan media (Pasardana Apr 2026: 'BI Rate tetap 4,75 persen').",
+      "status": "resmi + 3 media"
+    },
+    {
+      "id": "ditahan-4-kali",
+      "klaim": "BI-Rate ditahan 5,75% pada RDG Juli, Agustus, September, dan Oktober 2026.",
+      "di_slide": "2",
+      "sumber_primer": [
+        "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2814226.aspx",
+        "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2816226.aspx",
+        "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2819326.aspx",
+        "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2823326.aspx"
+      ],
+      "sumber_media": [
+        "https://finansial.bisnis.com/read/20261021/11/2014506/bi-rate-ditahan-575-pada-oktober-intip-historis-lengkapnya-sepanjang-2026",
+        "https://pusatdata.kontan.co.id/infografik/274/Bank-Indonesia-BI-Menahan-BI-Rate-di-Angka-575-pada-September-2026"
+      ],
+      "catatan": "Empat siaran pers berjudul 'BI-Rate Tetap 5,75%' ditemukan; pemetaan nomor sp ke bulan dari urutan nomor, dikonfirmasi Bisnis ('empat RDG berturut-turut Juli–Oktober').",
+      "status": "resmi + 2 media"
+    },
+    {
+      "id": "transmisi-umum",
+      "klaim": "Bank biasanya menyesuaikan bunga kredit dan simpanan mengikuti BI-Rate, tidak langsung dan tidak sama besar.",
+      "di_slide": "3, 4",
+      "sumber": "Penjelasan umum mekanisme transmisi kebijakan moneter (Bank Indonesia). Tidak memuat angka.",
+      "status": "kualitatif, tanpa angka"
+    }
+  ],
+  "tidak_dipakai": [
+    {"klaim": "Tanggal RDG November 2026", "alasan": "belum dikonfirmasi dari jadwal resmi; tidak perlu untuk isi"},
+    {"klaim": "Kisaran bunga KPR floating", "alasan": "tidak ada sumber resmi agregat"}
+  ]
+}

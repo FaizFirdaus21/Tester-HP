@@ -1,0 +1,307 @@
+{
+  "judul": "Selisih harga jual vs buyback emas",
+  "sumber": "Harga emas Antam 1 gram di Logam Mulia, 12 Nov 2026 (dikutip Kontan, IDX Channel, Katadata)",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "Beli emas, jual lagi. Kok {rugi}?",
+      "isi": "Per 12 Nov, selisih harga [jual] dan {buyback} Antam Rp202 ribu per gram.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 290,
+            "y": 410,
+            "s": 520,
+            "pose": "struk",
+            "ekspresi": "kaget",
+            "baju": "biru",
+            "teks": "JUAL"
+          },
+          {
+            "jenis": "emasTumpuk",
+            "x": 690,
+            "y": 540,
+            "s": 300
+          },
+          {
+            "jenis": "label",
+            "x": 700,
+            "y": 300,
+            "s": 270,
+            "teks": "Rp2,316 jt",
+            "warna": "merah",
+            "miring": -8
+          }
+        ],
+        "label": [
+          {
+            "teks": "harga buyback",
+            "x": 700,
+            "y": 400,
+            "ukuran": 34
+          },
+          {
+            "teks": "padahal belinya Rp2,518 jt/gr",
+            "x": 640,
+            "y": 666,
+            "ukuran": 36,
+            "warna": "kuning"
+          }
+        ]
+      },
+      "visual": "Orang kaget memegang struk bertulisan JUAL, tumpukan emas, label harga merah 'Rp2,316 jt' (buyback), label kuning 'padahal belinya Rp2,518 jt/gr'."
+    },
+    {
+      "peran": "penjelasan",
+      "judul": "Ada 2 harga: [jual] & {buyback}",
+      "isi": "12 Nov 2026: jual Rp2.518.000, buyback Rp2.316.000 per gram.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 190,
+            "y": 420,
+            "s": 480,
+            "pose": "tunjuk",
+            "ekspresi": "senyum",
+            "baju": "hijau"
+          },
+          {
+            "jenis": "emas",
+            "x": 410,
+            "y": 610,
+            "s": 200
+          },
+          {
+            "jenis": "label",
+            "x": 710,
+            "y": 190,
+            "s": 300,
+            "teks": "Rp2,518 jt",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "label",
+            "x": 710,
+            "y": 430,
+            "s": 300,
+            "teks": "Rp2,316 jt",
+            "warna": "merah"
+          }
+        ],
+        "label": [
+          {
+            "teks": "harga jual (kamu beli)",
+            "x": 720,
+            "y": 290,
+            "ukuran": 36,
+            "warna": "kuning"
+          },
+          {
+            "teks": "harga buyback (kamu jual)",
+            "x": 720,
+            "y": 530,
+            "ukuran": 36,
+            "warna": "merah"
+          },
+          {
+            "teks": "per gram · 12 Nov 2026",
+            "x": 740,
+            "y": 600,
+            "ukuran": 30
+          }
+        ]
+      },
+      "visual": "Orang menunjuk emas; dua label harga: 'Rp2,518 jt' (harga jual, kamu beli) dan 'Rp2,316 jt' (buyback, kamu jual); label kecil 'per gram · Logam Mulia 12/11/2026'.",
+      "sumber": "Logam Mulia via Kontan & IDX Channel, 12 Nov 2026"
+    },
+    {
+      "peran": "perumpamaan",
+      "judul": "Mirip HP baru yang {dijual lagi}",
+      "isi": "Begitu keluar toko, harganya langsung turun. Emas juga punya selisih.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 220,
+            "y": 420,
+            "s": 480,
+            "pose": "hp",
+            "ekspresi": "datar",
+            "baju": "kuning"
+          },
+          {
+            "jenis": "hp",
+            "x": 560,
+            "y": 330,
+            "s": 300,
+            "teks": "BARU"
+          },
+          {
+            "jenis": "label",
+            "x": 780,
+            "y": 560,
+            "s": 230,
+            "teks": "bekas",
+            "warna": "merah",
+            "miring": 8
+          }
+        ],
+        "panah": [
+          {
+            "x1": 640,
+            "y1": 400,
+            "x2": 740,
+            "y2": 500,
+            "tinggi": 30,
+            "warna": "merah"
+          }
+        ],
+        "label": [
+          {
+            "teks": "harga turun",
+            "x": 790,
+            "y": 330,
+            "ukuran": 38,
+            "warna": "merah"
+          }
+        ]
+      },
+      "visual": "Orang dengan HP, HP baru, label bekas."
+    },
+    {
+      "peran": "efek",
+      "judul": "Selisihnya sekitar [8%]",
+      "isi": "Beli 1 gram lalu langsung dijual, uangmu kembali Rp202 ribu lebih sedikit.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "kalkulator",
+            "x": 230,
+            "y": 360,
+            "s": 400,
+            "teks": "-8%"
+          },
+          {
+            "jenis": "timbangan",
+            "x": 660,
+            "y": 380,
+            "s": 400,
+            "miring": -12
+          }
+        ],
+        "label": [
+          {
+            "teks": "beli Rp2,518 jt",
+            "x": 496,
+            "y": 485,
+            "ukuran": 36,
+            "warna": "kuning"
+          },
+          {
+            "teks": "jual Rp2,316 jt",
+            "x": 824,
+            "y": 415,
+            "ukuran": 36,
+            "warna": "merah"
+          },
+          {
+            "teks": "1 gram · 12 Nov 2026",
+            "x": 230,
+            "y": 630,
+            "ukuran": 32
+          }
+        ]
+      },
+      "visual": "Kalkulator bertulisan '-8%', timbangan miring; label 'beli Rp2,518 jt' dan 'jual Rp2,316 jt'; label kecil 'harga 12 Nov 2026'.",
+      "sumber": "Hitungan dari harga Logam Mulia 12 Nov 2026: (2.518.000 − 2.316.000) / 2.518.000 ≈ 8%"
+    },
+    {
+      "peran": "solusi",
+      "judul": "Siap simpan [lama] sebelum beli",
+      "isi": "Buyback harus naik melewati harga belimu dulu. Cek selisih sebelum beli.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 220,
+            "y": 420,
+            "s": 480,
+            "pose": "emas",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "kalender",
+            "x": 640,
+            "y": 300,
+            "s": 250,
+            "teks": "TAHUN"
+          },
+          {
+            "jenis": "emasTumpuk",
+            "x": 810,
+            "y": 585,
+            "s": 230
+          }
+        ],
+        "panah": [
+          {
+            "x1": 720,
+            "y1": 430,
+            "x2": 790,
+            "y2": 500,
+            "tinggi": 30,
+            "warna": "kuning"
+          }
+        ],
+        "label": [
+          {
+            "teks": "cek selisih dulu",
+            "x": 640,
+            "y": 120,
+            "ukuran": 38,
+            "warna": "kuning"
+          }
+        ]
+      },
+      "visual": "Orang memegang batang emas sambil tersenyum, kalender bertulisan TAHUN, tumpukan emas, label 'cek selisih dulu'."
+    },
+    {
+      "peran": "cta",
+      "judul": "Selisih di tempatmu [berapa persen]?",
+      "isi": "Tulis angkanya di komen. {Simpan} biar nggak lupa.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 300,
+            "y": 330,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "merah"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 660,
+            "y": 210,
+            "s": 300,
+            "teks": "__ %"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  simpan",
+            "x": 660,
+            "y": 400,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      },
+      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ %', label 'komen ↓ · simpan'."
+    }
+  ]
+}

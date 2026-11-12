@@ -1,0 +1,55 @@
+{
+  "slug": "20261112-emas-jual-buyback",
+  "format": "carousel",
+  "tayang": "2026-11-13T12:00:00+07:00",
+  "diakses": "2026-11-12",
+  "catatan_akses": "logammulia.com, bps.go.id, ojk.go.id, dan www.* tidak bisa di-fetch dari sesi Research. Harga diambil dari media yang mengutip laman resmi Logam Mulia pada 12 Nov 2026. Angka yang hanya ada di satu media tidak dipakai.",
+  "fakta": [
+    {
+      "id": "harga-jual-1g",
+      "klaim": "Harga jual emas Antam 1 gram di Logam Mulia, 12 November 2026: Rp2.518.000.",
+      "di_slide": "1 (label), 2, 4 (label)",
+      "sumber_primer": "https://www.logammulia.com/id/harga-emas-hari-ini (tidak bisa dibuka; dikutip media)",
+      "sumber_media": [
+        "https://beritanasional.com/detail/158261/harga-emas-antam-hari-ini-12-november-2026-merosot-cek-selengkapnya-di-sini",
+        "https://katadata.co.id/finansial/keuangan/6af563f10f7b6/harga-emas-hari-ini-kamis-12-november-2026-antam-bsi-gold-galeri24-dan-ubs",
+        "https://www.idxchannel.com/market-news/harga-emas-antam-antm-turun-jadi-rp2518000-per-gram-buyback-anjlok-lebih-dalam",
+        "https://www.suara.com/bisnis/2026/11/12/101026/segera-antre-harga-emas-antam-terus-turun-jadi-rp2518000gram"
+      ],
+      "tanggal_data": "2026-11-12",
+      "status": "resmi (dikutip) + 4 media"
+    },
+    {
+      "id": "harga-buyback-1g",
+      "klaim": "Harga buyback emas Antam 1 gram di Logam Mulia, 12 November 2026: Rp2.316.000.",
+      "di_slide": "1 (label), 2, 4 (label)",
+      "sumber_primer": "https://www.logammulia.com (dikutip Kontan: 'situs logammulia.com yang diperbarui pada 12 November 2026')",
+      "sumber_media": [
+        "https://finansial.kontan.co.id/news/harga-buyback-emas-antam-hari-ini-12-november-2026-stagnan-di-angka-ini-per-gram",
+        "https://www.idxchannel.com/market-news/harga-emas-antam-antm-turun-jadi-rp2518000-per-gram-buyback-anjlok-lebih-dalam",
+        "https://www.idntimes.com/business/economy/harga-emas-fisik-stagnan-hari-ini-cek-rinciannya-00-bvq5c-6tj1rp"
+      ],
+      "tanggal_data": "2026-11-12",
+      "catatan": "Buyback di Pegadaian berbeda (Rp2.324.000, Bisnis). Carousel hanya memakai harga Logam Mulia, tidak dicampur.",
+      "status": "resmi (dikutip) + 3 media"
+    },
+    {
+      "id": "selisih-rupiah",
+      "klaim": "Selisih jual − buyback = Rp202.000 per gram.",
+      "di_slide": "1, 4",
+      "sumber": "Hitungan: 2.518.000 − 2.316.000 = 202.000",
+      "status": "turunan dari dua angka di atas"
+    },
+    {
+      "id": "selisih-persen",
+      "klaim": "Selisih ≈ 8% dari harga jual (202.000 / 2.518.000 = 8,02%).",
+      "di_slide": "4",
+      "sumber": "Hitungan dari dua angka di atas",
+      "status": "turunan"
+    }
+  ],
+  "tidak_dipakai": [
+    {"klaim": "Harga 10 gram Rp24.675.000", "alasan": "hanya ditemukan di satu media (detik)"},
+    {"klaim": "PPh 22 buyback di atas Rp10 juta 1,5% (NPWP)", "alasan": "berbeda antar-sumber (0,25% vs 1,5%), tidak relevan untuk 1 gram"}
+  ]
+}
