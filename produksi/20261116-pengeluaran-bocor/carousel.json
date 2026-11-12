@@ -1,0 +1,42 @@
+{
+  "judul": "Pengeluaran kecil yang bocor",
+  "sumber": "Ilustrasi hitungan (semua angka contoh)",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "Rp15 ribu sehari, {kecil} kan?",
+      "isi": "Setahun bisa jadi [lebih dari Rp5 juta].",
+      "visual": "Orang (pose hp, ekspresi senyum) memegang HP; label harga 'Rp15 rb' kecil; panah kapur ke label besar merah '> Rp5 jt/thn'; label kecil 'contoh'."
+    },
+    {
+      "peran": "penjelasan",
+      "judul": "Namanya [pengeluaran bocor]",
+      "isi": "Biaya kecil yang rutin: jajan, ongkir, langganan, biaya admin. Jarang dihitung.",
+      "visual": "Empat label kecil berjajar: 'jajan', 'ongkir', 'langganan', 'admin'; tas belanja dan kartu."
+    },
+    {
+      "peran": "perumpamaan",
+      "judul": "Mirip {keran netes}",
+      "isi": "Setetes nggak kerasa. Sebulan, embernya penuh.",
+      "visual": "SKETSA: label 'keran' dengan tetesan kapur ke ember berlabel 'sebulan'; garis air naik."
+    },
+    {
+      "peran": "efek",
+      "judul": "3 langganan = [Rp1,8 jt] setahun",
+      "isi": "Contoh: 3 langganan Rp50 ribu = Rp150 ribu sebulan, Rp1,8 juta setahun.",
+      "visual": "Kalkulator '3 × 50 rb × 12'; label 'Rp1,8 jt'; label kecil 'contoh'; HP dengan tiga ikon kotak."
+    },
+    {
+      "peran": "solusi",
+      "judul": "Cek [mutasi rekening] sebulan",
+      "isi": "Tandai tagihan rutin. Hapus yang jarang dipakai. Sisanya pindah ke tabungan.",
+      "visual": "HP dengan daftar kapur; tiga baris dicentang, satu dicoret merah; panah ke tumpukan koin 'tabungan'. Orang (pose jempol)."
+    },
+    {
+      "peran": "cta",
+      "judul": "Langganan aktifmu [ada berapa]?",
+      "isi": "Tulis angkanya di komen. {Simpan} buat cek akhir bulan.",
+      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ langganan', label 'komen ↓ · simpan'."
+    }
+  ]
+}

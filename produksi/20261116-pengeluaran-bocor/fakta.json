@@ -1,0 +1,22 @@
+{
+  "slug": "20261116-pengeluaran-bocor",
+  "format": "carousel",
+  "tayang": "2026-11-16T12:00:00+07:00",
+  "kategori": "pengeluaran rutin",
+  "diakses": "2026-11-12",
+  "catatan_akses": "Diakses 12 Nov 2026 lewat WebSearch (fetch langsung ke situs resmi diblokir di sesi Research). Topik evergreen: tidak bergantung pada harga/kurs/suku bunga harian.",
+  "fakta": [
+    {
+      "id": "contoh-15rb",
+      "klaim": "Rp15.000 × 365 hari = Rp5.475.000 (\"lebih dari Rp5 juta\"; label visual \"> Rp5 jt\")",
+      "di_slide": "1",
+      "status": "contoh hitungan"
+    },
+    {
+      "id": "contoh-langganan",
+      "klaim": "3 × Rp50.000 = Rp150.000/bulan; × 12 = Rp1.800.000/tahun",
+      "di_slide": "4",
+      "status": "contoh hitungan"
+    }
+  ]
+}
