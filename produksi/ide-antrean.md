@@ -4,7 +4,8 @@ Disusun oleh Media Research, terakhir diperbarui 11 Nov 2026. Sumber utamanya sc
 
 - Skor di bawah adalah skor awal. **Angka dan kebaruan data wajib dicek ulang pada hari produksi.**
 - Bukti view media sosial masih "tidak terverifikasi", karena host media sosial diblokir.
-- Sudah diproduksi: bunga deposito & LPS (20261109). Inflasi Oktober 2026 sudah dipakai untuk video pilot.
+- Sudah diproduksi: bunga deposito & LPS (20261109); paylater 12.12, emas jual vs buyback, BI Rate 5,75% (20261112, tayang 13 Nov). Inflasi Oktober 2026 sudah dipakai untuk video pilot.
+- **Pengangguran (#5) belum lolos:** rilis BPS Agustus 2026 belum terlacak di bps.go.id (12 Nov). Media juga tidak sepakat soal jumlah penganggur (7,38 juta vs 7,35 juta). Cek ulang sebelum dipakai.
 
 **Aturan harian:** 3 topik dari 3 kategori berbeda (1 Reels + 2 carousel). Carousel terbit tanpa persetujuan user, jadi pilih topik carousel yang **angkanya bersumber resmi dan stabil**. Angka yang meragukan dibuang, dan topiknya diganti kalau perlu.
 
