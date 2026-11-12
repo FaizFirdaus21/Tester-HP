@@ -1,0 +1,52 @@
+{
+  "slug": "20261112-paylater-1212",
+  "judul": "Cicilan paylater kecil, kok gajian langsung habis?",
+  "model": "gemini-3.8-flash-tts",
+  "suara": "Sulafat",
+  "jeda_antar_blok": 0.35,
+  "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, seperti teman yang paham keuangan sedang menjelaskan di Instagram Reels: hangat, santai, kalimat pendek, bukan pembaca berita. Tempo sedang cenderung cepat, beri jeda pendek sebelum angka penting.",
+  "blok": [
+    {
+      "peran": "hook",
+      "gaya": "Nada heran dan sedikit menggoda, cepat, naik di akhir pertanyaan",
+      "teks": "Cicilan paylater kecil, kok gajian langsung habis?",
+      "visual": "Tulisan kapur besar 'gajian' dengan amplop uang, lalu amplop itu dicoret kapur merah sampai kosong; tanda tanya merah besar."
+    },
+    {
+      "peran": "penjelasan",
+      "gaya": "Nada menjelaskan, jelas dan meyakinkan, tekankan angka triliun dan juta",
+      "teks": "Data OJK: per September, utang paylater di bank tembus tiga puluh satu koma lima triliun rupiah, dari tiga puluh empat koma lima juta rekening.",
+      "visual": "Angka kapur besar 'Rp31,5 triliun' dengan label kecil 'utang paylater di bank, Sep 2026 (OJK)'; di bawahnya ikon kartu bertumpuk dan label '34,5 juta rekening'."
+    },
+    {
+      "peran": "perumpamaan",
+      "gaya": "Nada bercerita, santai, sedikit tersenyum",
+      "teks": "Paylater itu mirip langganan streaming. Satu terasa ringan. Lima sekaligus, tagihannya kerasa tiap bulan.",
+      "visual": "SKETSA KAPUR: HP dengan satu ikon langganan (ringan), lalu lima ikon bertumpuk di HP kedua dengan label 'tiap bulan' dan panah merah ke dompet."
+    },
+    {
+      "peran": "efek",
+      "gaya": "Nada serius tapi ramah",
+      "teks": "Cicilan kecil dari beberapa aplikasi gampang menumpuk tanpa terasa, apalagi pas promo dua belas dua belas.",
+      "visual": "Tumpukan struk kapur yang makin tinggi, masing-masing bertulisan 'Rp200 rb'; kalender kapur dengan tanggal '12.12' dilingkari merah."
+    },
+    {
+      "peran": "akibat",
+      "gaya": "Nada mengajak membayangkan, pelan di angka sejuta dan seperlima",
+      "teks": "Contohnya, lima cicilan dua ratus ribu, jadi sejuta sebulan, atau seperlima gaji lima juta. Telat bayar juga tercatat di slik o je ka, dan bisa bikin pengajuan ka pe er lebih susah.",
+      "visual": "Persamaan kapur '5 × Rp200 rb = Rp1 jt / bulan' dengan label 'contoh'; lingkaran gaji 'Rp5 jt' dipotong seperlima dengan kapur merah; ikon bank dengan tulisan 'SLIK OJK' dan rumah kecil bertanda tanya (KPR)."
+    },
+    {
+      "peran": "solusi",
+      "gaya": "Nada menekankan, pelan dan jelas, seperti memberi checklist",
+      "teks": "Sebelum checkout, jumlahkan dulu semua cicilan aktifmu. Cukup pakai satu aplikasi. Dan bayar sebelum jatuh tempo.",
+      "visual": "Checklist kapur tiga baris yang dicentang satu per satu: '☐ jumlahkan semua cicilan', '☐ cukup 1 aplikasi', '☐ bayar sebelum jatuh tempo'."
+    },
+    {
+      "peran": "cta",
+      "gaya": "Nada ceria dan ramah, mengajak ngobrol, tersenyum di tagline",
+      "teks": "Kamu punya berapa aplikasi paylater aktif? Tulis angkanya di komen. Kirim ke teman yang udah siap checkout dua belas dua belas. IntipDompet. Biar dompetmu nggak kaget.",
+      "visual": "Gelembung komentar kapur '__ aplikasi', ikon kirim (pesawat kertas), lalu tagline 'IntipDompet. Biar dompetmu nggak kaget.' di tengah papan."
+    }
+  ]
+}

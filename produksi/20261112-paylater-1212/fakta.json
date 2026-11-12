@@ -1,0 +1,51 @@
+{
+  "slug": "20261112-paylater-1212",
+  "format": "reels",
+  "tayang": "2026-11-13T19:00:00+07:00",
+  "diakses": "2026-11-12",
+  "catatan_akses": "ojk.go.id tidak bisa di-fetch dari sesi Research. Isi siaran pers dicek lewat cuplikan WebSearch berdomain ojk.go.id, lalu disilangkan dengan media.",
+  "fakta": [
+    {
+      "id": "bnpl-bank-baki-debet",
+      "klaim": "Baki debet kredit BNPL (paylater) perbankan per September 2026 sebesar Rp31,50 triliun, tumbuh 26,68% yoy (Agustus 29,10%), dengan 34,5 juta rekening, sebagaimana dilaporkan dalam SLIK.",
+      "di_naskah": "blok 2 ('tiga puluh satu koma lima triliun', 'tiga puluh empat koma lima juta rekening')",
+      "sumber_primer": "https://ojk.go.id/id/berita-dan-kegiatan/siaran-pers/Pages/RDKB-Oktober-2026.aspx (Siaran Pers RDK Bulanan Oktober 2026, 5 Nov 2026)",
+      "sumber_media": [
+        "https://finansial.bisnis.com/read/20261105/90/2018787/ojk-kredit-bank-tumbuh-1326-npl-terjaga-di-level-207",
+        "https://rmol.id/read/2026/11/06/727444/utang-paylater-masyarakat-di-bank-tembus-rp31-5-triliun-hingga-september-2026",
+        "https://keuangan.kontan.co.id/news/paylater-perbankan-masih-subur-tumbuh-2668-yoy-per-september-2026"
+      ],
+      "tanggal_data": "2026-09 (dirilis 2026-11-05)",
+      "status": "resmi + 3 media"
+    },
+    {
+      "id": "paylater-di-slik",
+      "klaim": "Paylater/BNPL tercatat di SLIK OJK; riwayat telat bayar bisa membuat pengajuan kredit lain seperti KPR lebih sulit (tidak otomatis ditolak).",
+      "di_naskah": "blok 5",
+      "sumber_primer": "https://ojk.go.id/id/berita-dan-kegiatan/siaran-pers/Pages/RDKB-Oktober-2026.aspx ('baki debet kredit BNPL sebagaimana dilaporkan dalam SLIK')",
+      "sumber_media": [
+        "https://finansial.bisnis.com/read/20260409/563/1965429/sering-pakai-paylater-bisa-pengaruhi-slik-ojkbi-checking-ini-tips-agar-tak-kebobolan",
+        "https://www.kompas.tv/ekonomi/436641/banyak-anak-muda-gagal-ajukan-kpr-karena-paylater-simak-tips-ini-dari-ojk"
+      ],
+      "catatan": "Naskah memakai 'bisa bikin ... lebih susah', bukan 'pasti ditolak'.",
+      "status": "resmi (pencatatan SLIK) + 2 media (dampak ke KPR)"
+    },
+    {
+      "id": "contoh-cicilan",
+      "klaim": "5 cicilan × Rp200 ribu = Rp1 juta per bulan = seperlima gaji Rp5 juta.",
+      "di_naskah": "blok 4 (visual), blok 5",
+      "status": "contoh hipotetis — wajib label 'contoh' di visual"
+    },
+    {
+      "id": "1212",
+      "klaim": "Promo 12.12 (Harbolnas) jatuh pada 12 Desember.",
+      "di_naskah": "blok 4, 7",
+      "status": "tanggal kalender"
+    }
+  ],
+  "tidak_dipakai": [
+    {"klaim": "NPL BNPL 2,07%", "alasan": "di media angka 2,07% adalah NPL kredit perbankan total; atribusi ke BNPL tidak jelas"},
+    {"klaim": "Rata-rata utang paylater per rekening ±Rp913 ribu", "alasan": "angka turunan media, bukan rilis OJK"},
+    {"klaim": "Batas aman cicilan sepertiga gaji", "alasan": "patokan umum tanpa sumber resmi"}
+  ]
+}
