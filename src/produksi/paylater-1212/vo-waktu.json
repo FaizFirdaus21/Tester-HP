@@ -1,15 +1,15 @@
 {
   "audio": "vo/paylater-1212.mp3",
   "catatan": "Dibuat dengan gemini-3.1-flash-tts-preview, suara Sulafat. Diperkaya scripts/sinkron_vo.py (bicara + jangkar kalimat).",
-  "total": 68.29,
+  "total": 68.93,
   "blok": [
     {
       "mulai": 0.0,
-      "durasi": 3.96,
-      "teks": "Cicilan paylater kecil, kok gajian langsung habis?",
+      "durasi": 4.6,
+      "teks": "Cicilan paylater-nya kecil, kok gajian langsung habis?",
       "bicara": [
-        0.297,
-        3.704
+        0.269,
+        4.296
       ],
       "jangkar": [
         {
@@ -17,22 +17,22 @@
           "detik": 0.0
         },
         {
-          "huruf": 24,
-          "detik": 1.882
+          "huruf": 28,
+          "detik": 2.303
         },
         {
-          "huruf": 50,
-          "detik": 3.407
+          "huruf": 54,
+          "detik": 4.026
         }
       ]
     },
     {
-      "mulai": 4.31,
+      "mulai": 4.95,
       "durasi": 11.64,
       "teks": "Data OJK: per September, utang paylater di bank tembus tiga puluh satu koma lima triliun rupiah, dari tiga puluh empat koma lima juta rekening.",
       "bicara": [
-        4.607,
-        15.575
+        5.247,
+        16.215
       ],
       "jangkar": [
         {
@@ -58,12 +58,12 @@
       ]
     },
     {
-      "mulai": 16.3,
+      "mulai": 16.94,
       "durasi": 8.84,
       "teks": "Paylater itu mirip langganan streaming. Satu terasa ringan. Lima sekaligus, tagihannya kerasa tiap bulan.",
       "bicara": [
-        16.574,
-        24.824
+        17.214,
+        25.464
       ],
       "jangkar": [
         {
@@ -89,12 +89,12 @@
       ]
     },
     {
-      "mulai": 25.49,
+      "mulai": 26.13,
       "durasi": 7.0,
       "teks": "Cicilan kecil dari beberapa aplikasi gampang menumpuk tanpa terasa, apalagi pas promo dua belas dua belas.",
       "bicara": [
-        25.775,
-        32.264
+        26.415,
+        32.904
       ],
       "jangkar": [
         {
@@ -112,12 +112,12 @@
       ]
     },
     {
-      "mulai": 32.84,
+      "mulai": 33.48,
       "durasi": 14.72,
       "teks": "Contohnya, lima cicilan dua ratus ribu, jadi sejuta sebulan, atau seperlima gaji lima juta. Telat bayar juga tercatat di slik o je ka, dan bisa bikin pengajuan ka pe er lebih susah.",
       "bicara": [
-        33.051,
-        47.241
+        33.691,
+        47.881
       ],
       "jangkar": [
         {
@@ -151,12 +151,12 @@
       ]
     },
     {
-      "mulai": 47.91,
+      "mulai": 48.55,
       "durasi": 8.24,
       "teks": "Sebelum checkout, jumlahkan dulu semua cicilan aktifmu. Cukup pakai satu aplikasi. Dan bayar sebelum jatuh tempo.",
       "bicara": [
-        48.153,
-        55.898
+        48.793,
+        56.538
       ],
       "jangkar": [
         {
@@ -182,12 +182,12 @@
       ]
     },
     {
-      "mulai": 56.5,
+      "mulai": 57.14,
       "durasi": 11.44,
       "teks": "Kamu punya berapa aplikasi paylater aktif? Tulis angkanya di komen. Kirim ke teman yang udah siap checkout dua belas dua belas. IntipDompet. Biar dompetmu nggak kaget.",
       "bicara": [
-        56.773,
-        67.562
+        57.413,
+        68.202
       ],
       "jangkar": [
         {
@@ -208,7 +208,7 @@
         },
         {
           "huruf": 141,
-          "detik": 9.289
+          "detik": 9.288
         },
         {
           "huruf": 167,
