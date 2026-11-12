@@ -1,40 +1,40 @@
 {
   "audio": "vo/paylater-1212.mp3",
   "catatan": "Dibuat dengan gemini-3.1-flash-tts-preview, suara Sulafat.",
-  "total": 68.29,
+  "total": 68.93,
   "blok": [
     {
       "mulai": 0.0,
-      "durasi": 3.96,
-      "teks": "Cicilan paylater kecil, kok gajian langsung habis?"
+      "durasi": 4.6,
+      "teks": "Cicilan paylater-nya kecil, kok gajian langsung habis?"
     },
     {
-      "mulai": 4.31,
+      "mulai": 4.95,
       "durasi": 11.64,
       "teks": "Data OJK: per September, utang paylater di bank tembus tiga puluh satu koma lima triliun rupiah, dari tiga puluh empat koma lima juta rekening."
     },
     {
-      "mulai": 16.3,
+      "mulai": 16.94,
       "durasi": 8.84,
       "teks": "Paylater itu mirip langganan streaming. Satu terasa ringan. Lima sekaligus, tagihannya kerasa tiap bulan."
     },
     {
-      "mulai": 25.49,
+      "mulai": 26.13,
       "durasi": 7.0,
       "teks": "Cicilan kecil dari beberapa aplikasi gampang menumpuk tanpa terasa, apalagi pas promo dua belas dua belas."
     },
     {
-      "mulai": 32.84,
+      "mulai": 33.48,
       "durasi": 14.72,
       "teks": "Contohnya, lima cicilan dua ratus ribu, jadi sejuta sebulan, atau seperlima gaji lima juta. Telat bayar juga tercatat di slik o je ka, dan bisa bikin pengajuan ka pe er lebih susah."
     },
     {
-      "mulai": 47.91,
+      "mulai": 48.55,
       "durasi": 8.24,
       "teks": "Sebelum checkout, jumlahkan dulu semua cicilan aktifmu. Cukup pakai satu aplikasi. Dan bayar sebelum jatuh tempo."
     },
     {
-      "mulai": 56.5,
+      "mulai": 57.14,
       "durasi": 11.44,
       "teks": "Kamu punya berapa aplikasi paylater aktif? Tulis angkanya di komen. Kirim ke teman yang udah siap checkout dua belas dua belas. IntipDompet. Biar dompetmu nggak kaget."
     }
