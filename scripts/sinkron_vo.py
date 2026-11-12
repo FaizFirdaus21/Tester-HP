@@ -16,8 +16,8 @@ import re
 import subprocess
 import sys
 
-AMBANG_DB = -38  # di bawah ini dianggap hening
-JEDA_MIN = 0.18  # detik
+AMBANG_DB = float(os.environ.get("VO_AMBANG_DB", -38))  # di bawah ini dianggap hening (bisa diubah lewat env)
+JEDA_MIN = float(os.environ.get("VO_JEDA_MIN", 0.18))  # detik
 CARI = 1.5  # jendela pencocokan jeda vs perkiraan (detik)
 HURUF_MIN_DETIK = 0.03  # paling cepat ±33 huruf per detik
 
@@ -61,6 +61,8 @@ def main():
                 continue  # jaga urutan
             if (e - bm) - jangkar[-1]["detik"] < (huruf - jangkar[-1]["huruf"]) * HURUF_MIN_DETIK:
                 continue  # terlalu cepat untuk diucapkan: jeda ini milik tanda baca lain
+            if be - e < (n - huruf) * HURUF_MIN_DETIK:
+                continue  # sisa teks tidak muat diucapkan sesudah jeda ini (mis. jeda napas di ujung blok)
             dipakai.add(i)
             jangkar.append({"huruf": huruf, "detik": round(e - bm, 3)})
         jangkar.append({"huruf": n, "detik": round(be - bm, 3)})

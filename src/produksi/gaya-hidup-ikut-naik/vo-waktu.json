@@ -1,0 +1,224 @@
+{
+  "audio": "vo/gaya-hidup-ikut-naik.mp3",
+  "catatan": "Dibuat dengan gemini-3.8-flash-tts, suara Sulafat. Diperkaya scripts/sinkron_vo.py (bicara + jangkar kalimat).",
+  "total": 65.921,
+  "blok": [
+    {
+      "mulai": 0.0,
+      "durasi": 3.521,
+      "teks": "Gaji naik, kok tabungan tetap segitu?",
+      "bicara": [
+        0.372,
+        3.521
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 11,
+          "detik": 1.002
+        },
+        {
+          "huruf": 37,
+          "detik": 3.149
+        }
+      ]
+    },
+    {
+      "mulai": 3.871,
+      "durasi": 11.607,
+      "teks": "Ini namanya gaya hidup yang ikut naik, istilah kerennya lifestyle inflation. Begitu gaji bertambah, pengeluaran pelan-pelan ikut bertambah, sampai sisanya sama saja.",
+      "bicara": [
+        4.113,
+        15.478
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 39,
+          "detik": 2.504
+        },
+        {
+          "huruf": 77,
+          "detik": 5.344
+        },
+        {
+          "huruf": 140,
+          "detik": 8.926
+        },
+        {
+          "huruf": 165,
+          "detik": 11.365
+        }
+      ]
+    },
+    {
+      "mulai": 15.828,
+      "durasi": 7.161,
+      "teks": "Mirip pindah ke kos yang lebih luas. Lemarinya lebih besar, tapi lama-lama ikut penuh lagi.",
+      "bicara": [
+        16.059,
+        22.989
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 37,
+          "detik": 2.593
+        },
+        {
+          "huruf": 60,
+          "detik": 4.389
+        },
+        {
+          "huruf": 91,
+          "detik": 6.93
+        }
+      ]
+    },
+    {
+      "mulai": 23.339,
+      "durasi": 10.087,
+      "teks": "Kenaikan gaji habis buat hal kecil yang terasa wajar: kopi lebih mahal, ongkir lebih sering, langganan bertambah, makan di luar makin sering.",
+      "bicara": [
+        23.611,
+        33.426
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 54,
+          "detik": 3.573
+        },
+        {
+          "huruf": 72,
+          "detik": 4.957
+        },
+        {
+          "huruf": 93,
+          "detik": 6.464
+        },
+        {
+          "huruf": 114,
+          "detik": 7.987
+        },
+        {
+          "huruf": 141,
+          "detik": 9.815
+        }
+      ]
+    },
+    {
+      "mulai": 33.776,
+      "durasi": 9.647,
+      "teks": "Contohnya, gaji naik satu juta sebulan. Kalau semuanya habis, setahun kamu melewatkan kesempatan menabung dua belas juta.",
+      "bicara": [
+        34.079,
+        43.423
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 11,
+          "detik": 1.152
+        },
+        {
+          "huruf": 40,
+          "detik": 3.558
+        },
+        {
+          "huruf": 62,
+          "detik": 5.045
+        },
+        {
+          "huruf": 121,
+          "detik": 9.344
+        }
+      ]
+    },
+    {
+      "mulai": 43.773,
+      "durasi": 11.801,
+      "teks": "Begitu gaji naik, pindahkan dulu setengah kenaikannya ke tabungan di hari gajian. Sisanya baru boleh dinikmati. Dengan begitu, tabunganmu ikut naik bareng gajimu.",
+      "bicara": [
+        44.046,
+        55.574
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 18,
+          "detik": 1.42
+        },
+        {
+          "huruf": 82,
+          "detik": 5.912
+        },
+        {
+          "huruf": 112,
+          "detik": 8.076
+        },
+        {
+          "huruf": 127,
+          "detik": 9.289
+        },
+        {
+          "huruf": 162,
+          "detik": 11.528
+        }
+      ]
+    },
+    {
+      "mulai": 55.924,
+      "durasi": 9.647,
+      "teks": "Kenaikan gajimu terakhir berapa persen? Tulis angkanya di komen. Kirim ke teman yang baru naik gaji. IntipDompet. Biar dompetmu nggak kaget.",
+      "bicara": [
+        56.113,
+        65.571
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 40,
+          "detik": 2.655
+        },
+        {
+          "huruf": 65,
+          "detik": 4.335
+        },
+        {
+          "huruf": 101,
+          "detik": 6.738
+        },
+        {
+          "huruf": 114,
+          "detik": 7.947
+        },
+        {
+          "huruf": 140,
+          "detik": 9.458
+        }
+      ]
+    }
+  ]
+}
