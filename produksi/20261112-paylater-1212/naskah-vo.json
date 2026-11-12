@@ -1,7 +1,7 @@
 {
   "slug": "20261112-paylater-1212",
   "judul": "Cicilan paylater kecil, kok gajian langsung habis?",
-  "model": "gemini-3.8-flash-tts",
+  "model": "gemini-3.1-flash-tts-preview",
   "suara": "Sulafat",
   "jeda_antar_blok": 0.35,
   "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, seperti teman yang paham keuangan sedang menjelaskan di Instagram Reels: hangat, santai, kalimat pendek, bukan pembaca berita. Tempo sedang cenderung cepat, beri jeda pendek sebelum angka penting.",
