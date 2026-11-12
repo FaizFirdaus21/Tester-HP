@@ -5,6 +5,9 @@ import { staticFile } from "remotion";
 loadFont({ family: "Kalam", url: staticFile("fonts/Kalam-Light.woff2"), weight: "300" });
 loadFont({ family: "Kalam", url: staticFile("fonts/Kalam-Regular.woff2"), weight: "400" });
 loadFont({ family: "Kalam", url: staticFile("fonts/Kalam-Bold.woff2"), weight: "700" });
+// Angka 0–9 memakai Shantell Sans: angka 5 di Kalam mirip huruf S ("Rp5" terbaca "RpS").
+// Hanya digit yang diganti (unicode-range), huruf tetap Kalam.
+loadFont({ family: "Angka Kapur", url: staticFile("fonts/ShantellSans-Variable.woff2"), weight: "300 800", unicodeRange: "U+0030-0039" });
 loadFont({ family: "Fredericka the Great", url: staticFile("fonts/FrederickaTheGreat-Regular.woff2"), weight: "400" });
 loadFont({ family: "Plus Jakarta Sans", url: staticFile("fonts/PlusJakartaSans-Variable.woff2"), weight: "200 800" });
 
@@ -20,7 +23,7 @@ export const k = {
 };
 
 export const font = {
-  tangan: '"Kalam", cursive', // tulisan kapur utama, mudah dibaca
+  tangan: '"Angka Kapur", "Kalam", cursive', // tulisan kapur utama, mudah dibaca
   hias: '"Fredericka the Great", serif', // judul kapur berhias
   sans: '"Plus Jakarta Sans", sans-serif', // subtitel
 };
