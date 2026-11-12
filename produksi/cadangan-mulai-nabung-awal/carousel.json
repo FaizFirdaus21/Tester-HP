@@ -12,7 +12,7 @@
           {
             "jenis": "orang",
             "x": 170,
-            "y": 460,
+            "y": 420,
             "s": 400,
             "pose": "jempol",
             "ekspresi": "senyum",
@@ -20,8 +20,8 @@
           },
           {
             "jenis": "orang",
-            "x": 730,
-            "y": 460,
+            "x": 740,
+            "y": 420,
             "s": 400,
             "pose": "mikir",
             "ekspresi": "cemas",
@@ -30,9 +30,9 @@
           },
           {
             "jenis": "kalender",
-            "x": 450,
-            "y": 230,
-            "s": 200,
+            "x": 430,
+            "y": 170,
+            "s": 180,
             "teks": "SEKARANG?"
           }
         ],
@@ -40,14 +40,14 @@
           {
             "teks": "mulai 22 th",
             "x": 170,
-            "y": 660,
+            "y": 690,
             "ukuran": 36,
             "warna": "hijau"
           },
           {
             "teks": "mulai 32 th",
             "x": 730,
-            "y": 660,
+            "y": 690,
             "ukuran": 36,
             "warna": "merah"
           }

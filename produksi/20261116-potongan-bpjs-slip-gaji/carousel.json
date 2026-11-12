@@ -17,7 +17,7 @@
             "pose": "struk",
             "ekspresi": "mikir",
             "baju": "biru",
-            "teks": "SLIP GAJI"
+            "teks": "GAJI"
           },
           {
             "jenis": "label",
@@ -32,7 +32,7 @@
     },
     {
       "peran": "penjelasan",
-      "judul": "Bagianmu: [1%] + [2%] + [1%]",
+      "judul": "Bagianmu: [1%+2%+1%]",
       "isi": "1% BPJS Kesehatan, 2% JHT, 1% Jaminan Pensiun. Sisanya dibayar perusahaan.",
       "visual": "Tiga label berjajar: '1% Kesehatan', '2% JHT', '1% Pensiun'; panah ke label 'perusahaan bayar sisanya'.",
       "ilustrasi": {
