@@ -243,7 +243,18 @@ const Gelembung: FB = ({ cx, cy, s, teks, warna = k.putih }) => {
   );
 };
 
+// Garis coret merah (mencoret harga) dan silang merah.
+const CoretMerah: FB = ({ cx, cy, s }) => <Gr pts={garis(cx - s / 2, cy + s * 0.12, cx + s / 2, cy - s * 0.12, 13, 3)} warna={k.merah} tebal={Math.max(8, s * 0.04)} />;
+const Silang: FB = ({ cx, cy, s }) => (
+  <>
+    <Gr pts={garis(cx - s * 0.4, cy - s * 0.4, cx + s * 0.4, cy + s * 0.4, 51, 3)} warna={k.merah} tebal={Math.max(9, s * 0.05)} />
+    <Gr pts={garis(cx + s * 0.4, cy - s * 0.4, cx - s * 0.4, cy + s * 0.4, 52, 3)} warna={k.merah} tebal={Math.max(9, s * 0.05)} />
+  </>
+);
+
 export const BENDA: Record<string, FB> = {
+  coret: CoretMerah,
+  silang: Silang,
   emas: Emas,
   emasTumpuk: EmasTumpuk,
   koin: Koin,

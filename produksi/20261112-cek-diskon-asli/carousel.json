@@ -6,38 +6,346 @@
       "peran": "hook",
       "judul": "Diskon {70%}, beneran murah?",
       "isi": "Harga coret belum tentu harga normal. Cek dulu sebelum checkout.",
-      "visual": "Orang (pose hp, ekspresi kaget) menatap HP; label harga besar merah miring '-70%' dengan label kecil 'contoh'; label harga kedua dicoret kapur 'Rp300 rb'."
+      "visual": "Orang (pose hp, ekspresi kaget) menatap HP; label harga besar merah miring '-70%' dengan label kecil 'contoh'; label harga kedua dicoret kapur 'Rp300 rb'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 220,
+            "y": 430,
+            "s": 480,
+            "pose": "hp",
+            "ekspresi": "kaget",
+            "baju": "merah"
+          },
+          {
+            "jenis": "label",
+            "x": 660,
+            "y": 220,
+            "s": 330,
+            "teks": "-70%",
+            "warna": "merah",
+            "miring": -8
+          },
+          {
+            "jenis": "label",
+            "x": 680,
+            "y": 480,
+            "s": 290,
+            "teks": "Rp300 rb",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "coret",
+            "x": 690,
+            "y": 480,
+            "s": 260
+          }
+        ],
+        "label": [
+          {
+            "teks": "contoh",
+            "x": 660,
+            "y": 340,
+            "ukuran": 34
+          },
+          {
+            "teks": "harga coret = harga normal?",
+            "x": 640,
+            "y": 630,
+            "ukuran": 36,
+            "warna": "kuning"
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "Diskon palsu itu {dilarang}",
       "isi": "UU Perlindungan Konsumen melarang klaim [potongan harga] yang tidak benar.",
       "visual": "Timbangan (simbol hukum) di tengah; label 'UU 8/1999' di atasnya; label harga dicoret silang merah di sampingnya. Orang menunjuk (pose tunjuk, ekspresi datar).",
-      "sumber": "UU 8/1999 Pasal 9 ayat (1) huruf a & Pasal 10"
+      "sumber": "UU 8/1999 Pasal 9 ayat (1) huruf a & Pasal 10",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 160,
+            "y": 470,
+            "s": 390,
+            "pose": "tunjuk",
+            "ekspresi": "datar",
+            "baju": "hijau"
+          },
+          {
+            "jenis": "timbangan",
+            "x": 500,
+            "y": 420,
+            "s": 420,
+            "miring": 0
+          },
+          {
+            "jenis": "label",
+            "x": 500,
+            "y": 110,
+            "s": 270,
+            "teks": "UU 8/1999",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "label",
+            "x": 790,
+            "y": 470,
+            "s": 220,
+            "teks": "-70%",
+            "warna": "merah"
+          },
+          {
+            "jenis": "silang",
+            "x": 800,
+            "y": 470,
+            "s": 200
+          }
+        ],
+        "label": [
+          {
+            "teks": "klaim diskon palsu",
+            "x": 790,
+            "y": 610,
+            "ukuran": 34,
+            "warna": "merah"
+          }
+        ]
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Mirip warung yang {naikin harga dulu}",
       "isi": "Bakso Rp15 ribu ditulis Rp30 ribu, lalu \"diskon 50%\". Bayarnya tetap Rp15 ribu.",
-      "visual": "SKETSA: meja warung dengan mangkuk (pakai meja + label); label harga 'Rp30 rb' dicoret, panah ke label 'diskon 50% = Rp15 rb'; label kecil 'contoh'. Orang (pose struk, ekspresi mikir) memegang struk 'Rp15 rb'."
+      "visual": "SKETSA: meja warung dengan mangkuk (pakai meja + label); label harga 'Rp30 rb' dicoret, panah ke label 'diskon 50% = Rp15 rb'; label kecil 'contoh'. Orang (pose struk, ekspresi mikir) memegang struk 'Rp15 rb'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 180,
+            "y": 430,
+            "s": 440,
+            "pose": "struk",
+            "ekspresi": "mikir",
+            "baju": "kuning",
+            "teks": "Rp15 rb"
+          },
+          {
+            "jenis": "meja",
+            "x": 600,
+            "y": 600,
+            "s": 560
+          },
+          {
+            "jenis": "label",
+            "x": 580,
+            "y": 200,
+            "s": 250,
+            "teks": "Rp30 rb",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "coret",
+            "x": 590,
+            "y": 200,
+            "s": 230
+          },
+          {
+            "jenis": "label",
+            "x": 780,
+            "y": 440,
+            "s": 250,
+            "teks": "Rp15 rb",
+            "warna": "merah"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 650,
+            "y1": 260,
+            "x2": 760,
+            "y2": 370,
+            "tinggi": 30,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "bakso",
+            "x": 560,
+            "y": 550,
+            "ukuran": 44,
+            "warna": "putih"
+          },
+          {
+            "teks": "\"diskon 50%\"",
+            "x": 580,
+            "y": 320,
+            "ukuran": 36,
+            "warna": "merah"
+          },
+          {
+            "teks": "contoh",
+            "x": 780,
+            "y": 515,
+            "ukuran": 32
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "Kita belanja karena [angka diskon]",
       "isi": "Angka diskon besar bikin buru-buru checkout, padahal hematnya belum tentu ada.",
-      "visual": "Tas belanja penuh, kartu, dan gelembung pikiran bertulisan '-70%!'; panah kapur ke label 'hemat?' dengan tanda tanya merah."
+      "visual": "Tas belanja penuh, kartu, dan gelembung pikiran bertulisan '-70%!'; panah kapur ke label 'hemat?' dengan tanda tanya merah.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "tas",
+            "x": 250,
+            "y": 450,
+            "s": 320
+          },
+          {
+            "jenis": "kartu",
+            "x": 470,
+            "y": 570,
+            "s": 220
+          },
+          {
+            "jenis": "gelembung",
+            "x": 340,
+            "y": 150,
+            "s": 320,
+            "teks": "-70%!"
+          },
+          {
+            "jenis": "label",
+            "x": 760,
+            "y": 420,
+            "s": 270,
+            "teks": "hemat?",
+            "warna": "merah"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 560,
+            "y1": 330,
+            "x2": 680,
+            "y2": 390,
+            "tinggi": 30,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "buru-buru checkout",
+            "x": 330,
+            "y": 670,
+            "ukuran": 34,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Catat harga [sebelum promo]",
       "isi": "Masukkan ke keranjang dari sekarang, catat harganya, lalu bandingkan saat promo.",
-      "visual": "Orang (pose hp, ekspresi senyum), kalender dengan dua tanggal dilingkari, kalkulator; checklist kapur '☐ catat harga ☐ bandingkan ☐ baru checkout'."
+      "visual": "Orang (pose hp, ekspresi senyum), kalender dengan dua tanggal dilingkari, kalkulator; checklist kapur '☐ catat harga ☐ bandingkan ☐ baru checkout'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 200,
+            "y": 440,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "hijau"
+          },
+          {
+            "jenis": "kalender",
+            "x": 560,
+            "y": 220,
+            "s": 230,
+            "teks": "NOV"
+          },
+          {
+            "jenis": "kalkulator",
+            "x": 810,
+            "y": 250,
+            "s": 230,
+            "teks": "Rp"
+          }
+        ],
+        "label": [
+          {
+            "teks": "1. catat harga",
+            "x": 470,
+            "y": 460,
+            "ukuran": 38,
+            "warna": "kuning",
+            "rata": "left"
+          },
+          {
+            "teks": "2. bandingkan",
+            "x": 470,
+            "y": 525,
+            "ukuran": 38,
+            "warna": "kuning",
+            "rata": "left"
+          },
+          {
+            "teks": "3. baru checkout",
+            "x": 470,
+            "y": 590,
+            "ukuran": 38,
+            "warna": "kuning",
+            "rata": "left"
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Diskon terbesarmu [berapa persen]?",
       "isi": "Tulis angkanya di komen. {Simpan} buat cek sebelum checkout.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ %', label 'komen ↓ · simpan'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ %', label 'komen ↓ · simpan'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 360,
+            "teks": "__ %"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  simpan",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }
