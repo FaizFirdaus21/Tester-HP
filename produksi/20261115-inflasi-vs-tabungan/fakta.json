@@ -1,0 +1,28 @@
+{
+  "slug": "20261115-inflasi-vs-tabungan",
+  "format": "carousel",
+  "tayang": "2026-11-15T12:00:00+07:00",
+  "kategori": "inflasi (konsep)",
+  "diakses": "2026-11-12",
+  "catatan_akses": "Diakses 12 Nov 2026 lewat WebSearch (fetch langsung ke situs resmi diblokir di sesi Research). Topik evergreen: tidak bergantung pada harga/kurs/suku bunga harian.",
+  "fakta": [
+    {
+      "id": "sasaran-inflasi",
+      "klaim": "Sasaran inflasi Bank Indonesia untuk 2026 dan 2027 adalah 2,5±1% (1,5–3,5%).",
+      "di_slide": "2",
+      "sumber_resmi": "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2823326.aspx (siaran pers RDG Okt 2026: menjaga inflasi 2026 dan 2027 dalam sasaran 2,5±1%)",
+      "sumber_media": [
+        "https://ekonomi.republika.co.id/berita/t8fpk6423/bi-optimistis-inflasi-20262027-tetap-terkendali-dalam-target",
+        "https://www.idxchannel.com/economics/bi-prediksi-inflasi-terjaga-di-251-persen-pada-2026",
+        "https://www.metrotvnews.com/read/NLMC8yzL-bi-pede-inflasi-2026-terkendali-sesuai-sasaran"
+      ],
+      "status": "resmi + 3 media"
+    },
+    {
+      "id": "contoh-3persen",
+      "klaim": "Harga naik 3%: Rp1 juta → Rp1,03 juta",
+      "di_slide": "4",
+      "status": "contoh hitungan (3% berada dalam rentang sasaran), berlabel 'contoh'"
+    }
+  ]
+}

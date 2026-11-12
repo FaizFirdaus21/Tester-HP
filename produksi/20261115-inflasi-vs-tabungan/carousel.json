@@ -1,0 +1,42 @@
+{
+  "judul": "Uang diam makin kecil?",
+  "sumber": "Bank Indonesia: sasaran inflasi 2026–2027 2,5±1%",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "Uang {di bawah bantal} makin kecil?",
+      "isi": "Jumlahnya sama, tapi bisa beli barang lebih sedikit.",
+      "visual": "Orang (pose mikir, ekspresi datar) mengangkat bantal (label 'bantal') dan menemukan uang; gelembung pikiran 'kok nggak cukup?'"
+    },
+    {
+      "peran": "penjelasan",
+      "judul": "Inflasi = harga naik [pelan-pelan]",
+      "isi": "BI menargetkan inflasi 2026–2027 di kisaran 2,5% plus-minus 1%.",
+      "visual": "Kalender '2026–2027' dan label besar '2,5% ± 1%' dengan label kecil 'sasaran inflasi BI'; panah kapur naik pelan."
+    },
+    {
+      "peran": "perumpamaan",
+      "judul": "Mirip [es batu] di gelas",
+      "isi": "Didiamkan, pelan-pelan mencair. Daya beli uang yang diam juga begitu.",
+      "visual": "SKETSA: label 'es batu' di dalam gelas kapur, tiga tahap mengecil dengan panah; label 'daya beli'."
+    },
+    {
+      "peran": "efek",
+      "judul": "Barang Rp1 juta jadi {Rp1,03 juta}",
+      "isi": "Kalau harga naik 3% setahun, uang Rp1 juta tahun depan kurang sedikit.",
+      "visual": "Label harga 'Rp1 jt' → panah → label merah 'Rp1,03 jt'; tas belanja; label kecil 'contoh, inflasi 3%'."
+    },
+    {
+      "peran": "solusi",
+      "judul": "Pisahkan uang [harian] & <jangka panjang>",
+      "isi": "Simpan tabungan jangka panjang di tempat resmi dan berizin, bukan di laci.",
+      "visual": "Dua ikon bank dengan label 'harian' dan 'jangka panjang'; checklist '☐ resmi ☐ berizin'; orang (pose jempol)."
+    },
+    {
+      "peran": "cta",
+      "judul": "Tabunganmu disimpan [di mana]?",
+      "isi": "Jawab satu kata di komen. {Simpan} post ini.",
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'bank / e-wallet / laci?', label 'komen ↓ · simpan'."
+    }
+  ]
+}
