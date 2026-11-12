@@ -1,0 +1,16 @@
+{
+  "slug": "cadangan-mulai-nabung-awal",
+  "format": "carousel",
+  "tayang": "cadangan",
+  "kategori": "konsep investasi",
+  "diakses": "2026-11-12",
+  "catatan_akses": "Diakses 12 Nov 2026 lewat WebSearch (fetch langsung ke situs resmi diblokir di sesi Research). Topik evergreen: tidak bergantung pada harga/kurs/suku bunga harian.",
+  "fakta": [
+    {
+      "id": "contoh-fv",
+      "klaim": "Setoran Rp500.000/bulan, imbal hasil 5%/tahun dimajemukkan bulanan: 10 tahun ≈ Rp77.641.140 (setoran Rp60 jt); 20 tahun ≈ Rp205.516.834 (setoran Rp120 jt). Rumus FV anuitas: P × ((1+r)^n − 1)/r, r = 5%/12.",
+      "di_slide": "4",
+      "status": "contoh hitungan; 5% adalah asumsi, bukan janji hasil (berlabel 'contoh')"
+    }
+  ]
+}

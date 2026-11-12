@@ -1,0 +1,42 @@
+{
+  "judul": "Kenapa mulai nabung lebih awal",
+  "sumber": "Ilustrasi hitungan bunga majemuk (bukan janji hasil)",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "Mulai nabung {sekarang} atau {nanti}?",
+      "isi": "Bedanya bisa ratusan juta, karena [waktu].",
+      "visual": "Dua orang (cermin) berdiri: kiri label '22 th', kanan label '32 th'; kalender di tengah; tanda tanya kapur."
+    },
+    {
+      "peran": "penjelasan",
+      "judul": "Hasil yang [ikut berbunga]",
+      "isi": "Hasil tabungan ditambahkan ke pokok, lalu ikut menghasilkan. Ini bunga majemuk.",
+      "visual": "Tumpukan koin bertingkat makin tinggi dengan panah melingkar kapur; label 'pokok + hasil'."
+    },
+    {
+      "peran": "perumpamaan",
+      "judul": "Mirip [bola salju]",
+      "isi": "Awalnya kecil. Makin lama menggelinding, makin besar.",
+      "visual": "SKETSA: lingkaran kapur kecil di puncak bukit membesar tiga tahap ke bawah; label 'waktu'."
+    },
+    {
+      "peran": "efek",
+      "judul": "10 tahun vs 20 tahun",
+      "isi": "Rp500 rb/bulan, hasil 5%/tahun: ±Rp77,6 jt vs ±Rp205,5 jt.",
+      "visual": "Dua tumpukan uang: kecil 'Rp77,6 jt (10 th)', besar 'Rp205,5 jt (20 th)'; kalkulator; label kecil 'contoh, bukan janji hasil'."
+    },
+    {
+      "peran": "solusi",
+      "judul": "Mulai [kecil], yang penting rutin",
+      "isi": "Pilih produk resmi dan berizin. Pahami risikonya sebelum menaruh uang.",
+      "visual": "Kalender dengan centang tiap bulan; koin kecil; checklist '☐ rutin ☐ resmi ☐ paham risiko'. Orang (pose jempol)."
+    },
+    {
+      "peran": "cta",
+      "judul": "Kamu mulai nabung umur [berapa]?",
+      "isi": "Tulis angkanya di komen. {Simpan} buat diingat.",
+      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ tahun', label 'komen ↓ · simpan'."
+    }
+  ]
+}
