@@ -1,0 +1,42 @@
+{
+  "judul": "Modus file APK dan OTP",
+  "sumber": "OJK & Bank Indonesia (imbauan modus APK dan kerahasiaan OTP); Kontak OJK 157",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "Dapat file {undangan.apk}? Jangan dibuka.",
+      "isi": "File itu bisa jadi pintu masuk penipu ke HP kamu.",
+      "visual": "Orang (pose hp, ekspresi kaget) menatap HP dengan gelembung pesan 'undangan.apk'; tanda silang merah besar."
+    },
+    {
+      "peran": "penjelasan",
+      "judul": "File [APK] bisa ambil alih HP",
+      "isi": "OJK dan BI mengingatkan modus APK yang menyamar jadi undangan atau foto.",
+      "visual": "HP dengan label 'APK' dan panah kapur ke ikon bank di dalam HP; label kecil 'OJK & BI'."
+    },
+    {
+      "peran": "perumpamaan",
+      "judul": "Mirip kasih {kunci rumah} ke orang asing",
+      "isi": "Sekali masuk, dia bisa buka laci mana saja, termasuk aplikasi bank.",
+      "visual": "SKETSA: label 'kunci' diserahkan ke gelembung orang asing; panah ke laci (meja) dan ikon bank."
+    },
+    {
+      "peran": "efek",
+      "judul": "Kode [OTP] itu kunci terakhir",
+      "isi": "OJK meminta jangan bagikan PIN, password, atau OTP ke siapa pun.",
+      "visual": "Label besar 'OTP' dengan gembok kapur; tiga label kecil 'PIN', 'password', 'OTP' dicoret 'jangan dibagi'."
+    },
+    {
+      "peran": "solusi",
+      "judul": "Telanjur klik? [Hubungi bank]",
+      "isi": "Hubungi bank lewat nomor resmi, lalu lapor ke Kontak OJK 157.",
+      "visual": "HP dengan teks '157'; ikon bank; checklist '☐ hubungi bank ☐ lapor 157'. Orang (pose hp, ekspresi datar)."
+    },
+    {
+      "peran": "cta",
+      "judul": "Pernah dapat file aneh di WA? [Ya/tidak]",
+      "isi": "Jawab di komen. {Kirim} ke orang tuamu sekarang.",
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'ya / tidak', label 'komen ↓ · kirim'."
+    }
+  ]
+}

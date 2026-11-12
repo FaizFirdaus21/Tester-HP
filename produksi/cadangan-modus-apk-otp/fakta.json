@@ -1,0 +1,43 @@
+{
+  "slug": "cadangan-modus-apk-otp",
+  "format": "carousel",
+  "tayang": "cadangan",
+  "kategori": "keamanan digital",
+  "diakses": "2026-11-12",
+  "catatan_akses": "Diakses 12 Nov 2026 lewat WebSearch (fetch langsung ke situs resmi diblokir di sesi Research). Topik evergreen: tidak bergantung pada harga/kurs/suku bunga harian.",
+  "fakta": [
+    {
+      "id": "modus-apk",
+      "klaim": "OJK dan BI memperingatkan modus file APK berbahaya yang disamarkan sebagai undangan/foto dan dikirim lewat WhatsApp.",
+      "di_slide": "1, 2",
+      "sumber_resmi": "https://www.bi.go.id/id/publikasi/ruang-media/cerita-bi/Pages/modus-penipuan-online-apk.aspx",
+      "sumber_media": [
+        "https://finansial.bisnis.com/read/20230712/90/1673998/ojk-ingatkan-modus-penipuan-sniffing-bisa-kuras-isi-rekening",
+        "https://www.kompas.tv/ekonomi/493475/waspada-penipuan-file-apk-bermodus-undangan-buka-puasa-dan-permintaaf-maaf-idulfitri?page=all"
+      ],
+      "status": "resmi + 2 media"
+    },
+    {
+      "id": "otp",
+      "klaim": "OJK meminta masyarakat tidak membagikan user ID, password, OTP, atau PIN kepada siapa pun.",
+      "di_slide": "4",
+      "sumber_resmi": "https://www.ojk.go.id/id/berita-dan-kegiatan/info-terkini/Documents/Pages/Booklet-Waspada-Penipuan-Scam-OJK/Booklet%20Waspada%20Penipuan%20Mengintai%20Kita%2c%20Ayo%20Lawan%20dan%20Hindari%21.pdf",
+      "sumber_media": [
+        "https://finansial.bisnis.com/read/20230712/90/1673998/ojk-ingatkan-modus-penipuan-sniffing-bisa-kuras-isi-rekening",
+        "https://www.kompas.tv/ekonomi/493475/waspada-penipuan-file-apk-bermodus-undangan-buka-puasa-dan-permintaaf-maaf-idulfitri?page=all"
+      ],
+      "status": "resmi + 2 media"
+    },
+    {
+      "id": "lapor-157",
+      "klaim": "Laporan penipuan dapat disampaikan lewat Kontak OJK 157 (Indonesia Anti-Scam Center).",
+      "di_slide": "5",
+      "sumber_resmi": "OJK (Kontak OJK 157 / IASC)",
+      "sumber_media": [
+        "https://investortrust.id/financial/82718/ojk-berhasil-selamatkan-dana-rp-376-8-miliar-dari-scam-masyarakat-wajib-waspadai-10-modus-ini",
+        "https://www.fortuneidn.com/finance/cara-cek-aplikasi-investasi-yang-terdaftar-ojk-d7w02-00-yyq45-skg14l"
+      ],
+      "status": "resmi (nomor layanan) + 2 media"
+    }
+  ]
+}
