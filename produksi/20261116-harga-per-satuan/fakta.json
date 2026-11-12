@@ -1,0 +1,28 @@
+{
+  "slug": "20261116-harga-per-satuan",
+  "format": "reels",
+  "tayang": "2026-11-16T19:00:00+07:00",
+  "kategori": "belanja bulanan",
+  "diakses": "2026-11-12",
+  "catatan": "Topik evergreen tanpa data eksternal: semua angka adalah contoh hitungan berlabel.",
+  "fakta": [
+    {
+      "id": "contoh-gorengan",
+      "klaim": "Rp10.000 ÷ 3 = Rp3.333 per biji > Rp3.000",
+      "di_naskah": "blok 3",
+      "status": "contoh hitungan, berlabel 'contoh'"
+    },
+    {
+      "id": "contoh-sabun",
+      "klaim": "Rp20.000 ÷ 500 ml = Rp40/ml; Rp45.000 ÷ 1.000 ml = Rp45/ml",
+      "di_naskah": "blok 5",
+      "status": "contoh hitungan, berlabel 'contoh'; tidak merujuk merek atau toko tertentu"
+    },
+    {
+      "id": "label-rak",
+      "klaim": "Sebagian toko mencantumkan harga per satuan di label rak",
+      "di_naskah": "blok 6",
+      "status": "dinyatakan bersyarat ('kalau ada'); tidak diklaim sebagai kewajiban"
+    }
+  ]
+}

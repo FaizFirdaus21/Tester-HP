@@ -1,0 +1,52 @@
+{
+  "slug": "20261116-harga-per-satuan",
+  "judul": "Kemasan besar, pasti lebih hemat?",
+  "model": "gemini-3.8-flash-tts",
+  "suara": "Sulafat",
+  "jeda_antar_blok": 0.35,
+  "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, seperti teman yang paham keuangan sedang menjelaskan di Instagram Reels: hangat, santai, kalimat pendek, bukan pembaca berita. Tempo sedang cenderung cepat, beri jeda pendek sebelum angka penting.",
+  "blok": [
+    {
+      "peran": "hook",
+      "gaya": "Nada penasaran, cepat, naik di akhir pertanyaan",
+      "teks": "Kemasan besar, pasti lebih hemat?",
+      "visual": "Dua botol kapur: kecil dan jumbo; label 'HEMAT!' di botol jumbo dengan tanda tanya merah."
+    },
+    {
+      "peran": "penjelasan",
+      "gaya": "Nada menjelaskan, jelas dan santai",
+      "teks": "Cara paling jujur membandingkan adalah harga per satuan: per gram, per mililiter, atau per lembar.",
+      "visual": "Rumus kapur 'harga ÷ isi = harga per satuan'; label kecil 'per gram · per ml · per lembar'."
+    },
+    {
+      "peran": "perumpamaan",
+      "gaya": "Nada bercerita, sedikit tersenyum",
+      "teks": "Mirip beli gorengan. Tiga ribu dapat satu, atau sepuluh ribu dapat tiga? Yang kedua malah lebih mahal per biji.",
+      "visual": "SKETSA KAPUR: satu gorengan 'Rp3 rb' vs tiga gorengan 'Rp10 rb'; hitungan '÷3 = Rp3.333' dilingkari merah; label 'contoh'."
+    },
+    {
+      "peran": "efek",
+      "gaya": "Nada serius tapi ramah",
+      "teks": "Label hemat atau kemasan jumbo sering bikin kita langsung ambil, tanpa menghitung dulu.",
+      "visual": "Tangan meraih botol jumbo di rak; label 'HEMAT' bercahaya; gelembung pikiran kosong 'nggak dihitung'."
+    },
+    {
+      "peran": "akibat",
+      "gaya": "Nada mengajak membayangkan, pelan di angka per mililiter",
+      "teks": "Contohnya, sabun lima ratus mililiter dua puluh ribu, berarti empat puluh rupiah per mililiter. Yang satu liter empat puluh lima ribu, jadi empat puluh lima rupiah.",
+      "visual": "Dua botol: '500 ml · Rp20 rb = Rp40/ml' dan '1 L · Rp45 rb = Rp45/ml' (dilingkari merah); label 'contoh'."
+    },
+    {
+      "peran": "solusi",
+      "gaya": "Nada menekankan, pelan dan jelas, seperti memberi checklist",
+      "teks": "Cek label harga per satuan di rak kalau ada. Kalau nggak ada, bagi harganya dengan isi pakai kalkulator HP.",
+      "visual": "HP dengan kalkulator kapur '45.000 ÷ 1.000'; checklist '☐ cek label rak ☐ bagi harga ÷ isi'."
+    },
+    {
+      "peran": "cta",
+      "gaya": "Nada ceria dan ramah, mengajak ngobrol, tersenyum di tagline",
+      "teks": "Kamu biasanya pilih kemasan besar atau kecil? Jawab satu kata di komen. Kirim ke teman yang suka stok belanja bulanan. IntipDompet. Biar dompetmu nggak kaget.",
+      "visual": "Gelembung komentar kapur 'besar / kecil', ikon kirim (pesawat kertas), lalu tagline di tengah papan."
+    }
+  ]
+}
