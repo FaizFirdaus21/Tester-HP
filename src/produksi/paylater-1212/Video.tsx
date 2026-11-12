@@ -276,9 +276,9 @@ const IsiPapan: React.FC = () => (
     </Muncul>
 
     {/* ===== G: CTA (kamera mundur, huruf besar) ===== */}
-    <Tulis x={G.x} y={G.y0 + 300} teks="Punya berapa paylater?" ukuran={160} gaya="tebal" mulai={Math.max(W(6, "Kamu punya"), d(T.b6 + 1.6))} perHuruf={1.6} rata="center" />
+    <Tulis x={G.x} y={G.y0 + 300} teks="Punya berapa paylater?" ukuran={138} gaya="tebal" mulai={Math.max(W(6, "Kamu punya"), d(T.b6 + 1.6))} perHuruf={1.6} rata="center" />
     <Muncul mulai={W(6, "berapa aplikasi", -0.2)}>
-      <B_.gelembung cx={G.x} cy={G.y0 + 560} s={560} teks="__ aplikasi" />
+      <B_.gelembung cx={G.x + 120} cy={G.y0 + 545} s={500} teks="__ aplikasi" />
     </Muncul>
     <Tulis x={G.x} y={G.y0 + 800} teks="tulis di komen ↓" ukuran={110} gaya="hias" warna={k.kuning} mulai={W(6, "Tulis angkanya")} perHuruf={1.8} rata="center" />
     <Tulis x={G.x - 170} y={G.y0 + 980} teks="kirim ke teman" ukuran={110} mulai={W(6, "Kirim")} perHuruf={1.6} rata="center" />
