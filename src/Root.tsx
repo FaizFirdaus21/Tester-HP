@@ -66,7 +66,7 @@ export const RemotionRoot: React.FC = () => (
       height={1920}
       defaultProps={{ label: "sebelum taruh uang, cek ini", atas: "Deposito", angka: "6%", bawah: "aman nggak?" } as DataSampul}
     />
-    <Composition id="GaleriIlustrasi" component={GaleriIlustrasi} durationInFrames={1} fps={30} width={2200} height={1300} />
+    <Composition id="GaleriIlustrasi" component={GaleriIlustrasi} durationInFrames={1} fps={30} width={2700} height={1500} />
     {/* Carousel Papan Kapur: node scripts/carousel.mjs <carousel.json> <folder-keluar> */}
     <Composition
       id="CarouselPapan"

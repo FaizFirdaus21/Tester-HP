@@ -6,37 +6,313 @@
       "peran": "hook",
       "judul": "Gajian, terus {habisnya ke mana}?",
       "isi": "Coba bagi gajimu jadi tiga pos: [50], [30], dan <20>.",
-      "visual": "Orang (pose struk, ekspresi kaget) memegang struk panjang; tas belanja dan koin berserakan; gelembung pikiran '?'"
+      "visual": "Orang (pose struk, ekspresi kaget) memegang struk panjang; tas belanja dan koin berserakan; gelembung pikiran '?'",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 220,
+            "y": 430,
+            "s": 470,
+            "pose": "struk",
+            "ekspresi": "kaget",
+            "baju": "biru",
+            "teks": "GAJI"
+          },
+          {
+            "jenis": "tas",
+            "x": 640,
+            "y": 520,
+            "s": 230
+          },
+          {
+            "jenis": "koin",
+            "x": 830,
+            "y": 560,
+            "s": 170
+          }
+        ],
+        "label": [
+          {
+            "teks": "habis ke mana?",
+            "x": 720,
+            "y": 350,
+            "ukuran": 40,
+            "warna": "merah"
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "[50%] butuh, {30%} ingin, <20%> tabung",
       "isi": "50% kebutuhan pokok, 30% keinginan, 20% tabungan atau bayar utang.",
-      "visual": "Tiga label harga berjajar: '50% butuh' (kuning), '30% ingin' (merah muda), '20% tabung' (biru); di bawahnya meja, tas belanja, dan tumpukan koin."
+      "visual": "Tiga label harga berjajar: '50% butuh' (kuning), '30% ingin' (merah muda), '20% tabung' (biru); di bawahnya meja, tas belanja, dan tumpukan koin.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "label",
+            "x": 220,
+            "y": 170,
+            "s": 260,
+            "teks": "50% butuh",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "label",
+            "x": 500,
+            "y": 170,
+            "s": 260,
+            "teks": "30% ingin",
+            "warna": "merah"
+          },
+          {
+            "jenis": "label",
+            "x": 780,
+            "y": 170,
+            "s": 260,
+            "teks": "20% tabung",
+            "warna": "biru"
+          },
+          {
+            "jenis": "meja",
+            "x": 450,
+            "y": 600,
+            "s": 800
+          },
+          {
+            "jenis": "tas",
+            "x": 280,
+            "y": 510,
+            "s": 170
+          },
+          {
+            "jenis": "koin",
+            "x": 640,
+            "y": 520,
+            "s": 160
+          }
+        ],
+        "label": [
+          {
+            "teks": "gaji = 100%",
+            "x": 450,
+            "y": 330,
+            "ukuran": 40,
+            "warna": "putih"
+          }
+        ]
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Mirip bagi [isi piring]",
       "isi": "Nasi, lauk, sayur ada porsinya. Gaji juga perlu porsi biar nggak habis duluan.",
-      "visual": "SKETSA: meja dengan label 'piring' dibagi tiga bagian kapur (nasi/lauk/sayur) dan panah ke label '50/30/20'. Orang (pose tunjuk, ekspresi senyum)."
+      "visual": "SKETSA: meja dengan label 'piring' dibagi tiga bagian kapur (nasi/lauk/sayur) dan panah ke label '50/30/20'. Orang (pose tunjuk, ekspresi senyum).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 180,
+            "y": 440,
+            "s": 440,
+            "pose": "tunjuk",
+            "ekspresi": "senyum",
+            "baju": "hijau"
+          },
+          {
+            "jenis": "meja",
+            "x": 600,
+            "y": 600,
+            "s": 560
+          },
+          {
+            "jenis": "piring",
+            "x": 600,
+            "y": 520,
+            "s": 330
+          },
+          {
+            "jenis": "label",
+            "x": 780,
+            "y": 220,
+            "s": 260,
+            "teks": "50/30/20",
+            "warna": "kuning"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 640,
+            "y1": 420,
+            "x2": 720,
+            "y2": 290,
+            "tinggi": 30,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "nasi · lauk · sayur",
+            "x": 600,
+            "y": 650,
+            "ukuran": 34,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "Ketahuan [bocornya] di mana",
       "isi": "Kalau pos keinginan lewat 30%, kamu langsung tahu harus rem di mana.",
-      "visual": "Kalkulator bertulisan '30%'; tas belanja dengan label merah 'lewat!'; panah kapur ke label 'rem di sini'."
+      "visual": "Kalkulator bertulisan '30%'; tas belanja dengan label merah 'lewat!'; panah kapur ke label 'rem di sini'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "kalkulator",
+            "x": 220,
+            "y": 360,
+            "s": 380,
+            "teks": "30%"
+          },
+          {
+            "jenis": "tas",
+            "x": 560,
+            "y": 420,
+            "s": 260
+          },
+          {
+            "jenis": "label",
+            "x": 590,
+            "y": 230,
+            "s": 230,
+            "teks": "lewat!",
+            "warna": "merah"
+          },
+          {
+            "jenis": "label",
+            "x": 800,
+            "y": 560,
+            "s": 230,
+            "teks": "rem di sini",
+            "warna": "kuning"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 660,
+            "y1": 440,
+            "x2": 760,
+            "y2": 500,
+            "tinggi": 30,
+            "warna": "kuning"
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Gaji Rp5 juta? Ini [contohnya]",
       "isi": "Rp2,5 jt kebutuhan, Rp1,5 jt keinginan, Rp1 jt tabungan. Boleh disesuaikan.",
-      "visual": "Uang (lembaran) dibagi ke tiga label: 'Rp2,5 jt', 'Rp1,5 jt', 'Rp1 jt'; label kecil 'contoh'. Orang (pose jempol, ekspresi senyum)."
+      "visual": "Uang (lembaran) dibagi ke tiga label: 'Rp2,5 jt', 'Rp1,5 jt', 'Rp1 jt'; label kecil 'contoh'. Orang (pose jempol, ekspresi senyum).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 170,
+            "y": 450,
+            "s": 420,
+            "pose": "jempol",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "uang",
+            "x": 480,
+            "y": 200,
+            "s": 230,
+            "teks": "5 jt"
+          },
+          {
+            "jenis": "label",
+            "x": 520,
+            "y": 470,
+            "s": 220,
+            "teks": "Rp2,5 jt",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "label",
+            "x": 760,
+            "y": 360,
+            "s": 220,
+            "teks": "Rp1,5 jt",
+            "warna": "merah"
+          },
+          {
+            "jenis": "label",
+            "x": 780,
+            "y": 570,
+            "s": 220,
+            "teks": "Rp1 jt",
+            "warna": "biru"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 560,
+            "y1": 260,
+            "x2": 700,
+            "y2": 330,
+            "tinggi": 20,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "contoh",
+            "x": 480,
+            "y": 320,
+            "ukuran": 32
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Porsi tabunganmu [berapa persen]?",
       "isi": "Tulis angkanya di komen. {Simpan} buat gajian berikutnya.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ %', label 'komen ↓ · simpan'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ %', label 'komen ↓ · simpan'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 380,
+            "teks": "__ %"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  simpan",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }

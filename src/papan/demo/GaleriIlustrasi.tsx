@@ -25,12 +25,12 @@ export const GaleriIlustrasi: React.FC = () => (
       );
     })}
     {Object.entries(BENDA).map(([nama, B], i) => {
-      const cx = 1290 + (i % 4) * 230;
-      const cy = 220 + Math.floor(i / 4) * 300;
+      const cx = 1290 + (i % 6) * 230;
+      const cy = 200 + Math.floor(i / 6) * 270;
       return (
         <React.Fragment key={nama}>
-          <B cx={cx} cy={cy} s={nama === "meja" ? 200 : 150} teks={TEKS[nama]} />
-          <Tulis x={cx} y={cy + 130} teks={nama} ukuran={30} warna={k.biru} mulai={-9999} rata="center" />
+          <B cx={cx} cy={cy} s={nama === "meja" ? 200 : 140} teks={TEKS[nama]} />
+          <Tulis x={cx} y={cy + 115} teks={nama} ukuran={30} warna={k.biru} mulai={-9999} rata="center" />
         </React.Fragment>
       );
     })}

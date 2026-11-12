@@ -6,37 +6,277 @@
       "peran": "hook",
       "judul": "Untung {10% sebulan}? Tunggu dulu.",
       "isi": "Sebelum transfer, cek pakai rumus [2L] dari OJK.",
-      "visual": "Orang (pose hp, ekspresi kaget) melihat HP dengan gelembung 'untung 10%/bln!'; label kecil 'contoh'; tanda seru merah."
+      "visual": "Orang (pose hp, ekspresi kaget) melihat HP dengan gelembung 'untung 10%/bln!'; label kecil 'contoh'; tanda seru merah.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 210,
+            "y": 440,
+            "s": 460,
+            "pose": "hp",
+            "ekspresi": "kaget",
+            "baju": "merah"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 640,
+            "y": 210,
+            "s": 380,
+            "teks": "untung 10%/bln!"
+          },
+          {
+            "jenis": "label",
+            "x": 700,
+            "y": 500,
+            "s": 230,
+            "teks": "!",
+            "warna": "merah"
+          }
+        ],
+        "label": [
+          {
+            "teks": "contoh",
+            "x": 640,
+            "y": 380,
+            "ukuran": 32
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "2L = [Legal] dan <Logis>",
       "isi": "Legal: punya izin dari otoritas. Logis: imbal hasilnya masuk akal.",
-      "visual": "Dua label besar 'LEGAL' (kuning) dan 'LOGIS' (biru) dengan centang kapur; timbangan di tengah."
+      "visual": "Dua label besar 'LEGAL' (kuning) dan 'LOGIS' (biru) dengan centang kapur; timbangan di tengah.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "label",
+            "x": 230,
+            "y": 180,
+            "s": 300,
+            "teks": "LEGAL",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "label",
+            "x": 680,
+            "y": 180,
+            "s": 300,
+            "teks": "LOGIS",
+            "warna": "biru"
+          },
+          {
+            "jenis": "timbangan",
+            "x": 450,
+            "y": 470,
+            "s": 380,
+            "miring": 0
+          },
+          {
+            "jenis": "centang",
+            "x": 230,
+            "y": 340,
+            "s": 120
+          },
+          {
+            "jenis": "centang",
+            "x": 680,
+            "y": 340,
+            "s": 120
+          }
+        ],
+        "label": [
+          {
+            "teks": "izin otoritas",
+            "x": 230,
+            "y": 420,
+            "ukuran": 34,
+            "warna": "kuning"
+          },
+          {
+            "teks": "masuk akal",
+            "x": 680,
+            "y": 420,
+            "ukuran": 34,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Mirip HP baru {dijual sejuta}",
       "isi": "Kamu pasti curiga. Tawaran investasi yang terlalu bagus juga patut dicurigai.",
-      "visual": "SKETSA: HP dengan label harga merah 'Rp1 jt' dan label 'BARU'; gelembung pikiran orang (pose mikir) bertulisan 'kok murah?'; label kecil 'contoh'."
+      "visual": "SKETSA: HP dengan label harga merah 'Rp1 jt' dan label 'BARU'; gelembung pikiran orang (pose mikir) bertulisan 'kok murah?'; label kecil 'contoh'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 190,
+            "y": 450,
+            "s": 430,
+            "pose": "mikir",
+            "ekspresi": "mikir",
+            "baju": "kuning",
+            "teks": "kok murah?"
+          },
+          {
+            "jenis": "hp",
+            "x": 640,
+            "y": 400,
+            "s": 340,
+            "teks": "BARU"
+          },
+          {
+            "jenis": "label",
+            "x": 810,
+            "y": 200,
+            "s": 230,
+            "teks": "Rp1 jt",
+            "warna": "merah"
+          }
+        ],
+        "label": [
+          {
+            "teks": "contoh",
+            "x": 810,
+            "y": 300,
+            "ukuran": 32
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "Kalau bodong, uangmu {bisa hilang}",
       "isi": "Begitu ketahuan ilegal, uang yang sudah disetor sering sulit kembali.",
-      "visual": "Tumpukan uang dengan panah kapur ke luar papan; label merah 'hilang?'; orang (pose kaget, ekspresi cemas)."
+      "visual": "Tumpukan uang dengan panah kapur ke luar papan; label merah 'hilang?'; orang (pose kaget, ekspresi cemas).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 190,
+            "y": 450,
+            "s": 430,
+            "pose": "kaget",
+            "ekspresi": "cemas",
+            "baju": "biru"
+          },
+          {
+            "jenis": "uang",
+            "x": 560,
+            "y": 420,
+            "s": 270
+          },
+          {
+            "jenis": "label",
+            "x": 800,
+            "y": 260,
+            "s": 230,
+            "teks": "hilang?",
+            "warna": "merah"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 660,
+            "y1": 380,
+            "x2": 780,
+            "y2": 320,
+            "tinggi": 30,
+            "warna": "merah"
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Cek dulu ke [Kontak OJK 157]",
       "isi": "Telepon 157 atau cek daftar legal di situs OJK sebelum setor uang.",
-      "visual": "HP dengan teks '157'; checklist kapur '☐ izin? ☐ masuk akal? ☐ cek 157'; orang (pose tunjuk, ekspresi senyum)."
+      "visual": "HP dengan teks '157'; checklist kapur '☐ izin? ☐ masuk akal? ☐ cek 157'; orang (pose tunjuk, ekspresi senyum).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 180,
+            "y": 450,
+            "s": 430,
+            "pose": "tunjuk",
+            "ekspresi": "senyum",
+            "baju": "hijau"
+          },
+          {
+            "jenis": "hp",
+            "x": 520,
+            "y": 300,
+            "s": 300,
+            "teks": "157"
+          }
+        ],
+        "label": [
+          {
+            "teks": "1. izin?",
+            "x": 650,
+            "y": 230,
+            "ukuran": 38,
+            "warna": "kuning",
+            "rata": "left"
+          },
+          {
+            "teks": "2. masuk akal?",
+            "x": 650,
+            "y": 295,
+            "ukuran": 38,
+            "warna": "kuning",
+            "rata": "left"
+          },
+          {
+            "teks": "3. cek 157",
+            "x": 650,
+            "y": 360,
+            "ukuran": 38,
+            "warna": "kuning",
+            "rata": "left"
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Pernah ditawari untung [berapa persen]?",
       "isi": "Tulis angkanya di komen. {Kirim} ke keluarga biar nggak ketipu.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ %', label 'komen ↓ · kirim'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ %', label 'komen ↓ · kirim'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "merah"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 380,
+            "teks": "__ %"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  kirim",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }

@@ -6,37 +6,285 @@
       "peran": "hook",
       "judul": "Gaji berhenti {besok}, kamu aman berapa bulan?",
       "isi": "Jawabannya ada di [dana darurat] kamu.",
-      "visual": "Orang (pose mikir, ekspresi cemas) dengan gelembung pikiran 'gaji?'; kalender dengan halaman dicoret; dompet kosong (label 'Rp0')."
+      "visual": "Orang (pose mikir, ekspresi cemas) dengan gelembung pikiran 'gaji?'; kalender dengan halaman dicoret; dompet kosong (label 'Rp0').",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 200,
+            "y": 440,
+            "s": 450,
+            "pose": "mikir",
+            "ekspresi": "cemas",
+            "baju": "biru",
+            "teks": "gaji?"
+          },
+          {
+            "jenis": "kalender",
+            "x": 620,
+            "y": 250,
+            "s": 230,
+            "teks": "BESOK"
+          },
+          {
+            "jenis": "silang",
+            "x": 620,
+            "y": 280,
+            "s": 200
+          },
+          {
+            "jenis": "dompet",
+            "x": 700,
+            "y": 560,
+            "s": 260,
+            "teks": "Rp0"
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "Idealnya [3–6 kali] pengeluaran",
       "isi": "Patokan OJK untuk lajang berpenghasilan tetap: 3–6 kali pengeluaran sebulan.",
-      "visual": "Kalender dengan teks '3–6 bln'; tumpukan uang di sebelahnya; label kecil 'lajang, gaji tetap (OJK)'."
+      "visual": "Kalender dengan teks '3–6 bln'; tumpukan uang di sebelahnya; label kecil 'lajang, gaji tetap (OJK)'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "kalender",
+            "x": 280,
+            "y": 300,
+            "s": 300,
+            "teks": "3–6 bln"
+          },
+          {
+            "jenis": "uang",
+            "x": 680,
+            "y": 330,
+            "s": 300,
+            "teks": "Rp"
+          }
+        ],
+        "label": [
+          {
+            "teks": "× pengeluaran sebulan",
+            "x": 480,
+            "y": 560,
+            "ukuran": 40,
+            "warna": "kuning"
+          },
+          {
+            "teks": "lajang, gaji tetap (OJK)",
+            "x": 450,
+            "y": 640,
+            "ukuran": 34,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Mirip [ban serep] di mobil",
       "isi": "Jarang dipakai. Tapi pas ban bocor, kamu nggak terdampar di jalan.",
-      "visual": "SKETSA: label besar 'ban serep' dengan lingkaran kapur seperti ban; panah ke label 'aman sampai bengkel'. Orang (pose jempol)."
+      "visual": "SKETSA: label besar 'ban serep' dengan lingkaran kapur seperti ban; panah ke label 'aman sampai bengkel'. Orang (pose jempol).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 190,
+            "y": 440,
+            "s": 440,
+            "pose": "jempol",
+            "ekspresi": "senyum",
+            "baju": "hijau"
+          },
+          {
+            "jenis": "ban",
+            "x": 560,
+            "y": 300,
+            "s": 280
+          },
+          {
+            "jenis": "label",
+            "x": 790,
+            "y": 520,
+            "s": 260,
+            "teks": "aman",
+            "warna": "kuning"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 660,
+            "y1": 380,
+            "x2": 760,
+            "y2": 460,
+            "tinggi": 30,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "ban serep",
+            "x": 560,
+            "y": 480,
+            "ukuran": 40,
+            "warna": "kuning"
+          },
+          {
+            "teks": "sampai bengkel",
+            "x": 790,
+            "y": 610,
+            "ukuran": 34,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "Nggak perlu {utang} pas darurat",
       "isi": "Saat sakit atau kehilangan kerja, kamu pakai tabungan sendiri dulu.",
-      "visual": "Timbangan: sisi kiri tumpukan uang 'dana darurat' lebih berat, sisi kanan kartu 'utang' dicoret merah."
+      "visual": "Timbangan: sisi kiri tumpukan uang 'dana darurat' lebih berat, sisi kanan kartu 'utang' dicoret merah.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "timbangan",
+            "x": 450,
+            "y": 400,
+            "s": 460,
+            "miring": 12
+          },
+          {
+            "jenis": "uang",
+            "x": 250,
+            "y": 360,
+            "s": 190
+          },
+          {
+            "jenis": "kartu",
+            "x": 650,
+            "y": 280,
+            "s": 170
+          },
+          {
+            "jenis": "silang",
+            "x": 650,
+            "y": 280,
+            "s": 170
+          }
+        ],
+        "label": [
+          {
+            "teks": "dana darurat",
+            "x": 250,
+            "y": 520,
+            "ukuran": 38,
+            "warna": "hijau"
+          },
+          {
+            "teks": "utang",
+            "x": 660,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "merah"
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Pengeluaran Rp4 jt? Target [Rp12–24 jt]",
       "isi": "Cicil sedikit tiap gajian. Simpan terpisah dari rekening harian.",
-      "visual": "Kalkulator '4 jt × 3–6'; label 'Rp12–24 jt' dan label kecil 'contoh'; dua ikon bank berbeda dengan label 'harian' dan 'darurat'."
+      "visual": "Kalkulator '4 jt × 3–6'; label 'Rp12–24 jt' dan label kecil 'contoh'; dua ikon bank berbeda dengan label 'harian' dan 'darurat'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "kalkulator",
+            "x": 170,
+            "y": 340,
+            "s": 360,
+            "teks": "4jt×3–6"
+          },
+          {
+            "jenis": "label",
+            "x": 540,
+            "y": 170,
+            "s": 330,
+            "teks": "Rp12–24 jt",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "bank",
+            "x": 520,
+            "y": 500,
+            "s": 220
+          },
+          {
+            "jenis": "bank",
+            "x": 790,
+            "y": 500,
+            "s": 220
+          }
+        ],
+        "label": [
+          {
+            "teks": "contoh",
+            "x": 540,
+            "y": 290,
+            "ukuran": 32
+          },
+          {
+            "teks": "harian",
+            "x": 520,
+            "y": 650,
+            "ukuran": 36,
+            "warna": "biru"
+          },
+          {
+            "teks": "darurat",
+            "x": 790,
+            "y": 650,
+            "ukuran": 36,
+            "warna": "hijau"
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Dana daruratmu cukup [berapa bulan]?",
       "isi": "Jawab pakai angka di komen. {Kirim} ke teman yang baru kerja.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ bulan', label 'komen ↓ · kirim'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ bulan', label 'komen ↓ · kirim'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 380,
+            "teks": "__ bulan"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  kirim",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }

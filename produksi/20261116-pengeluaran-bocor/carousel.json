@@ -6,37 +6,301 @@
       "peran": "hook",
       "judul": "Rp15 ribu sehari, {kecil} kan?",
       "isi": "Setahun bisa jadi [lebih dari Rp5 juta].",
-      "visual": "Orang (pose hp, ekspresi senyum) memegang HP; label harga 'Rp15 rb' kecil; panah kapur ke label besar merah '> Rp5 jt/thn'; label kecil 'contoh'."
+      "visual": "Orang (pose hp, ekspresi senyum) memegang HP; label harga 'Rp15 rb' kecil; panah kapur ke label besar merah '> Rp5 jt/thn'; label kecil 'contoh'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 200,
+            "y": 440,
+            "s": 450,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "label",
+            "x": 560,
+            "y": 180,
+            "s": 220,
+            "teks": "Rp15 rb",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "label",
+            "x": 720,
+            "y": 470,
+            "s": 330,
+            "teks": "> Rp5 jt/thn",
+            "warna": "merah"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 620,
+            "y1": 230,
+            "x2": 700,
+            "y2": 380,
+            "tinggi": 30,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "sehari",
+            "x": 560,
+            "y": 270,
+            "ukuran": 32
+          },
+          {
+            "teks": "contoh",
+            "x": 720,
+            "y": 580,
+            "ukuran": 32
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "Namanya [pengeluaran bocor]",
       "isi": "Biaya kecil yang rutin: jajan, ongkir, langganan, biaya admin. Jarang dihitung.",
-      "visual": "Empat label kecil berjajar: 'jajan', 'ongkir', 'langganan', 'admin'; tas belanja dan kartu."
+      "visual": "Empat label kecil berjajar: 'jajan', 'ongkir', 'langganan', 'admin'; tas belanja dan kartu.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "label",
+            "x": 200,
+            "y": 180,
+            "s": 220,
+            "teks": "jajan",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "label",
+            "x": 420,
+            "y": 180,
+            "s": 220,
+            "teks": "ongkir",
+            "warna": "merah"
+          },
+          {
+            "jenis": "label",
+            "x": 640,
+            "y": 180,
+            "s": 220,
+            "teks": "langganan",
+            "warna": "biru"
+          },
+          {
+            "jenis": "label",
+            "x": 840,
+            "y": 300,
+            "s": 200,
+            "teks": "admin",
+            "warna": "hijau"
+          },
+          {
+            "jenis": "tas",
+            "x": 330,
+            "y": 480,
+            "s": 240
+          },
+          {
+            "jenis": "kartu",
+            "x": 620,
+            "y": 520,
+            "s": 230
+          }
+        ],
+        "label": [
+          {
+            "teks": "kecil, rutin, jarang dihitung",
+            "x": 450,
+            "y": 660,
+            "ukuran": 34,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Mirip {keran netes}",
       "isi": "Setetes nggak kerasa. Sebulan, embernya penuh.",
-      "visual": "SKETSA: label 'keran' dengan tetesan kapur ke ember berlabel 'sebulan'; garis air naik."
+      "visual": "SKETSA: label 'keran' dengan tetesan kapur ke ember berlabel 'sebulan'; garis air naik.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "keran",
+            "x": 330,
+            "y": 230,
+            "s": 320
+          },
+          {
+            "jenis": "ember",
+            "x": 400,
+            "y": 520,
+            "s": 260
+          }
+        ],
+        "label": [
+          {
+            "teks": "setetes nggak kerasa",
+            "x": 700,
+            "y": 250,
+            "ukuran": 38,
+            "warna": "biru"
+          },
+          {
+            "teks": "sebulan: penuh",
+            "x": 700,
+            "y": 520,
+            "ukuran": 40,
+            "warna": "merah"
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "3 langganan = [Rp1,8 jt] setahun",
       "isi": "Contoh: 3 langganan Rp50 ribu = Rp150 ribu sebulan, Rp1,8 juta setahun.",
-      "visual": "Kalkulator '3 × 50 rb × 12'; label 'Rp1,8 jt'; label kecil 'contoh'; HP dengan tiga ikon kotak."
+      "visual": "Kalkulator '3 × 50 rb × 12'; label 'Rp1,8 jt'; label kecil 'contoh'; HP dengan tiga ikon kotak.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "kalkulator",
+            "x": 200,
+            "y": 340,
+            "s": 360,
+            "teks": "3×50rb×12"
+          },
+          {
+            "jenis": "label",
+            "x": 620,
+            "y": 220,
+            "s": 320,
+            "teks": "Rp1,8 jt",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "hp",
+            "x": 640,
+            "y": 480,
+            "s": 250,
+            "teks": "3 app"
+          }
+        ],
+        "label": [
+          {
+            "teks": "contoh",
+            "x": 620,
+            "y": 330,
+            "ukuran": 32
+          },
+          {
+            "teks": "setahun",
+            "x": 820,
+            "y": 320,
+            "ukuran": 32,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Cek [mutasi rekening] sebulan",
       "isi": "Tandai tagihan rutin. Hapus yang jarang dipakai. Sisanya pindah ke tabungan.",
-      "visual": "HP dengan daftar kapur; tiga baris dicentang, satu dicoret merah; panah ke tumpukan koin 'tabungan'. Orang (pose jempol)."
+      "visual": "HP dengan daftar kapur; tiga baris dicentang, satu dicoret merah; panah ke tumpukan koin 'tabungan'. Orang (pose jempol).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 170,
+            "y": 450,
+            "s": 420,
+            "pose": "jempol",
+            "ekspresi": "senyum",
+            "baju": "hijau"
+          },
+          {
+            "jenis": "hp",
+            "x": 500,
+            "y": 330,
+            "s": 330,
+            "teks": "mutasi"
+          },
+          {
+            "jenis": "koin",
+            "x": 800,
+            "y": 470,
+            "s": 200
+          }
+        ],
+        "panah": [
+          {
+            "x1": 600,
+            "y1": 380,
+            "x2": 740,
+            "y2": 430,
+            "tinggi": 25,
+            "warna": "kuning"
+          }
+        ],
+        "label": [
+          {
+            "teks": "tabungan",
+            "x": 800,
+            "y": 590,
+            "ukuran": 36,
+            "warna": "kuning"
+          },
+          {
+            "teks": "✓ tandai · ✗ hapus",
+            "x": 520,
+            "y": 560,
+            "ukuran": 34,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Langganan aktifmu [ada berapa]?",
       "isi": "Tulis angkanya di komen. {Simpan} buat cek akhir bulan.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ langganan', label 'komen ↓ · simpan'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ langganan', label 'komen ↓ · simpan'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 380,
+            "teks": "__ langganan"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  simpan",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }

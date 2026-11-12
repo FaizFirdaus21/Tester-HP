@@ -6,37 +6,317 @@
       "peran": "hook",
       "judul": "Mulai nabung {sekarang} atau {nanti}?",
       "isi": "Bedanya bisa ratusan juta, karena [waktu].",
-      "visual": "Dua orang (cermin) berdiri: kiri label '22 th', kanan label '32 th'; kalender di tengah; tanda tanya kapur."
+      "visual": "Dua orang (cermin) berdiri: kiri label '22 th', kanan label '32 th'; kalender di tengah; tanda tanya kapur.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 170,
+            "y": 460,
+            "s": 400,
+            "pose": "jempol",
+            "ekspresi": "senyum",
+            "baju": "hijau"
+          },
+          {
+            "jenis": "orang",
+            "x": 730,
+            "y": 460,
+            "s": 400,
+            "pose": "mikir",
+            "ekspresi": "cemas",
+            "baju": "merah",
+            "cermin": true
+          },
+          {
+            "jenis": "kalender",
+            "x": 450,
+            "y": 230,
+            "s": 200,
+            "teks": "SEKARANG?"
+          }
+        ],
+        "label": [
+          {
+            "teks": "mulai 22 th",
+            "x": 170,
+            "y": 660,
+            "ukuran": 36,
+            "warna": "hijau"
+          },
+          {
+            "teks": "mulai 32 th",
+            "x": 730,
+            "y": 660,
+            "ukuran": 36,
+            "warna": "merah"
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "Hasil yang [ikut berbunga]",
       "isi": "Hasil tabungan ditambahkan ke pokok, lalu ikut menghasilkan. Ini bunga majemuk.",
-      "visual": "Tumpukan koin bertingkat makin tinggi dengan panah melingkar kapur; label 'pokok + hasil'."
+      "visual": "Tumpukan koin bertingkat makin tinggi dengan panah melingkar kapur; label 'pokok + hasil'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "koin",
+            "x": 230,
+            "y": 520,
+            "s": 160
+          },
+          {
+            "jenis": "koin",
+            "x": 450,
+            "y": 470,
+            "s": 220
+          },
+          {
+            "jenis": "koin",
+            "x": 690,
+            "y": 410,
+            "s": 290
+          }
+        ],
+        "panah": [
+          {
+            "x1": 260,
+            "y1": 330,
+            "x2": 440,
+            "y2": 290,
+            "tinggi": 30,
+            "warna": "kuning"
+          },
+          {
+            "x1": 500,
+            "y1": 280,
+            "x2": 680,
+            "y2": 220,
+            "tinggi": 30,
+            "warna": "kuning"
+          }
+        ],
+        "label": [
+          {
+            "teks": "pokok + hasil",
+            "x": 450,
+            "y": 640,
+            "ukuran": 38,
+            "warna": "kuning"
+          },
+          {
+            "teks": "ikut berbunga",
+            "x": 450,
+            "y": 140,
+            "ukuran": 36,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Mirip [bola salju]",
       "isi": "Awalnya kecil. Makin lama menggelinding, makin besar.",
-      "visual": "SKETSA: lingkaran kapur kecil di puncak bukit membesar tiga tahap ke bawah; label 'waktu'."
+      "visual": "SKETSA: lingkaran kapur kecil di puncak bukit membesar tiga tahap ke bawah; label 'waktu'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "bolaSalju",
+            "x": 160,
+            "y": 200,
+            "s": 90
+          },
+          {
+            "jenis": "bolaSalju",
+            "x": 400,
+            "y": 340,
+            "s": 160
+          },
+          {
+            "jenis": "bolaSalju",
+            "x": 700,
+            "y": 500,
+            "s": 260
+          }
+        ],
+        "panah": [
+          {
+            "x1": 200,
+            "y1": 220,
+            "x2": 330,
+            "y2": 300,
+            "tinggi": 20,
+            "warna": "putih"
+          },
+          {
+            "x1": 470,
+            "y1": 360,
+            "x2": 580,
+            "y2": 430,
+            "tinggi": 20,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "waktu →",
+            "x": 300,
+            "y": 520,
+            "ukuran": 40,
+            "warna": "kuning"
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "10 tahun vs 20 tahun",
       "isi": "Rp500 rb/bulan, hasil 5%/tahun: ±Rp77,6 jt vs ±Rp205,5 jt.",
-      "visual": "Dua tumpukan uang: kecil 'Rp77,6 jt (10 th)', besar 'Rp205,5 jt (20 th)'; kalkulator; label kecil 'contoh, bukan janji hasil'."
+      "visual": "Dua tumpukan uang: kecil 'Rp77,6 jt (10 th)', besar 'Rp205,5 jt (20 th)'; kalkulator; label kecil 'contoh, bukan janji hasil'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "uang",
+            "x": 200,
+            "y": 470,
+            "s": 180,
+            "teks": "77,6jt"
+          },
+          {
+            "jenis": "uang",
+            "x": 520,
+            "y": 400,
+            "s": 320,
+            "teks": "205,5jt"
+          },
+          {
+            "jenis": "kalkulator",
+            "x": 820,
+            "y": 330,
+            "s": 230,
+            "teks": "5%/th"
+          }
+        ],
+        "label": [
+          {
+            "teks": "10 th",
+            "x": 200,
+            "y": 590,
+            "ukuran": 34,
+            "warna": "biru"
+          },
+          {
+            "teks": "20 th",
+            "x": 520,
+            "y": 600,
+            "ukuran": 34,
+            "warna": "kuning"
+          },
+          {
+            "teks": "contoh, bukan janji hasil",
+            "x": 450,
+            "y": 660,
+            "ukuran": 32,
+            "warna": "putih"
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Mulai [kecil], yang penting rutin",
       "isi": "Pilih produk resmi dan berizin. Pahami risikonya sebelum menaruh uang.",
-      "visual": "Kalender dengan centang tiap bulan; koin kecil; checklist '☐ rutin ☐ resmi ☐ paham risiko'. Orang (pose jempol)."
+      "visual": "Kalender dengan centang tiap bulan; koin kecil; checklist '☐ rutin ☐ resmi ☐ paham risiko'. Orang (pose jempol).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 170,
+            "y": 450,
+            "s": 420,
+            "pose": "jempol",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "kalender",
+            "x": 520,
+            "y": 240,
+            "s": 240,
+            "teks": "TIAP BLN"
+          },
+          {
+            "jenis": "koin",
+            "x": 790,
+            "y": 280,
+            "s": 180
+          }
+        ],
+        "label": [
+          {
+            "teks": "1. rutin",
+            "x": 450,
+            "y": 450,
+            "ukuran": 38,
+            "warna": "kuning",
+            "rata": "left"
+          },
+          {
+            "teks": "2. resmi & berizin",
+            "x": 450,
+            "y": 515,
+            "ukuran": 38,
+            "warna": "kuning",
+            "rata": "left"
+          },
+          {
+            "teks": "3. paham risiko",
+            "x": 450,
+            "y": 580,
+            "ukuran": 38,
+            "warna": "kuning",
+            "rata": "left"
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Kamu mulai nabung umur [berapa]?",
       "isi": "Tulis angkanya di komen. {Simpan} buat diingat.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ tahun', label 'komen ↓ · simpan'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ tahun', label 'komen ↓ · simpan'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 380,
+            "teks": "__ tahun"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  simpan",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }

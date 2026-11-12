@@ -6,37 +6,255 @@
       "peran": "hook",
       "judul": "Slip gaji kepotong, buat {apa aja}?",
       "isi": "Kenalan sama potongan [BPJS] di slip gajimu.",
-      "visual": "Orang (pose struk, ekspresi mikir) memegang struk bertulisan 'SLIP GAJI'; label merah '- potongan?'."
+      "visual": "Orang (pose struk, ekspresi mikir) memegang struk bertulisan 'SLIP GAJI'; label merah '- potongan?'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 220,
+            "y": 440,
+            "s": 460,
+            "pose": "struk",
+            "ekspresi": "mikir",
+            "baju": "biru",
+            "teks": "SLIP GAJI"
+          },
+          {
+            "jenis": "label",
+            "x": 700,
+            "y": 330,
+            "s": 300,
+            "teks": "- potongan?",
+            "warna": "merah"
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "Bagianmu: [1%] + [2%] + [1%]",
       "isi": "1% BPJS Kesehatan, 2% JHT, 1% Jaminan Pensiun. Sisanya dibayar perusahaan.",
-      "visual": "Tiga label berjajar: '1% Kesehatan', '2% JHT', '1% Pensiun'; panah ke label 'perusahaan bayar sisanya'."
+      "visual": "Tiga label berjajar: '1% Kesehatan', '2% JHT', '1% Pensiun'; panah ke label 'perusahaan bayar sisanya'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "label",
+            "x": 200,
+            "y": 200,
+            "s": 250,
+            "teks": "1% sehat",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "label",
+            "x": 470,
+            "y": 200,
+            "s": 250,
+            "teks": "2% JHT",
+            "warna": "biru"
+          },
+          {
+            "jenis": "label",
+            "x": 740,
+            "y": 200,
+            "s": 250,
+            "teks": "1% pensiun",
+            "warna": "hijau"
+          },
+          {
+            "jenis": "label",
+            "x": 470,
+            "y": 520,
+            "s": 340,
+            "teks": "perusahaan +",
+            "warna": "putih"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 470,
+            "y1": 290,
+            "x2": 470,
+            "y2": 430,
+            "tinggi": 15,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "bagian pekerja = 4%",
+            "x": 470,
+            "y": 360,
+            "ukuran": 38,
+            "warna": "kuning"
+          },
+          {
+            "teks": "sisanya dibayar perusahaan",
+            "x": 470,
+            "y": 640,
+            "ukuran": 34,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Mirip [celengan] dan <payung>",
       "isi": "JHT dan pensiun itu celengan hari tua. BPJS Kesehatan itu payung saat sakit.",
-      "visual": "SKETSA: tumpukan koin berlabel 'celengan hari tua' dan gambar payung kapur berlabel 'saat sakit'; orang (pose tunjuk)."
+      "visual": "SKETSA: tumpukan koin berlabel 'celengan hari tua' dan gambar payung kapur berlabel 'saat sakit'; orang (pose tunjuk).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 160,
+            "y": 450,
+            "s": 420,
+            "pose": "tunjuk",
+            "ekspresi": "senyum",
+            "baju": "kuning"
+          },
+          {
+            "jenis": "koin",
+            "x": 520,
+            "y": 320,
+            "s": 260
+          },
+          {
+            "jenis": "payung",
+            "x": 790,
+            "y": 320,
+            "s": 280
+          }
+        ],
+        "label": [
+          {
+            "teks": "celengan hari tua",
+            "x": 520,
+            "y": 520,
+            "ukuran": 34,
+            "warna": "kuning"
+          },
+          {
+            "teks": "saat sakit",
+            "x": 790,
+            "y": 520,
+            "ukuran": 34,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "Gaji Rp5 jt, kepotong [Rp200 rb]",
       "isi": "4% dari Rp5 juta = Rp200 ribu sebulan untuk bagian pekerja.",
-      "visual": "Kalkulator '5 jt × 4%'; label 'Rp200 rb' dan label kecil 'contoh'; struk gaji."
+      "visual": "Kalkulator '5 jt × 4%'; label 'Rp200 rb' dan label kecil 'contoh'; struk gaji.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "kalkulator",
+            "x": 220,
+            "y": 360,
+            "s": 380,
+            "teks": "5jt × 4%"
+          },
+          {
+            "jenis": "label",
+            "x": 660,
+            "y": 300,
+            "s": 330,
+            "teks": "Rp200 rb",
+            "warna": "kuning"
+          }
+        ],
+        "label": [
+          {
+            "teks": "contoh",
+            "x": 660,
+            "y": 420,
+            "ukuran": 32
+          },
+          {
+            "teks": "per bulan, bagian pekerja",
+            "x": 660,
+            "y": 520,
+            "ukuran": 34,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Cek saldo [JHT]-mu rutin",
       "isi": "Pastikan iurannya benar-benar disetor. Cek lewat kanal resmi BPJS Ketenagakerjaan.",
-      "visual": "HP dengan label 'saldo JHT'; checklist '☐ iuran masuk tiap bulan?'; orang (pose hp, ekspresi senyum)."
+      "visual": "HP dengan label 'saldo JHT'; checklist '☐ iuran masuk tiap bulan?'; orang (pose hp, ekspresi senyum).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 200,
+            "y": 440,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "hijau"
+          },
+          {
+            "jenis": "hp",
+            "x": 600,
+            "y": 320,
+            "s": 320,
+            "teks": "saldo JHT"
+          }
+        ],
+        "label": [
+          {
+            "teks": "1. iuran masuk tiap bulan?",
+            "x": 450,
+            "y": 600,
+            "ukuran": 38,
+            "warna": "kuning",
+            "rata": "left"
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Sudah pernah cek saldo JHT? [Sudah/belum]",
       "isi": "Jawab satu kata di komen. {Kirim} ke teman yang baru kerja.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar 'sudah / belum', label 'komen ↓ · kirim'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'sudah / belum', label 'komen ↓ · kirim'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 380,
+            "teks": "sudah / belum"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  kirim",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }

@@ -6,37 +6,313 @@
       "peran": "hook",
       "judul": "Uang {di bawah bantal} makin kecil?",
       "isi": "Jumlahnya sama, tapi bisa beli barang lebih sedikit.",
-      "visual": "Orang (pose mikir, ekspresi datar) mengangkat bantal (label 'bantal') dan menemukan uang; gelembung pikiran 'kok nggak cukup?'"
+      "visual": "Orang (pose mikir, ekspresi datar) mengangkat bantal (label 'bantal') dan menemukan uang; gelembung pikiran 'kok nggak cukup?'",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 220,
+            "y": 440,
+            "s": 450,
+            "pose": "mikir",
+            "ekspresi": "datar",
+            "baju": "biru",
+            "teks": "kok kurang?"
+          },
+          {
+            "jenis": "bantal",
+            "x": 640,
+            "y": 450,
+            "s": 320
+          },
+          {
+            "jenis": "uang",
+            "x": 640,
+            "y": 600,
+            "s": 200
+          }
+        ],
+        "label": [
+          {
+            "teks": "bantal",
+            "x": 640,
+            "y": 340,
+            "ukuran": 36,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "Inflasi = harga naik [pelan-pelan]",
       "isi": "BI menargetkan inflasi 2026–2027 di kisaran 2,5% plus-minus 1%.",
-      "visual": "Kalender '2026–2027' dan label besar '2,5% ± 1%' dengan label kecil 'sasaran inflasi BI'; panah kapur naik pelan."
+      "visual": "Kalender '2026–2027' dan label besar '2,5% ± 1%' dengan label kecil 'sasaran inflasi BI'; panah kapur naik pelan.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "kalender",
+            "x": 230,
+            "y": 300,
+            "s": 280,
+            "teks": "2026–27"
+          },
+          {
+            "jenis": "label",
+            "x": 640,
+            "y": 250,
+            "s": 340,
+            "teks": "2,5% ± 1%",
+            "warna": "kuning"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 520,
+            "y1": 560,
+            "x2": 820,
+            "y2": 430,
+            "tinggi": 20,
+            "warna": "kuning"
+          }
+        ],
+        "label": [
+          {
+            "teks": "sasaran inflasi BI",
+            "x": 640,
+            "y": 370,
+            "ukuran": 34,
+            "warna": "biru"
+          },
+          {
+            "teks": "harga naik pelan",
+            "x": 650,
+            "y": 620,
+            "ukuran": 34,
+            "warna": "putih"
+          }
+        ]
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Mirip [es batu] di gelas",
       "isi": "Didiamkan, pelan-pelan mencair. Daya beli uang yang diam juga begitu.",
-      "visual": "SKETSA: label 'es batu' di dalam gelas kapur, tiga tahap mengecil dengan panah; label 'daya beli'."
+      "visual": "SKETSA: label 'es batu' di dalam gelas kapur, tiga tahap mengecil dengan panah; label 'daya beli'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "gelas",
+            "x": 180,
+            "y": 380,
+            "s": 260,
+            "teks": "1"
+          },
+          {
+            "jenis": "gelas",
+            "x": 450,
+            "y": 380,
+            "s": 260,
+            "teks": "2"
+          },
+          {
+            "jenis": "gelas",
+            "x": 720,
+            "y": 380,
+            "s": 260,
+            "teks": "3"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 260,
+            "y1": 230,
+            "x2": 370,
+            "y2": 230,
+            "tinggi": 20,
+            "warna": "putih"
+          },
+          {
+            "x1": 530,
+            "y1": 230,
+            "x2": 640,
+            "y2": 230,
+            "tinggi": 20,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "es batu mencair",
+            "x": 450,
+            "y": 570,
+            "ukuran": 38,
+            "warna": "biru"
+          },
+          {
+            "teks": "= daya beli turun",
+            "x": 450,
+            "y": 630,
+            "ukuran": 38,
+            "warna": "kuning"
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "Barang Rp1 juta jadi {Rp1,03 juta}",
       "isi": "Kalau harga naik 3% setahun, uang Rp1 juta tahun depan kurang sedikit.",
-      "visual": "Label harga 'Rp1 jt' → panah → label merah 'Rp1,03 jt'; tas belanja; label kecil 'contoh, inflasi 3%'."
+      "visual": "Label harga 'Rp1 jt' → panah → label merah 'Rp1,03 jt'; tas belanja; label kecil 'contoh, inflasi 3%'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "label",
+            "x": 240,
+            "y": 250,
+            "s": 290,
+            "teks": "Rp1 jt",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "label",
+            "x": 680,
+            "y": 250,
+            "s": 300,
+            "teks": "Rp1,03 jt",
+            "warna": "merah"
+          },
+          {
+            "jenis": "tas",
+            "x": 450,
+            "y": 510,
+            "s": 220
+          }
+        ],
+        "panah": [
+          {
+            "x1": 400,
+            "y1": 250,
+            "x2": 520,
+            "y2": 250,
+            "tinggi": 25,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "contoh, inflasi 3%",
+            "x": 450,
+            "y": 650,
+            "ukuran": 34,
+            "warna": "biru"
+          },
+          {
+            "teks": "setahun",
+            "x": 460,
+            "y": 170,
+            "ukuran": 34
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Pisahkan uang [harian] & <jangka panjang>",
       "isi": "Simpan tabungan jangka panjang di tempat resmi dan berizin, bukan di laci.",
-      "visual": "Dua ikon bank dengan label 'harian' dan 'jangka panjang'; checklist '☐ resmi ☐ berizin'; orang (pose jempol)."
+      "visual": "Dua ikon bank dengan label 'harian' dan 'jangka panjang'; checklist '☐ resmi ☐ berizin'; orang (pose jempol).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 170,
+            "y": 450,
+            "s": 420,
+            "pose": "jempol",
+            "ekspresi": "senyum",
+            "baju": "hijau"
+          },
+          {
+            "jenis": "bank",
+            "x": 520,
+            "y": 260,
+            "s": 230
+          },
+          {
+            "jenis": "bank",
+            "x": 790,
+            "y": 260,
+            "s": 230
+          }
+        ],
+        "label": [
+          {
+            "teks": "harian",
+            "x": 520,
+            "y": 410,
+            "ukuran": 36,
+            "warna": "biru"
+          },
+          {
+            "teks": "jangka panjang",
+            "x": 790,
+            "y": 410,
+            "ukuran": 36,
+            "warna": "kuning"
+          },
+          {
+            "teks": "1. resmi",
+            "x": 520,
+            "y": 520,
+            "ukuran": 38,
+            "warna": "kuning",
+            "rata": "left"
+          },
+          {
+            "teks": "2. berizin",
+            "x": 520,
+            "y": 585,
+            "ukuran": 38,
+            "warna": "kuning",
+            "rata": "left"
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Tabunganmu disimpan [di mana]?",
       "isi": "Jawab satu kata di komen. {Simpan} post ini.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar 'bank / e-wallet / laci?', label 'komen ↓ · simpan'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'bank / e-wallet / laci?', label 'komen ↓ · simpan'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 380,
+            "teks": "bank / e-wallet / laci?"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  simpan",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }

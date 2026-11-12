@@ -1,6 +1,6 @@
 // Benda kapur berwarna untuk adegan infografis. Pusat (cx, cy), ukuran kira-kira s.
 import React from "react";
-import { Tulis, garis, ikonBank } from "../Komponen";
+import { Titik, Tulis, garis, ikonBank } from "../Komponen";
 import { k } from "../tema";
 import { Bentuk, Bidang, Gr, SUDAH, elips, halus, persegi, persegiBulat, skala } from "./dasar";
 
@@ -252,7 +252,184 @@ const Silang: FB = ({ cx, cy, s }) => (
   </>
 );
 
+// ---------------------------------------------------------------- benda tambahan (batch carousel 14–16 Nov)
+const Piring: FB = ({ cx, cy, s }) => {
+  const t = tebalDari(s);
+  const rx = s * 0.5;
+  const ry = s * 0.3;
+  // tiga porsi: nasi (putih, 50%), lauk (merah, 30%), sayur (hijau, 20%)
+  const irisan = (a0: number, a1: number): Titik[] => [
+    [cx, cy],
+    ...Array.from({ length: 13 }, (_, i) => {
+      const a = a0 + ((a1 - a0) * i) / 12;
+      return [cx + Math.cos(a) * rx * 0.78, cy + Math.sin(a) * ry * 0.78] as Titik;
+    }),
+    [cx, cy],
+  ];
+  const tau = Math.PI * 2;
+  return (
+    <>
+      <Bentuk pts={elips(cx, cy, rx, ry)} warna={k.putih} isi={0.08} tebal={t} />
+      <Bentuk pts={irisan(-Math.PI / 2, -Math.PI / 2 + tau * 0.5)} warna={k.putih} isi={0.35} tebal={t * 0.7} />
+      <Bentuk pts={irisan(-Math.PI / 2 + tau * 0.5, -Math.PI / 2 + tau * 0.8)} warna={k.merah} garis={k.merah} isi={0.45} tebal={t * 0.7} />
+      <Bentuk pts={irisan(-Math.PI / 2 + tau * 0.8, -Math.PI / 2 + tau)} warna={k.hijauTerang} garis={k.hijauTerang} isi={0.45} tebal={t * 0.7} />
+    </>
+  );
+};
+
+const Ban: FB = ({ cx, cy, s }) => {
+  const t = tebalDari(s);
+  return (
+    <>
+      <Bentuk pts={elips(cx, cy, s * 0.5)} warna={k.putih} isi={0.12} arsir={0.55} tebal={t * 1.2} />
+      <Bentuk pts={elips(cx, cy, s * 0.24)} warna={k.biru} garis={k.putih} isi={0.35} tebal={t} />
+      {[0, 1, 2, 3, 4].map((i) => {
+        const a = (i / 5) * Math.PI * 2;
+        return <Gr key={i} pts={[[cx + Math.cos(a) * s * 0.08, cy + Math.sin(a) * s * 0.08], [cx + Math.cos(a) * s * 0.22, cy + Math.sin(a) * s * 0.22]]} tebal={t * 0.6} />;
+      })}
+    </>
+  );
+};
+
+// Gelas dengan es batu; `teks` "1"/"2"/"3" = tahap mencair (es makin kecil).
+const Gelas: FB = ({ cx, cy, s, teks }) => {
+  const t = tebalDari(s);
+  const tahap = Math.max(1, Math.min(3, Number(teks) || 1));
+  const S = skala(cx, cy, s);
+  const es = 0.2 - (tahap - 1) * 0.06;
+  return (
+    <>
+      <Bidang pts={S([[-0.3, 0.05], [0.3, 0.05], [0.26, 0.5], [-0.26, 0.5]])} warna={k.biru} isi={0.3} />
+      <Bentuk pts={S([[-0.34, -0.5], [0.34, -0.5], [0.27, 0.5], [-0.27, 0.5], [-0.34, -0.5]])} warna={k.putih} isi={0.05} tebal={t} />
+      <Bentuk pts={persegi(cx - es * s * 0.6, cy - es * s * 0.2, es * s, es * s)} warna={k.biru} garis={k.putih} isi={0.45} tebal={t * 0.7} />
+      {tahap < 3 ? <Bentuk pts={persegi(cx + s * 0.02, cy - es * s * 0.1, es * s * 0.8, es * s * 0.8)} warna={k.biru} garis={k.putih} isi={0.45} tebal={t * 0.7} /> : null}
+    </>
+  );
+};
+
+const Bantal: FB = ({ cx, cy, s }) => {
+  const t = tebalDari(s);
+  const pts = halus(skala(cx, cy, s)([[-0.5, -0.24], [0, -0.3], [0.5, -0.24], [0.54, 0], [0.5, 0.24], [0, 0.3], [-0.5, 0.24], [-0.54, 0]]), true, 2);
+  return (
+    <>
+      <Bentuk pts={pts} warna={k.putih} isi={0.18} tebal={t} />
+      <Bidang pts={skala(cx, cy, s)([[0.15, -0.26], [0.5, -0.22], [0.52, 0.22], [0.15, 0.27]])} warna={k.putih} isi={0} arsir={0.45} />
+    </>
+  );
+};
+
+const Payung: FB = ({ cx, cy, s }) => {
+  const t = tebalDari(s);
+  const S = skala(cx, cy, s);
+  const kanopi: Titik[] = [
+    ...Array.from({ length: 21 }, (_, i) => {
+      const a = Math.PI + (i / 20) * Math.PI;
+      return [cx + Math.cos(a) * s * 0.5, cy - s * 0.05 + Math.sin(a) * s * 0.4] as Titik;
+    }),
+    ...S([[0.33, -0.02], [0.17, -0.07], [0, -0.02], [-0.17, -0.07], [-0.33, -0.02], [-0.5, -0.05]]),
+  ];
+  return (
+    <>
+      <Bentuk pts={kanopi} warna={k.biru} garis={k.putih} isi={0.45} tebal={t} />
+      <Gr pts={S([[0, -0.45], [0, 0.42]])} tebal={t} />
+      <Gr pts={halus(S([[0, 0.42], [0, 0.5], [-0.1, 0.5], [-0.1, 0.42]]), false, 2)} tebal={t} />
+    </>
+  );
+};
+
+const Keran: FB = ({ cx, cy, s }) => {
+  const t = tebalDari(s);
+  const S = skala(cx, cy, s);
+  return (
+    <>
+      <Bentuk pts={S([[-0.5, -0.4], [0.05, -0.4], [0.15, -0.3], [0.15, -0.05], [0.0, -0.05], [0.0, -0.25], [-0.5, -0.25], [-0.5, -0.4]])} warna={k.putih} isi={0.2} arsir={0.4} tebal={t} />
+      <Gr pts={S([[-0.12, -0.4], [-0.12, -0.52]])} tebal={t * 1.4} />
+      <Gr pts={S([[-0.22, -0.52], [-0.02, -0.52]])} tebal={t * 1.4} />
+      {[0.08, 0.25, 0.42].map((y, i) => (
+        <Bentuk key={i} pts={halus(S([[0.075, y - 0.05], [0.11, y + 0.03], [0.075, y + 0.06], [0.04, y + 0.03]]), true, 2)} warna={k.biru} garis={k.biru} isi={0.6} tebal={t * 0.6} />
+      ))}
+    </>
+  );
+};
+
+const Ember: FB = ({ cx, cy, s }) => {
+  const t = tebalDari(s);
+  const S = skala(cx, cy, s);
+  return (
+    <>
+      <Bidang pts={S([[-0.38, -0.05], [0.38, -0.05], [0.3, 0.45], [-0.3, 0.45]])} warna={k.biru} isi={0.45} />
+      <Bentuk pts={S([[-0.42, -0.4], [0.42, -0.4], [0.32, 0.45], [-0.32, 0.45], [-0.42, -0.4]])} warna={k.putih} isi={0.05} tebal={t} />
+      <Gr pts={halus(S([[-0.42, -0.4], [-0.3, -0.65], [0.3, -0.65], [0.42, -0.4]]), false, 3)} tebal={t * 0.8} />
+    </>
+  );
+};
+
+const Kunci: FB = ({ cx, cy, s }) => {
+  const t = tebalDari(s);
+  const S = skala(cx, cy, s);
+  return (
+    <>
+      <Bentuk pts={elips(cx - s * 0.3, cy, s * 0.18)} warna={k.kuning} garis={k.kuning} isi={0.5} tebal={t} />
+      <Bidang pts={elips(cx - s * 0.3, cy, s * 0.06)} warna={k.papan} isi={1} />
+      <Bentuk pts={S([[-0.12, -0.05], [0.5, -0.05], [0.5, 0.05], [-0.12, 0.05], [-0.12, -0.05]])} warna={k.kuning} garis={k.kuning} isi={0.6} tebal={t} />
+      <Gr pts={S([[0.32, 0.05], [0.32, 0.16]])} warna={k.kuning} tebal={t * 1.4} />
+      <Gr pts={S([[0.44, 0.05], [0.44, 0.13]])} warna={k.kuning} tebal={t * 1.4} />
+    </>
+  );
+};
+
+const Gembok: FB = ({ cx, cy, s }) => {
+  const t = tebalDari(s);
+  const S = skala(cx, cy, s);
+  return (
+    <>
+      <Gr pts={halus(S([[-0.22, 0.0], [-0.22, -0.32], [0, -0.45], [0.22, -0.32], [0.22, 0.0]]), false, 3)} tebal={s * 0.07} />
+      <Bentuk pts={persegiBulat(cx - s * 0.36, cy - s * 0.02, s * 0.72, s * 0.52, s * 0.06)} warna={k.kuning} garis={k.kuning} isi={0.55} tebal={t} />
+      <Bidang pts={elips(cx, cy + s * 0.18, s * 0.06)} warna={k.papan} isi={1} />
+      <Gr pts={S([[0, 0.22], [0, 0.34]])} warna={k.papan} tebal={s * 0.04} />
+    </>
+  );
+};
+
+const BolaSalju: FB = ({ cx, cy, s }) => {
+  const t = tebalDari(s);
+  return (
+    <>
+      <Bentuk pts={elips(cx, cy, s * 0.5)} warna={k.putih} isi={0.3} tebal={t} />
+      <Bidang pts={halus([[cx + s * 0.1, cy - s * 0.45], [cx + s * 0.48, cy - s * 0.1], [cx + s * 0.4, cy + s * 0.3], [cx + s * 0.05, cy + s * 0.48], [cx + s * 0.25, cy]], true, 2)} warna={k.biru} isi={0} arsir={0.5} />
+    </>
+  );
+};
+
+const Dompet: FB = ({ cx, cy, s, teks }) => {
+  const t = tebalDari(s);
+  return (
+    <>
+      <Bentuk pts={persegiBulat(cx - s * 0.5, cy - s * 0.32, s, s * 0.64, s * 0.08)} warna={k.merah} garis={k.putih} isi={0.4} tebal={t} />
+      <Bentuk pts={persegiBulat(cx + s * 0.12, cy - s * 0.12, s * 0.42, s * 0.24, s * 0.06)} warna={k.merah} garis={k.putih} isi={0.6} tebal={t} />
+      <Bidang pts={elips(cx + s * 0.25, cy, s * 0.035)} warna={k.kuning} isi={1} />
+      {teks ? <Tulis x={cx - s * 0.18} y={cy} teks={teks} ukuran={s * 0.16} gaya="tebal" warna={k.putih} mulai={SUDAH} rata="center" /> : null}
+    </>
+  );
+};
+
+const CentangHijau: FB = ({ cx, cy, s }) => (
+  <Gr pts={[[cx - s * 0.4, cy], [cx - s * 0.1, cy + s * 0.35], [cx + s * 0.45, cy - s * 0.4]]} warna={k.hijauTerang} tebal={Math.max(9, s * 0.09)} />
+);
+
 export const BENDA: Record<string, FB> = {
+  centang: CentangHijau,
+  piring: Piring,
+  ban: Ban,
+  gelas: Gelas,
+  bantal: Bantal,
+  payung: Payung,
+  keran: Keran,
+  ember: Ember,
+  kunci: Kunci,
+  gembok: Gembok,
+  bolaSalju: BolaSalju,
+  dompet: Dompet,
   coret: CoretMerah,
   silang: Silang,
   emas: Emas,

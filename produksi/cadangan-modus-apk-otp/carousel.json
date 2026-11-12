@@ -6,37 +6,304 @@
       "peran": "hook",
       "judul": "Dapat file {undangan.apk}? Jangan dibuka.",
       "isi": "File itu bisa jadi pintu masuk penipu ke HP kamu.",
-      "visual": "Orang (pose hp, ekspresi kaget) menatap HP dengan gelembung pesan 'undangan.apk'; tanda silang merah besar."
+      "visual": "Orang (pose hp, ekspresi kaget) menatap HP dengan gelembung pesan 'undangan.apk'; tanda silang merah besar.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 210,
+            "y": 440,
+            "s": 460,
+            "pose": "hp",
+            "ekspresi": "kaget",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 650,
+            "y": 230,
+            "s": 360,
+            "teks": "undangan.apk"
+          },
+          {
+            "jenis": "silang",
+            "x": 650,
+            "y": 230,
+            "s": 330
+          }
+        ],
+        "label": [
+          {
+            "teks": "jangan dibuka",
+            "x": 650,
+            "y": 450,
+            "ukuran": 40,
+            "warna": "merah"
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "File [APK] bisa ambil alih HP",
       "isi": "OJK dan BI mengingatkan modus APK yang menyamar jadi undangan atau foto.",
-      "visual": "HP dengan label 'APK' dan panah kapur ke ikon bank di dalam HP; label kecil 'OJK & BI'."
+      "visual": "HP dengan label 'APK' dan panah kapur ke ikon bank di dalam HP; label kecil 'OJK & BI'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "hp",
+            "x": 300,
+            "y": 360,
+            "s": 400,
+            "teks": "APK"
+          },
+          {
+            "jenis": "bank",
+            "x": 680,
+            "y": 360,
+            "s": 260
+          }
+        ],
+        "panah": [
+          {
+            "x1": 420,
+            "y1": 300,
+            "x2": 560,
+            "y2": 330,
+            "tinggi": 30,
+            "warna": "merah"
+          }
+        ],
+        "label": [
+          {
+            "teks": "ambil alih HP",
+            "x": 490,
+            "y": 600,
+            "ukuran": 38,
+            "warna": "merah"
+          },
+          {
+            "teks": "OJK & BI",
+            "x": 680,
+            "y": 560,
+            "ukuran": 32,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Mirip kasih {kunci rumah} ke orang asing",
       "isi": "Sekali masuk, dia bisa buka laci mana saja, termasuk aplikasi bank.",
-      "visual": "SKETSA: label 'kunci' diserahkan ke gelembung orang asing; panah ke laci (meja) dan ikon bank."
+      "visual": "SKETSA: label 'kunci' diserahkan ke gelembung orang asing; panah ke laci (meja) dan ikon bank.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "kunci",
+            "x": 220,
+            "y": 250,
+            "s": 300
+          },
+          {
+            "jenis": "gelembung",
+            "x": 600,
+            "y": 200,
+            "s": 300,
+            "teks": "orang asing"
+          },
+          {
+            "jenis": "meja",
+            "x": 450,
+            "y": 560,
+            "s": 520
+          },
+          {
+            "jenis": "bank",
+            "x": 790,
+            "y": 470,
+            "s": 200
+          }
+        ],
+        "panah": [
+          {
+            "x1": 340,
+            "y1": 240,
+            "x2": 460,
+            "y2": 220,
+            "tinggi": 20,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "laci & aplikasi bank",
+            "x": 600,
+            "y": 650,
+            "ukuran": 34,
+            "warna": "merah"
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "Kode [OTP] itu kunci terakhir",
       "isi": "OJK meminta jangan bagikan PIN, password, atau OTP ke siapa pun.",
-      "visual": "Label besar 'OTP' dengan gembok kapur; tiga label kecil 'PIN', 'password', 'OTP' dicoret 'jangan dibagi'."
+      "visual": "Label besar 'OTP' dengan gembok kapur; tiga label kecil 'PIN', 'password', 'OTP' dicoret 'jangan dibagi'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "gembok",
+            "x": 260,
+            "y": 330,
+            "s": 330
+          },
+          {
+            "jenis": "label",
+            "x": 650,
+            "y": 170,
+            "s": 240,
+            "teks": "PIN",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "label",
+            "x": 650,
+            "y": 330,
+            "s": 240,
+            "teks": "password",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "label",
+            "x": 650,
+            "y": 490,
+            "s": 240,
+            "teks": "OTP",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "coret",
+            "x": 660,
+            "y": 170,
+            "s": 200
+          },
+          {
+            "jenis": "coret",
+            "x": 660,
+            "y": 330,
+            "s": 200
+          },
+          {
+            "jenis": "coret",
+            "x": 660,
+            "y": 490,
+            "s": 200
+          }
+        ],
+        "label": [
+          {
+            "teks": "jangan dibagi",
+            "x": 650,
+            "y": 620,
+            "ukuran": 40,
+            "warna": "merah"
+          },
+          {
+            "teks": "OTP = kunci terakhir",
+            "x": 260,
+            "y": 580,
+            "ukuran": 34,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Telanjur klik? [Hubungi bank]",
       "isi": "Hubungi bank lewat nomor resmi, lalu lapor ke Kontak OJK 157.",
-      "visual": "HP dengan teks '157'; ikon bank; checklist '☐ hubungi bank ☐ lapor 157'. Orang (pose hp, ekspresi datar)."
+      "visual": "HP dengan teks '157'; ikon bank; checklist '☐ hubungi bank ☐ lapor 157'. Orang (pose hp, ekspresi datar).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 190,
+            "y": 450,
+            "s": 430,
+            "pose": "hp",
+            "ekspresi": "datar",
+            "baju": "hijau"
+          },
+          {
+            "jenis": "hp",
+            "x": 520,
+            "y": 300,
+            "s": 290,
+            "teks": "157"
+          },
+          {
+            "jenis": "bank",
+            "x": 790,
+            "y": 300,
+            "s": 220
+          }
+        ],
+        "label": [
+          {
+            "teks": "1. hubungi bank resmi",
+            "x": 450,
+            "y": 540,
+            "ukuran": 38,
+            "warna": "kuning",
+            "rata": "left"
+          },
+          {
+            "teks": "2. lapor 157",
+            "x": 450,
+            "y": 605,
+            "ukuran": 38,
+            "warna": "kuning",
+            "rata": "left"
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Pernah dapat file aneh di WA? [Ya/tidak]",
       "isi": "Jawab di komen. {Kirim} ke orang tuamu sekarang.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar 'ya / tidak', label 'komen ↓ · kirim'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'ya / tidak', label 'komen ↓ · kirim'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 380,
+            "teks": "ya / tidak"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  kirim",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }
