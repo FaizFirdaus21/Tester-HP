@@ -68,7 +68,8 @@ const urai = (teks: string, dasar: string): Potong[] => {
 
 /** Bungkus potongan jadi baris dengan lebar terukur (font sama seperti Tulis). */
 const bungkusWarna = (teks: string, ukuran: number, gaya: Gaya, lebar: number, dasar: string, kapital: boolean): Potong[][] => {
-  const potong = urai(kapital ? teks.toUpperCase() : teks, dasar);
+  // "Rp" tetap "Rp" saat kapital: "RP5" terbaca "RPS".
+  const potong = urai(kapital ? teks.toUpperCase().replace(/RP(?=[\d.,])/g, "Rp") : teks, dasar);
   const baris: Potong[][] = [[]];
   let w = 0;
   for (const p of potong) {

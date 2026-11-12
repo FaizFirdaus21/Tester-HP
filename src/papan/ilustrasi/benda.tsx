@@ -186,7 +186,7 @@ const Label: FB = ({ cx, cy, s, teks, warna = k.kuning, miring = 0 }) => {
     <>
       <Bentuk pts={putar([[-0.5, 0], [-0.32, -0.22], [0.5, -0.22], [0.5, 0.22], [-0.32, 0.22], [-0.5, 0]])} warna={warna} garis={warna} isi={0.4} tebal={t} />
       <Bentuk pts={elips(putar([[-0.33, 0]])[0][0], putar([[-0.33, 0]])[0][1], s * 0.035)} warna={k.putih} isi={0} tebal={t * 0.7} />
-      {teks ? <Tulis x={putar([[0.1, 0]])[0][0]} y={putar([[0.1, 0]])[0][1]} teks={teks} ukuran={s * 0.15} gaya="tebal" warna={k.putih} mulai={SUDAH} rata="center" miring={miring} /> : null}
+      {teks ? <Tulis x={putar([[0.1, 0]])[0][0]} y={putar([[0.1, 0]])[0][1]} teks={teks} ukuran={Math.min(s * 0.15, (s * 0.74) / (teks.length * 0.5))} gaya="tebal" warna={k.putih} mulai={SUDAH} rata="center" miring={miring} /> : null}
     </>
   );
 };
