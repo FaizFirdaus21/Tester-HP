@@ -1,0 +1,42 @@
+{
+  "judul": "Potongan BPJS di slip gaji",
+  "sumber": "Perpres 64/2020 (BPJS Kesehatan); PP 46/2015 & BPJS Ketenagakerjaan (JHT, JP)",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "Slip gaji kepotong, buat {apa aja}?",
+      "isi": "Kenalan sama potongan [BPJS] di slip gajimu.",
+      "visual": "Orang (pose struk, ekspresi mikir) memegang struk bertulisan 'SLIP GAJI'; label merah '- potongan?'."
+    },
+    {
+      "peran": "penjelasan",
+      "judul": "Bagianmu: [1%] + [2%] + [1%]",
+      "isi": "1% BPJS Kesehatan, 2% JHT, 1% Jaminan Pensiun. Sisanya dibayar perusahaan.",
+      "visual": "Tiga label berjajar: '1% Kesehatan', '2% JHT', '1% Pensiun'; panah ke label 'perusahaan bayar sisanya'."
+    },
+    {
+      "peran": "perumpamaan",
+      "judul": "Mirip [celengan] dan <payung>",
+      "isi": "JHT dan pensiun itu celengan hari tua. BPJS Kesehatan itu payung saat sakit.",
+      "visual": "SKETSA: tumpukan koin berlabel 'celengan hari tua' dan gambar payung kapur berlabel 'saat sakit'; orang (pose tunjuk)."
+    },
+    {
+      "peran": "efek",
+      "judul": "Gaji Rp5 jt, kepotong [Rp200 rb]",
+      "isi": "4% dari Rp5 juta = Rp200 ribu sebulan untuk bagian pekerja.",
+      "visual": "Kalkulator '5 jt × 4%'; label 'Rp200 rb' dan label kecil 'contoh'; struk gaji."
+    },
+    {
+      "peran": "solusi",
+      "judul": "Cek saldo [JHT]-mu rutin",
+      "isi": "Pastikan iurannya benar-benar disetor. Cek lewat kanal resmi BPJS Ketenagakerjaan.",
+      "visual": "HP dengan label 'saldo JHT'; checklist '☐ iuran masuk tiap bulan?'; orang (pose hp, ekspresi senyum)."
+    },
+    {
+      "peran": "cta",
+      "judul": "Sudah pernah cek saldo JHT? [Sudah/belum]",
+      "isi": "Jawab satu kata di komen. {Kirim} ke teman yang baru kerja.",
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'sudah / belum', label 'komen ↓ · kirim'."
+    }
+  ]
+}

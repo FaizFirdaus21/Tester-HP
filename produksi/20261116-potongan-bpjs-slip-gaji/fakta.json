@@ -1,0 +1,53 @@
+{
+  "slug": "20261116-potongan-bpjs-slip-gaji",
+  "format": "carousel",
+  "tayang": "2026-11-16T07:00:00+07:00",
+  "kategori": "gaji & jaminan sosial",
+  "diakses": "2026-11-12",
+  "catatan_akses": "Diakses 12 Nov 2026 lewat WebSearch (fetch langsung ke situs resmi diblokir di sesi Research). Topik evergreen: tidak bergantung pada harga/kurs/suku bunga harian.",
+  "fakta": [
+    {
+      "id": "bpjs-kes-1",
+      "klaim": "Iuran BPJS Kesehatan pekerja penerima upah: 5% dari upah (4% pemberi kerja, 1% pekerja), dengan batas atas upah Rp12 juta.",
+      "di_slide": "2, 4",
+      "sumber_resmi": "https://peraturan.bpk.go.id/Details/136650/perpres-no-64-tahun-2020 (Perpres 64/2020); batas Rp12 juta: Perdir BPJS Kesehatan 67/2021",
+      "sumber_media": [
+        "https://rri.co.id/batam/regional/2618009/pekerja-wajib-tahu-begini-aturan-iuran-jkn-dan-anggota-keluarga-yang-bisa-ditanggu",
+        "https://finansial.bisnis.com/read/20260709/215/1986666/jangan-keliru-segini-iuran-bpjs-kesehatan-kelas-123-per-juli-2026/2"
+      ],
+      "status": "resmi + 2 media"
+    },
+    {
+      "id": "jht-2",
+      "klaim": "Iuran JHT 5,7% dari upah: 3,7% pemberi kerja, 2% pekerja.",
+      "di_slide": "2, 4",
+      "sumber_resmi": [
+        "https://www.bpjsketenagakerjaan.go.id/penerima-upah.html",
+        "https://www.bpjsketenagakerjaan.go.id/assets/uploads/peraturan/15122015_104556_PP%2046%20Tahun%202015.pdf"
+      ],
+      "sumber_media": [
+        "https://finance.detik.com/berita-ekonomi-bisnis/d-7983851/berapa-besar-potongan-gaji-untuk-jaminan-hari-tua",
+        "https://finansial.bisnis.com/read/20220214/215/1500333/jangan-salah-ini-cara-menghitung-iuran-jht-sesuai-penghasilan"
+      ],
+      "status": "resmi + 2 media"
+    },
+    {
+      "id": "jp-1",
+      "klaim": "Iuran Jaminan Pensiun 3% dari upah: 2% pemberi kerja, 1% pekerja (ada batas upah yang disesuaikan tiap tahun).",
+      "di_slide": "2, 4",
+      "sumber_resmi": "https://www.bpjsketenagakerjaan.go.id/penerima-upah.html",
+      "sumber_media": [
+        "https://finansial.bisnis.com/read/20230722/215/1677166/simak-4-perbedaan-jht-jaminan-pensiun-bpjs-ketenagakerjaan/2",
+        "https://finance.detik.com/berita-ekonomi-bisnis/d-5758609/catat-berikut-daftar-besaran-iuran-bpjs-ketenagakerjaan"
+      ],
+      "catatan": "Angka batas upah JP tidak dicantumkan (berubah tiap tahun, beda antar-halaman resmi).",
+      "status": "resmi + 2 media"
+    },
+    {
+      "id": "contoh-5jt",
+      "klaim": "4% × Rp5 juta = Rp200 ribu (di bawah batas upah BPJS Kesehatan dan JP)",
+      "di_slide": "4",
+      "status": "contoh hitungan, berlabel 'contoh'"
+    }
+  ]
+}
