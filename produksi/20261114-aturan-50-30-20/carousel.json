@@ -1,0 +1,42 @@
+{
+  "judul": "Aturan 50/30/20 buat gajian",
+  "sumber": "Metode anggaran 50/30/20 (patokan umum, bukan aturan resmi) — DJKN Kemenkeu, Pegadaian, Katadata",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "Gajian, terus {habisnya ke mana}?",
+      "isi": "Coba bagi gajimu jadi tiga pos: [50], [30], dan <20>.",
+      "visual": "Orang (pose struk, ekspresi kaget) memegang struk panjang; tas belanja dan koin berserakan; gelembung pikiran '?'"
+    },
+    {
+      "peran": "penjelasan",
+      "judul": "[50%] butuh, {30%} ingin, <20%> tabung",
+      "isi": "50% kebutuhan pokok, 30% keinginan, 20% tabungan atau bayar utang.",
+      "visual": "Tiga label harga berjajar: '50% butuh' (kuning), '30% ingin' (merah muda), '20% tabung' (biru); di bawahnya meja, tas belanja, dan tumpukan koin."
+    },
+    {
+      "peran": "perumpamaan",
+      "judul": "Mirip bagi [isi piring]",
+      "isi": "Nasi, lauk, sayur ada porsinya. Gaji juga perlu porsi biar nggak habis duluan.",
+      "visual": "SKETSA: meja dengan label 'piring' dibagi tiga bagian kapur (nasi/lauk/sayur) dan panah ke label '50/30/20'. Orang (pose tunjuk, ekspresi senyum)."
+    },
+    {
+      "peran": "efek",
+      "judul": "Ketahuan [bocornya] di mana",
+      "isi": "Kalau pos keinginan lewat 30%, kamu langsung tahu harus rem di mana.",
+      "visual": "Kalkulator bertulisan '30%'; tas belanja dengan label merah 'lewat!'; panah kapur ke label 'rem di sini'."
+    },
+    {
+      "peran": "solusi",
+      "judul": "Gaji Rp5 juta? Ini [contohnya]",
+      "isi": "Rp2,5 jt kebutuhan, Rp1,5 jt keinginan, Rp1 jt tabungan. Boleh disesuaikan.",
+      "visual": "Uang (lembaran) dibagi ke tiga label: 'Rp2,5 jt', 'Rp1,5 jt', 'Rp1 jt'; label kecil 'contoh'. Orang (pose jempol, ekspresi senyum)."
+    },
+    {
+      "peran": "cta",
+      "judul": "Porsi tabunganmu [berapa persen]?",
+      "isi": "Tulis angkanya di komen. {Simpan} buat gajian berikutnya.",
+      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ %', label 'komen ↓ · simpan'."
+    }
+  ]
+}

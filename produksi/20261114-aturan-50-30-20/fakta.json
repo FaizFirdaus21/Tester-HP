@@ -1,0 +1,28 @@
+{
+  "slug": "20261114-aturan-50-30-20",
+  "format": "carousel",
+  "tayang": "2026-11-14T07:00:00+07:00",
+  "kategori": "anggaran",
+  "diakses": "2026-11-12",
+  "catatan_akses": "Diakses 12 Nov 2026 lewat WebSearch (fetch langsung ke situs resmi diblokir di sesi Research). Topik evergreen: tidak bergantung pada harga/kurs/suku bunga harian.",
+  "fakta": [
+    {
+      "id": "metode-503020",
+      "klaim": "Metode 50/30/20 membagi penghasilan bersih: 50% kebutuhan, 30% keinginan, 20% tabungan/pelunasan utang. Ini patokan umum, bukan regulasi.",
+      "di_slide": "1, 2, 4",
+      "sumber_resmi": "https://www.djkn.kemenkeu.go.id/kpknl-metro/baca-artikel/17112/Budget-503020-Apa-Itu-dan-Manfaatnya.html (artikel DJKN Kemenkeu)",
+      "sumber_media": [
+        "https://katadata.co.id/lifestyle/varia/6ae31d61dac87/metode-503020-cara-mengatur-gaji-dan-keuangan-bulanan",
+        "https://pegadaian.co.id/artikel/keuangan/cara-mengatur-keuangan-50-30-20",
+        "https://rri.co.id/kupang/ekonomi/keuangan/2148772/biar-gaji-tidak-numpang-lewat-terapkan-aturan-50-30-20"
+      ],
+      "status": "artikel instansi pemerintah + 3 media; bukan aturan resmi (disebut 'patokan' di caption)"
+    },
+    {
+      "id": "contoh-gaji",
+      "klaim": "Gaji Rp5 juta → Rp2,5 jt / Rp1,5 jt / Rp1 jt",
+      "di_slide": "5",
+      "status": "contoh hitungan, berlabel 'contoh'"
+    }
+  ]
+}
