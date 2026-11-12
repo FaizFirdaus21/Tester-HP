@@ -63,6 +63,14 @@ with tempfile.TemporaryDirectory() as d:
     assert json.load(open(os.path.join(prod, "vo-waktu.json")))["audio"] == "vo/bunga-deposito-lps.mp3"
     print("ok  --slug dengan tanggal")
 
+    # 3a. tahap yang sudah lebih maju tidak dimundurkan
+    s = json.load(open(os.path.join(prod, "status.json")))
+    s["tahap"] = "storyboard-siap"
+    json.dump(s, open(os.path.join(prod, "status.json"), "w"))
+    jalan(d, "produksi/20261109-bunga-deposito-lps/vo", "--slug", "bunga-deposito-lps")
+    assert json.load(open(os.path.join(prod, "status.json")))["tahap"] == "storyboard-siap"
+    print("ok  tahap storyboard-siap tidak dimundurkan saat VO dipasang ulang")
+
     # 3b. --versi v2: file baru, v1 dan status.json tidak berubah
     sebelum = {f: open(os.path.join(prod, f)).read() for f in ("vo-waktu.json", "status.json")}
     mp3_v1 = open(os.path.join(d, "public/vo/bunga-deposito-lps.mp3"), "rb").read()

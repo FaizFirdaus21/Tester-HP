@@ -72,7 +72,11 @@ def main(argv=None):
     if folder and not arg.versi:
         jalur = os.path.join(folder, "status.json")
         status = json.load(open(jalur)) if os.path.exists(jalur) else {"slug": os.path.basename(folder)}
-        status["tahap"] = "vo-siap"
+        # jangan memundurkan tahap kalau Director sudah lanjut (mis. VO dipasang ulang setelah revisi)
+        if status.get("tahap") in (None, "riset", "naskah-siap", "vo-siap", "revisi"):
+            status["tahap"] = "vo-siap"
+        else:
+            print(f"tahap tetap '{status['tahap']}' (tidak dimundurkan); beri tahu Director bahwa VO berubah")
         lama = status.get("catatan", "")
         status["catatan"] = (lama + " | " if lama else "") + f"VO {data['total']} detik, {len(data['blok'])} blok, {data['audio']} ({w['model']}, suara {w['suara']})."
         status["diperbarui"] = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
