@@ -1,0 +1,39 @@
+{
+  "slug": "20261115-investasi-bodong-2l",
+  "format": "carousel",
+  "tayang": "2026-11-15T07:00:00+07:00",
+  "kategori": "penipuan investasi",
+  "diakses": "2026-11-12",
+  "catatan_akses": "Diakses 12 Nov 2026 lewat WebSearch (fetch langsung ke situs resmi diblokir di sesi Research). Topik evergreen: tidak bergantung pada harga/kurs/suku bunga harian.",
+  "fakta": [
+    {
+      "id": "2l",
+      "klaim": "OJK/Satgas PASTI mengimbau masyarakat memperhatikan 2L (Legal dan Logis) sebelum berinvestasi.",
+      "di_slide": "1, 2",
+      "sumber_resmi": "https://ojk.go.id/id/media/ojk-tv/detail-video.aspx?ID=378 (OJK TV: Tips Agar Terhindar Investasi dan Pinjaman Ilegal)",
+      "sumber_media": [
+        "https://www.antaranews.com/berita/4810105/marak-penipuan-daring-ojk-imbau-perhatikan-2l-sebelum-berinvestasi",
+        "https://finance.detik.com/moneter/d-3963329/dapat-tawaran-investasi-untung-besar-ingat-2l"
+      ],
+      "status": "resmi + 2 media"
+    },
+    {
+      "id": "kontak-157",
+      "klaim": "Legalitas dapat dicek lewat Kontak OJK 157 atau situs OJK.",
+      "di_slide": "5",
+      "sumber_resmi": "OJK (Kontak OJK 157)",
+      "sumber_media": [
+        "https://www.fortuneidn.com/finance/cara-cek-aplikasi-investasi-yang-terdaftar-ojk-d7w02-00-yyq45-skg14l",
+        "https://investortrust.id/financial/82718/ojk-berhasil-selamatkan-dana-rp-376-8-miliar-dari-scam-masyarakat-wajib-waspadai-10-modus-ini"
+      ],
+      "catatan": "Nomor WhatsApp OJK tidak dicantumkan karena bisa berubah.",
+      "status": "resmi (nomor layanan) + 2 media"
+    },
+    {
+      "id": "contoh",
+      "klaim": "Untung 10% sebulan; HP baru Rp1 juta",
+      "di_slide": "1, 3",
+      "status": "contoh, berlabel 'contoh'"
+    }
+  ]
+}

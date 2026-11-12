@@ -1,0 +1,42 @@
+{
+  "judul": "Cek investasi pakai 2L",
+  "sumber": "OJK & Satgas PASTI (imbauan 2L: Legal dan Logis; Kontak OJK 157)",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "Untung {10% sebulan}? Tunggu dulu.",
+      "isi": "Sebelum transfer, cek pakai rumus [2L] dari OJK.",
+      "visual": "Orang (pose hp, ekspresi kaget) melihat HP dengan gelembung 'untung 10%/bln!'; label kecil 'contoh'; tanda seru merah."
+    },
+    {
+      "peran": "penjelasan",
+      "judul": "2L = [Legal] dan <Logis>",
+      "isi": "Legal: punya izin dari otoritas. Logis: imbal hasilnya masuk akal.",
+      "visual": "Dua label besar 'LEGAL' (kuning) dan 'LOGIS' (biru) dengan centang kapur; timbangan di tengah."
+    },
+    {
+      "peran": "perumpamaan",
+      "judul": "Mirip HP baru {dijual sejuta}",
+      "isi": "Kamu pasti curiga. Tawaran investasi yang terlalu bagus juga patut dicurigai.",
+      "visual": "SKETSA: HP dengan label harga merah 'Rp1 jt' dan label 'BARU'; gelembung pikiran orang (pose mikir) bertulisan 'kok murah?'; label kecil 'contoh'."
+    },
+    {
+      "peran": "efek",
+      "judul": "Kalau bodong, uangmu {bisa hilang}",
+      "isi": "Begitu ketahuan ilegal, uang yang sudah disetor sering sulit kembali.",
+      "visual": "Tumpukan uang dengan panah kapur ke luar papan; label merah 'hilang?'; orang (pose kaget, ekspresi cemas)."
+    },
+    {
+      "peran": "solusi",
+      "judul": "Cek dulu ke [Kontak OJK 157]",
+      "isi": "Telepon 157 atau cek daftar legal di situs OJK sebelum setor uang.",
+      "visual": "HP dengan teks '157'; checklist kapur '☐ izin? ☐ masuk akal? ☐ cek 157'; orang (pose tunjuk, ekspresi senyum)."
+    },
+    {
+      "peran": "cta",
+      "judul": "Pernah ditawari untung [berapa persen]?",
+      "isi": "Tulis angkanya di komen. {Kirim} ke keluarga biar nggak ketipu.",
+      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ %', label 'komen ↓ · kirim'."
+    }
+  ]
+}
