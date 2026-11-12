@@ -1,0 +1,28 @@
+{
+  "slug": "20261114-dana-darurat",
+  "format": "carousel",
+  "tayang": "2026-11-14T12:00:00+07:00",
+  "kategori": "dana darurat",
+  "diakses": "2026-11-12",
+  "catatan_akses": "Diakses 12 Nov 2026 lewat WebSearch (fetch langsung ke situs resmi diblokir di sesi Research). Topik evergreen: tidak bergantung pada harga/kurs/suku bunga harian.",
+  "fakta": [
+    {
+      "id": "ojk-3-6",
+      "klaim": "Menurut panduan OJK, dana darurat ideal untuk lajang berpenghasilan tetap adalah 3–6 kali pengeluaran bulanan.",
+      "di_slide": "2",
+      "sumber_resmi": "OJK (unggahan edukasi OJK, dikutip media; laman sikapiuangmu.ojk.go.id tidak bisa dibuka)",
+      "sumber_media": [
+        "https://finance.detik.com/perencanaan-keuangan/d-8031657/gen-z-milenial-simak-ini-tips-biar-gaji-kamu-nggak-numpang-lewat",
+        "https://finansial.bisnis.com/read/20220218/55/1464023/5-alasan-kamu-harus-menyiapkan-dana-darurat-sekarang-juga"
+      ],
+      "catatan": "Angka untuk yang sudah menikah berbeda antar-sumber (6–9 vs 6–12 kali) sehingga tidak dipakai.",
+      "status": "OJK (dikutip) + 2 media"
+    },
+    {
+      "id": "contoh-4jt",
+      "klaim": "Pengeluaran Rp4 juta × 3–6 = Rp12–24 juta",
+      "di_slide": "5",
+      "status": "contoh hitungan, berlabel 'contoh' (contoh Rp4 juta juga dipakai detik mengutip OJK)"
+    }
+  ]
+}
