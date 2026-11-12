@@ -237,7 +237,8 @@ const Gelembung: FB = ({ cx, cy, s, teks, warna = k.putih }) => {
     <>
       <Bentuk pts={persegiBulat(cx - w / 2, cy - h / 2, w, h, h * 0.35)} warna={warna} garis={warna} isi={0.1} tebal={t} />
       <Gr pts={[[cx - w * 0.25, cy + h / 2], [cx - w * 0.34, cy + h * 0.85], [cx - w * 0.1, cy + h / 2]]} warna={warna} tebal={t} />
-      {teks ? <Tulis x={cx} y={cy} teks={teks} ukuran={s * 0.2} gaya="tebal" warna={k.kuning} mulai={SUDAH} rata="center" /> : null}
+      {/* teks panjang dikecilkan supaya muat di dalam gelembung */}
+      {teks ? <Tulis x={cx} y={cy} teks={teks} ukuran={Math.min(s * 0.2, (w * 0.85) / (teks.length * 0.55))} gaya="tebal" warna={k.kuning} mulai={SUDAH} rata="center" /> : null}
     </>
   );
 };

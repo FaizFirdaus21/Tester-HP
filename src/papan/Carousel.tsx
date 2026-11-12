@@ -155,9 +155,15 @@ const JudulDanIsi: React.FC<{ x0: number; s: DataSlide; y: number; ukuran: numbe
   );
 };
 
-const Sumber: React.FC<{ x0: number; teks: string }> = ({ x0, teks }) => (
-  <Tulis x={x0 + 540} y={1308} teks={teks} ukuran={28} gaya="tipis" warna={k.biru} mulai={SUDAH} rata="center" />
-);
+/** Teks kecil satu baris (sumber, disclaimer): dikecilkan supaya muat 980 px; QC gagal bila harus di bawah 20 px. */
+const TeksKecil: React.FC<{ cx: number; y: number; teks: string; ukuran: number }> = ({ cx, y, teks, ukuran }) => {
+  const lebar = ukurLebar(teks, ukuran, "tipis");
+  const pas = lebar > 980 ? Math.floor((ukuran * 980) / lebar) : ukuran;
+  if (pas < 20) console.warn(`[carousel] teks kecil "${teks}" terlalu panjang (perlu ${pas}px, min. 20px); persingkat`);
+  return <Tulis x={cx} y={y} teks={teks} ukuran={pas} gaya="tipis" warna={k.biru} mulai={SUDAH} rata="center" />;
+};
+
+const Sumber: React.FC<{ x0: number; teks: string }> = ({ x0, teks }) => <TeksKecil cx={x0 + 540} y={1308} teks={teks} ukuran={28} />;
 
 const SlideHook: React.FC<{ x0: number; s: DataSlide }> = ({ x0, s }) => (
   <>
@@ -187,7 +193,7 @@ const SlideCta: React.FC<{ x0: number; s: DataSlide; sumber?: string }> = ({ x0,
       <JudulDanIsi x0={x0} s={s} y={745} ukuran={76} batas={1070} />
       <LogoKapur x={cx - 205} y={1085} s={78} />
       <Tulis x={cx} y={1222} teks={TAGLINE} ukuran={60} gaya="hias" warna={k.kuning} mulai={SUDAH} rata="center" />
-      {sumber ? <Tulis x={cx} y={1282} teks={`sumber: ${sumber}`} ukuran={26} gaya="tipis" warna={k.biru} mulai={SUDAH} rata="center" /> : null}
+      {sumber ? <TeksKecil cx={cx} y={1282} teks={`sumber: ${sumber}`} ukuran={26} /> : null}
       <Tulis x={cx} y={1318} teks="Konten edukasi, bukan ajakan membeli." ukuran={26} gaya="tipis" warna={k.biru} mulai={SUDAH} rata="center" />
     </>
   );

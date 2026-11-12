@@ -6,38 +6,324 @@
       "peran": "hook",
       "judul": "BI Rate {5,75%}. Dompetku kena apa?",
       "isi": "Dalam sebulan (Mei–Juni 2026), BI menaikkannya [1 poin persen].",
-      "visual": "Orang (pose kaget, ekspresi kaget) di samping gedung bank; label harga besar merah '5,75%' miring di atas bank; panah kapur naik dari label kecil '4,75%' ke '5,75%'."
+      "visual": "Orang (pose kaget, ekspresi kaget) di samping gedung bank; label harga besar merah '5,75%' miring di atas bank; panah kapur naik dari label kecil '4,75%' ke '5,75%'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 200,
+            "y": 430,
+            "s": 470,
+            "pose": "kaget",
+            "ekspresi": "kaget",
+            "baju": "biru"
+          },
+          {
+            "jenis": "bank",
+            "x": 730,
+            "y": 490,
+            "s": 300
+          },
+          {
+            "jenis": "label",
+            "x": 690,
+            "y": 200,
+            "s": 300,
+            "teks": "5,75%",
+            "warna": "merah",
+            "miring": -8
+          },
+          {
+            "jenis": "label",
+            "x": 520,
+            "y": 385,
+            "s": 170,
+            "teks": "4,75%",
+            "warna": "biru"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 530,
+            "y1": 325,
+            "x2": 556,
+            "y2": 218,
+            "tinggi": 30,
+            "warna": "kuning"
+          }
+        ],
+        "label": [
+          {
+            "teks": "naik 1 poin persen",
+            "x": 730,
+            "y": 660,
+            "ukuran": 36,
+            "warna": "kuning"
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "BI Rate = [patokan] bunga bank",
       "isi": "Naik dari 4,75% ke 5,75%, lalu ditahan 4 kali: Juli sampai Oktober 2026.",
       "visual": "Kalender dengan teks 'MEI–JUN' dan panah naik '4,75% → 5,75%'; di sebelahnya kalender kedua bertulisan 'JUL–OKT' dengan label 'TETAP 5,75%'. Orang menunjuk (pose tunjuk, ekspresi datar).",
-      "sumber": "Bank Indonesia, RDG Mei–Okt 2026"
+      "sumber": "Bank Indonesia, RDG Mei–Okt 2026",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 170,
+            "y": 470,
+            "s": 420,
+            "pose": "tunjuk",
+            "ekspresi": "datar",
+            "baju": "hijau"
+          },
+          {
+            "jenis": "kalender",
+            "x": 540,
+            "y": 220,
+            "s": 200,
+            "teks": "MEI–JUN"
+          },
+          {
+            "jenis": "kalender",
+            "x": 790,
+            "y": 220,
+            "s": 200,
+            "teks": "JUL–OKT"
+          },
+          {
+            "jenis": "label",
+            "x": 790,
+            "y": 420,
+            "s": 290,
+            "teks": "TETAP 5,75%",
+            "warna": "kuning"
+          }
+        ],
+        "label": [
+          {
+            "teks": "4,75% → 5,75%",
+            "x": 540,
+            "y": 380,
+            "ukuran": 34,
+            "warna": "merah"
+          }
+        ]
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Mirip harga {grosir} naik",
       "isi": "Grosir naik harga, warung pelan-pelan ikut naik. Bunga bank juga begitu.",
-      "visual": "SKETSA: meja warung dengan tas belanja dan label harga; panah kapur dari label 'grosir ↑' ke label 'warung ↑'. Orang (pose mikir) di belakang meja."
+      "visual": "SKETSA: meja warung dengan tas belanja dan label harga; panah kapur dari label 'grosir ↑' ke label 'warung ↑'. Orang (pose mikir) di belakang meja.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 450,
+            "y": 380,
+            "s": 420,
+            "pose": "mikir",
+            "ekspresi": "mikir",
+            "baju": "kuning",
+            "cermin": true
+          },
+          {
+            "jenis": "meja",
+            "x": 450,
+            "y": 560,
+            "s": 780
+          },
+          {
+            "jenis": "tas",
+            "x": 200,
+            "y": 475,
+            "s": 170
+          },
+          {
+            "jenis": "label",
+            "x": 770,
+            "y": 190,
+            "s": 240,
+            "teks": "grosir ↑",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "label",
+            "x": 770,
+            "y": 490,
+            "s": 240,
+            "teks": "warung ↑",
+            "warna": "merah"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 840,
+            "y1": 250,
+            "x2": 840,
+            "y2": 430,
+            "tinggi": 40,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "ikut naik pelan-pelan",
+            "x": 450,
+            "y": 650,
+            "ukuran": 34,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "Bunga [kredit] & {simpanan} ikut bergerak",
       "isi": "Bank biasanya ikut menyesuaikan bunga kredit dan simpanan, pelan-pelan.",
-      "visual": "Timbangan dengan dua sisi: kiri kartu (label 'kredit'), kanan koin/uang (label 'simpanan'); panah kecil naik di kedua sisi; label kecil 'pelan-pelan'."
+      "visual": "Timbangan dengan dua sisi: kiri kartu (label 'kredit'), kanan koin/uang (label 'simpanan'); panah kecil naik di kedua sisi; label kecil 'pelan-pelan'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "timbangan",
+            "x": 450,
+            "y": 380,
+            "s": 460,
+            "miring": 0
+          },
+          {
+            "jenis": "kartu",
+            "x": 257,
+            "y": 330,
+            "s": 170
+          },
+          {
+            "jenis": "koin",
+            "x": 643,
+            "y": 320,
+            "s": 160
+          }
+        ],
+        "label": [
+          {
+            "teks": "kredit",
+            "x": 257,
+            "y": 470,
+            "ukuran": 38,
+            "warna": "kuning"
+          },
+          {
+            "teks": "simpanan",
+            "x": 643,
+            "y": 470,
+            "ukuran": 38,
+            "warna": "biru"
+          },
+          {
+            "teks": "naik ↑",
+            "x": 110,
+            "y": 320,
+            "ukuran": 40,
+            "warna": "kuning"
+          },
+          {
+            "teks": "naik ↑",
+            "x": 800,
+            "y": 320,
+            "ukuran": 40,
+            "warna": "biru"
+          },
+          {
+            "teks": "pelan-pelan",
+            "x": 450,
+            "y": 650,
+            "ukuran": 34,
+            "warna": "putih"
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Cek [kontrak] cicilanmu",
       "isi": "Bunganya tetap atau mengambang? Kapan masa bunga tetap habis? Catat tanggalnya.",
-      "visual": "Orang memegang struk (pose struk, ekspresi mikir, teks struk 'KPR'), kalender bertulisan 'FIX HABIS?', kalkulator; label 'tetap / floating?'."
+      "visual": "Orang memegang struk (pose struk, ekspresi mikir, teks struk 'KPR'), kalender bertulisan 'FIX HABIS?', kalkulator; label 'tetap / floating?'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 210,
+            "y": 440,
+            "s": 440,
+            "pose": "struk",
+            "ekspresi": "mikir",
+            "baju": "merah",
+            "teks": "KPR"
+          },
+          {
+            "jenis": "kalender",
+            "x": 650,
+            "y": 230,
+            "s": 230,
+            "teks": "FIX HABIS?"
+          },
+          {
+            "jenis": "kalkulator",
+            "x": 810,
+            "y": 520,
+            "s": 240,
+            "teks": "?%"
+          }
+        ],
+        "label": [
+          {
+            "teks": "tetap / floating?",
+            "x": 560,
+            "y": 460,
+            "ukuran": 36,
+            "warna": "kuning"
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Cicilanmu bunga [tetap] atau {floating}?",
       "isi": "Jawab satu kata di komen. {Simpan} buat cek kontrak nanti.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar 'tetap / floating', label 'komen ↓ · simpan'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'tetap / floating', label 'komen ↓ · simpan'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 400,
+            "teks": "tetap / floating"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  simpan",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }
