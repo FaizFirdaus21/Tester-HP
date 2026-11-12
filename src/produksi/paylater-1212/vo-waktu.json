@@ -1,0 +1,220 @@
+{
+  "audio": "vo/paylater-1212.mp3",
+  "catatan": "Dibuat dengan gemini-3.1-flash-tts-preview, suara Sulafat. Diperkaya scripts/sinkron_vo.py (bicara + jangkar kalimat).",
+  "total": 68.29,
+  "blok": [
+    {
+      "mulai": 0.0,
+      "durasi": 3.96,
+      "teks": "Cicilan paylater kecil, kok gajian langsung habis?",
+      "bicara": [
+        0.297,
+        3.704
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 24,
+          "detik": 1.882
+        },
+        {
+          "huruf": 50,
+          "detik": 3.407
+        }
+      ]
+    },
+    {
+      "mulai": 4.31,
+      "durasi": 11.64,
+      "teks": "Data OJK: per September, utang paylater di bank tembus tiga puluh satu koma lima triliun rupiah, dari tiga puluh empat koma lima juta rekening.",
+      "bicara": [
+        4.607,
+        15.575
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 10,
+          "detik": 1.652
+        },
+        {
+          "huruf": 25,
+          "detik": 2.891
+        },
+        {
+          "huruf": 97,
+          "detik": 8.143
+        },
+        {
+          "huruf": 143,
+          "detik": 10.968
+        }
+      ]
+    },
+    {
+      "mulai": 16.3,
+      "durasi": 8.84,
+      "teks": "Paylater itu mirip langganan streaming. Satu terasa ringan. Lima sekaligus, tagihannya kerasa tiap bulan.",
+      "bicara": [
+        16.574,
+        24.824
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 40,
+          "detik": 2.988
+        },
+        {
+          "huruf": 60,
+          "detik": 5.01
+        },
+        {
+          "huruf": 76,
+          "detik": 6.399
+        },
+        {
+          "huruf": 105,
+          "detik": 8.251
+        }
+      ]
+    },
+    {
+      "mulai": 25.49,
+      "durasi": 7.0,
+      "teks": "Cicilan kecil dari beberapa aplikasi gampang menumpuk tanpa terasa, apalagi pas promo dua belas dua belas.",
+      "bicara": [
+        25.775,
+        32.264
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 68,
+          "detik": 4.262
+        },
+        {
+          "huruf": 106,
+          "detik": 6.489
+        }
+      ]
+    },
+    {
+      "mulai": 32.84,
+      "durasi": 14.72,
+      "teks": "Contohnya, lima cicilan dua ratus ribu, jadi sejuta sebulan, atau seperlima gaji lima juta. Telat bayar juga tercatat di slik o je ka, dan bisa bikin pengajuan ka pe er lebih susah.",
+      "bicara": [
+        33.051,
+        47.241
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 11,
+          "detik": 1.259
+        },
+        {
+          "huruf": 40,
+          "detik": 3.55
+        },
+        {
+          "huruf": 61,
+          "detik": 5.55
+        },
+        {
+          "huruf": 92,
+          "detik": 8.576
+        },
+        {
+          "huruf": 135,
+          "detik": 11.53
+        },
+        {
+          "huruf": 181,
+          "detik": 14.19
+        }
+      ]
+    },
+    {
+      "mulai": 47.91,
+      "durasi": 8.24,
+      "teks": "Sebelum checkout, jumlahkan dulu semua cicilan aktifmu. Cukup pakai satu aplikasi. Dan bayar sebelum jatuh tempo.",
+      "bicara": [
+        48.153,
+        55.898
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 18,
+          "detik": 1.366
+        },
+        {
+          "huruf": 56,
+          "detik": 3.893
+        },
+        {
+          "huruf": 83,
+          "detik": 5.838
+        },
+        {
+          "huruf": 113,
+          "detik": 7.746
+        }
+      ]
+    },
+    {
+      "mulai": 56.5,
+      "durasi": 11.44,
+      "teks": "Kamu punya berapa aplikasi paylater aktif? Tulis angkanya di komen. Kirim ke teman yang udah siap checkout dua belas dua belas. IntipDompet. Biar dompetmu nggak kaget.",
+      "bicara": [
+        56.773,
+        67.562
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 43,
+          "detik": 2.793
+        },
+        {
+          "huruf": 68,
+          "detik": 4.568
+        },
+        {
+          "huruf": 128,
+          "detik": 8.092
+        },
+        {
+          "huruf": 141,
+          "detik": 9.289
+        },
+        {
+          "huruf": 167,
+          "detik": 10.79
+        }
+      ]
+    }
+  ]
+}
