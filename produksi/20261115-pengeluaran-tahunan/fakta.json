@@ -1,0 +1,16 @@
+{
+  "slug": "20261115-pengeluaran-tahunan",
+  "format": "reels",
+  "tayang": "2026-11-15T19:00:00+07:00",
+  "kategori": "perencanaan",
+  "diakses": "2026-11-12",
+  "catatan": "Topik evergreen tanpa data eksternal: semua angka adalah contoh hitungan berlabel.",
+  "fakta": [
+    {
+      "id": "contoh-1-2jt",
+      "klaim": "Pajak motor + servis Rp1,2 juta/tahun ÷ 12 = Rp100 ribu/bulan",
+      "di_naskah": "blok 5",
+      "status": "contoh hitungan, berlabel 'contoh'; tidak mengklaim besaran pajak kendaraan sebenarnya"
+    }
+  ]
+}

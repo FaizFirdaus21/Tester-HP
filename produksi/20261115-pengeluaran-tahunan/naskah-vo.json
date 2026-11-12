@@ -1,0 +1,52 @@
+{
+  "slug": "20261115-pengeluaran-tahunan",
+  "judul": "Pengeluaran tahunan yang bikin kaget",
+  "model": "gemini-3.8-flash-tts",
+  "suara": "Sulafat",
+  "jeda_antar_blok": 0.35,
+  "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, seperti teman yang paham keuangan sedang menjelaskan di Instagram Reels: hangat, santai, kalimat pendek, bukan pembaca berita. Tempo sedang cenderung cepat, beri jeda pendek sebelum angka penting.",
+  "blok": [
+    {
+      "peran": "hook",
+      "gaya": "Nada heran, cepat, naik di akhir pertanyaan",
+      "teks": "Tiap akhir tahun, kok dompet selalu kaget?",
+      "visual": "Kalender kapur halaman Desember dengan tanggal-tanggal dilingkari merah; dompet dengan tanda seru."
+    },
+    {
+      "peran": "penjelasan",
+      "gaya": "Nada menjelaskan, jelas dan santai",
+      "teks": "Banyak pengeluaran datang setahun sekali: pajak kendaraan, servis, hadiah akhir tahun, atau tiket pulang kampung. Karena jarang, kita lupa menyiapkannya. Ini beda dengan dana darurat, karena waktunya bisa ditebak.",
+      "visual": "Empat label kapur muncul berurutan: 'pajak kendaraan', 'servis', 'hadiah', 'tiket pulang'; masing-masing ditempel di kalender."
+    },
+    {
+      "peran": "perumpamaan",
+      "gaya": "Nada bercerita, sedikit tersenyum",
+      "teks": "Mirip arisan yang kamu tahu tanggal dapatnya. Bedanya, ini arisan sama dirimu sendiri, jadi uangnya pasti ada saat giliranmu tiba.",
+      "visual": "SKETSA KAPUR: lingkaran orang arisan dengan satu kursi berlabel 'kamu' di semua posisi; panah melingkar."
+    },
+    {
+      "peran": "efek",
+      "gaya": "Nada serius tapi ramah",
+      "teks": "Tanpa disiapkan, tagihan tahunan menggerus gaji bulan itu, atau malah berujung utang.",
+      "visual": "Gaji (amplop) dipotong besar oleh label 'tagihan tahunan'; panah ke kartu berlabel 'utang?' dengan tanda tanya merah."
+    },
+    {
+      "peran": "akibat",
+      "gaya": "Nada mengajak membayangkan, pelan di 'seratus ribu'",
+      "teks": "Contohnya, pajak motor dan servis totalnya satu koma dua juta setahun. Kalau dicicil, cuma seratus ribu sebulan.",
+      "visual": "Persamaan kapur 'Rp1,2 jt ÷ 12 = Rp100 rb/bulan' dengan label 'contoh'; dua belas koin kecil berjajar."
+    },
+    {
+      "peran": "solusi",
+      "gaya": "Nada menekankan, pelan dan jelas, seperti memberi checklist",
+      "teks": "Tulis semua pengeluaran tahunanmu. Jumlahkan, lalu bagi dua belas. Sisihkan angkanya tiap gajian di rekening terpisah.",
+      "visual": "Checklist kapur tiga baris dicentang berurutan: '☐ daftar tagihan tahunan', '☐ jumlah ÷ 12', '☐ sisihkan tiap gajian'."
+    },
+    {
+      "peran": "cta",
+      "gaya": "Nada ceria dan ramah, mengajak ngobrol, tersenyum di tagline",
+      "teks": "Pengeluaran tahunan apa yang paling sering bikin kaget? Jawab satu kata di komen. Simpan video ini buat bikin daftarnya. IntipDompet. Biar dompetmu nggak kaget.",
+      "visual": "Gelembung komentar kapur '____?', ikon simpan (bookmark), lalu tagline di tengah papan."
+    }
+  ]
+}
