@@ -1,0 +1,22 @@
+{
+  "slug": "20261114-gaya-hidup-ikut-naik",
+  "format": "reels",
+  "tayang": "2026-11-14T19:00:00+07:00",
+  "kategori": "kebiasaan / gaya hidup",
+  "diakses": "2026-11-12",
+  "catatan": "Topik evergreen tanpa data eksternal: semua angka adalah contoh hitungan berlabel.",
+  "fakta": [
+    {
+      "id": "contoh-1jt",
+      "klaim": "Kenaikan Rp1 juta/bulan × 12 = Rp12 juta/tahun",
+      "di_naskah": "blok 5",
+      "status": "contoh hitungan, berlabel 'contoh'"
+    },
+    {
+      "id": "saran-setengah",
+      "klaim": "Menyisihkan setengah kenaikan gaji",
+      "di_naskah": "blok 6",
+      "status": "saran umum, bukan data; tidak diklaim sebagai aturan resmi"
+    }
+  ]
+}

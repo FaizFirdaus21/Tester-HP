@@ -1,0 +1,52 @@
+{
+  "slug": "20261114-gaya-hidup-ikut-naik",
+  "judul": "Gaji naik, tabungan tetap segitu?",
+  "model": "gemini-3.8-flash-tts",
+  "suara": "Sulafat",
+  "jeda_antar_blok": 0.35,
+  "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, seperti teman yang paham keuangan sedang menjelaskan di Instagram Reels: hangat, santai, kalimat pendek, bukan pembaca berita. Tempo sedang cenderung cepat, beri jeda pendek sebelum angka penting.",
+  "blok": [
+    {
+      "peran": "hook",
+      "gaya": "Nada heran, cepat, naik di akhir pertanyaan",
+      "teks": "Gaji naik, kok tabungan tetap segitu?",
+      "visual": "Tulisan kapur 'gaji ↑' dengan panah naik besar, di sebelahnya celengan/koin dengan label 'tabungan →' datar; tanda tanya merah."
+    },
+    {
+      "peran": "penjelasan",
+      "gaya": "Nada menjelaskan, jelas dan santai",
+      "teks": "Ini namanya gaya hidup yang ikut naik, istilah kerennya lifestyle inflation. Begitu gaji bertambah, pengeluaran pelan-pelan ikut bertambah, sampai sisanya sama saja.",
+      "visual": "Dua garis kapur naik berdampingan: 'gaji' dan 'pengeluaran'; celah di antaranya tetap sempit, dilingkari merah 'sisa sama'."
+    },
+    {
+      "peran": "perumpamaan",
+      "gaya": "Nada bercerita, sedikit tersenyum",
+      "teks": "Mirip pindah ke kos yang lebih luas. Lemarinya lebih besar, tapi lama-lama ikut penuh lagi.",
+      "visual": "SKETSA KAPUR: kamar kos kecil dengan lemari penuh → panah → kamar besar dengan lemari besar yang juga penuh."
+    },
+    {
+      "peran": "efek",
+      "gaya": "Nada serius tapi ramah",
+      "teks": "Kenaikan gaji habis buat hal kecil yang terasa wajar: kopi lebih mahal, ongkir lebih sering, langganan bertambah, makan di luar makin sering.",
+      "visual": "Tiga ikon kapur muncul berurutan: gelas kopi, motor/kurir, layar langganan; masing-masing dengan panah kecil naik."
+    },
+    {
+      "peran": "akibat",
+      "gaya": "Nada mengajak membayangkan, pelan di 'dua belas juta'",
+      "teks": "Contohnya, gaji naik satu juta sebulan. Kalau semuanya habis, setahun kamu melewatkan kesempatan menabung dua belas juta.",
+      "visual": "Persamaan kapur 'Rp1 jt × 12 = Rp12 jt' dengan label 'contoh'; tumpukan uang dicoret merah tipis."
+    },
+    {
+      "peran": "solusi",
+      "gaya": "Nada menekankan, pelan dan jelas, seperti memberi checklist",
+      "teks": "Begitu gaji naik, pindahkan dulu setengah kenaikannya ke tabungan di hari gajian. Sisanya baru boleh dinikmati. Dengan begitu, tabunganmu ikut naik bareng gajimu.",
+      "visual": "Uang kenaikan dibelah dua dengan garis kapur: kiri 'tabung dulu' (dicentang), kanan 'nikmati'; kalender dengan tanggal gajian dilingkari."
+    },
+    {
+      "peran": "cta",
+      "gaya": "Nada ceria dan ramah, mengajak ngobrol, tersenyum di tagline",
+      "teks": "Kenaikan gajimu terakhir berapa persen? Tulis angkanya di komen. Kirim ke teman yang baru naik gaji. IntipDompet. Biar dompetmu nggak kaget.",
+      "visual": "Gelembung komentar kapur '__ %', ikon kirim (pesawat kertas), lalu tagline di tengah papan."
+    }
+  ]
+}
