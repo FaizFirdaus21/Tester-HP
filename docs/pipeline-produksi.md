@@ -144,3 +144,10 @@ Bentuk carousel (dari referensi user): **infografis, bukan sekadar tulisan.** Ti
 - CTA komentar yang bisa dijawab satu kata atau angka, plus ajakan simpan atau kirim.
 - Sumber data + "Konten edukasi, bukan ajakan ...".
 - 5–8 hashtag yang relevan, termasuk #intipdompet.
+
+### Pengecualian 14–16 Nov 2026 (user pulang kampung)
+- User mengizinkan **semua konten terbit otomatis tanpa persetujuan**, termasuk Reels, untuk tayang Sabtu 14 sampai Senin 16 Nov.
+- Carousel 6 slot (07.00 dan 12.00) dibuat dan dijadwalkan lebih awal. Topiknya evergreen supaya tetap akurat saat tayang. Ada 2 carousel cadangan di `produksi/cadangan-*`.
+- Reels tetap diproduksi harian pukul 15.20 WIB (kuota TTS harian), dengan QC Reels yang ketat. Kalau gagal QC atau kuota habis, slot 19.00 diisi carousel cadangan.
+- Setiap hari pukul 19.25 WIB, Orchestrator mengecek apakah semua postingan terbit, mencoba ulang yang gagal, lalu mengirim ringkasan ke user.
+- Mulai tayang 17 Nov, Reels kembali wajib menunggu "accept" dari user.
