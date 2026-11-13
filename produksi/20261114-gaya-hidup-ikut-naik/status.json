@@ -1,6 +1,6 @@
 {
   "slug": "20261114-gaya-hidup-ikut-naik",
   "tahap": "render-selesai",
-  "catatan": "VO 65.921 detik, 7 blok, vo/gaya-hidup-ikut-naik.mp3 (gemini-3.8-flash-tts, suara Sulafat). | Director: final.mp4 67,05 s, 26,9 MB (H.264 crf 23), -16,2 LUFS; sampul.jpg, storyboard.png, qc-akhir.png. qc_reels.py LOLOS (look.py G0/G2 PASS, 14 sambungan audio bersih, puncak terburuk -46,4 dBFS, tanpa peringatan [jadwal]/[ilustrasi]); frame akhir dicek mata: tagline utuh. | VO 64.93 detik, 7 blok, vo/gaya-hidup-ikut-naik.mp3 (gemini-3.8-flash-tts, suara Sulafat).",
-  "diperbarui": "2026-11-13T08:35:24Z"
+  "catatan": "VO 65.921 detik, 7 blok, vo/gaya-hidup-ikut-naik.mp3 (gemini-3.8-flash-tts, suara Sulafat). | Director: final.mp4 67,05 s, 26,9 MB (H.264 crf 23), -16,2 LUFS; sampul.jpg, storyboard.png, qc-akhir.png. qc_reels.py LOLOS (look.py G0/G2 PASS, 14 sambungan audio bersih, puncak terburuk -46,4 dBFS, tanpa peringatan [jadwal]/[ilustrasi]); frame akhir dicek mata: tagline utuh. | VO 64.93 detik, 7 blok, vo/gaya-hidup-ikut-naik.mp3 (gemini-3.8-flash-tts, suara Sulafat). | Director (13 Nov): dirender ulang dengan VO bersih 64,93 s. final.mp4 63,98 s, 26.032.632 byte, -16,8 LUFS. qc_reels.py LOLOS: 14 sambungan bersih (puncak terburuk -44,2 dBFS), tepi blok paling keras +1,6 dB terhadap bicara (batas +5 dB, tanpa klik/derau). Hook 'kok tetap segitu?' kini selesai ditulis sebelum kamera pindah. Frame akhir dicek mata.",
+  "diperbarui": "2026-11-13T09:38:47Z"
 }
