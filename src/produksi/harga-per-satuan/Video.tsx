@@ -9,7 +9,7 @@
 import React from "react";
 import naskah from "../../../produksi/20261116-harga-per-satuan/naskah-vo.json";
 import vo from "./vo-waktu.json";
-import { Coret, Panah, Tulis, garis, lingkaran } from "../../papan/Komponen";
+import { Coret, Tulis, garis, lingkaran } from "../../papan/Komponen";
 import { d, k } from "../../papan/tema";
 import { BENDA, Orang } from "../../papan/ilustrasi";
 import { DataVO } from "../../catatan/Jadwal";
@@ -25,15 +25,15 @@ const IsiPapan: React.FC = () => (
     {/* ===== A: hook ===== */}
     <Tulis x={A.x} y={A.y0 + 250} teks="kemasan besar," ukuran={100} gaya="tebal" mulai={4} perHuruf={1.2} rata="center" />
     <Muncul mulai={d(0.2)}>
-      <B_.botol cx={A.x0 + 300} cy={A.y0 + 640} s={280} teks="kecil" />
+      <B_.botol cx={A.x0 + 240} cy={A.y0 + 650} s={280} teks="kecil" />
     </Muncul>
     <Muncul mulai={W(0, "besar", 0)}>
-      <B_.botol cx={A.x0 + 690} cy={A.y0 + 600} s={480} teks="JUMBO" warna={k.hijauTerang} />
+      <B_.botol cx={A.x0 + 580} cy={A.y0 + 620} s={440} teks="JUMBO" warna={k.hijauTerang} />
     </Muncul>
     <Muncul mulai={W(0, "hemat", -0.4)}>
-      <B_.label cx={A.x0 + 830} cy={A.y0 + 360} s={300} teks="HEMAT!" warna={k.kuning} miring={-10} />
+      <B_.label cx={A.x0 + 890} cy={A.y0 + 560} s={280} teks="HEMAT!" warna={k.kuning} miring={-10} />
     </Muncul>
-    <Tulis x={A.x0 + 960} y={A.y0 + 470} teks="?" ukuran={170} gaya="tebal" warna={k.merah} mulai={W(0, "hemat", 0)} perHuruf={2} rata="center" />
+    <Tulis x={A.x0 + 890} y={A.y0 + 800} teks="?" ukuran={170} gaya="tebal" warna={k.merah} mulai={W(0, "hemat", 0)} perHuruf={2} rata="center" />
     <Tulis x={A.x} y={A.y0 + 1050} teks="pasti lebih hemat?" ukuran={108} gaya="hias" warna={k.merah} mulai={W(0, "pasti", -0.2, 18)} perHuruf={1} rata="center" />
 
     {/* ===== B: rumus ===== */}
@@ -65,7 +65,7 @@ const IsiPapan: React.FC = () => (
     <Tulis x={C.x0 + 760} y={C.y0 + 690} teks="3 = Rp10.000" ukuran={70} gaya="tebal" mulai={W(2, "sepuluh ribu", 0)} perHuruf={1.3} rata="center" />
     <Tulis x={C.x0 + 700} y={C.y0 + 870} teks="÷3 = Rp3.333" ukuran={76} gaya="tebal" warna={k.merah} mulai={W(2, "Yang kedua", -0.2)} perHuruf={1.3} rata="center" />
     <Coret pts={lingkaran(C.x0 + 700, C.y0 + 848, 230, 66, 9)} mulai={W(2, "lebih mahal", -0.3)} lama={12} warna={k.merah} tebal={6} />
-    <Tulis x={C.x} y={C.y0 + 1040} teks="per biji malah lebih mahal" ukuran={74} gaya="tebal" warna={k.kuning} mulai={W(2, "lebih mahal", 0, 16)} perHuruf={1} rata="center" />
+    <Tulis x={C.x} y={C.y0 + 1040} teks="per biji malah lebih mahal" ukuran={74} gaya="tebal" warna={k.kuning} mulai={W(2, "Yang kedua", 0.2, 30)} perHuruf={1} rata="center" />
     <Tulis x={C.x} y={C.y0 + 1130} teks="(contoh)" ukuran={40} gaya="tipis" warna={k.biru} mulai={W(2, "Tiga ribu", 0.3)} perHuruf={0.8} rata="center" />
 
     {/* ===== D: label hemat ===== */}
@@ -97,7 +97,7 @@ const IsiPapan: React.FC = () => (
     </Muncul>
     <Tulis x={E.x0 + 760} y={E.y0 + 690} teks="Rp45.000" ukuran={70} gaya="tebal" mulai={W(4, "empat puluh lima ribu", -0.3)} perHuruf={1.5} rata="center" />
     <Tulis x={E.x0 + 760} y={E.y0 + 800} teks="= Rp45/ml" ukuran={84} gaya="tebal" warna={k.merah} mulai={W(4, "empat puluh lima rupiah", -0.6)} perHuruf={1.5} rata="center" tebalFilter />
-    <Coret pts={lingkaran(E.x0 + 760, E.y0 + 775, 200, 70, 4)} mulai={W(4, "empat puluh lima rupiah", 0)} lama={12} warna={k.merah} tebal={6} />
+    <Coret pts={lingkaran(E.x0 + 760, E.y0 + 785, 190, 52, 4)} mulai={W(4, "empat puluh lima rupiah", 0)} lama={12} warna={k.merah} tebal={6} />
     <Tulis x={E.x} y={E.y0 + 990} teks="yang besar lebih mahal per ml" ukuran={66} gaya="tebal" warna={k.kuning} mulai={W(4, "empat puluh lima rupiah", 0.2, 18)} perHuruf={0.8} rata="center" />
     <Tulis x={E.x} y={E.y0 + 1110} teks="(contoh hitungan)" ukuran={40} gaya="tipis" warna={k.biru} mulai={W(4, "Contohnya", 0.5)} perHuruf={0.8} rata="center" />
 
@@ -116,8 +116,7 @@ const IsiPapan: React.FC = () => (
       <B_.hp cx={F.x0 + 330} cy={F.y0 + 930} s={330} teks="kalkulator" />
     </Muncul>
     <Tulis x={F.x0 + 720} y={F.y0 + 880} teks="45.000 ÷ 1.000" ukuran={60} gaya="tebal" mulai={W(5, "kalkulator", -0.3)} perHuruf={1} rata="center" />
-    <Tulis x={F.x0 + 720} y={F.y0 + 990} teks="= 45/ml" ukuran={84} gaya="tebal" warna={k.kuning} mulai={W(5, "kalkulator", 0.2, 14)} perHuruf={1.5} rata="center" tebalFilter />
-    <Panah x1={F.x0 + 520} y1={F.y0 + 930} x2={F.x0 + 600} y2={F.y0 + 900} tinggi={20} mulai={W(5, "kalkulator", -0.2)} lama={6} tebal={5} />
+    <Tulis x={F.x0 + 720} y={F.y0 + 990} teks="= 45/ml" ukuran={84} gaya="tebal" warna={k.kuning} mulai={W(5, "kalkulator", -0.3, 14)} perHuruf={1.5} rata="center" tebalFilter />
 
     {/* ===== G: CTA ===== */}
     <Tulis x={G.x} y={G.y0 + 300} teks="Pilih besar atau kecil?" ukuran={132} gaya="tebal" mulai={Math.max(W(6, "Kamu biasanya"), d(R.T.b6 + 1.6))} perHuruf={1.4} rata="center" />

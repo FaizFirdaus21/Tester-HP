@@ -107,11 +107,11 @@ const IsiPapan: React.FC = () => (
     </Muncul>
     <Coret pts={garis(D.x0 + 120, D.y0 + 700, D.x0 + 560, D.y0 + 430, 11, 4)} mulai={W(3, "menggerus", -0.2)} lama={10} warna={k.merah} tebal={12} />
     <Tulis x={D.x0 + 330} y={D.y0 + 790} teks="gaji bulan itu tergerus" ukuran={50} warna={k.merah} mulai={W(3, "menggerus", 0.1)} perHuruf={1} rata="center" />
-    <Panah x1={D.x0 + 560} y1={D.y0 + 760} x2={D.x0 + 700} y2={D.y0 + 900} tinggi={30} mulai={W(3, "utang", -0.6)} lama={8} warna={k.merah} tebal={7} />
-    <Muncul mulai={W(3, "utang", -0.4)}>
+    <Panah x1={D.x0 + 560} y1={D.y0 + 760} x2={D.x0 + 700} y2={D.y0 + 900} tinggi={30} mulai={W(3, "berujung", -0.5)} lama={8} warna={k.merah} tebal={7} />
+    <Muncul mulai={W(3, "berujung", -0.4)}>
       <B_.kartu cx={D.x0 + 800} cy={D.y0 + 990} s={240} />
     </Muncul>
-    <Tulis x={D.x0 + 800} y={D.y0 + 1170} teks="utang?" ukuran={84} gaya="tebal" warna={k.merah} mulai={W(3, "utang", -0.2, 14)} perHuruf={1.6} rata="center" />
+    <Tulis x={D.x0 + 800} y={D.y0 + 1170} teks="utang?" ukuran={84} gaya="tebal" warna={k.merah} mulai={W(3, "berujung", -0.3, 14)} perHuruf={1.6} rata="center" />
 
     {/* ===== E: contoh hitungan ===== */}
     <Tulis x={E.x0 + 110} y={E.y0 + 230} teks="Contoh:" ukuran={84} gaya="hias" warna={k.biru} mulai={W(4, "Contohnya")} perHuruf={2} />

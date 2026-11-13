@@ -1,1 +1,236 @@
-{"audio": null, "total": 0, "blok": []}
+{
+  "audio": "vo/pengeluaran-tahunan.mp3",
+  "catatan": "Dibuat dengan gemini-3.1-flash-tts-preview, suara Sulafat. Diperkaya scripts/sinkron_vo.py (bicara + jangkar kalimat).",
+  "total": 69.53,
+  "blok": [
+    {
+      "mulai": 0.0,
+      "durasi": 3.68,
+      "teks": "Tiap akhir tahun, kok dompet selalu kaget?",
+      "bicara": [
+        0.296,
+        3.425
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 18,
+          "detik": 1.521
+        },
+        {
+          "huruf": 42,
+          "detik": 3.129
+        }
+      ]
+    },
+    {
+      "mulai": 4.03,
+      "durasi": 16.0,
+      "teks": "Banyak pengeluaran datang setahun sekali: pajak kendaraan, servis, hadiah akhir tahun, atau tiket pulang kampung. Karena jarang, kita lupa menyiapkannya. Ini beda dengan dana darurat, karena waktunya bisa ditebak.",
+      "bicara": [
+        4.323,
+        19.787
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 42,
+          "detik": 3.107
+        },
+        {
+          "huruf": 59,
+          "detik": 4.486
+        },
+        {
+          "huruf": 67,
+          "detik": 5.482
+        },
+        {
+          "huruf": 87,
+          "detik": 6.989
+        },
+        {
+          "huruf": 114,
+          "detik": 9.004
+        },
+        {
+          "huruf": 129,
+          "detik": 10.069
+        },
+        {
+          "huruf": 154,
+          "detik": 12.093
+        },
+        {
+          "huruf": 184,
+          "detik": 13.686
+        },
+        {
+          "huruf": 213,
+          "detik": 15.464
+        }
+      ]
+    },
+    {
+      "mulai": 20.38,
+      "durasi": 10.44,
+      "teks": "Mirip arisan yang kamu tahu tanggal dapatnya. Bedanya, ini arisan sama dirimu sendiri, jadi uangnya pasti ada saat giliranmu tiba.",
+      "bicara": [
+        20.662,
+        30.547
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 46,
+          "detik": 3.283
+        },
+        {
+          "huruf": 55,
+          "detik": 4.292
+        },
+        {
+          "huruf": 87,
+          "detik": 6.741
+        },
+        {
+          "huruf": 130,
+          "detik": 9.885
+        }
+      ]
+    },
+    {
+      "mulai": 31.17,
+      "durasi": 6.44,
+      "teks": "Tanpa disiapkan, tagihan tahunan menggerus gaji bulan itu, atau malah berujung utang.",
+      "bicara": [
+        31.454,
+        37.201
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 17,
+          "detik": 1.505
+        },
+        {
+          "huruf": 59,
+          "detik": 4.241
+        },
+        {
+          "huruf": 85,
+          "detik": 5.747
+        }
+      ]
+    },
+    {
+      "mulai": 37.96,
+      "durasi": 8.88,
+      "teks": "Contohnya, pajak motor dan servis totalnya satu koma dua juta setahun. Kalau dicicil, cuma seratus ribu sebulan.",
+      "bicara": [
+        38.2,
+        46.516
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 11,
+          "detik": 1.84
+        },
+        {
+          "huruf": 71,
+          "detik": 5.773
+        },
+        {
+          "huruf": 86,
+          "detik": 6.884
+        },
+        {
+          "huruf": 112,
+          "detik": 8.316
+        }
+      ]
+    },
+    {
+      "mulai": 47.19,
+      "durasi": 9.36,
+      "teks": "Tulis semua pengeluaran tahunanmu. Jumlahkan, lalu bagi dua belas. Sisihkan angkanya tiap gajian di rekening terpisah.",
+      "bicara": [
+        47.474,
+        56.301
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 35,
+          "detik": 2.673
+        },
+        {
+          "huruf": 46,
+          "detik": 3.794
+        },
+        {
+          "huruf": 67,
+          "detik": 5.729
+        },
+        {
+          "huruf": 118,
+          "detik": 8.828
+        }
+      ]
+    },
+    {
+      "mulai": 56.9,
+      "durasi": 12.28,
+      "teks": "Pengeluaran tahunan apa yang paling sering bikin kaget? Jawab satu kata di komen. Simpan video ini buat bikin daftarnya. IntipDompet. Biar dompetmu nggak kaget.",
+      "bicara": [
+        57.184,
+        68.774
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 56,
+          "detik": 3.452
+        },
+        {
+          "huruf": 82,
+          "detik": 5.491
+        },
+        {
+          "huruf": 121,
+          "detik": 8.746
+        },
+        {
+          "huruf": 134,
+          "detik": 9.695
+        },
+        {
+          "huruf": 160,
+          "detik": 11.59
+        }
+      ]
+    }
+  ]
+}
