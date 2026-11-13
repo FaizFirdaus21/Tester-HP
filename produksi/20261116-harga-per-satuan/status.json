@@ -1,6 +1,6 @@
 {
   "slug": "20261116-harga-per-satuan",
-  "tahap": "vo-siap",
-  "catatan": "VO 56.61 detik, 7 blok, vo/harga-per-satuan.mp3 (gemini-3.8-flash-tts, suara Sulafat).",
-  "diperbarui": "2026-11-13T08:35:24Z"
+  "tahap": "render-selesai",
+  "catatan": "VO 56.61 detik, 7 blok, vo/harga-per-satuan.mp3 (gemini-3.8-flash-tts, suara Sulafat). | Director: final.mp4 55,87 s, 24.138.699 byte, -16,6 LUFS; sampul.jpg, storyboard.png, qc-akhir.png. qc_reels.py LOLOS: G0/G2 PASS, 14 sambungan bersih (puncak terburuk -54,2 dBFS), tepi blok paling keras -0,0 dB terhadap bicara (batas +5 dB, tanpa klik/derau), tanpa peringatan [jadwal]/[ilustrasi]. Semua angka fakta.json dan frame akhir dicek mata.",
+  "diperbarui": "2026-11-13T09:24:21Z"
 }
