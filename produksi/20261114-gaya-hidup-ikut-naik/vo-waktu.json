@@ -1,41 +1,41 @@
 {
   "audio": "vo/gaya-hidup-ikut-naik.mp3",
   "catatan": "Dibuat dengan gemini-3.8-flash-tts, suara Sulafat.",
-  "total": 65.921,
+  "total": 64.93,
   "blok": [
     {
       "mulai": 0.0,
-      "durasi": 3.521,
+      "durasi": 3.36,
       "teks": "Gaji naik, kok tabungan tetap segitu?"
     },
     {
-      "mulai": 3.871,
-      "durasi": 11.607,
+      "mulai": 3.71,
+      "durasi": 11.48,
       "teks": "Ini namanya gaya hidup yang ikut naik, istilah kerennya lifestyle inflation. Begitu gaji bertambah, pengeluaran pelan-pelan ikut bertambah, sampai sisanya sama saja."
     },
     {
-      "mulai": 15.828,
-      "durasi": 7.161,
+      "mulai": 15.54,
+      "durasi": 7.0,
       "teks": "Mirip pindah ke kos yang lebih luas. Lemarinya lebih besar, tapi lama-lama ikut penuh lagi."
     },
     {
-      "mulai": 23.339,
-      "durasi": 10.087,
+      "mulai": 22.89,
+      "durasi": 9.96,
       "teks": "Kenaikan gaji habis buat hal kecil yang terasa wajar: kopi lebih mahal, ongkir lebih sering, langganan bertambah, makan di luar makin sering."
     },
     {
-      "mulai": 33.776,
-      "durasi": 9.647,
+      "mulai": 33.2,
+      "durasi": 9.52,
       "teks": "Contohnya, gaji naik satu juta sebulan. Kalau semuanya habis, setahun kamu melewatkan kesempatan menabung dua belas juta."
     },
     {
-      "mulai": 43.773,
-      "durasi": 11.801,
+      "mulai": 43.07,
+      "durasi": 11.64,
       "teks": "Begitu gaji naik, pindahkan dulu setengah kenaikannya ke tabungan di hari gajian. Sisanya baru boleh dinikmati. Dengan begitu, tabunganmu ikut naik bareng gajimu."
     },
     {
-      "mulai": 55.924,
-      "durasi": 9.647,
+      "mulai": 55.06,
+      "durasi": 9.52,
       "teks": "Kenaikan gajimu terakhir berapa persen? Tulis angkanya di komen. Kirim ke teman yang baru naik gaji. IntipDompet. Biar dompetmu nggak kaget."
     }
   ]

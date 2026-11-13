@@ -29,6 +29,7 @@ Alternatif: variabel lingkungan GEMINI_API_KEY. Jangan tulis key di file mana pu
 import argparse
 import base64
 import hashlib
+import io
 import json
 import math
 import os
@@ -103,7 +104,7 @@ def tts(model, suara, teks_prompt):
         try:
             r = panggil(f"{API}/models/{model}:generateContent", data)
             b64 = r["candidates"][0]["content"]["parts"][0]["inlineData"]["data"]
-            return base64.b64decode(b64)
+            return ke_pcm(base64.b64decode(b64))
         except urllib.error.HTTPError as e:
             badan = e.read().decode(errors="replace")
             if e.code == 429 and "per day" in badan.lower():
@@ -118,6 +119,23 @@ def tts(model, suara, teks_prompt):
                 raise
             print("ulang karena: respons tanpa audio", e)
             time.sleep(2 ** (coba + 1))
+
+
+def ke_pcm(data):
+    """Kembalikan PCM 16-bit mono 24 kHz mentah.
+
+    Sebagian model (mis. gemini-3.8-flash-tts) mengirim file WAV utuh, lengkap dengan
+    header RIFF dan chunk metadata di belakang, bukan PCM mentah. Kalau ditulis
+    apa adanya, header dan metadata ikut terdengar sebagai klik/derau. Ambil hanya
+    chunk data-nya.
+    """
+    if data[:4] != b"RIFF" or data[8:12] != b"WAVE":
+        return data
+    with wave.open(io.BytesIO(data), "rb") as w:
+        if (w.getnchannels(), w.getsampwidth(), w.getframerate()) != (1, 2, RATE):
+            raise ValueError(f"format audio tidak didukung: {w.getnchannels()} kanal, "
+                             f"{8 * w.getsampwidth()} bit, {w.getframerate()} Hz")
+        return w.readframes(w.getnframes())
 
 
 def simpan(path, pcm):
@@ -149,6 +167,10 @@ def baca_cache(out, i, k):
             if (w.getnchannels(), w.getsampwidth(), w.getframerate()) != (1, 2, RATE):
                 return None
             pcm = w.readframes(w.getnframes())
+        bersih = ke_pcm(pcm)  # perbaiki cache lama yang masih memuat header WAV
+        if bersih is not pcm:
+            simpan(wav, bersih)
+            pcm = bersih
     except (OSError, ValueError, EOFError, wave.Error):
         return None
     return pcm if len(pcm) / 2 / RATE >= 0.5 else None

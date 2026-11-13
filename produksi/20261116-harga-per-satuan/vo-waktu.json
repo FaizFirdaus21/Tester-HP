@@ -1,0 +1,42 @@
+{
+  "audio": "vo/harga-per-satuan.mp3",
+  "catatan": "Dibuat dengan gemini-3.8-flash-tts, suara Sulafat.",
+  "total": 56.61,
+  "blok": [
+    {
+      "mulai": 0.0,
+      "durasi": 3.04,
+      "teks": "Kemasan besar, pasti lebih hemat?"
+    },
+    {
+      "mulai": 3.39,
+      "durasi": 7.72,
+      "teks": "Cara paling jujur membandingkan adalah harga per satuan: per gram, per mililiter, atau per lembar."
+    },
+    {
+      "mulai": 11.46,
+      "durasi": 7.48,
+      "teks": "Mirip beli gorengan. Tiga ribu dapat satu, atau sepuluh ribu dapat tiga? Yang kedua malah lebih mahal per biji."
+    },
+    {
+      "mulai": 19.29,
+      "durasi": 6.16,
+      "teks": "Label hemat atau kemasan jumbo sering bikin kita langsung ambil, tanpa menghitung dulu."
+    },
+    {
+      "mulai": 25.8,
+      "durasi": 12.2,
+      "teks": "Contohnya, sabun lima ratus mililiter dua puluh ribu, berarti empat puluh rupiah per mililiter. Yang satu liter empat puluh lima ribu, jadi empat puluh lima rupiah."
+    },
+    {
+      "mulai": 38.35,
+      "durasi": 7.16,
+      "teks": "Cek label harga per satuan di rak kalau ada. Kalau nggak ada, bagi harganya dengan isi pakai kalkulator HP."
+    },
+    {
+      "mulai": 45.86,
+      "durasi": 10.4,
+      "teks": "Kamu biasanya pilih kemasan besar atau kecil? Jawab satu kata di komen. Kirim ke teman yang suka stok belanja bulanan. IntipDompet. Biar dompetmu nggak kaget."
+    }
+  ]
+}

@@ -97,6 +97,22 @@ def main():
     except ValueError as e:
         print("ok  tanpa jeda ditolak:", e)
 
+    # 4b. respons berupa file WAV utuh (header RIFF + chunk metadata di belakang)
+    import io
+    import wave
+    pcm = ke_pcm_uji = buat([5], random.Random(9), [], {})[0]
+    buf = io.BytesIO()
+    with wave.open(buf, "wb") as w:
+        w.setnchannels(1), w.setsampwidth(2), w.setframerate(RATE)
+        w.writeframes(pcm)
+    berkas = bytearray(buf.getvalue())
+    ekor = b"LIST" + struct.pack("<I", 24) + b"INFOtrainedAlgorithmicMd"
+    berkas += ekor
+    struct.pack_into("<I", berkas, 4, len(berkas) - 8)
+    assert t.ke_pcm(bytes(berkas)) == ke_pcm_uji, "header/metadata harus dibuang"
+    assert t.ke_pcm(pcm) is pcm, "PCM mentah tidak boleh diubah"
+    print("ok  WAV utuh dari API -> hanya chunk data yang dipakai")
+
     # 5. main() menyeluruh dengan tts tiruan: satu request, lalu cache dipakai ulang
     panggilan = []
     mode = {"baca_instruksi": False}
