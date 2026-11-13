@@ -417,7 +417,44 @@ const CentangHijau: FB = ({ cx, cy, s }) => (
   <Gr pts={[[cx - s * 0.4, cy], [cx - s * 0.1, cy + s * 0.35], [cx + s * 0.45, cy - s * 0.4]]} warna={k.hijauTerang} tebal={Math.max(9, s * 0.09)} />
 );
 
+// Botol sabun/sampo dengan pompa; `teks` = label di badan botol (ukuran huruf menyesuaikan), `warna` = isi cairan.
+const Botol: FB = ({ cx, cy, s, teks, warna }) => {
+  const t = tebalDari(s);
+  const S = skala(cx, cy, s);
+  const w = s * 0.56;
+  const h = s * 0.7;
+  const x = cx - w / 2;
+  const y = cy - s * 0.2;
+  return (
+    <>
+      <Bidang pts={persegi(x + t, cy + s * 0.05, w - 2 * t, s * 0.45 - t)} warna={warna ?? k.biru} isi={0.35} />
+      <Bentuk pts={persegiBulat(x, y, w, h, s * 0.08)} warna={k.putih} isi={0.06} tebal={t} />
+      <Bentuk pts={S([[-0.1, -0.2], [-0.1, -0.32], [0.1, -0.32], [0.1, -0.2]])} warna={k.putih} isi={0.1} tebal={t} />
+      <Bentuk pts={S([[-0.06, -0.32], [-0.06, -0.44], [0.06, -0.44], [0.06, -0.32]])} warna={k.putih} isi={0.3} tebal={t * 0.8} />
+      <Gr pts={S([[0.06, -0.42], [0.24, -0.42], [0.24, -0.36]])} tebal={t * 0.8} />
+      {teks ? <Tulis x={cx} y={cy - s * 0.02} teks={teks} ukuran={Math.min(s * 0.13, (w * 0.86) / (teks.length * 0.5))} gaya="tebal" mulai={SUDAH} rata="center" /> : null}
+    </>
+  );
+};
+
+// Gorengan (bakwan) kuning keemasan dengan tekstur.
+const Gorengan: FB = ({ cx, cy, s }) => {
+  const t = tebalDari(s);
+  const S = skala(cx, cy, s);
+  const tepi = halus(S([[-0.5, 0.05], [-0.38, -0.22], [-0.1, -0.3], [0.2, -0.26], [0.46, -0.1], [0.5, 0.12], [0.3, 0.28], [-0.05, 0.3], [-0.36, 0.24]]), true, 2);
+  return (
+    <>
+      <Bentuk pts={tepi} warna={k.kuning} garis={k.kuning} isi={0.45} tebal={t} />
+      {([[-0.28, -0.04], [-0.05, -0.12], [0.18, -0.02], [0.02, 0.12], [0.3, 0.12], [-0.2, 0.14]] as P[]).map(([a, b], i) => (
+        <Gr key={i} pts={S([[a - 0.06, b], [a + 0.06, b - 0.03]])} warna={k.putih} tebal={t * 0.7} />
+      ))}
+    </>
+  );
+};
+
 export const BENDA: Record<string, FB> = {
+  botol: Botol,
+  gorengan: Gorengan,
   centang: CentangHijau,
   piring: Piring,
   ban: Ban,
