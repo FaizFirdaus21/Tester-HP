@@ -11,6 +11,9 @@ Memeriksa:
   4. Log render (bila --log): tidak boleh ada peringatan [jadwal] atau [ilustrasi].
   5. Frame akhir disimpan ke <folder video>/qc-akhir.png untuk dicek dengan mata (tagline utuh, tidak terpotong).
   6. Frame akhir: tidak boleh ada tulisan terang yang menyentuh tepi kiri/kanan layar (indikasi terpotong).
+  7. Derau/klik di tepi blok: RMS maksimum (jendela 20 ms) di 0,1 s awal dan 0,3 s akhir tiap blok tidak boleh
+     lebih dari 5 dB di atas level bicara blok itu (persentil 95 bagian tengah). Menangkap header/metadata WAV
+     yang ikut terbaca sebagai audio (klik di awal, derau ±0,16 s di akhir blok).
 Keluar dengan kode 2 bila ada yang gagal.
 """
 import argparse
@@ -58,6 +61,15 @@ sr = 48000
 vo = json.load(open(a.vo))
 t = 0.0
 terburuk, lompat, n = -200.0, 0.0, 0
+tepi_buruk: list[str] = []
+selisih_maks = -200.0
+
+
+def rms_db(a0: float, a1: float) -> list[float]:
+    seg = x[max(0, int(a0 * sr)) : int(a1 * sr)]
+    return [20 * np.log10(np.sqrt(np.mean(seg[k : k + 960] ** 2)) + 1e-9) for k in range(0, max(0, len(seg) - 960), 480)]
+
+
 for b in vo["blok"]:
     bm, be = b.get("bicara", [b["mulai"], b["mulai"] + b["durasi"]])
     s0, s1 = max(0, bm - a.tepi[0]), be + a.tepi[1]
@@ -68,9 +80,22 @@ for b in vo["blok"]:
         lompat = max(lompat, abs(float(x[k] - x[k - 1])))
         n += 1
     akhir_suara = a.awal + t + (s1 - s0)
+    m0 = a.awal + t
+    tengah = rms_db(m0 + 0.3, akhir_suara - 0.5)
+    if tengah:
+        acuan = float(np.percentile(tengah, 95))
+        for nama, (u0, u1) in (("awal", (m0, m0 + 0.1)), ("akhir", (akhir_suara - 0.3, akhir_suara))):
+            r = rms_db(u0, u1)
+            if r:
+                selisih = max(r) - acuan
+                selisih_maks = max(selisih_maks, selisih)
+                if selisih > 5:
+                    tepi_buruk.append(f"blok {vo['blok'].index(b)} {nama}: {max(r):.1f} dBFS vs bicara {acuan:.1f} dBFS")
     t += (s1 - s0) + a.jeda
 if terburuk > -40 or lompat > 0.01:
     gagal.append(f"sambungan audio: puncak terburuk {terburuk:.1f} dBFS, lompatan {lompat:.4f} (batas -40 dBFS / 0,01)")
+if tepi_buruk:
+    gagal.append("derau/klik di tepi blok (lebih keras dari bicara): " + "; ".join(tepi_buruk))
 if akhir_suara > durasi - 0.2:
     gagal.append(f"suara berakhir {akhir_suara:.2f} s, video {durasi:.2f} s: ucapan bisa terpotong di akhir")
 
@@ -95,6 +120,7 @@ for nama, kolom in (("kiri", pita[:, :8]), ("kanan", pita[:, -8:])):
 
 print(f"video      {a.video}: {durasi:.2f} s, {os.path.getsize(a.video) / 1e6:.1f} MB, {lufs.group(1) if lufs else '?'} LUFS")
 print(f"sambungan  {n} titik: puncak terburuk {terburuk:.1f} dBFS, lompatan maks {lompat:.4f}")
+print(f"tepi blok  {len(vo['blok'])} blok: tepi paling keras {selisih_maks:+.1f} dB terhadap bicara (batas +5 dB)")
 print(f"frame akhir {akhir} (cek dengan mata: tagline utuh, tidak terpotong)")
 for c in catatan:
     print(f"catatan    {c}")
