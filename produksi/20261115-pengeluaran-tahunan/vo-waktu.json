@@ -1,0 +1,42 @@
+{
+  "audio": "vo/pengeluaran-tahunan.mp3",
+  "catatan": "Dibuat dengan gemini-3.1-flash-tts-preview, suara Sulafat.",
+  "total": 69.53,
+  "blok": [
+    {
+      "mulai": 0.0,
+      "durasi": 3.68,
+      "teks": "Tiap akhir tahun, kok dompet selalu kaget?"
+    },
+    {
+      "mulai": 4.03,
+      "durasi": 16.0,
+      "teks": "Banyak pengeluaran datang setahun sekali: pajak kendaraan, servis, hadiah akhir tahun, atau tiket pulang kampung. Karena jarang, kita lupa menyiapkannya. Ini beda dengan dana darurat, karena waktunya bisa ditebak."
+    },
+    {
+      "mulai": 20.38,
+      "durasi": 10.44,
+      "teks": "Mirip arisan yang kamu tahu tanggal dapatnya. Bedanya, ini arisan sama dirimu sendiri, jadi uangnya pasti ada saat giliranmu tiba."
+    },
+    {
+      "mulai": 31.17,
+      "durasi": 6.44,
+      "teks": "Tanpa disiapkan, tagihan tahunan menggerus gaji bulan itu, atau malah berujung utang."
+    },
+    {
+      "mulai": 37.96,
+      "durasi": 8.88,
+      "teks": "Contohnya, pajak motor dan servis totalnya satu koma dua juta setahun. Kalau dicicil, cuma seratus ribu sebulan."
+    },
+    {
+      "mulai": 47.19,
+      "durasi": 9.36,
+      "teks": "Tulis semua pengeluaran tahunanmu. Jumlahkan, lalu bagi dua belas. Sisihkan angkanya tiap gajian di rekening terpisah."
+    },
+    {
+      "mulai": 56.9,
+      "durasi": 12.28,
+      "teks": "Pengeluaran tahunan apa yang paling sering bikin kaget? Jawab satu kata di komen. Simpan video ini buat bikin daftarnya. IntipDompet. Biar dompetmu nggak kaget."
+    }
+  ]
+}
