@@ -131,7 +131,7 @@ const IsiPapan: React.FC = () => (
     </Muncul>
     <Tulis x={A.x0 + 420} y={A.y0 + 730} teks="tabungan" ukuran={100} gaya="tebal" mulai={W(0, "tabungan", -0.3)} perHuruf={1} />
     <Panah x1={A.x0 + 430} y1={A.y0 + 840} x2={A.x0 + 900} y2={A.y0 + 840} tinggi={40} mulai={W(0, "tetap", -0.2)} lama={8} warna={k.biru} tebal={10} />
-    <Tulis x={A.x} y={A.y0 + 1040} teks="kok tetap segitu?" ukuran={112} gaya="hias" warna={k.merah} mulai={W(0, "tetap", -0.1, 18)} perHuruf={1} rata="center" />
+    <Tulis x={A.x} y={A.y0 + 1040} teks="kok tetap segitu?" ukuran={112} gaya="hias" warna={k.merah} mulai={W(0, "kok", -0.1, 30)} perHuruf={0.8} rata="center" />
 
     {/* ===== B: lifestyle inflation ===== */}
     <Tulis x={B.x} y={B.y0 + 260} teks="gaya hidup ikut naik" ukuran={86} gaya="tebal" mulai={W(1, "gaya hidup", -0.2)} perHuruf={1.3} rata="center" />
