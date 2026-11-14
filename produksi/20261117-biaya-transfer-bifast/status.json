@@ -1,6 +1,6 @@
 {
   "slug": "20261117-biaya-transfer-bifast",
-  "tahap": "vo-siap",
-  "catatan": "VO 37.94 detik, 5 blok, vo/biaya-transfer-bifast.mp3 (gemini-3.8-flash-tts, suara Sulafat). | VO 40.03 detik, 5 blok, vo/biaya-transfer-bifast.mp3 (gemini-3.8-flash-tts, suara Sulafat).",
-  "diperbarui": "2026-11-14T07:11:57Z"
+  "tahap": "render-selesai",
+  "catatan": "VO 37.94 detik, 5 blok, vo/biaya-transfer-bifast.mp3 (gemini-3.8-flash-tts, suara Sulafat). | VO 40.03 detik, 5 blok, vo/biaya-transfer-bifast.mp3 (gemini-3.8-flash-tts, suara Sulafat). | Director: final.mp4 41,09 s, 19.559.908 byte, -17,2 LUFS (v2: 5 blok, hook utuh di frame 0, subtitel sejak frame 0, kamera 0,6 s, akhir kembali ke hook untuk loop). qc_reels.py LOLOS: 10 sambungan bersih (puncak terburuk -48,4 dBFS), tepi blok paling keras +1,1 dB (batas +5 dB), tanpa peringatan [jadwal]/[ilustrasi]. Angka fakta.json dicek mata. Menunggu 'accept' user.",
+  "diperbarui": "2026-11-14T08:22:20Z"
 }
