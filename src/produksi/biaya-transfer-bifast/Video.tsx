@@ -25,13 +25,12 @@ const IsiPapan: React.FC = () => (
   <>
     {/* ===== A: hook — utuh di frame 0; kapur menambah lingkaran dan garis mulai 0,5 s ===== */}
     <Tulis x={A.x} y={A.y0 + 270} teks="transfer beda bank" ukuran={84} gaya="tebal" mulai={SUDAH} rata="center" />
-    <Tulis x={A.x} y={A.y0 + 560} teks="Rp6.500" ukuran={250} gaya="tebal" warna={k.kuning} mulai={SUDAH} rata="center" tebalFilter />
+    <Tulis x={A.x} y={A.y0 + 560} teks="Rp6.500" ukuran={215} gaya="tebal" warna={k.kuning} mulai={SUDAH} rata="center" tebalFilter />
     <Tulis x={A.x} y={A.y0 + 760} teks="KEPOTONG" ukuran={150} gaya="tebal" warna={k.merah} mulai={SUDAH} rata="center" tebalFilter />
     <B_.bank cx={A.x0 + 230} cy={A.y0 + 1010} s={230} teks="BANK A" />
     <Panah x1={A.x0 + 390} y1={A.y0 + 1010} x2={A.x0 + 690} y2={A.y0 + 1010} tinggi={40} mulai={SUDAH} lama={1} warna={k.putih} tebal={8} />
     <B_.bank cx={A.x0 + 850} cy={A.y0 + 1010} s={230} teks="BANK B" />
     <Coret pts={garis(A.x0 + 150, A.y0 + 800, A.x0 + 930, A.y0 + 792, 4, 4)} mulai={d(0.5)} lama={10} warna={k.merah} tebal={10} />
-    <Coret pts={lingkaran(A.x, A.y0 + 490, 420, 140, 7)} mulai={W(0, "enam ribu", -0.2)} lama={14} warna={k.putih} tebal={6} />
 
     {/* ===== B: inti ===== */}
     <Tulis x={B.x} y={B.y0 + 250} teks="transfer online biasa" ukuran={78} gaya="tebal" mulai={R.tiba(1)} perHuruf={1} rata="center" />
@@ -48,8 +47,8 @@ const IsiPapan: React.FC = () => (
     </Muncul>
     <Tulis x={B.x0 + 720} y={B.y0 + 800} teks="batas dari" ukuran={56} warna={k.biru} mulai={W(1, "membatasi", -0.4)} perHuruf={1.2} rata="center" />
     <Tulis x={B.x0 + 720} y={B.y0 + 870} teks="Bank Indonesia" ukuran={56} warna={k.biru} mulai={W(1, "membatasi", -0.1)} perHuruf={1.2} rata="center" />
-    <Tulis x={B.x} y={B.y0 + 1080} teks="maks. Rp2.500" ukuran={140} gaya="tebal" warna={k.kuning} mulai={W(1, "maksimal", -0.4)} perHuruf={1.4} rata="center" tebalFilter />
-    <Coret pts={lingkaran(B.x, B.y0 + 1035, 450, 110, 5)} mulai={W(1, "dua ribu lima ratus", 0)} lama={14} warna={k.kuning} tebal={7} />
+    <Tulis x={B.x} y={B.y0 + 1080} teks="maks. Rp2.500" ukuran={118} gaya="tebal" warna={k.kuning} mulai={W(1, "maksimal", -0.4)} perHuruf={1.4} rata="center" tebalFilter />
+    <Coret pts={lingkaran(B.x, B.y0 + 1040, 420, 120, 5)} mulai={W(1, "dua ribu lima ratus", 0)} lama={14} warna={k.kuning} tebal={7} />
 
     {/* ===== C: parkir dobel + contoh hitungan ===== */}
     <Tulis x={C.x} y={C.y0 + 230} teks="Mirip bayar parkir 2×" ukuran={86} gaya="hias" warna={k.biru} mulai={R.tiba(2)} perHuruf={1} rata="center" />
@@ -62,8 +61,8 @@ const IsiPapan: React.FC = () => (
     <Tulis x={C.x0 + 860} y={C.y0 + 480} teks="×2" ukuran={120} gaya="tebal" warna={k.merah} mulai={W(2, "dua kali", 0)} perHuruf={2} rata="center" />
     <Tulis x={C.x0 + 110} y={C.y0 + 660} teks="Contoh:" ukuran={70} gaya="hias" warna={k.biru} mulai={W(2, "Contohnya", -0.2)} perHuruf={2} />
     <Tulis x={C.x} y={C.y0 + 780} teks="20 × (Rp6.500 − Rp2.500)" ukuran={70} gaya="tebal" mulai={W(2, "dua puluh kali", -0.4)} perHuruf={0.9} rata="center" />
-    <Tulis x={C.x} y={C.y0 + 920} teks="= Rp80 rb / bulan" ukuran={104} gaya="tebal" warna={k.kuning} mulai={W(2, "delapan puluh ribu", -0.5)} perHuruf={1.2} rata="center" tebalFilter />
-    <Tulis x={C.x} y={C.y0 + 1060} teks="≈ Rp960 rb / tahun" ukuran={104} gaya="tebal" warna={k.merah} mulai={W(2, "hampir sejuta", -0.5)} perHuruf={1.2} rata="center" tebalFilter />
+    <Tulis x={C.x} y={C.y0 + 920} teks="= Rp80 rb / bulan" ukuran={96} gaya="tebal" warna={k.kuning} mulai={W(2, "delapan puluh ribu", -0.5)} perHuruf={1.2} rata="center" tebalFilter />
+    <Tulis x={C.x} y={C.y0 + 1060} teks="≈ Rp960 rb / tahun" ukuran={92} gaya="tebal" warna={k.merah} mulai={W(2, "hampir sejuta", -0.5)} perHuruf={1.2} rata="center" tebalFilter />
     <Tulis x={C.x} y={C.y0 + 1150} teks="(contoh hitungan)" ukuran={40} gaya="tipis" warna={k.biru} mulai={W(2, "Contohnya", 0.4)} perHuruf={0.8} rata="center" />
 
     {/* ===== D: solusi ===== */}
