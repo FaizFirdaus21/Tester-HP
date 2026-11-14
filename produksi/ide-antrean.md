@@ -41,6 +41,20 @@ Kolom "Siap carousel?" punya tiga nilai:
 
 Alasan memilih #5 dan bukan #4 (rupiah): data BPS-nya tetap dan tidak berubah harian, jadi lebih aman untuk carousel tanpa QC user. Kurs berubah tiap hari sehingga cepat basi. Rupiah lebih cocok jadi Reels di hari lain.
 
+## Prioritas baru (aturan v2, evaluasi 14 Nov 2026)
+Pilih topik dengan **angka rupiah konkret yang bisa dicek sendiri oleh penonton**: harga, biaya, potongan, atau biaya tersembunyi. Buka dengan dampak ke dompet, bukan nama kebijakannya. Kandidat di bawah belum diverifikasi, jadi angka resmi wajib dicari saat produksi:
+
+| Ide | Hook kerugian (draf) | Sumber yang harus dicari |
+|---|---|---|
+| Biaya transfer antarbank (BI-FAST vs online biasa) | "Transfer tiap hari, setahun bisa kepotong ratusan ribu." | Ketentuan tarif BI-FAST dari BI + tarif bank |
+| Biaya admin & tarik tunai di ATM bank lain | "Tarik tunai di ATM bank lain, saldo kepotong tiap kali." | Tarif resmi masing-masing bank (hindari menyebut satu bank saja) |
+| Denda telat bayar kartu kredit / paylater | "Telat sehari, tagihanmu langsung kena denda." | Ketentuan BI/OJK tentang denda dan bunga kartu kredit |
+| Iuran BPJS Kesehatan mandiri per kelas | "Telat bayar iuran, layananmu bisa diblokir." | Perpres dan laman BPJS Kesehatan |
+| Harga BBM & listrik per bulan (contoh rumah tangga) | "Naik motor tiap hari, segini bensin sebulan." | Harga resmi Pertamina dan tarif PLN pada hari produksi |
+| Rupiah melemah → harga barang impor (HP, laptop) | "HP impor bisa makin mahal ratusan ribu." | Kurs JISDOR BI (harus terkonfirmasi) |
+
+Topik makro abstrak (PDB, BI Rate, pengangguran) hanya dipakai kalau bisa dibuka dari dampak rupiah ke penonton.
+
 ## Catatan kolom `visual` (format `docs/carousel-papan.md`)
 Kolom ini hanya boleh memakai aset yang tersedia, supaya Director bisa langsung merakitnya:
 - `orang`, dengan pose mikir/hp/kaget/jempol/struk/tunjuk/netral/emas dan ekspresi.
