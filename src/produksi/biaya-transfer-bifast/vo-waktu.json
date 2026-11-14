@@ -1,0 +1,146 @@
+{
+  "audio": "vo/biaya-transfer-bifast.mp3",
+  "catatan": "Dibuat dengan gemini-3.8-flash-tts, suara Sulafat. Diperkaya scripts/sinkron_vo.py (bicara + jangkar kalimat).",
+  "total": 40.03,
+  "blok": [
+    {
+      "mulai": 0.0,
+      "durasi": 2.81,
+      "teks": "Transfer kepotong enam ribu lima ratus.",
+      "bicara": [
+        0.0,
+        2.552
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 39,
+          "detik": 2.552
+        }
+      ]
+    },
+    {
+      "mulai": 3.11,
+      "durasi": 10.32,
+      "teks": "Itu tarif transfer online biasa di sejumlah bank. Padahal lewat be i fast, Bank Indonesia membatasi biayanya maksimal dua ribu lima ratus rupiah.",
+      "bicara": [
+        3.426,
+        13.141
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 50,
+          "detik": 3.702
+        },
+        {
+          "huruf": 75,
+          "detik": 5.683
+        },
+        {
+          "huruf": 145,
+          "detik": 9.715
+        }
+      ]
+    },
+    {
+      "mulai": 13.73,
+      "durasi": 11.36,
+      "teks": "Mirip bayar parkir dua kali di tempat yang sama. Contohnya, transfer dua puluh kali sebulan, selisihnya delapan puluh ribu, hampir sejuta setahun.",
+      "bicara": [
+        13.943,
+        24.759
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 49,
+          "detik": 3.527
+        },
+        {
+          "huruf": 60,
+          "detik": 4.849
+        },
+        {
+          "huruf": 93,
+          "detik": 7.237
+        },
+        {
+          "huruf": 124,
+          "detik": 9.277
+        },
+        {
+          "huruf": 146,
+          "detik": 10.816
+        }
+      ]
+    },
+    {
+      "mulai": 25.39,
+      "durasi": 6.8,
+      "teks": "Sebelum transfer, pilih menu be i fast kalau tersedia. Cek juga daftar biaya di aplikasi bankmu.",
+      "bicara": [
+        25.734,
+        32.115
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 18,
+          "detik": 1.307
+        },
+        {
+          "huruf": 55,
+          "detik": 3.921
+        },
+        {
+          "huruf": 96,
+          "detik": 6.381
+        }
+      ]
+    },
+    {
+      "mulai": 32.49,
+      "durasi": 7.24,
+      "teks": "Biaya transfer di bankmu berapa? Tulis angkanya di komen. IntipDompet. Biar dompetmu nggak kaget.",
+      "bicara": [
+        32.69,
+        39.442
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 33,
+          "detik": 2.399
+        },
+        {
+          "huruf": 58,
+          "detik": 4.123
+        },
+        {
+          "huruf": 71,
+          "detik": 5.346
+        },
+        {
+          "huruf": 97,
+          "detik": 6.752
+        }
+      ]
+    }
+  ]
+}

@@ -23,25 +23,46 @@ export const G = { x: 1080, y0: 5760 };
 
 const PINDAH = 0.3; // perpindahan kamera total 0,6 s (aturan 14 Nov)
 
+type Sel = { x: number; y0: number };
+export type OpsiReels = {
+  /** Bagian papan untuk blok 0..n-2 (blok terakhir = CTA). Bawaan v1 (7 blok): A–F. */
+  bagian?: Sel[];
+  /** Posisi CTA (selebar 2 kolom). Bawaan v1: baris 3. */
+  cta?: Sel;
+  /** Akhir video kembali ke bingkai hook (A) supaya frame terakhir menyambung ke frame 0 saat diputar ulang. */
+  loop?: boolean;
+};
+
+/** Reels v2 (5 blok, mulai 17 Nov): hook, inti, perumpamaan+akibat, solusi, CTA di baris 2, akhir menyambung ke hook. */
+export const TATA_V2: OpsiReels = { bagian: [A, B, C, D], cta: { x: 1080, y0: 3840 }, loop: true };
+
+const KEMBALI = 0.6; // detik kamera kembali dari CTA ke hook di akhir (loop)
+
 /** Jadwal + kamera + fungsi waktu frasa untuk satu Reels. */
-export const buatReels = (vo: DataVO, naskah: Naskah) => {
+export const buatReels = (vo: DataVO, naskah: Naskah, opsi: OpsiReels = {}) => {
+  const bagian = opsi.bagian ?? [A, B, C, D, E, F];
+  const cta = opsi.cta ?? G;
+  const n = bagian.length + 1;
+  if (naskah.blok.length !== n) peringatkan(`naskah ${naskah.blok.length} blok, tata papan untuk ${n} blok`);
+  const isyarat: Record<string, number | "selesai"> = { akhir: "selesai" };
+  for (let i = 0; i < n; i++) isyarat[`b${i}`] = i;
   const VO = rapatkanVO(vo, { jeda: 0.4 });
-  const J = jadwalVO(VO, { b0: 0, b1: 1, b2: 2, b3: 3, b4: 4, b5: 5, b6: 6, akhir: "selesai" }, perkiraanVO(naskah as never), { awal: 0.4, ekor: 1.4 });
-  const T = J.T;
-  const MULAI = [T.b0, T.b1, T.b2, T.b3, T.b4, T.b5, T.b6];
-  const batas = (i: number) => (i + 1 < MULAI.length ? MULAI[i + 1] - PINDAH : T.akhir);
+  const J = jadwalVO(VO, isyarat as never, perkiraanVO(naskah as never), { awal: 0.4, ekor: 1.4 + (opsi.loop ? KEMBALI : 0) });
+  const T = J.T as Record<string, number>;
+  const MULAI = Array.from({ length: n }, (_, i) => T[`b${i}`]);
+  const akhir = T.akhir;
+  const batas = (i: number) => (i + 1 < MULAI.length ? MULAI[i + 1] - PINDAH : akhir - (opsi.loop ? KEMBALI : 0));
   /** Frame saat `frasa` diucapkan di blok i; peringatan bila elemen (`lama` frame) belum selesai saat kamera pindah. */
   const W = (i: number, frasa: string, geser = 0, lama = 0) => {
     const f = d(padaFrasa(J, i, naskah.blok[i].teks, frasa, geser));
     if (f + lama > d(batas(i))) peringatkan(`blok ${i} "${frasa}": selesai di frame ${f + lama}, kamera pindah di ${d(batas(i))}`);
     return f;
   };
-  const fokus = (s: { x: number; y0: number }) => ({ x: s.x, y: s.y0 + 880 });
+  const fokus = (s: Sel) => ({ x: s.x, y: s.y0 + 880 });
   const kamera: KunciKamera[] = [
     // frame 0 tegak dan utuh: hook harus terbaca sejak frame pertama (aturan 14 Nov)
     { f: 0, ...fokus(A), s: 1.0 },
   ];
-  const bagian = [A, B, C, D, E, F];
   for (let i = 1; i < bagian.length; i++) {
     kamera.push({ f: d(MULAI[i] - PINDAH), ...fokus(bagian[i - 1]), s: 1.05, ry: i % 2 ? 2 : -2 });
     if (i === 2) {
@@ -51,13 +72,20 @@ export const buatReels = (vo: DataVO, naskah: Naskah) => {
       kamera.push({ f: d(MULAI[i] + PINDAH), ...fokus(bagian[i]), s: 1.0, ry: i % 2 ? -3 : 3 });
     }
   }
-  kamera.push({ f: d(T.b6 - PINDAH), ...fokus(F), s: 1.05 });
-  kamera.push({ f: d(T.b6 + 0.9), x: 1080, y: 3600, s: 0.42, rx: 20, ry: -10, rz: -1.5 });
-  kamera.push({ f: d(T.b6 + 2.0), x: G.x, y: G.y0 + 880, s: 0.6, rx: 4 });
-  kamera.push({ f: d(T.akhir), x: G.x, y: G.y0 + 900, s: 0.64, rx: 0, ry: 2 });
+  const tc = MULAI[n - 1];
+  const tengahY = (cta.y0 + 1920) / 2;
+  kamera.push({ f: d(tc - PINDAH), ...fokus(bagian[bagian.length - 1]), s: 1.05 });
+  kamera.push({ f: d(tc + 0.9), x: 1080, y: tengahY, s: 0.42, rx: 20, ry: -10, rz: -1.5 });
+  kamera.push({ f: d(tc + 2.0), x: cta.x, y: cta.y0 + 880, s: 0.6, rx: 4 });
+  if (opsi.loop) {
+    kamera.push({ f: d(akhir - KEMBALI), x: cta.x, y: cta.y0 + 900, s: 0.64, rx: 0, ry: 2 });
+    kamera.push({ f: d(akhir) - 1, ...fokus(A), s: 1.0 });
+  } else {
+    kamera.push({ f: d(akhir), x: cta.x, y: cta.y0 + 900, s: 0.64, rx: 0, ry: 2 });
+  }
   /** Frame judul bagian i mulai ditulis: saat kamera berangkat, supaya papan tidak kosong saat kamera tiba. */
   const tiba = (i: number) => d(MULAI[i] - PINDAH);
-  return { VO, J, T, W, tiba, kamera, durasi: d(T.akhir) };
+  return { VO, J, T, MULAI, W, tiba, kamera, cta, durasi: d(akhir) };
 };
 
 // ---------------------------------------------------------------- bentuk kecil

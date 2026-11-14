@@ -30,6 +30,7 @@ import { DURASI_PAYLATER, PaylaterReels } from "./produksi/paylater-1212/Video";
 import { DURASI_GAYA_HIDUP, GayaHidupReels } from "./produksi/gaya-hidup-ikut-naik/Video";
 import { DURASI_PENGELUARAN_TAHUNAN, PengeluaranTahunanReels } from "./produksi/pengeluaran-tahunan/Video";
 import { DURASI_HARGA_PER_SATUAN, HargaPerSatuanReels } from "./produksi/harga-per-satuan/Video";
+import { BifastReels, DURASI_BIFAST } from "./produksi/biaya-transfer-bifast/Video";
 import contohNaikBerapa from "../data/naik-berapa-contoh.json";
 
 export const RemotionRoot: React.FC = () => (
@@ -56,6 +57,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="GayaHidupReels" component={GayaHidupReels} durationInFrames={DURASI_GAYA_HIDUP} fps={30} width={1080} height={1920} />
     <Composition id="PengeluaranTahunanReels" component={PengeluaranTahunanReels} durationInFrames={DURASI_PENGELUARAN_TAHUNAN} fps={30} width={1080} height={1920} />
     <Composition id="HargaPerSatuanReels" component={HargaPerSatuanReels} durationInFrames={DURASI_HARGA_PER_SATUAN} fps={30} width={1080} height={1920} />
+    <Composition id="BifastReels" component={BifastReels} durationInFrames={DURASI_BIFAST} fps={30} width={1080} height={1920} />
     <Composition id="BungaDepositoLPSv2" component={BungaDepositoLPSv2} durationInFrames={DURASI_DEPOSITO_V2} fps={30} width={1080} height={1920} />
     <Composition id="BungaDepositoLPS" component={BungaDepositoLPS} durationInFrames={DURASI_DEPOSITO} fps={30} width={1080} height={1920} />
     <Composition id="InflasiSinematik" component={InflasiSinematik} durationInFrames={DURASI_V3} fps={30} width={1080} height={1920} />
