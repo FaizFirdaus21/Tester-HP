@@ -1,0 +1,46 @@
+{
+  "slug": "20261117-biaya-transfer-bifast",
+  "format": "reels",
+  "tayang": "2026-11-17T19:00:00+07:00",
+  "kategori": "biaya bank",
+  "diakses": "2026-11-14",
+  "fakta": [
+    {
+      "id": "bifast-2500",
+      "klaim": "Bank Indonesia menetapkan harga BI-FAST dari peserta (bank) ke nasabah maksimal Rp2.500 per transaksi (transfer individual).",
+      "di_naskah": "blok 2",
+      "sumber_primer": [
+        "https://www.bi.go.id/id/fungsi-utama/sistem-pembayaran/ritel/infrastruktur/Documents/FAQ_BI-FAST.pdf",
+        "https://www.bi.go.id/id/publikasi/ruang-media/cerita-bi/Pages/BI-FAST-Transfer-Antar-bank-Semakin-Mudah-dan-Hemat.aspx"
+      ],
+      "sumber_media": [
+        "https://www.ocbc.id/id/article/2026/10/27/bi-fast-adalah",
+        "https://binus.ac.id/bekasi/accounting-technology/2026/10/22/mengapa-transfer-antarbank-ada-yang-gratis-dan-ada-yang-berbayar/",
+        "https://insight.kontan.co.id/news/tarif-murah-bank-bank-besar-panen-raya-dari-transaksi-bi-fast"
+      ],
+      "catatan": "Angka ini batas maksimal; sebagian bank menarik lebih rendah atau menggratiskan. Naskah memakai 'maksimal'. BINUS menyebut ada PADG 3/2026 yang mengubah PADG 17/2023; isi perubahan biaya tidak terlacak — tidak ditemukan perubahan angka Rp2.500.",
+      "status": "resmi + 3 sumber"
+    },
+    {
+      "id": "transfer-online-6500",
+      "klaim": "Transfer antarbank online reguler (jaringan ATM) di sejumlah bank dikenai Rp6.500 per transaksi.",
+      "di_naskah": "blok 1 ('bisa kepotong')",
+      "sumber_primer": [
+        "https://www.ocbc.id/id/tarif-dan-biaya/bunga-dan-biaya-digital-channel (daftar biaya resmi bank)",
+        "https://www.jtrustbank.co.id/theme/Site/pdf/services-rates/2026/jul/4. (Biaya Transfer) Fee Charges Ver.06.7.2026 ID_ENG_050626.pdf"
+      ],
+      "sumber_media": [
+        "https://www.ocbc.id/id/article/2026/10/28/transfer-gratis-semua-bank",
+        "https://rankia.id/biaya-transfer-antar-bank/"
+      ],
+      "catatan": "Tarif berbeda per bank; naskah memakai 'bisa', tidak mengklaim semua bank.",
+      "status": "daftar biaya resmi bank + 2 sumber"
+    },
+    {
+      "id": "contoh-20x",
+      "klaim": "20 transfer × (Rp6.500 − Rp2.500) = Rp80.000/bulan; × 12 = Rp960.000 ('hampir sejuta')",
+      "di_naskah": "blok 3",
+      "status": "contoh hitungan, berlabel 'contoh'"
+    }
+  ]
+}

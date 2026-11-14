@@ -1,0 +1,41 @@
+{
+  "slug": "20261117-biaya-transfer-bifast",
+  "versi_struktur": 2,
+  "judul": "Biaya transfer beda bank",
+  "model": "gemini-3.8-flash-tts",
+  "suara": "Sulafat",
+  "jeda_antar_blok": 0.3,
+  "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, seperti teman yang paham keuangan sedang menjelaskan di Instagram Reels: hangat, santai, kalimat pendek. Tempo cepat, hook langsung tegas tanpa jeda di awal, beri jeda pendek sebelum angka penting.",
+  "blok": [
+    {
+      "peran": "hook",
+      "gaya": "Tegas dan cepat, sedikit kesal, langsung ke angka",
+      "teks": "Transfer beda bank bisa kepotong enam ribu lima ratus.",
+      "visual": "Frame 0 sudah utuh: angka kapur besar 'Rp6.500' dengan kata merah 'KEPOTONG' dan panah dari ikon bank ke bank lain."
+    },
+    {
+      "peran": "inti",
+      "gaya": "Menjelaskan, jelas dan meyakinkan, tekankan dua ribu lima ratus",
+      "teks": "Padahal lewat be i fast, Bank Indonesia membatasi biayanya maksimal dua ribu lima ratus rupiah per transaksi.",
+      "visual": "Label 'BI-FAST' dan angka kapur 'maks. Rp2.500' dilingkari kuning; label kecil 'batas dari Bank Indonesia'."
+    },
+    {
+      "peran": "perumpamaan_akibat",
+      "gaya": "Bercerita lalu pelan di angka hampir sejuta",
+      "teks": "Mirip bayar parkir dua kali di tempat yang sama. Contohnya, transfer dua puluh kali sebulan, selisihnya delapan puluh ribu, hampir sejuta setahun.",
+      "visual": "Persamaan kapur '20 × (Rp6.500 − Rp2.500) = Rp80 rb/bulan → Rp960 rb/tahun' dengan label 'contoh'; sketsa karcis parkir dobel."
+    },
+    {
+      "peran": "solusi",
+      "gaya": "Menekankan, jelas, seperti memberi checklist",
+      "teks": "Sebelum transfer, pilih menu be i fast kalau tersedia. Cek juga daftar biaya di aplikasi bankmu.",
+      "visual": "HP dengan dua tombol kapur 'Transfer online' (dicoret) dan 'BI-FAST' (dicentang); checklist '☐ cek daftar biaya bank'."
+    },
+    {
+      "peran": "cta",
+      "gaya": "Ceria dan ramah, tersenyum di tagline",
+      "teks": "Biaya transfer di bankmu berapa? Tulis angkanya di komen. IntipDompet. Biar dompetmu nggak kaget.",
+      "visual": "Gelembung komentar kapur 'Rp____', lalu tagline di tengah papan."
+    }
+  ]
+}
