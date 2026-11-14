@@ -62,29 +62,35 @@ Nilai tiap kriteria 1–5, kalikan bobot, jumlahkan, lalu ubah ke skala 100.
 3. `naskah-vo.json`, dengan aturan di bagian **Struktur naskah** di bawah.
 4. Set `status.json` ke `naskah-siap`.
 
-### Struktur naskah (wajib)
-@intipdompet adalah media edukasi. Tiap video menjelaskan satu hal, apa efeknya, lalu apa yang bisa dilakukan penonton.
+### Struktur naskah (wajib, versi 2 mulai 17 Nov 2026)
+@intipdompet adalah media edukasi. Tiap video menjelaskan satu hal, apa efeknya ke dompet, lalu apa yang bisa dilakukan penonton.
+
+**Kenapa diubah (evaluasi 14 Nov 2026).** Dua Reels pertama (66–67 detik) ditinggal **75–77% penonton di awal** dan rata-rata hanya ditonton **3–8 detik**. Frame pertama hampir kosong (hook masih ditulis kapur, baru utuh di detik ke-3 sampai ke-4), padahal penonton memutuskan scroll atau tidak dalam ±1 detik. Isi inti dan CTA baru muncul setelah detik ke-20, jadi hampir tidak ada yang melihatnya: komentar dan simpan = 0. Carousel emas (reach 101, 1 share, 1 follow) jauh mengungguli BI Rate dan diskon (reach 5) karena slide pertamanya memakai **angka nyata + kerugian langsung** ("Kok rugi?").
 
 | Blok | Isi | Panjang |
 |---|---|---|
-| 1. Hook | Pertanyaan, angka, atau pernyataan yang membuat penasaran. Harus terbaca dalam 2 detik dan langsung menyentuh dompet penonton. | 4–8 kata |
-| 2. Penjelasan | Apa yang terjadi, dengan data resmi (sumber di `fakta.json`). | 1–2 kalimat |
-| 3. Perumpamaan | Analogi sehari-hari yang sederhana (warung, kos, gaji, ojol, belanja bulanan) supaya orang awam paham tanpa istilah. | 1–2 kalimat |
-| 4. Efek | Apa yang berubah karena hal itu. | 1 kalimat |
-| 5. Akibat | Dampak langsung ke uang penonton, sebaiknya dengan contoh angka (diberi label "contoh"). | 1–2 kalimat |
-| 6. Solusi | Kalau topiknya masalah: 1–3 langkah konkret yang bisa dilakukan hari ini. Kalau bukan masalah: satu hal yang perlu diingat. Tidak menyuruh membeli produk tertentu. | 1–3 kalimat |
-| 7. CTA | Pertanyaan spesifik yang mudah dijawab di komentar, plus ajakan kirim/simpan, lalu tagline. | 2–3 kalimat |
+| 1. Hook | Kerugian atau angka konkret yang langsung menyentuh dompet. Pernyataan tajam, boleh diakhiri tanya. Terdengar utuh dalam ≤2 detik. Contoh: "Bunga deposito enam persen bisa bikin uangmu nggak dijamin sama sekali." | 6–10 kata |
+| 2. Inti + data | Apa yang terjadi, satu angka resmi (sumber di `fakta.json`). Langsung ke pokok, tanpa pembuka. | 1–2 kalimat |
+| 3. Perumpamaan + akibat | Analogi sehari-hari sekaligus dampaknya ke uang penonton dengan contoh angka (label "contoh"). | 1–2 kalimat |
+| 4. Solusi | 1–3 langkah konkret yang bisa dilakukan hari ini. | 1–2 kalimat |
+| 5. CTA | **Satu** ajakan komentar yang dijawab satu kata/angka, lalu tagline. Ajakan simpan/kirim cukup di caption. | 1 kalimat + tagline |
 
 Aturan tambahan:
-- 120–150 kata (±50–60 detik), 7 blok sesuai tabel. Kalau topiknya sederhana, lebih pendek lebih baik.
-- Bahasa lisan anak muda Indonesia: sapa "kamu", kalimat pendek, satu ide per kalimat. Hindari istilah teknis; kalau terpaksa, langsung jelaskan dengan bahasa sehari-hari.
-- **CTA harus bisa dijawab dalam satu kata atau satu angka**, supaya orang mau komen. Contoh bagus: "Kamu pernah taruh deposito di bunga berapa? Tulis angkanya di komen." / "Tim nabung di bank atau di e-wallet? Komen di bawah." Lalu satu ajakan berbagi yang spesifik: "Kirim ke teman yang lagi nyari deposito bunga tinggi." Hindari CTA kosong seperti "Gimana menurutmu?" atau "Setuju?".
-- Tagline **"IntipDompet. Biar dompetmu nggak kaget."** diucapkan di akhir blok 7, setelah CTA.
-- Gaya merek: tanpa kata "cuan", "auto kaya", "pasti untung"; tidak menyuruh membeli saham, kripto, atau produk tertentu; konten investasi menyebut "konten edukasi, bukan ajakan membeli".
-- Hindari pola tulisan AI: "bukan X, tapi Y" sebagai kejutan, "Hasilnya? ...", daftar "tanpa X, tanpa Y, tanpa Z", dan frasa klise ("ternyata oh ternyata", "simak sampai habis").
-- Angka ditulis sebagai kata ("tiga koma dua tiga persen"), singkatan dieja sesuai cara baca.
-- Tiap blok punya `peran` (salah satu dari 7 peran di atas), `gaya` (ekspresi), `teks`, dan `visual` (kata kunci, angka, ide gambar untuk Director).
-- Format: lihat `data/vo-inflasi.json`, ditambah `"model"` dan kolom `peran`.
+- **70–90 kata (±30–40 detik), maksimal 45 detik.** Kalau satu ide butuh lebih lama, pecah jadi dua video.
+- Hook adalah **pernyataan kerugian atau angka mengejutkan**, bukan pertanyaan pelan. Hindari pembuka lunak seperti "Kamu tahu nggak…".
+- Pakai **open loop** sekali di blok 2 atau 3 bila wajar, misalnya "yang ketiga paling sering bikin rugi", supaya orang bertahan sampai solusi.
+- Bahasa lisan anak muda Indonesia: sapa "kamu", kalimat pendek, satu ide per kalimat, tanpa istilah teknis yang tidak dijelaskan.
+- **CTA bisa dijawab dalam satu kata atau satu angka**: "Kamu pakai bunga tetap atau floating? Komen satu kata." Hindari "Gimana menurutmu?".
+- Tagline **"IntipDompet. Biar dompetmu nggak kaget."** di akhir blok 5.
+- Gaya merek: tanpa "cuan", "auto kaya", "pasti untung"; tidak menyuruh membeli produk tertentu; konten investasi menyebut "konten edukasi, bukan ajakan membeli" (di caption).
+- Hindari pola tulisan AI: "bukan X, tapi Y" sebagai kejutan, "Hasilnya? ...", daftar "tanpa X, tanpa Y, tanpa Z", "simak sampai habis".
+- Angka ditulis sebagai kata, singkatan dieja sesuai cara baca.
+- Tiap blok punya `peran` (salah satu dari 5 peran di atas), `teks`, dan `visual`. Format: lihat `data/vo-inflasi.json`, ditambah `"model"` dan `peran`.
+
+### Slide 1 carousel (wajib)
+- Angka nyata atau contoh kerugian dalam rupiah/persen, ditulis besar, plus satu kata rasa sakit ("rugi", "hangus", "kepotong", "bocor").
+- Judul maksimal 7 kata. Topik abstrak (kebijakan, istilah) dibuka dari dampaknya ke dompet, bukan nama kebijakannya: "Cicilan KPR-mu bisa naik" lebih baik daripada "BI Rate 5,75%".
+- Slide terakhir: satu pertanyaan komentar satu kata + "kirim ke [orang spesifik]".
 
 ## 2. VO
 1. `python3 scripts/tts_gemini.py produksi/<slug>/naskah-vo.json produksi/<slug>/vo --tanpa-gaya` (mode per blok; key dari `GEMINI_API_KEY`, jangan pernah ditampilkan atau disimpan). Model TTS kadang membacakan instruksi gaya, jadi bawaan produksi adalah teks saja; nada diatur lewat tanda baca. Satu video = 8 permintaan, sementara paket gratis hanya 10 permintaan/hari, jadi maksimal 1 video/hari. Script melanjutkan blok yang sudah ada dan menolak blok yang durasinya tidak wajar. `--satu-permintaan` masih **eksperimen** (model bisa menambah kalimat sendiri) dan tidak dipakai untuk video tayang.
@@ -98,6 +104,10 @@ Aturan tambahan:
    - Batang kapur hanya muncul saat **mencoret, melingkari, menggambar, menandai, atau menggaris bawahi** (`Coret`, `Panah`, atau `Tulis kapur`). Tulisan biasa muncul tanpa batang kapur.
    - Efek 2,5D (`Angkat`, kamera miring) dipakai sesekali untuk momen penting saja, maksimal 2–3 kali per video.
    - Satu blok naskah = satu bagian papan. Blok "Perumpamaan" sebaiknya digambar (sketsa kapur), bukan hanya ditulis.
+   - **Frame 0 = hook sudah utuh terbaca** (judul besar + angka), tanpa menunggu animasi kapur. Animasi kapur boleh menambah coretan/lingkaran mulai detik 0,5. Sampul dan frame pertama harus sama-sama bisa menjual video.
+   - **Ada perubahan visual setiap 2–3 detik** (tulisan baru, coretan, potong kamera). Perpindahan kamera antar-bagian papan maksimal 0,6 detik; jangan ada jeda papan kosong.
+   - Subtitel aktif sejak frame 0.
+   - Frame terakhir menyambung ke frame pertama (papan yang sama) supaya putaran ulang terasa mulus.
 3. Buat `src/produksi/<slug>/Video.tsx` dan daftarkan di `src/Root.tsx`. Setiap tulisan dan coretan disinkron dengan waktu blok VO, dan audio dipasang.
 4. Rencanakan seperti sutradara: satu ide visual per blok, gerak kamera, transisi, dan aset. Area aman: isi utama y 220–1200, subtitel tipis tanpa kotak di y 1300–1480 (default aktif), tidak ada yang penting di bawah 1500. Render pakai chrome-headless-shell (`--browser-executable`), karena unduhan browser Remotion diblokir.
 5. Buat storyboard dari frame asli: `node scripts/stills.mjs <Id> <dir> <frame,...> --browser <chrome-headless-shell>`, lalu susun jadi `storyboard.png`. Set status ke `storyboard-siap`. **Jangan render video** sebelum Orchestrator menyampaikan persetujuan user.
