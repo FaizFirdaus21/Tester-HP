@@ -198,6 +198,18 @@ def main():
         assert len(panggilan) == 2 * n
         print("ok  blok tanpa gaya dipakai ulang dari cache")
 
+    # 6b. --tanpa-pangkas: VO dirakit ulang dari cache dengan durasi blok 0 asli
+    with tempfile.TemporaryDirectory() as d:
+        mode["baca_instruksi"] = False
+        t.main([NASKAH, d, "--tanpa-gaya"])
+        asli = os.path.getsize(os.path.join(d, "blok_00.wav")) - 44
+        t.main([NASKAH, d, "--tanpa-gaya", "--tanpa-pangkas"])
+        w = json.load(open(os.path.join(d, "waktu.json")))
+        assert abs(w["blok"][0]["durasi"] - asli / 2 / RATE) < 0.002, "blok 0 tidak boleh dipangkas"
+        t.main([NASKAH, d, "--tanpa-gaya"])
+        assert json.load(open(os.path.join(d, "waktu.json")))["blok"][0]["durasi"] < w["blok"][0]["durasi"]
+        print("ok  --tanpa-pangkas mempertahankan durasi hook asli; tanpa opsi, hook dipangkas")
+
     # 7. --tanpa-gaya: satu request per blok, prompt = teks saja
     with tempfile.TemporaryDirectory() as d:
         panggilan.clear()

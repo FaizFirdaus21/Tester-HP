@@ -15,6 +15,8 @@ gaya, teks sama) dipakai ulang tanpa memanggil API. Hapus file blok untuk membua
 Pemeriksa durasi: model TTS kadang ikut membacakan instruksi gaya. Blok yang terlalu
 panjang untuk jumlah katanya (> kata/2,3 x 1,6 + 1,5 detik) dibuat ulang sekali tanpa
 instruksi gaya; kalau masih terlalu panjang, script berhenti tanpa menyimpan blok itu.
+--tanpa-pangkas: jangan pangkas sunyi awal hook. Pakai untuk revisi satu blok video yang
+sudah dirender sebelum aturan pangkas berlaku (17 Nov), agar waktu blok lama tetap sama.
 --tanpa-gaya: langsung kirim teks saja (nada diatur lewat tanda baca), paling hemat kuota.
 
 --satu-permintaan (EKSPERIMEN, tidak disarankan): semua blok yang belum ada dikirim dalam
@@ -310,6 +312,8 @@ def main(argv=None):
     ap.add_argument("out")
     ap.add_argument("--satu-permintaan", action="store_true", help="EKSPERIMEN: semua blok dalam satu request (lihat catatan di atas)")
     ap.add_argument("--tanpa-gaya", action="store_true", help="kirim teks saja, tanpa instruksi gaya")
+    ap.add_argument("--tanpa-pangkas", action="store_true",
+                    help="jangan pangkas sunyi awal hook (untuk revisi satu blok video lama, agar waktu render tetap berlaku)")
     arg = ap.parse_args(argv)
 
     naskah = json.load(open(arg.naskah))
@@ -367,7 +371,8 @@ def main(argv=None):
 
     # Hook harus mulai di 0,0 s: sunyi awal blok pertama maksimal 50 ms (pipeline v2).
     sebelum = len(pcm[0]) / 2 / RATE
-    pcm[0] = potong_awal(pcm[0])
+    if not arg.tanpa_pangkas:
+        pcm[0] = potong_awal(pcm[0])
     if len(pcm[0]) / 2 / RATE < sebelum - 0.001:
         print(f"blok 0: sunyi awal dipangkas {sebelum - len(pcm[0]) / 2 / RATE:.2f} s")
     db = _energi_db(pcm[0], RATE, 0.01)
