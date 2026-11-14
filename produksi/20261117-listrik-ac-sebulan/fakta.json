@@ -1,0 +1,28 @@
+{
+  "slug": "20261117-listrik-ac-sebulan",
+  "format": "carousel",
+  "tayang": "2026-11-17T12:00:00+07:00",
+  "kategori": "listrik rumah tangga",
+  "diakses": "2026-11-14",
+  "fakta": [
+    {
+      "id": "tarif-r1",
+      "klaim": "Tarif listrik PLN triwulan IV 2026 (Okt–Des) tidak berubah; golongan R-1/TR 1.300 VA dan 2.200 VA Rp1.444,70 per kWh.",
+      "di_slide": "1 (dasar hitungan), 2, 4",
+      "sumber_primer": "Penetapan tarif tenaga listrik triwulan IV-2026 oleh Kementerian ESDM/PLN (dikutip media; esdm.go.id dan pln.co.id tidak bisa dibuka)",
+      "sumber_media": [
+        "https://www.cnbcindonesia.com/news/20261104072435-4-782094/resmi-daftar-tarif-listrik-pln-per-kwh-berlaku-hingga-desember-2026",
+        "https://www.metrotvnews.com/read/NA0CzpEz-daftar-lengkap-tarif-listrik-pln-akhir-oktober-2026-per-kwh",
+        "https://finance.detik.com/energi/d-8687317/daftar-tarif-listrik-yang-berlaku-per-1-oktober-2026"
+      ],
+      "catatan": "Konten tayang 17 Nov, tarif berlaku sampai 31 Des 2026.",
+      "status": "resmi (dikutip) + 3 media"
+    },
+    {
+      "id": "contoh-ac",
+      "klaim": "AC 400 W × 8 jam × 30 hari = 96 kWh × Rp1.444,70 = Rp138.691 (≈ Rp139 ribu)",
+      "di_slide": "1, 4",
+      "status": "contoh hitungan; daya 400 W adalah asumsi, berlabel 'contoh' dan 'daya AC tiap merek bisa beda'"
+    }
+  ]
+}

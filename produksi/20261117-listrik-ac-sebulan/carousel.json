@@ -1,0 +1,43 @@
+{
+  "judul": "AC 8 jam, listrik kepotong berapa?",
+  "sumber": "Tarif tenaga listrik PLN triwulan IV 2026 (R-1 1.300/2.200 VA Rp1.444,70/kWh)",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "AC 8 jam {kepotong} Rp139 ribu sebulan",
+      "isi": "Contoh AC 400 watt, dipakai 8 jam sehari, di rumah 1.300 VA.",
+      "visual": "Orang (pose kaget, ekspresi kaget) di bawah sketsa kotak AC kapur; angka besar merah 'Rp139 rb/bulan'; label kecil 'contoh'."
+    },
+    {
+      "peran": "penjelasan",
+      "judul": "Listrik [Rp1.444,70] per kWh",
+      "isi": "Tarif PLN Oktober–Desember 2026 untuk rumah 1.300 VA dan 2.200 VA.",
+      "visual": "Label harga besar 'Rp1.444,70/kWh'; kalender 'OKT–DES 2026'; label kecil 'PLN · R-1 1.300 & 2.200 VA'.",
+      "sumber": "Tarif PLN triwulan IV 2026"
+    },
+    {
+      "peran": "perumpamaan",
+      "judul": "Mirip [argo taksi] yang jalan",
+      "isi": "Tiap jam alat menyala, argo kWh-mu ikut berputar.",
+      "visual": "SKETSA: argo kapur dengan angka berputar '96 kWh'; panah dari colokan ke argo."
+    },
+    {
+      "peran": "efek",
+      "judul": "400 W × 8 jam × 30 hari",
+      "isi": "= 96 kWh × Rp1.444,70 ≈ Rp139 ribu sebulan. Daya AC tiap merek bisa beda.",
+      "visual": "Kalkulator kapur dengan hitungan '0,4 kW × 8 × 30 = 96 kWh'; label 'Rp139 rb'; label kecil 'contoh'."
+    },
+    {
+      "peran": "solusi",
+      "judul": "Cek [watt] di label alatmu",
+      "isi": "Kalikan watt × jam pakai, lalu bandingkan dengan tagihan bulananmu.",
+      "visual": "Label kecil berbentuk stiker alat 'xxx W'; kalkulator; checklist '☐ cek watt ☐ × jam ☐ × tarif'. Orang (pose tunjuk, ekspresi senyum)."
+    },
+    {
+      "peran": "cta",
+      "judul": "Tagihan listrikmu sebulan [berapa]?",
+      "isi": "Tulis angkanya di komen. Kirim ke teman kos yang AC-nya nyala terus.",
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'Rp____', label 'komen ↓ · kirim'."
+    }
+  ]
+}
