@@ -1,0 +1,32 @@
+{
+  "slug": "20261117-bensin-sebulan",
+  "format": "carousel",
+  "tayang": "2026-11-17T07:00:00+07:00",
+  "kategori": "transportasi",
+  "diakses": "2026-11-14",
+  "fakta": [
+    {
+      "id": "pertalite-10000",
+      "klaim": "Harga Pertalite Rp10.000 per liter di SPBU Pertamina, November 2026 (berlaku sejak Kepmen ESDM 37.K/HK.02/MEM.M/2022, 3 Sep 2022).",
+      "di_slide": "1 (dasar hitungan), 2",
+      "sumber_primer": [
+        "https://mypertamina.id/fuels-harga",
+        "https://onesolution.pertamina.com/Insight/Page/Harga_Pertalite_Hari_Ini"
+      ],
+      "sumber_media": [
+        "https://ekonomi.bisnis.com/read/20261101/44/2017275/update-harga-bbm-hari-ini-111-pertamina-bp-akr-vivo-dan-shell",
+        "https://www.rctiplus.com/news/detail/inews/5514067/daftar-harga-bbm-pertamina-11-november-2026-di-spbu-seluruh-indonesia",
+        "https://akurat.co/nasional/903436/cek-harga-bbm-pertamina-november-2026-pertalite-pertamax-hingga-dexlite",
+        "https://www.fortuneidn.com/news/harga-bbm-terbaru-november-2026-pertamina-shell-bp-akr-vivo-d7w02-00-lflgw-pyc2bx"
+      ],
+      "catatan": "Laman Pertamina yang terindeks sudah lama; angka November 2026 dikonfirmasi lewat 4 media. Klaim 'tidak naik sampai akhir tahun' hanya dari 1 media → tidak dipakai.",
+      "status": "resmi (penetapan harga) + 4 media"
+    },
+    {
+      "id": "contoh-2liter",
+      "klaim": "2 liter × Rp10.000 × 30 hari = Rp600.000; Rp20.000 sekali isi",
+      "di_slide": "1, 3",
+      "status": "contoh hitungan, berlabel 'contoh'"
+    }
+  ]
+}
