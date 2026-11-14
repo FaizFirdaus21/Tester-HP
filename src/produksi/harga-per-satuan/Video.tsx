@@ -19,25 +19,21 @@ const R = buatReels(vo as DataVO, naskah);
 const { W } = R;
 export const DURASI_HARGA_PER_SATUAN = R.durasi;
 const B_ = BENDA;
+const SUDAH = -9999;
 
 const IsiPapan: React.FC = () => (
   <>
-    {/* ===== A: hook ===== */}
-    <Tulis x={A.x} y={A.y0 + 250} teks="kemasan besar," ukuran={100} gaya="tebal" mulai={4} perHuruf={1.2} rata="center" />
-    <Muncul mulai={d(0.2)}>
-      <B_.botol cx={A.x0 + 240} cy={A.y0 + 650} s={280} teks="kecil" />
-    </Muncul>
-    <Muncul mulai={W(0, "besar", 0)}>
-      <B_.botol cx={A.x0 + 580} cy={A.y0 + 620} s={440} teks="JUMBO" warna={k.hijauTerang} />
-    </Muncul>
-    <Muncul mulai={W(0, "hemat", -0.4)}>
-      <B_.label cx={A.x0 + 890} cy={A.y0 + 560} s={280} teks="HEMAT!" warna={k.kuning} miring={-10} />
-    </Muncul>
-    <Tulis x={A.x0 + 890} y={A.y0 + 800} teks="?" ukuran={170} gaya="tebal" warna={k.merah} mulai={W(0, "hemat", 0)} perHuruf={2} rata="center" />
-    <Tulis x={A.x} y={A.y0 + 1050} teks="pasti lebih hemat?" ukuran={108} gaya="hias" warna={k.merah} mulai={W(0, "pasti", -0.2, 18)} perHuruf={1} rata="center" />
+    {/* ===== A: hook — sudah utuh di frame 0 (aturan 14 Nov); kapur melingkari label HEMAT mulai 0,5 s ===== */}
+    <Tulis x={A.x} y={A.y0 + 250} teks="kemasan besar," ukuran={104} gaya="tebal" mulai={SUDAH} rata="center" />
+    <B_.botol cx={A.x0 + 240} cy={A.y0 + 650} s={280} teks="kecil" />
+    <B_.botol cx={A.x0 + 580} cy={A.y0 + 620} s={440} teks="JUMBO" warna={k.hijauTerang} />
+    <B_.label cx={A.x0 + 890} cy={A.y0 + 560} s={280} teks="HEMAT!" warna={k.kuning} miring={-10} />
+    <Tulis x={A.x0 + 890} y={A.y0 + 800} teks="?" ukuran={170} gaya="tebal" warna={k.merah} mulai={SUDAH} rata="center" />
+    <Tulis x={A.x} y={A.y0 + 1050} teks="pasti lebih hemat?" ukuran={112} gaya="tebal" warna={k.merah} mulai={SUDAH} rata="center" tebalFilter />
+    <Coret pts={lingkaran(A.x0 + 890, A.y0 + 560, 170, 90, 6)} mulai={d(0.5)} lama={12} warna={k.merah} tebal={7} />
 
     {/* ===== B: rumus ===== */}
-    <Tulis x={B.x} y={B.y0 + 260} teks="cara paling jujur:" ukuran={80} gaya="hias" warna={k.biru} mulai={W(1, "paling jujur", -0.5)} perHuruf={1.2} rata="center" />
+    <Tulis x={B.x} y={B.y0 + 260} teks="cara paling jujur:" ukuran={80} gaya="hias" warna={k.biru} mulai={R.tiba(1)} perHuruf={1.2} rata="center" />
     <Tulis x={B.x} y={B.y0 + 500} teks="harga ÷ isi" ukuran={150} gaya="tebal" mulai={W(1, "harga per satuan", -0.8)} perHuruf={2} rata="center" />
     <Coret pts={garis(B.x - 330, B.y0 + 560, B.x + 330, B.y0 + 552, 4, 3)} mulai={W(1, "harga per satuan", -0.2)} lama={10} tebal={6} kapur={false} />
     <Tulis x={B.x} y={B.y0 + 700} teks="= harga per satuan" ukuran={100} gaya="tebal" warna={k.kuning} mulai={W(1, "harga per satuan", 0)} perHuruf={1.4} rata="center" tebalFilter />
@@ -52,7 +48,7 @@ const IsiPapan: React.FC = () => (
     ))}
 
     {/* ===== C: gorengan ===== */}
-    <Tulis x={C.x} y={C.y0 + 230} teks="Mirip beli gorengan" ukuran={88} gaya="hias" warna={k.biru} mulai={W(2, "Mirip beli", -0.2)} perHuruf={1.3} rata="center" />
+    <Tulis x={C.x} y={C.y0 + 230} teks="Mirip beli gorengan" ukuran={88} gaya="hias" warna={k.biru} mulai={R.tiba(2)} perHuruf={1.3} rata="center" />
     <Muncul mulai={W(2, "Tiga ribu", -0.3)}>
       <B_.gorengan cx={C.x0 + 260} cy={C.y0 + 520} s={220} />
     </Muncul>
@@ -69,7 +65,7 @@ const IsiPapan: React.FC = () => (
     <Tulis x={C.x} y={C.y0 + 1130} teks="(contoh)" ukuran={40} gaya="tipis" warna={k.biru} mulai={W(2, "Tiga ribu", 0.3)} perHuruf={0.8} rata="center" />
 
     {/* ===== D: label hemat ===== */}
-    <Tulis x={D.x} y={D.y0 + 240} teks="langsung ambil…" ukuran={88} gaya="hias" warna={k.biru} mulai={W(3, "Label hemat", -0.2)} perHuruf={1.2} rata="center" />
+    <Tulis x={D.x} y={D.y0 + 240} teks="langsung ambil…" ukuran={88} gaya="hias" warna={k.biru} mulai={R.tiba(3)} perHuruf={1.2} rata="center" />
     <Coret pts={garis(D.x0 + 470, D.y0 + 860, D.x0 + 1000, D.y0 + 860, 3, 2)} mulai={W(3, "Label hemat", 0)} lama={10} tebal={8} />
     <Muncul mulai={W(3, "Label hemat", 0.2)}>
       <B_.botol cx={D.x0 + 590} cy={D.y0 + 760} s={200} teks="kecil" />
@@ -86,7 +82,7 @@ const IsiPapan: React.FC = () => (
     </Muncul>
 
     {/* ===== E: contoh sabun ===== */}
-    <Tulis x={E.x0 + 110} y={E.y0 + 230} teks="Contoh:" ukuran={84} gaya="hias" warna={k.biru} mulai={W(4, "Contohnya")} perHuruf={2} />
+    <Tulis x={E.x0 + 110} y={E.y0 + 230} teks="Contoh:" ukuran={84} gaya="hias" warna={k.biru} mulai={R.tiba(4)} perHuruf={2} />
     <Muncul mulai={W(4, "sabun", -0.3)}>
       <B_.botol cx={E.x0 + 260} cy={E.y0 + 470} s={250} teks="500 ml" />
     </Muncul>
@@ -102,7 +98,7 @@ const IsiPapan: React.FC = () => (
     <Tulis x={E.x} y={E.y0 + 1110} teks="(contoh hitungan)" ukuran={40} gaya="tipis" warna={k.biru} mulai={W(4, "Contohnya", 0.5)} perHuruf={0.8} rata="center" />
 
     {/* ===== F: solusi ===== */}
-    <Tulis x={F.x0 + 100} y={F.y0 + 250} teks="Sebelum ambil:" ukuran={92} gaya="hias" warna={k.kuning} mulai={W(5, "Cek label", -0.4)} perHuruf={1.4} />
+    <Tulis x={F.x0 + 100} y={F.y0 + 250} teks="Sebelum ambil:" ukuran={92} gaya="hias" warna={k.kuning} mulai={R.tiba(5)} perHuruf={1.4} />
     <Checklist
       x={F.x0 + 100}
       y={F.y0 + 440}
@@ -135,7 +131,7 @@ const IsiPapan: React.FC = () => (
 );
 
 const TEKS_TAMPIL = [
-  "",
+  "Kemasan besar, pasti lebih hemat?",
   "Cara paling jujur membandingkan adalah harga per satuan: per gram, per mililiter, atau per lembar.",
   "Mirip beli gorengan. Rp3 ribu dapat satu, atau Rp10 ribu dapat tiga? Yang kedua malah lebih mahal per biji.",
   "Label hemat atau kemasan jumbo sering bikin kita langsung ambil, tanpa menghitung dulu.",

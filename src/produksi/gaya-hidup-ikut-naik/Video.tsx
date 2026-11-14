@@ -25,7 +25,9 @@ const T = J.T;
 const MULAI = [T.b0, T.b1, T.b2, T.b3, T.b4, T.b5, T.b6];
 export const DURASI_GAYA_HIDUP = d(T.akhir);
 
-const PINDAH = 0.45;
+const PINDAH = 0.3; // perpindahan kamera total 0,6 s (aturan 14 Nov)
+/** Judul bagian i mulai ditulis saat kamera berangkat, supaya papan tidak kosong saat kamera tiba. */
+const TIBA = (i: number) => d(MULAI[i] - PINDAH);
 const batasBagian = (i: number) => (i + 1 < MULAI.length ? MULAI[i + 1] - PINDAH : T.akhir);
 const W = (i: number, frasa: string, geser = 0, lama = 0) => {
   const f = d(padaFrasa(J, i, naskah.blok[i].teks, frasa, geser));
@@ -46,8 +48,8 @@ const G = { x: 1080, y0: 5760 };
 const fokus = (s: { x: number; y0: number }) => ({ x: s.x, y: s.y0 + 880 });
 const KAMERA: KunciKamera[] = (() => {
   const kunci: KunciKamera[] = [
-    { f: 0, ...fokus(A), y: A.y0 + 840, s: 1.14, rx: 12, ry: -16, rz: -2 },
-    { f: d(T.b0 + 1.0), ...fokus(A), s: 1.0 },
+    // frame 0 tegak dan utuh (hook terbaca); dorongan pelan supaya tidak diam
+    { f: 0, ...fokus(A), s: 1.0 },
   ];
   const bagian = [A, B, C, D, E, F];
   for (let i = 1; i < bagian.length; i++) {
@@ -120,21 +122,22 @@ const Lemari: React.FC<{ x: number; y: number; w: number; h: number; isi: number
 };
 
 const B_ = BENDA;
+const SUDAH = -9999;
 
 const IsiPapan: React.FC = () => (
   <>
-    {/* ===== A: hook ===== */}
-    <Tulis x={A.x - 120} y={A.y0 + 420} teks="gaji" ukuran={190} gaya="tebal" warna={k.kuning} mulai={d(0.15)} perHuruf={2} rata="center" tebalFilter />
-    <Panah x1={A.x + 150} y1={A.y0 + 470} x2={A.x + 300} y2={A.y0 + 200} tinggi={60} mulai={W(0, "naik", -0.2)} lama={8} warna={k.hijauTerang} tebal={14} />
-    <Muncul mulai={W(0, "tabungan", -0.4)}>
-      <B_.koin cx={A.x0 + 260} cy={A.y0 + 720} s={220} />
-    </Muncul>
-    <Tulis x={A.x0 + 420} y={A.y0 + 730} teks="tabungan" ukuran={100} gaya="tebal" mulai={W(0, "tabungan", -0.3)} perHuruf={1} />
-    <Panah x1={A.x0 + 430} y1={A.y0 + 840} x2={A.x0 + 900} y2={A.y0 + 840} tinggi={40} mulai={W(0, "tetap", -0.2)} lama={8} warna={k.biru} tebal={10} />
-    <Tulis x={A.x} y={A.y0 + 1040} teks="kok tetap segitu?" ukuran={112} gaya="hias" warna={k.merah} mulai={W(0, "kok", -0.1, 30)} perHuruf={0.8} rata="center" />
+    {/* ===== A: hook — sudah utuh di frame 0 (aturan 14 Nov); kapur hanya menambah coretan mulai 0,5 s ===== */}
+    <Tulis x={A.x - 120} y={A.y0 + 420} teks="gaji" ukuran={190} gaya="tebal" warna={k.kuning} mulai={SUDAH} rata="center" tebalFilter />
+    <Panah x1={A.x + 150} y1={A.y0 + 470} x2={A.x + 300} y2={A.y0 + 200} tinggi={60} mulai={SUDAH} lama={1} warna={k.hijauTerang} tebal={14} />
+    <B_.koin cx={A.x0 + 260} cy={A.y0 + 720} s={220} />
+    <Tulis x={A.x0 + 420} y={A.y0 + 730} teks="tabungan" ukuran={100} gaya="tebal" mulai={SUDAH} />
+    <Panah x1={A.x0 + 430} y1={A.y0 + 840} x2={A.x0 + 900} y2={A.y0 + 840} tinggi={40} mulai={SUDAH} lama={1} warna={k.biru} tebal={10} />
+    <Tulis x={A.x} y={A.y0 + 1040} teks="kok tetap segitu?" ukuran={116} gaya="tebal" warna={k.merah} mulai={SUDAH} rata="center" tebalFilter />
+    <Coret pts={garis(A.x0 + 130, A.y0 + 1090, A.x0 + 950, A.y0 + 1082, 5, 4)} mulai={d(0.5)} lama={10} warna={k.merah} tebal={9} />
+    <Coret pts={lingkaran(A.x0 + 660, A.y0 + 840, 70, 40, 3)} mulai={W(0, "tetap", -0.2)} lama={10} warna={k.putih} tebal={6} />
 
     {/* ===== B: lifestyle inflation ===== */}
-    <Tulis x={B.x} y={B.y0 + 260} teks="gaya hidup ikut naik" ukuran={86} gaya="tebal" mulai={W(1, "gaya hidup", -0.2)} perHuruf={1.3} rata="center" />
+    <Tulis x={B.x} y={B.y0 + 260} teks="gaya hidup ikut naik" ukuran={86} gaya="tebal" mulai={TIBA(1)} perHuruf={1.3} rata="center" />
     <Tulis x={B.x} y={B.y0 + 370} teks="(lifestyle inflation)" ukuran={62} gaya="hias" warna={k.biru} mulai={W(1, "lifestyle", -0.2)} perHuruf={1} rata="center" />
     <Coret pts={garis(B.x0 + 120, B.y0 + 1140, B.x0 + 960, B.y0 + 1140, 9, 2)} mulai={W(1, "Begitu gaji", -0.6)} lama={10} tebal={4} kapur={false} />
     <Coret pts={kurva(B.x0 + 140, B.y0 + 1040, B.x0 + 760, B.y0 + 600, 40)} mulai={W(1, "Begitu gaji", -0.2)} lama={22} warna={k.kuning} tebal={10} />
@@ -146,7 +149,7 @@ const IsiPapan: React.FC = () => (
     <Panah x1={B.x0 + 840} y1={B.y0 + 800} x2={B.x0 + 790} y2={B.y0 + 740} tinggi={20} mulai={W(1, "sama saja", -0.2)} lama={8} tebal={5} />
 
     {/* ===== C: perumpamaan kos ===== */}
-    <Tulis x={C.x} y={C.y0 + 230} teks="Mirip pindah kos" ukuran={90} gaya="hias" warna={k.biru} mulai={W(2, "Mirip pindah", -0.2)} perHuruf={1.4} rata="center" />
+    <Tulis x={C.x} y={C.y0 + 230} teks="Mirip pindah kos" ukuran={90} gaya="hias" warna={k.biru} mulai={TIBA(2)} perHuruf={1.4} rata="center" />
     <Coret pts={kotak(C.x0 + 80, C.y0 + 560, 300, 360, 21)} mulai={W(2, "Mirip pindah", 0.2)} lama={14} tebal={6} />
     <Lemari x={C.x0 + 110} y={C.y0 + 620} w={150} h={270} isi={6} mulaiIsi={W(2, "Mirip pindah", 0.5)} seed={1} />
     <Tulis x={C.x0 + 230} y={C.y0 + 990} teks="kos kecil" ukuran={56} warna={k.biru} mulai={W(2, "Mirip pindah", 0.4)} perHuruf={1.4} rata="center" />
@@ -157,7 +160,7 @@ const IsiPapan: React.FC = () => (
     <Tulis x={C.x} y={C.y0 + 1130} teks="…tetap penuh lagi" ukuran={92} gaya="tebal" warna={k.merah} mulai={W(2, "ikut penuh", 0, 18)} perHuruf={1.2} rata="center" />
 
     {/* ===== D: efek hal kecil ===== */}
-    <Tulis x={D.x} y={D.y0 + 240} teks="habis buat hal kecil" ukuran={86} gaya="tebal" mulai={W(3, "hal kecil", -0.5)} perHuruf={1.2} rata="center" />
+    <Tulis x={D.x} y={D.y0 + 240} teks="habis buat hal kecil" ukuran={86} gaya="tebal" mulai={TIBA(3)} perHuruf={1.2} rata="center" />
     {[
       { f: "kopi", t: "kopi", el: (cx: number, cy: number) => <B_.gelas cx={cx} cy={cy} s={220} teks="1" /> },
       { f: "ongkir", t: "ongkir", el: (cx: number, cy: number) => <B_.tas cx={cx} cy={cy} s={220} /> },
@@ -178,7 +181,7 @@ const IsiPapan: React.FC = () => (
     <Tulis x={D.x} y={D.y0 + 1240} teks="terasa wajar, diam-diam naik" ukuran={50} gaya="tipis" warna={k.biru} mulai={W(3, "terasa wajar")} perHuruf={0.8} rata="center" />
 
     {/* ===== E: akibat — contoh hitungan ===== */}
-    <Tulis x={E.x0 + 110} y={E.y0 + 230} teks="Contoh:" ukuran={84} gaya="hias" warna={k.biru} mulai={W(4, "Contohnya")} perHuruf={2} />
+    <Tulis x={E.x0 + 110} y={E.y0 + 230} teks="Contoh:" ukuran={84} gaya="hias" warna={k.biru} mulai={TIBA(4)} perHuruf={2} />
     <Tulis x={E.x} y={E.y0 + 380} teks="naik Rp1 jt / bulan" ukuran={92} gaya="tebal" mulai={W(4, "satu juta", -0.4)} perHuruf={1.5} rata="center" />
     <Tulis x={E.x} y={E.y0 + 510} teks="× 12 bulan" ukuran={92} gaya="tebal" mulai={W(4, "setahun", -0.3)} perHuruf={2} rata="center" />
     <Coret pts={garis(E.x - 300, E.y0 + 580, E.x + 300, E.y0 + 574, 7, 3)} mulai={W(4, "setahun")} lama={10} tebal={6} kapur={false} />
@@ -192,7 +195,7 @@ const IsiPapan: React.FC = () => (
     <Tulis x={E.x} y={E.y0 + 1130} teks="(contoh hitungan)" ukuran={40} gaya="tipis" warna={k.biru} mulai={W(4, "Contohnya", 0.5)} perHuruf={0.8} rata="center" />
 
     {/* ===== F: solusi ===== */}
-    <Tulis x={F.x0 + 80} y={F.y0 + 250} teks="Di hari gajian:" ukuran={84} gaya="hias" warna={k.kuning} mulai={W(5, "Begitu gaji", -0.2)} perHuruf={1.4} />
+    <Tulis x={F.x0 + 80} y={F.y0 + 250} teks="Di hari gajian:" ukuran={84} gaya="hias" warna={k.kuning} mulai={TIBA(5)} perHuruf={1.4} />
     <Muncul mulai={W(5, "hari gajian", -0.6)}>
       <B_.kalender cx={F.x0 + 905} cy={F.y0 + 235} s={170} teks="GAJIAN" />
     </Muncul>
@@ -231,7 +234,7 @@ const IsiPapan: React.FC = () => (
 
 // ---------------------------------------------------------------- subtitel
 const TEKS_TAMPIL = [
-  "",
+  "Gaji naik, kok tabungan tetap segitu?",
   "Ini namanya gaya hidup yang ikut naik, istilah kerennya lifestyle inflation. Begitu gaji bertambah, pengeluaran pelan-pelan ikut bertambah, sampai sisanya sama saja.",
   "Mirip pindah ke kos yang lebih luas. Lemarinya lebih besar, tapi lama-lama ikut penuh lagi.",
   "Kenaikan gaji habis buat hal kecil yang terasa wajar: kopi lebih mahal, ongkir lebih sering, langganan bertambah, makan di luar makin sering.",
@@ -239,11 +242,14 @@ const TEKS_TAMPIL = [
   "Begitu gaji naik, pindahkan dulu setengah kenaikannya ke tabungan di hari gajian. Sisanya baru boleh dinikmati. Dengan begitu, tabunganmu ikut naik bareng gajimu.",
   "Kenaikan gajimu terakhir berapa persen? Tulis angkanya di komen. Kirim ke teman yang baru naik gaji.",
 ];
-const SUB: BarisSubtitel[] = subtitelDariBlok(J, TEKS_TAMPIL, 38).filter((s) => s.selesai - s.mulai > 0.2);
+// Subtitel aktif sejak frame 0 (aturan 14 Nov): potongan pertama ditarik ke detik 0.
+const SUB: BarisSubtitel[] = subtitelDariBlok(J, TEKS_TAMPIL, 38)
+  .filter((s) => s.selesai - s.mulai > 0.2)
+  .map((s, i) => (i === 0 ? { ...s, mulai: 0 } : s));
 
-const BarisSub: React.FC<{ teks: string; lama: number }> = ({ teks, lama }) => {
+const BarisSub: React.FC<{ teks: string; lama: number; langsung?: boolean }> = ({ teks, lama, langsung }) => {
   const fr = useCurrentFrame();
-  const o = Math.min(p01(fr, 0, 4), 1 - p01(fr, lama - 3, 3));
+  const o = Math.min(langsung ? 1 : p01(fr, 0, 4), 1 - p01(fr, lama - 3, 3));
   return (
     <div style={{ position: "absolute", left: 90, right: 90, top: 1300, height: 180, display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", fontFamily: font.sans, fontWeight: 650, fontSize: 44, lineHeight: 1.3, color: "#fbfaf4", opacity: o, textShadow: "0 2px 3px rgba(0,0,0,0.8), 0 0 24px rgba(0,0,0,0.65)" }}>
       {teks}
@@ -256,7 +262,7 @@ const Subtitel: React.FC = () => (
       const lama = Math.max(1, d(s.selesai) - d(s.mulai));
       return (
         <Sequence key={i} from={d(s.mulai)} durationInFrames={lama} layout="none">
-          <BarisSub teks={s.teks} lama={lama} />
+          <BarisSub teks={s.teks} lama={lama} langsung={s.mulai === 0} />
         </Sequence>
       );
     })}

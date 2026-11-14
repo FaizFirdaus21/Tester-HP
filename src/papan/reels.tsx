@@ -21,7 +21,7 @@ export const E = sel(0, 2);
 export const F = sel(1, 2);
 export const G = { x: 1080, y0: 5760 };
 
-const PINDAH = 0.45;
+const PINDAH = 0.3; // perpindahan kamera total 0,6 s (aturan 14 Nov)
 
 /** Jadwal + kamera + fungsi waktu frasa untuk satu Reels. */
 export const buatReels = (vo: DataVO, naskah: Naskah) => {
@@ -38,8 +38,8 @@ export const buatReels = (vo: DataVO, naskah: Naskah) => {
   };
   const fokus = (s: { x: number; y0: number }) => ({ x: s.x, y: s.y0 + 880 });
   const kamera: KunciKamera[] = [
-    { f: 0, ...fokus(A), y: A.y0 + 840, s: 1.14, rx: 12, ry: -16, rz: -2 },
-    { f: d(T.b0 + 1.0), ...fokus(A), s: 1.0 },
+    // frame 0 tegak dan utuh: hook harus terbaca sejak frame pertama (aturan 14 Nov)
+    { f: 0, ...fokus(A), s: 1.0 },
   ];
   const bagian = [A, B, C, D, E, F];
   for (let i = 1; i < bagian.length; i++) {
@@ -55,7 +55,9 @@ export const buatReels = (vo: DataVO, naskah: Naskah) => {
   kamera.push({ f: d(T.b6 + 0.9), x: 1080, y: 3600, s: 0.42, rx: 20, ry: -10, rz: -1.5 });
   kamera.push({ f: d(T.b6 + 2.0), x: G.x, y: G.y0 + 880, s: 0.6, rx: 4 });
   kamera.push({ f: d(T.akhir), x: G.x, y: G.y0 + 900, s: 0.64, rx: 0, ry: 2 });
-  return { VO, J, T, W, kamera, durasi: d(T.akhir) };
+  /** Frame judul bagian i mulai ditulis: saat kamera berangkat, supaya papan tidak kosong saat kamera tiba. */
+  const tiba = (i: number) => d(MULAI[i] - PINDAH);
+  return { VO, J, T, W, tiba, kamera, durasi: d(T.akhir) };
 };
 
 // ---------------------------------------------------------------- bentuk kecil
@@ -105,9 +107,9 @@ export const Checklist: React.FC<{ x: number; y: number; jarak: number; baris: {
 );
 
 // ---------------------------------------------------------------- subtitel
-const BarisSub: React.FC<{ teks: string; lama: number }> = ({ teks, lama }) => {
+const BarisSub: React.FC<{ teks: string; lama: number; langsung?: boolean }> = ({ teks, lama, langsung }) => {
   const fr = useCurrentFrame();
-  const o = Math.min(p01(fr, 0, 4), 1 - p01(fr, lama - 3, 3));
+  const o = Math.min(langsung ? 1 : p01(fr, 0, 4), 1 - p01(fr, lama - 3, 3));
   return (
     <div style={{ position: "absolute", left: 90, right: 90, top: 1300, height: 180, display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", fontFamily: font.sans, fontWeight: 650, fontSize: 44, lineHeight: 1.3, color: "#fbfaf4", opacity: o, textShadow: "0 2px 3px rgba(0,0,0,0.8), 0 0 24px rgba(0,0,0,0.65)" }}>
       {teks}
@@ -117,14 +119,17 @@ const BarisSub: React.FC<{ teks: string; lama: number }> = ({ teks, lama }) => {
 
 /** Video lengkap: papan + kamera + subtitel (TEKS_TAMPIL per blok, "" = tanpa subtitel) + suara VO. */
 export const ReelsPapan: React.FC<{ r: ReturnType<typeof buatReels>; teksTampil: string[]; subtitel?: boolean; children: React.ReactNode }> = ({ r, teksTampil, subtitel = true, children }) => {
-  const sub: BarisSubtitel[] = subtitelDariBlok(r.J, teksTampil, 38).filter((s) => s.selesai - s.mulai > 0.2);
+  // Subtitel aktif sejak frame 0 (aturan 14 Nov): potongan pertama ditarik ke detik 0 dan tampil tanpa fade.
+  const sub: BarisSubtitel[] = subtitelDariBlok(r.J, teksTampil, 38)
+    .filter((s) => s.selesai - s.mulai > 0.2)
+    .map((s, i) => (i === 0 ? { ...s, mulai: 0 } : s));
   const layar = subtitel ? (
     <>
       {sub.map((s, i) => {
         const lama = Math.max(1, d(s.selesai) - d(s.mulai));
         return (
           <Sequence key={i} from={d(s.mulai)} durationInFrames={lama} layout="none">
-            <BarisSub teks={s.teks} lama={lama} />
+            <BarisSub teks={s.teks} lama={lama} langsung={s.mulai === 0} />
           </Sequence>
         );
       })}

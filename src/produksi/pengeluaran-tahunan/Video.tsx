@@ -19,6 +19,7 @@ const R = buatReels(vo as DataVO, naskah);
 const { W } = R;
 export const DURASI_PENGELUARAN_TAHUNAN = R.durasi;
 const B_ = BENDA;
+const SUDAH = -9999;
 
 // Kalender kapur halaman Desember: 5×5 tanggal, sebagian dilingkari merah.
 const KalenderDes: React.FC<{ cx: number; cy: number; mulaiLingkar: number }> = ({ cx, cy, mulaiLingkar }) => {
@@ -50,19 +51,15 @@ const KalenderDes: React.FC<{ cx: number; cy: number; mulaiLingkar: number }> = 
 
 const IsiPapan: React.FC = () => (
   <>
-    {/* ===== A: hook ===== */}
-    <Tulis x={A.x} y={A.y0 + 230} teks="tiap akhir tahun…" ukuran={86} gaya="hias" warna={k.biru} mulai={4} perHuruf={1} rata="center" />
-    <Muncul mulai={W(0, "akhir tahun", -0.4)}>
-      <KalenderDes cx={A.x - 120} cy={A.y0 + 620} mulaiLingkar={W(0, "akhir tahun", 0)} />
-    </Muncul>
-    <Muncul mulai={W(0, "dompet", -0.3)}>
-      <B_.dompet cx={A.x0 + 860} cy={A.y0 + 760} s={230} />
-    </Muncul>
-    <Tulis x={A.x0 + 940} y={A.y0 + 640} teks="!" ukuran={150} gaya="tebal" warna={k.merah} mulai={W(0, "kaget", -0.3)} perHuruf={2} rata="center" />
-    <Tulis x={A.x} y={A.y0 + 1050} teks="kok dompet kaget?" ukuran={112} gaya="tebal" warna={k.merah} mulai={W(0, "kok dompet", -0.2, 18)} perHuruf={1} rata="center" />
+    {/* ===== A: hook — sudah utuh di frame 0 (aturan 14 Nov); kapur melingkari tanggal mulai 0,5 s ===== */}
+    <Tulis x={A.x} y={A.y0 + 230} teks="tiap akhir tahun…" ukuran={90} gaya="tebal" mulai={SUDAH} rata="center" />
+    <KalenderDes cx={A.x - 120} cy={A.y0 + 620} mulaiLingkar={d(0.5)} />
+    <B_.dompet cx={A.x0 + 860} cy={A.y0 + 760} s={230} />
+    <Tulis x={A.x0 + 940} y={A.y0 + 640} teks="!" ukuran={150} gaya="tebal" warna={k.merah} mulai={SUDAH} rata="center" />
+    <Tulis x={A.x} y={A.y0 + 1050} teks="kok dompet kaget?" ukuran={116} gaya="tebal" warna={k.merah} mulai={SUDAH} rata="center" tebalFilter />
 
     {/* ===== B: tagihan setahun sekali ===== */}
-    <Tulis x={B.x} y={B.y0 + 240} teks="datang setahun sekali" ukuran={84} gaya="tebal" mulai={W(1, "setahun sekali", -0.5)} perHuruf={1.2} rata="center" />
+    <Tulis x={B.x} y={B.y0 + 240} teks="datang setahun sekali" ukuran={84} gaya="tebal" mulai={R.tiba(1)} perHuruf={1.2} rata="center" />
     {[
       { t: "pajak kendaraan", f: "pajak kendaraan", w: "kuning", x: 300, y: 420, m: -6 },
       { t: "servis", f: "servis", w: "biru", x: 760, y: 440, m: 5 },
@@ -78,7 +75,7 @@ const IsiPapan: React.FC = () => (
     <Tulis x={B.x} y={B.y0 + 1100} teks="waktunya bisa ditebak" ukuran={64} gaya="hias" mulai={W(1, "bisa ditebak", -0.6, 16)} perHuruf={1} rata="center" />
 
     {/* ===== C: arisan sama diri sendiri ===== */}
-    <Tulis x={C.x} y={C.y0 + 230} teks="Mirip arisan" ukuran={96} gaya="hias" warna={k.biru} mulai={W(2, "Mirip arisan", -0.2)} perHuruf={1.5} rata="center" />
+    <Tulis x={C.x} y={C.y0 + 230} teks="Mirip arisan" ukuran={96} gaya="hias" warna={k.biru} mulai={R.tiba(2)} perHuruf={1.5} rata="center" />
     <Coret pts={busur(C.x, C.y0 + 660, 300, -Math.PI * 0.45, Math.PI * 1.35, 36)} mulai={W(2, "Mirip arisan", 0.3)} lama={24} tebal={6} />
     <Panah x1={C.x + Math.cos(Math.PI * 1.3) * 300} y1={C.y0 + 660 + Math.sin(Math.PI * 1.3) * 300} x2={C.x + Math.cos(Math.PI * 1.5) * 300} y2={C.y0 + 660 + Math.sin(Math.PI * 1.5) * 300} tinggi={30} mulai={W(2, "Mirip arisan", 1.0)} lama={8} tebal={6} />
     {Array.from({ length: 6 }, (_, i) => {
@@ -98,7 +95,7 @@ const IsiPapan: React.FC = () => (
     <Tulis x={C.x} y={C.y0 + 1080} teks="uangnya pasti ada" ukuran={84} gaya="tebal" warna={k.kuning} mulai={W(2, "pasti ada", -0.4, 16)} perHuruf={1.2} rata="center" />
 
     {/* ===== D: gaji tergerus ===== */}
-    <Tulis x={D.x} y={D.y0 + 240} teks="tanpa disiapkan…" ukuran={84} gaya="hias" warna={k.biru} mulai={W(3, "Tanpa disiapkan", -0.2)} perHuruf={1.2} rata="center" />
+    <Tulis x={D.x} y={D.y0 + 240} teks="tanpa disiapkan…" ukuran={84} gaya="hias" warna={k.biru} mulai={R.tiba(3)} perHuruf={1.2} rata="center" />
     <Muncul mulai={W(3, "Tanpa disiapkan", 0.2)}>
       <B_.uang cx={D.x0 + 330} cy={D.y0 + 560} s={420} teks="GAJI" />
     </Muncul>
@@ -114,7 +111,7 @@ const IsiPapan: React.FC = () => (
     <Tulis x={D.x0 + 800} y={D.y0 + 1170} teks="utang?" ukuran={84} gaya="tebal" warna={k.merah} mulai={W(3, "berujung", -0.3, 14)} perHuruf={1.6} rata="center" />
 
     {/* ===== E: contoh hitungan ===== */}
-    <Tulis x={E.x0 + 110} y={E.y0 + 230} teks="Contoh:" ukuran={84} gaya="hias" warna={k.biru} mulai={W(4, "Contohnya")} perHuruf={2} />
+    <Tulis x={E.x0 + 110} y={E.y0 + 230} teks="Contoh:" ukuran={84} gaya="hias" warna={k.biru} mulai={R.tiba(4)} perHuruf={2} />
     <Tulis x={E.x} y={E.y0 + 370} teks="pajak motor + servis" ukuran={74} mulai={W(4, "pajak motor", -0.2)} perHuruf={1.2} rata="center" />
     <Tulis x={E.x} y={E.y0 + 500} teks="= Rp1,2 jt / tahun" ukuran={92} gaya="tebal" mulai={W(4, "satu koma dua", -0.3)} perHuruf={1.5} rata="center" />
     <Tulis x={E.x} y={E.y0 + 620} teks="÷ 12 bulan" ukuran={92} gaya="tebal" mulai={W(4, "dicicil", -0.4)} perHuruf={2} rata="center" />
@@ -128,7 +125,7 @@ const IsiPapan: React.FC = () => (
     <Tulis x={E.x} y={E.y0 + 1100} teks="(contoh hitungan)" ukuran={40} gaya="tipis" warna={k.biru} mulai={W(4, "Contohnya", 0.5)} perHuruf={0.8} rata="center" />
 
     {/* ===== F: solusi ===== */}
-    <Tulis x={F.x0 + 100} y={F.y0 + 260} teks="Biar nggak kaget:" ukuran={92} gaya="hias" warna={k.kuning} mulai={W(5, "Tulis semua", -0.4)} perHuruf={1.4} />
+    <Tulis x={F.x0 + 100} y={F.y0 + 260} teks="Biar nggak kaget:" ukuran={92} gaya="hias" warna={k.kuning} mulai={R.tiba(5)} perHuruf={1.4} />
     <Checklist
       x={F.x0 + 100}
       y={F.y0 + 470}
@@ -159,7 +156,7 @@ const IsiPapan: React.FC = () => (
 );
 
 const TEKS_TAMPIL = [
-  "",
+  "Tiap akhir tahun, kok dompet selalu kaget?",
   "Banyak pengeluaran datang setahun sekali: pajak kendaraan, servis, hadiah akhir tahun, atau tiket pulang kampung. Karena jarang, kita lupa menyiapkannya. Ini beda dengan dana darurat, karena waktunya bisa ditebak.",
   "Mirip arisan yang kamu tahu tanggal dapatnya. Bedanya, ini arisan sama dirimu sendiri, jadi uangnya pasti ada saat giliranmu tiba.",
   "Tanpa disiapkan, tagihan tahunan menggerus gaji bulan itu, atau malah berujung utang.",
