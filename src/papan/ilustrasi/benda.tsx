@@ -452,7 +452,47 @@ const Gorengan: FB = ({ cx, cy, s }) => {
   );
 };
 
+// AC split dinding: badan memanjang, kisi-kisi, lampu indikator, aliran udara dingin (biru) di bawah.
+const Ac: FB = ({ cx, cy, s }) => {
+  const t = tebalDari(s);
+  const w = s;
+  const h = s * 0.3;
+  const x = cx - w / 2;
+  const y = cy - h / 2;
+  return (
+    <>
+      <Bentuk pts={persegiBulat(x, y, w, h, s * 0.05)} warna={k.putih} isi={0.12} tebal={t} />
+      <Gr pts={[[x + w * 0.06, y + h * 0.72], [x + w * 0.94, y + h * 0.72]]} tebal={t * 0.7} />
+      <Gr pts={[[x + w * 0.06, y + h * 0.86], [x + w * 0.94, y + h * 0.86]]} tebal={t * 0.7} />
+      <Bentuk pts={elips(x + w * 0.88, y + h * 0.32, s * 0.018)} warna={k.hijauTerang} garis={k.hijauTerang} isi={0.9} tebal={t * 0.5} />
+      {[0.25, 0.5, 0.75].map((f, i) => (
+        <Gr key={i} pts={halus(Array.from({ length: 6 }, (_, j) => [x + w * f + (j % 2 ? s * 0.03 : -s * 0.03), y + h + s * 0.05 + j * s * 0.05] as P), false, 2)} warna={k.biru} tebal={t * 0.8} />
+      ))}
+    </>
+  );
+};
+
+// Argo/meteran listrik: kotak dengan layar angka (`teks`) dan piringan berputar.
+const Argo: FB = ({ cx, cy, s, teks }) => {
+  const t = tebalDari(s);
+  const w = s * 0.8;
+  const h = s * 0.7;
+  const x = cx - w / 2;
+  const y = cy - h / 2;
+  return (
+    <>
+      <Bentuk pts={persegiBulat(x, y, w, h, s * 0.05)} warna={k.putih} isi={0.1} tebal={t} />
+      <Bentuk pts={persegi(x + w * 0.1, y + h * 0.12, w * 0.8, h * 0.3)} warna={k.kuning} garis={k.putih} isi={0.18} tebal={t * 0.8} />
+      {teks ? <Tulis x={cx} y={y + h * 0.36} teks={teks} ukuran={Math.min(s * 0.14, (w * 0.7) / (teks.length * 0.5))} gaya="tebal" warna={k.kuning} mulai={SUDAH} rata="center" /> : null}
+      <Bentuk pts={elips(cx, y + h * 0.7, s * 0.13)} warna={k.biru} garis={k.putih} isi={0.3} tebal={t * 0.8} />
+      <Gr pts={[[cx, y + h * 0.7], [cx + s * 0.1, y + h * 0.62]]} warna={k.merah} tebal={t} />
+    </>
+  );
+};
+
 export const BENDA: Record<string, FB> = {
+  ac: Ac,
+  argo: Argo,
   botol: Botol,
   gorengan: Gorengan,
   centang: CentangHijau,

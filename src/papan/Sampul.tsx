@@ -3,7 +3,7 @@
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
 import { SimbolKapur } from "./BrandBoard";
-import { Coret, FilterKapur, Gaya, Tulis, garis, lingkaran, ukurLebar } from "./Komponen";
+import { Coret, FilterKapur, Gaya, Tulis, TungguFont, garis, lingkaran, ukurLebar } from "./Komponen";
 import { k } from "./tema";
 
 const SUDAH = -9999;
@@ -12,7 +12,13 @@ const muat = (teks: string, ukuran: number, g: Gaya, maks: number) => Math.min(u
 
 export type DataSampul = { atas: string; angka: string; bawah: string; label?: string };
 
-export const SampulPapan: React.FC<DataSampul> = ({ atas, angka, bawah, label }) => (
+export const SampulPapan: React.FC<DataSampul> = (props) => (
+  <TungguFont>
+    <SampulIsi {...props} />
+  </TungguFont>
+);
+
+const SampulIsi: React.FC<DataSampul> = ({ atas, angka, bawah, label }) => (
   <AbsoluteFill style={{ background: "#0f0d0b", overflow: "hidden" }}>
     <FilterKapur />
     <Img src={staticFile("papan/papan.jpg")} style={{ position: "absolute", left: -540, top: -2400, width: 2160, height: 7680 }} />

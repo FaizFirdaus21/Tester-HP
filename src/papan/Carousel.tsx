@@ -13,7 +13,7 @@
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
 import { LogoKapur, SimbolKapur } from "./BrandBoard";
-import { FilterKapur, Gaya, Panah, Tulis, ukurLebar } from "./Komponen";
+import { FilterKapur, Gaya, Panah, Tulis, TungguFont, ukurLebar } from "./Komponen";
 import { Adegan, DataAdegan, Ilustrasi } from "./ilustrasi";
 import { k } from "./tema";
 
@@ -203,7 +203,13 @@ const SlideCta: React.FC<{ x0: number; s: DataSlide; sumber?: string }> = ({ x0,
 };
 
 // ---------------------------------------------------------------- komposisi
-export const CarouselPapan: React.FC<PropsCarousel> = ({ data, slide }) => {
+export const CarouselPapan: React.FC<PropsCarousel> = (props) => (
+  <TungguFont>
+    <CarouselIsi {...props} />
+  </TungguFont>
+);
+
+const CarouselIsi: React.FC<PropsCarousel> = ({ data, slide }) => {
   const n = Math.min(data.slide.length, MAKS_SLIDE);
   if (data.slide.length > MAKS_SLIDE) console.warn(`[carousel] ${data.slide.length} slide; hanya ${MAKS_SLIDE} pertama yang dipakai`);
   // hanya slide ini dan tetangganya yang digambar (coretan di perbatasan tetap tersambung)

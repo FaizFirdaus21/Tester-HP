@@ -1,9 +1,9 @@
 // Komponen template Papan Kapur: coretan kapur yang tergambar, tulisan kapur huruf demi huruf,
 // batang kapur yang mengikuti ujung tulisan, debu kapur yang jatuh, dan "angkat" 2,5D.
 // Semua posisi dalam koordinat PAPAN.
-import React, { useMemo } from "react";
-import { Easing, interpolate, useCurrentFrame } from "remotion";
-import { font, k } from "./tema";
+import React, { useEffect, useMemo, useState } from "react";
+import { Easing, continueRender, delayRender, interpolate, useCurrentFrame } from "remotion";
+import { font, fontSiap, k } from "./tema";
 
 const jepit = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 export const p01 = (fr: number, mulai: number, lama: number, e: (t: number) => number = Easing.linear) =>
@@ -396,4 +396,22 @@ export const ikonBank = (cx: number, cy: number, s: number, seed: number): Titik
   const tiang = [0, 1, 2, 3].map((i) => garis(cx - w * 0.35 + (i * w * 0.7) / 3, cy - h * 0.18, cx - w * 0.35 + (i * w * 0.7) / 3, cy + h * 0.32, seed + i, 1));
   const alas = garis(cx - w / 2, cy + h * 0.4, cx + w / 2, cy + h * 0.4, seed + 9, 1);
   return [atap, ...tiang, alas];
+};
+
+/** Render anak-anak hanya setelah semua font papan termuat. Wajib membungkus komponen yang mengukur lebar teks:
+ *  tanpa ini, render di bawah beban CPU bisa mengukur dengan font cadangan sehingga teks bertumpuk. */
+export const TungguFont: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [siap, setSiap] = useState(false);
+  const [tunda] = useState(() => delayRender("Menunggu font papan sebelum mengukur teks"));
+  useEffect(() => {
+    let aktif = true;
+    fontSiap.then(() => document.fonts.ready).then(() => {
+      if (aktif) setSiap(true);
+      continueRender(tunda);
+    });
+    return () => {
+      aktif = false;
+    };
+  }, [tunda]);
+  return siap ? <>{children}</> : null;
 };

@@ -2,7 +2,7 @@
 // dan kamera 2,5D (geser, zoom, miring X/Y) yang bergerak mulus antar-bagian papan.
 import React from "react";
 import { AbsoluteFill, Easing, Img, staticFile, useCurrentFrame } from "remotion";
-import { acak } from "./Komponen";
+import { TungguFont, acak } from "./Komponen";
 import { PAPAN_H, PAPAN_W, k } from "./tema";
 
 export type KunciKamera = { f: number; x: number; y: number; s: number; rx?: number; ry?: number; rz?: number };
@@ -64,7 +64,13 @@ const CahayaJendela: React.FC = () => (
 );
 
 /** Papan + bingkai + rak dalam koordinat papan. Anak-anak = isi papan (tulisan, coretan). */
-export const Papan: React.FC<{ kunci: KunciKamera[]; children: React.ReactNode; layar?: React.ReactNode }> = ({ kunci, children, layar }) => {
+export const Papan: React.FC<{ kunci: KunciKamera[]; children: React.ReactNode; layar?: React.ReactNode }> = (props) => (
+  <TungguFont>
+    <PapanIsi {...props} />
+  </TungguFont>
+);
+
+const PapanIsi: React.FC<{ kunci: KunciKamera[]; children: React.ReactNode; layar?: React.ReactNode }> = ({ kunci, children, layar }) => {
   const fr = useCurrentFrame();
   const c = kameraPada(fr, kunci);
   // goyang kamera tangan yang sangat halus

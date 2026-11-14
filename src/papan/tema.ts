@@ -1,15 +1,21 @@
 // Tema template "Papan Kapur": papan tulis hijau, tulisan kapur, sesekali efek 2,5D.
 import { loadFont } from "@remotion/fonts";
+
+// Semua font papan. `fontSiap` selesai saat semuanya termuat: komponen yang mengukur lebar teks (Tulis, Carousel,
+// Sampul) baru dirender sesudahnya (lihat TungguFont), supaya tata letak tidak dihitung dengan font cadangan.
+const muatFont: Promise<void>[] = [];
 import { staticFile } from "remotion";
 
-loadFont({ family: "Kalam", url: staticFile("fonts/Kalam-Light.woff2"), weight: "300" });
-loadFont({ family: "Kalam", url: staticFile("fonts/Kalam-Regular.woff2"), weight: "400" });
-loadFont({ family: "Kalam", url: staticFile("fonts/Kalam-Bold.woff2"), weight: "700" });
+muatFont.push(loadFont({ family: "Kalam", url: staticFile("fonts/Kalam-Light.woff2"), weight: "300" }));
+muatFont.push(loadFont({ family: "Kalam", url: staticFile("fonts/Kalam-Regular.woff2"), weight: "400" }));
+muatFont.push(loadFont({ family: "Kalam", url: staticFile("fonts/Kalam-Bold.woff2"), weight: "700" }));
 // Angka 0–9 memakai Shantell Sans: angka 5 di Kalam mirip huruf S ("Rp5" terbaca "RpS").
 // Hanya digit yang diganti (unicode-range), huruf tetap Kalam.
-loadFont({ family: "Angka Kapur", url: staticFile("fonts/ShantellSans-Variable.woff2"), weight: "300 800", unicodeRange: "U+0030-0039" });
-loadFont({ family: "Fredericka the Great", url: staticFile("fonts/FrederickaTheGreat-Regular.woff2"), weight: "400" });
-loadFont({ family: "Plus Jakarta Sans", url: staticFile("fonts/PlusJakartaSans-Variable.woff2"), weight: "200 800" });
+muatFont.push(loadFont({ family: "Angka Kapur", url: staticFile("fonts/ShantellSans-Variable.woff2"), weight: "300 800", unicodeRange: "U+0030-0039" }));
+muatFont.push(loadFont({ family: "Fredericka the Great", url: staticFile("fonts/FrederickaTheGreat-Regular.woff2"), weight: "400" }));
+muatFont.push(loadFont({ family: "Plus Jakarta Sans", url: staticFile("fonts/PlusJakartaSans-Variable.woff2"), weight: "200 800" }));
+
+export const fontSiap = Promise.all(muatFont);
 
 // Warna kapur. Putih untuk isi, kuning untuk angka penting, merah muda untuk risiko, biru untuk catatan.
 export const k = {

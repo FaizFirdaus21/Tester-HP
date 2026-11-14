@@ -6,38 +6,274 @@
       "peran": "hook",
       "judul": "AC 8 jam {kepotong} Rp139 ribu sebulan",
       "isi": "Contoh AC 400 watt, dipakai 8 jam sehari, di rumah 1.300 VA.",
-      "visual": "Orang (pose kaget, ekspresi kaget) di bawah sketsa kotak AC kapur; angka besar merah 'Rp139 rb/bulan'; label kecil 'contoh'."
+      "visual": "Orang (pose kaget, ekspresi kaget) di bawah sketsa kotak AC kapur; angka besar merah 'Rp139 rb/bulan'; label kecil 'contoh'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "ac",
+            "x": 620,
+            "y": 130,
+            "s": 380
+          },
+          {
+            "jenis": "orang",
+            "x": 250,
+            "y": 450,
+            "s": 440,
+            "pose": "kaget",
+            "ekspresi": "kaget",
+            "baju": "biru"
+          },
+          {
+            "jenis": "label",
+            "x": 680,
+            "y": 420,
+            "s": 360,
+            "teks": "Rp139 rb/bln",
+            "warna": "merah",
+            "miring": -6
+          }
+        ],
+        "label": [
+          {
+            "teks": "contoh",
+            "x": 680,
+            "y": 540,
+            "ukuran": 34
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "Listrik [Rp1.444,70] per kWh",
       "isi": "Tarif PLN Oktober–Desember 2026 untuk rumah 1.300 VA dan 2.200 VA.",
       "visual": "Label harga besar 'Rp1.444,70/kWh'; kalender 'OKT–DES 2026'; label kecil 'PLN · R-1 1.300 & 2.200 VA'.",
-      "sumber": "Tarif PLN triwulan IV 2026"
+      "sumber": "Tarif PLN triwulan IV 2026",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "label",
+            "x": 450,
+            "y": 200,
+            "s": 500,
+            "teks": "Rp1.444,70/kWh",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "kalender",
+            "x": 250,
+            "y": 480,
+            "s": 230,
+            "teks": "OKT–DES"
+          },
+          {
+            "jenis": "label",
+            "x": 650,
+            "y": 470,
+            "s": 380,
+            "teks": "PLN 1.300/2.200 VA",
+            "warna": "biru",
+            "miring": 4
+          }
+        ],
+        "label": []
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Mirip [argo taksi] yang jalan",
       "isi": "Tiap jam alat menyala, argo kWh-mu ikut berputar.",
-      "visual": "SKETSA: argo kapur dengan angka berputar '96 kWh'; panah dari colokan ke argo."
+      "visual": "SKETSA: argo kapur dengan angka berputar '96 kWh'; panah dari colokan ke argo.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "argo",
+            "x": 620,
+            "y": 330,
+            "s": 400,
+            "teks": "96 kWh"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 170,
+            "y1": 330,
+            "x2": 400,
+            "y2": 330,
+            "tinggi": 30,
+            "warna": "kuning"
+          }
+        ],
+        "label": [
+          {
+            "teks": "colokan",
+            "x": 170,
+            "y": 420,
+            "ukuran": 38
+          },
+          {
+            "teks": "tiap jam ikut berputar",
+            "x": 620,
+            "y": 600,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "400 W × 8 jam × 30 hari",
       "isi": "= 96 kWh × Rp1.444,70 ≈ Rp139 ribu sebulan. Daya AC tiap merek bisa beda.",
-      "visual": "Kalkulator kapur dengan hitungan '0,4 kW × 8 × 30 = 96 kWh'; label 'Rp139 rb'; label kecil 'contoh'."
+      "visual": "Kalkulator kapur dengan hitungan '0,4 kW × 8 × 30 = 96 kWh'; label 'Rp139 rb'; label kecil 'contoh'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "kalkulator",
+            "x": 220,
+            "y": 350,
+            "s": 330,
+            "teks": "0,4×8×30"
+          },
+          {
+            "jenis": "label",
+            "x": 650,
+            "y": 220,
+            "s": 300,
+            "teks": "96 kWh",
+            "warna": "biru"
+          },
+          {
+            "jenis": "label",
+            "x": 650,
+            "y": 450,
+            "s": 320,
+            "teks": "Rp139 rb",
+            "warna": "merah"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 650,
+            "y1": 290,
+            "x2": 650,
+            "y2": 380,
+            "tinggi": 15,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "× Rp1.444,70",
+            "x": 780,
+            "y": 340,
+            "ukuran": 32,
+            "warna": "kuning"
+          },
+          {
+            "teks": "contoh",
+            "x": 650,
+            "y": 560,
+            "ukuran": 32
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Cek [watt] di label alatmu",
       "isi": "Kalikan watt × jam pakai, lalu bandingkan dengan tagihan bulananmu.",
-      "visual": "Label kecil berbentuk stiker alat 'xxx W'; kalkulator; checklist '☐ cek watt ☐ × jam ☐ × tarif'. Orang (pose tunjuk, ekspresi senyum)."
+      "visual": "Label kecil berbentuk stiker alat 'xxx W'; kalkulator; checklist '☐ cek watt ☐ × jam ☐ × tarif'. Orang (pose tunjuk, ekspresi senyum).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "label",
+            "x": 200,
+            "y": 260,
+            "s": 280,
+            "teks": "400 W",
+            "warna": "putih"
+          },
+          {
+            "jenis": "kalkulator",
+            "x": 200,
+            "y": 490,
+            "s": 230
+          },
+          {
+            "jenis": "orang",
+            "x": 790,
+            "y": 450,
+            "s": 320,
+            "pose": "tunjuk",
+            "ekspresi": "senyum",
+            "baju": "merah",
+            "cermin": true
+          }
+        ],
+        "label": [
+          {
+            "teks": "✓ cek watt",
+            "x": 340,
+            "y": 250,
+            "ukuran": 40,
+            "warna": "hijau",
+            "rata": "left"
+          },
+          {
+            "teks": "✓ × jam pakai",
+            "x": 340,
+            "y": 350,
+            "ukuran": 40,
+            "warna": "hijau",
+            "rata": "left"
+          },
+          {
+            "teks": "✓ × tarif",
+            "x": 340,
+            "y": 450,
+            "ukuran": 40,
+            "warna": "hijau",
+            "rata": "left"
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Tagihan listrikmu sebulan [berapa]?",
       "isi": "Tulis angkanya di komen. Kirim ke teman kos yang AC-nya nyala terus.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar 'Rp____', label 'komen ↓ · kirim'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'Rp____', label 'komen ↓ · kirim'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 380,
+            "teks": "Rp____"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  kirim",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }

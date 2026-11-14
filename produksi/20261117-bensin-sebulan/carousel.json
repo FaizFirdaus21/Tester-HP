@@ -6,38 +6,310 @@
       "peran": "hook",
       "judul": "Rp600 ribu sebulan {kepotong} buat bensin",
       "isi": "Contoh: 2 liter Pertalite sehari, 30 hari. Cuma Rp20 ribu sekali isi.",
-      "visual": "Orang (pose struk, ekspresi kaget) memegang struk SPBU; angka kapur besar merah 'Rp600 rb/bulan'; label kecil 'contoh'."
+      "visual": "Orang (pose struk, ekspresi kaget) memegang struk SPBU; angka kapur besar merah 'Rp600 rb/bulan'; label kecil 'contoh'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 230,
+            "y": 440,
+            "s": 460,
+            "pose": "struk",
+            "ekspresi": "kaget",
+            "baju": "biru",
+            "teks": "SPBU"
+          },
+          {
+            "jenis": "label",
+            "x": 720,
+            "y": 250,
+            "s": 360,
+            "teks": "Rp600 rb/bln",
+            "warna": "merah",
+            "miring": -6
+          },
+          {
+            "jenis": "koin",
+            "x": 680,
+            "y": 500,
+            "s": 190
+          }
+        ],
+        "label": [
+          {
+            "teks": "contoh",
+            "x": 720,
+            "y": 370,
+            "ukuran": 34
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "Pertalite [Rp10.000] per liter",
       "isi": "Harga Pertalite di SPBU Pertamina per November 2026.",
       "visual": "Label harga besar 'Rp10.000/liter'; kalender 'NOV 2026'; label kecil 'Pertamina'.",
-      "sumber": "Pertamina; harga per November 2026"
+      "sumber": "Pertamina; harga per November 2026",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "label",
+            "x": 450,
+            "y": 200,
+            "s": 480,
+            "teks": "Rp10.000/liter",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "kalender",
+            "x": 260,
+            "y": 480,
+            "s": 230,
+            "teks": "NOV 2026"
+          },
+          {
+            "jenis": "label",
+            "x": 660,
+            "y": 470,
+            "s": 280,
+            "teks": "Pertamina",
+            "warna": "biru",
+            "miring": 4
+          }
+        ],
+        "label": [
+          {
+            "teks": "Pertalite",
+            "x": 450,
+            "y": 370,
+            "ukuran": 38
+          }
+        ]
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Mirip [jajan kecil] tiap hari",
       "isi": "Rp20 ribu nggak terasa. Tiga puluh kali, jadi Rp600 ribu.",
-      "visual": "SKETSA: 30 koin kecil berjajar membentuk tumpukan; panah ke label 'Rp600 rb'; label 'contoh'."
+      "visual": "SKETSA: 30 koin kecil berjajar membentuk tumpukan; panah ke label 'Rp600 rb'; label 'contoh'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "koin",
+            "x": 130,
+            "y": 280,
+            "s": 150
+          },
+          {
+            "jenis": "koin",
+            "x": 235,
+            "y": 280,
+            "s": 150
+          },
+          {
+            "jenis": "koin",
+            "x": 340,
+            "y": 280,
+            "s": 150
+          },
+          {
+            "jenis": "koin",
+            "x": 445,
+            "y": 280,
+            "s": 150
+          },
+          {
+            "jenis": "koin",
+            "x": 550,
+            "y": 280,
+            "s": 150
+          },
+          {
+            "jenis": "koin",
+            "x": 180,
+            "y": 420,
+            "s": 150
+          },
+          {
+            "jenis": "koin",
+            "x": 285,
+            "y": 420,
+            "s": 150
+          },
+          {
+            "jenis": "koin",
+            "x": 390,
+            "y": 420,
+            "s": 150
+          },
+          {
+            "jenis": "koin",
+            "x": 495,
+            "y": 420,
+            "s": 150
+          },
+          {
+            "jenis": "label",
+            "x": 790,
+            "y": 350,
+            "s": 250,
+            "teks": "Rp600 rb",
+            "warna": "merah"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 610,
+            "y1": 350,
+            "x2": 680,
+            "y2": 350,
+            "tinggi": 20,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "Rp20 rb × 30 hari",
+            "x": 340,
+            "y": 580,
+            "ukuran": 42,
+            "warna": "kuning"
+          },
+          {
+            "teks": "contoh",
+            "x": 790,
+            "y": 460,
+            "ukuran": 32
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "Nggak dicatat, nggak [ketahuan]",
       "isi": "Tanpa catatan, kita nggak tahu bensin habis berapa sebulan.",
-      "visual": "Kalender kosong dengan tanda tanya; dompet; gelembung pikiran 'habis ke mana?'."
+      "visual": "Kalender kosong dengan tanda tanya; dompet; gelembung pikiran 'habis ke mana?'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "kalender",
+            "x": 240,
+            "y": 400,
+            "s": 280,
+            "teks": "?"
+          },
+          {
+            "jenis": "dompet",
+            "x": 650,
+            "y": 500,
+            "s": 240
+          },
+          {
+            "jenis": "gelembung",
+            "x": 650,
+            "y": 230,
+            "s": 360,
+            "teks": "habis ke mana?"
+          }
+        ],
+        "label": [
+          {
+            "teks": "nggak dicatat",
+            "x": 240,
+            "y": 600,
+            "ukuran": 36,
+            "warna": "merah"
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Catat [tiap isi] seminggu",
       "isi": "Catat tiap isi, gabungkan perjalanan searah, dan cek tekanan ban rutin.",
-      "visual": "HP dengan catatan kapur 'Sen Rp20rb · Rab Rp20rb ...'; checklist '☐ catat ☐ gabung rute ☐ cek ban'; orang (pose hp, ekspresi senyum)."
+      "visual": "HP dengan catatan kapur 'Sen Rp20rb · Rab Rp20rb ...'; checklist '☐ catat ☐ gabung rute ☐ cek ban'; orang (pose hp, ekspresi senyum).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "hp",
+            "x": 180,
+            "y": 360,
+            "s": 320,
+            "teks": "Sen 20rb"
+          },
+          {
+            "jenis": "orang",
+            "x": 760,
+            "y": 450,
+            "s": 380,
+            "pose": "jempol",
+            "ekspresi": "senyum",
+            "baju": "hijau"
+          }
+        ],
+        "label": [
+          {
+            "teks": "✓ catat tiap isi",
+            "x": 360,
+            "y": 230,
+            "ukuran": 40,
+            "warna": "hijau",
+            "rata": "left"
+          },
+          {
+            "teks": "✓ gabung rute",
+            "x": 360,
+            "y": 330,
+            "ukuran": 40,
+            "warna": "hijau",
+            "rata": "left"
+          },
+          {
+            "teks": "✓ cek ban",
+            "x": 360,
+            "y": 430,
+            "ukuran": 40,
+            "warna": "hijau",
+            "rata": "left"
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Bensinmu sebulan [berapa ribu]?",
       "isi": "Tulis angkanya di komen. Kirim ke teman yang tiap hari naik motor.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar 'Rp____', label 'komen ↓ · kirim'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'Rp____', label 'komen ↓ · kirim'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 380,
+            "teks": "Rp____"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  kirim",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }
