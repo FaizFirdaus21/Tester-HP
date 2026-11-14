@@ -275,6 +275,29 @@ def potong(pcm, kata, rate=RATE, frame=0.02, min_sunyi=0.2, pad=0.08):
     return seg
 
 
+def potong_awal(pcm, sisa=0.05, rate=RATE, frame=0.01):
+    """Pangkas sunyi di awal sampai tersisa <= `sisa` detik, dengan fade-in 5 ms agar tidak klik."""
+    db = _energi_db(pcm, rate, frame)
+    if not db:
+        return pcm
+    urut = sorted(db)
+    ambang = max(urut[int(0.95 * (len(urut) - 1))] - 30, -70)
+    pertama = next((i for i, v in enumerate(db) if v >= ambang), 0)
+    mulai = max(0.0, pertama * frame - sisa)
+    if mulai <= 0:
+        return pcm
+    hasil = array("h")
+    hasil.frombytes(pcm[int(mulai * rate) * 2:])
+    if sys.byteorder != "little":
+        hasil.byteswap()
+    n = min(len(hasil), int(0.005 * rate))
+    for k in range(n):
+        hasil[k] = int(hasil[k] * k / n)
+    if sys.byteorder != "little":
+        hasil.byteswap()
+    return hasil.tobytes()
+
+
 def iris(pcm, a, b, rate=RATE):
     return pcm[int(a * rate) * 2:int(b * rate) * 2]
 
@@ -341,6 +364,19 @@ def main(argv=None):
                 sys.exit(f"blok {i}: durasi {len(p) / 2 / RATE:.1f} s tidak wajar untuk {kata[i]} kata; blok tidak disimpan.")
             pcm[i] = p
             simpan_blok(out, i, kunci(model, suara, g, blok[i]["teks"]), p)
+
+    # Hook harus mulai di 0,0 s: sunyi awal blok pertama maksimal 50 ms (pipeline v2).
+    sebelum = len(pcm[0]) / 2 / RATE
+    pcm[0] = potong_awal(pcm[0])
+    if len(pcm[0]) / 2 / RATE < sebelum - 0.001:
+        print(f"blok 0: sunyi awal dipangkas {sebelum - len(pcm[0]) / 2 / RATE:.2f} s")
+    db = _energi_db(pcm[0], RATE, 0.01)
+    ambang = max(sorted(db)[int(0.95 * (len(db) - 1))] - 30, -70) if db else 0
+    akhir_ucapan = max((k for k, v in enumerate(db) if v >= ambang), default=0) * 0.01 + 0.01
+    print(f"blok 0 (hook): ucapan berakhir di {akhir_ucapan:.2f} s")
+    if akhir_ucapan > 2.5:
+        print(f"PERINGATAN: hook selesai diucapkan di {akhir_ucapan:.2f} s, lebih dari 2,5 s; "
+              "pertimbangkan hook <= 4 kata tanpa koma")
 
     semua, waktu, t = b"", [], 0.0
     for i, b in enumerate(blok):

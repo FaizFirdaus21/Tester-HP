@@ -113,6 +113,21 @@ def main():
     assert t.ke_pcm(pcm) is pcm, "PCM mentah tidak boleh diubah"
     print("ok  WAV utuh dari API -> hanya chunk data yang dipakai")
 
+    # 4c. sunyi awal hook dipangkas sampai <= 50 ms, isi ucapan tidak hilang
+    rng = random.Random(10)
+    pcm = struct.pack("<%dh" % int(0.4 * RATE), *[int(rng.gauss(0, 15)) for _ in range(int(0.4 * RATE))])
+    suara = buat([3], random.Random(11), [], {})[0]
+    gabung = pcm + suara
+    hasil = t.potong_awal(gabung)
+    buang = (len(gabung) - len(hasil)) / 2 / RATE
+    assert 0.6 <= buang <= 0.7, buang  # 0,4 s + 0,3 s sunyi bawaan buat(), sisa 0,05 s
+    db = t._energi_db(hasil, RATE, 0.01)
+    ambang = max(sorted(db)[int(0.95 * (len(db) - 1))] - 30, -70)
+    awal_bunyi = next(i for i, v in enumerate(db) if v >= ambang) * 0.01
+    assert awal_bunyi <= 0.06, awal_bunyi
+    assert t.potong_awal(suara[: len(suara)]) == t.potong_awal(t.potong_awal(suara)), "harus idempoten"
+    print(f"ok  sunyi awal hook: {buang:.2f} s dipangkas, ucapan mulai di {awal_bunyi * 1000:.0f} ms")
+
     # 5. main() menyeluruh dengan tts tiruan: satu request, lalu cache dipakai ulang
     panggilan = []
     mode = {"baca_instruksi": False}
