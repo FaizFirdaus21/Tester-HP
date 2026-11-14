@@ -69,7 +69,7 @@ Nilai tiap kriteria 1–5, kalikan bobot, jumlahkan, lalu ubah ke skala 100.
 
 | Blok | Isi | Panjang |
 |---|---|---|
-| 1. Hook | Kerugian atau angka konkret yang langsung menyentuh dompet. Pernyataan tajam, boleh diakhiri tanya. Terdengar utuh dalam ≤2 detik. Contoh: "Bunga deposito enam persen bisa bikin uangmu nggak dijamin sama sekali." | 6–10 kata |
+| 1. Hook | Kerugian atau angka konkret yang langsung menyentuh dompet. Pernyataan tajam, boleh diakhiri tanya. Ucapan maksimal ±2,5 detik (suara Sulafat ±0,5 detik/kata, koma dan angka yang dieja memperlambat). Teks hook di layar sudah utuh sejak frame 0, jadi ucapan boleh sedikit lebih lambat dari bacaan. Contoh: "Bunga enam persen, uangmu hangus." | 4–6 kata |
 | 2. Inti + data | Apa yang terjadi, satu angka resmi (sumber di `fakta.json`). Langsung ke pokok, tanpa pembuka. | 1–2 kalimat |
 | 3. Perumpamaan + akibat | Analogi sehari-hari sekaligus dampaknya ke uang penonton dengan contoh angka (label "contoh"). | 1–2 kalimat |
 | 4. Solusi | 1–3 langkah konkret yang bisa dilakukan hari ini. | 1–2 kalimat |
@@ -77,7 +77,7 @@ Nilai tiap kriteria 1–5, kalikan bobot, jumlahkan, lalu ubah ke skala 100.
 
 Aturan tambahan:
 - **70–90 kata (±30–40 detik), maksimal 45 detik.** Kalau satu ide butuh lebih lama, pecah jadi dua video.
-- Hook adalah **pernyataan kerugian atau angka mengejutkan**, bukan pertanyaan pelan. Hindari pembuka lunak seperti "Kamu tahu nggak…".
+- Hook adalah **pernyataan kerugian atau angka mengejutkan**, bukan pertanyaan pelan. Minimalkan koma; kalau ada angka, pakai yang pendek diucapkan ("enam persen", bukan "tiga koma dua tiga persen"). Hindari pembuka lunak seperti "Kamu tahu nggak…".
 - Pakai **open loop** sekali di blok 2 atau 3 bila wajar, misalnya "yang ketiga paling sering bikin rugi", supaya orang bertahan sampai solusi.
 - Bahasa lisan anak muda Indonesia: sapa "kamu", kalimat pendek, satu ide per kalimat, tanpa istilah teknis yang tidak dijelaskan.
 - **CTA bisa dijawab dalam satu kata atau satu angka**: "Kamu pakai bunga tetap atau floating? Komen satu kata." Hindari "Gimana menurutmu?".
