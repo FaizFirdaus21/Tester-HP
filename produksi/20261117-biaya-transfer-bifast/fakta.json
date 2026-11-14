@@ -24,7 +24,7 @@
     {
       "id": "transfer-online-6500",
       "klaim": "Transfer antarbank online reguler (jaringan ATM) di sejumlah bank dikenai Rp6.500 per transaksi.",
-      "di_naskah": "blok 1 ('bisa kepotong')",
+      "di_naskah": "blok 1 (hook) dan blok 2 ('di sejumlah bank')",
       "sumber_primer": [
         "https://www.ocbc.id/id/tarif-dan-biaya/bunga-dan-biaya-digital-channel (daftar biaya resmi bank)",
         "https://www.jtrustbank.co.id/theme/Site/pdf/services-rates/2026/jul/4. (Biaya Transfer) Fee Charges Ver.06.7.2026 ID_ENG_050626.pdf"
@@ -33,7 +33,7 @@
         "https://www.ocbc.id/id/article/2026/10/28/transfer-gratis-semua-bank",
         "https://rankia.id/biaya-transfer-antar-bank/"
       ],
-      "catatan": "Tarif berbeda per bank; naskah memakai 'bisa', tidak mengklaim semua bank.",
+      "catatan": "Tarif berbeda per bank; hook tidak memakai 'bisa', jadi pembatasan 'di sejumlah bank' ada di kalimat pertama blok 2.",
       "status": "daftar biaya resmi bank + 2 sumber"
     },
     {

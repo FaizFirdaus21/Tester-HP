@@ -10,13 +10,13 @@
     {
       "peran": "hook",
       "gaya": "Tegas dan cepat, sedikit kesal, langsung ke angka",
-      "teks": "Transfer beda bank bisa kepotong enam ribu lima ratus.",
+      "teks": "Transfer kepotong enam ribu lima ratus.",
       "visual": "Frame 0 sudah utuh: angka kapur besar 'Rp6.500' dengan kata merah 'KEPOTONG' dan panah dari ikon bank ke bank lain."
     },
     {
       "peran": "inti",
       "gaya": "Menjelaskan, jelas dan meyakinkan, tekankan dua ribu lima ratus",
-      "teks": "Padahal lewat be i fast, Bank Indonesia membatasi biayanya maksimal dua ribu lima ratus rupiah per transaksi.",
+      "teks": "Itu tarif transfer online biasa di sejumlah bank. Padahal lewat be i fast, Bank Indonesia membatasi biayanya maksimal dua ribu lima ratus rupiah.",
       "visual": "Label 'BI-FAST' dan angka kapur 'maks. Rp2.500' dilingkari kuning; label kecil 'batas dari Bank Indonesia'."
     },
     {
