@@ -1,30 +1,30 @@
 {
   "audio": "vo/biaya-transfer-bifast.mp3",
   "catatan": "Dibuat dengan gemini-3.8-flash-tts, suara Sulafat.",
-  "total": 37.94,
+  "total": 40.03,
   "blok": [
     {
       "mulai": 0.0,
-      "durasi": 3.48,
-      "teks": "Transfer beda bank bisa kepotong enam ribu lima ratus."
+      "durasi": 2.81,
+      "teks": "Transfer kepotong enam ribu lima ratus."
     },
     {
-      "mulai": 3.78,
-      "durasi": 7.56,
-      "teks": "Padahal lewat be i fast, Bank Indonesia membatasi biayanya maksimal dua ribu lima ratus rupiah per transaksi."
+      "mulai": 3.11,
+      "durasi": 10.32,
+      "teks": "Itu tarif transfer online biasa di sejumlah bank. Padahal lewat be i fast, Bank Indonesia membatasi biayanya maksimal dua ribu lima ratus rupiah."
     },
     {
-      "mulai": 11.64,
+      "mulai": 13.73,
       "durasi": 11.36,
       "teks": "Mirip bayar parkir dua kali di tempat yang sama. Contohnya, transfer dua puluh kali sebulan, selisihnya delapan puluh ribu, hampir sejuta setahun."
     },
     {
-      "mulai": 23.3,
+      "mulai": 25.39,
       "durasi": 6.8,
       "teks": "Sebelum transfer, pilih menu be i fast kalau tersedia. Cek juga daftar biaya di aplikasi bankmu."
     },
     {
-      "mulai": 30.4,
+      "mulai": 32.49,
       "durasi": 7.24,
       "teks": "Biaya transfer di bankmu berapa? Tulis angkanya di komen. IntipDompet. Biar dompetmu nggak kaget."
     }
