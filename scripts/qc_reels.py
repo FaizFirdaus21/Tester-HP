@@ -10,7 +10,8 @@ Memeriksa:
   3. Ekor audio: suara harus berhenti sebelum video berakhir (tidak ada ucapan yang terpotong di akhir).
   4. Log render (bila --log): tidak boleh ada peringatan [jadwal] atau [ilustrasi].
   5. Frame akhir disimpan ke <folder video>/qc-akhir.png untuk dicek dengan mata (tagline utuh, tidak terpotong).
-  6. Frame akhir: tidak boleh ada tulisan terang yang menyentuh tepi kiri/kanan layar (indikasi terpotong).
+  6. Tepi layar sepanjang video: frame diambil tiap 0,5 s; tulisan terang yang menyentuh tepi kiri/kanan dan bertahan
+     ≥ 1 s (3 sampel berturut-turut, jadi bukan pan kamera) dianggap terpotong. Frame akhir juga dicek.
   7. Derau/klik di tepi blok: RMS maksimum (jendela 20 ms) di 0,1 s awal dan 0,3 s akhir tiap blok tidak boleh
      lebih dari 5 dB di atas level bicara blok itu (persentil 95 bagian tengah). Menangkap header/metadata WAV
      yang ikut terbaca sebagai audio (klik di awal, derau ±0,16 s di akhir blok).
@@ -109,13 +110,33 @@ if a.log and os.path.exists(a.log):
 akhir = os.path.join(folder, "qc-akhir.png")
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-sseof", "-0.1", "-i", a.video, "-frames:v", "1", "-update", "1", akhir], check=True)
 
-# 6. tulisan menyentuh tepi kiri/kanan layar di frame akhir (indikasi terpotong)
+# 6. tulisan menyentuh tepi kiri/kanan layar (indikasi terpotong), sepanjang video dan di frame akhir
 from PIL import Image
 
-g = np.asarray(Image.open(akhir).convert("L"), dtype=np.float32)
+
+def strip_tepi(x0: int) -> np.ndarray:
+    """Strip 12 px di tepi (x0 = 0 kiri, 1068 kanan), y 200–1500, tiap 0,5 s; nilai = kanal RGB tertinggi.
+    Papan hijau gelap ±80; semua warna kapur (putih, kuning, merah muda, biru, hijau muda) > 150 di salah satu kanal."""
+    raw = subprocess.run(
+        ["ffmpeg", "-v", "error", "-i", a.video, "-vf", f"fps=2,crop=12:1300:{x0}:200", "-pix_fmt", "rgb24", "-f", "rawvideo", "-"],
+        capture_output=True, check=True,
+    ).stdout
+    return np.frombuffer(raw, dtype=np.uint8).reshape(-1, 1300, 12, 3).max(axis=3)
+
+
+for sisi, x0 in (("kiri", 0), ("kanan", 1068)):
+    st = strip_tepi(x0)
+    kena = [(f > 150).mean() > 0.01 for f in st]
+    run = 0
+    for i, k_ in enumerate(kena):
+        run = run + 1 if k_ else 0
+        if run == 3:
+            gagal.append(f"tepi {sisi} layar tersentuh tulisan sejak {(i - 2) / 2:.1f} s (≥ 1 s, kemungkinan terpotong)")
+
+g = np.asarray(Image.open(akhir).convert("RGB"), dtype=np.float32).max(axis=2)
 pita = g[200:1500]
 for nama, kolom in (("kiri", pita[:, :8]), ("kanan", pita[:, -8:])):
-    if (kolom > 185).mean() > 0.004:
+    if (kolom > 150).mean() > 0.01:
         gagal.append(f"frame akhir: ada tulisan/coretan terang di tepi {nama} layar (kemungkinan terpotong)")
 
 print(f"video      {a.video}: {durasi:.2f} s, {os.path.getsize(a.video) / 1e6:.1f} MB, {lufs.group(1) if lufs else '?'} LUFS")
