@@ -1,0 +1,32 @@
+{
+  "audio": "vo/kartu-kredit-bayar-minimum.mp3",
+  "catatan": "Dibuat dengan gemini-3.8-flash-tts, suara Sulafat.",
+  "total": 36.18,
+  "blok": [
+    {
+      "mulai": 0.0,
+      "durasi": 3.12,
+      "teks": "Bayar minimum, utang nggak turun-turun."
+    },
+    {
+      "mulai": 3.42,
+      "durasi": 7.92,
+      "teks": "Bank Indonesia membolehkan bayar minimum lima persen. Tapi sisanya kena bunga, maksimal satu koma tujuh lima persen sebulan."
+    },
+    {
+      "mulai": 11.64,
+      "durasi": 9.16,
+      "teks": "Mirip menguras perahu bocor. Tagihan lima juta, bayar dua ratus lima puluh ribu, sisanya bisa kena bunga delapan puluh ribuan sebulan."
+    },
+    {
+      "mulai": 21.1,
+      "durasi": 7.0,
+      "teks": "Bayar lunas kalau bisa. Kalau belum, bayar jauh di atas minimum dan stop pakai kartunya dulu."
+    },
+    {
+      "mulai": 28.4,
+      "durasi": 7.48,
+      "teks": "Kamu biasa bayar lunas atau minimum? Komen satu kata. IntipDompet. Biar dompetmu nggak kaget."
+    }
+  ]
+}
