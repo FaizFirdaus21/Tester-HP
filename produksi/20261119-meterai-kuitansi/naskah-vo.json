@@ -1,0 +1,30 @@
+{
+  "slug": "20261119-meterai-kuitansi",
+  "versi_struktur": 3,
+  "tipe_hook": "C (mitos)",
+  "judul": "Kuitansi tiga juta nggak perlu meterai",
+  "model": "gemini-3.8-flash-tts",
+  "suara": "Sulafat",
+  "jeda_antar_blok": 0.2,
+  "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, hangat, santai, kalimat pendek. Hook dibaca langsung tanpa jeda di awal, tegas, dengan titik yang terdengar jelas. Tempo cepat.",
+  "blok": [
+    {
+      "peran": "hook",
+      "gaya": "Tegas, cepat, seperti membantah",
+      "teks": "Kuitansi tiga juta nggak perlu meterai.",
+      "visual": "Frame 0: kuitansi kapur besar 'Rp3.000.000' dengan meterai Rp10.000 dicoret merah; dalam 0,3 detik coretan tergambar."
+    },
+    {
+      "peran": "fakta_efek",
+      "gaya": "Menjelaskan, jelas, tekankan lima juta dan sepuluh ribu",
+      "teks": "Undang-undang bea meterai mewajibkan meterai sepuluh ribu untuk kuitansi bernilai lebih dari lima juta rupiah. Di bawah itu, sepuluh ribumu terbuang.",
+      "visual": "Garis bilangan kapur: '≤ Rp5 jt: tidak terutang' (hijau) | '> Rp5 jt: meterai Rp10.000' (kuning); label kecil 'UU 10/2020'. Koin Rp10 rb jatuh ke tempat sampah."
+    },
+    {
+      "peran": "aksi_cta",
+      "gaya": "Ramah, ceria di tagline",
+      "teks": "Cek nominal sebelum tempel. Pernah tempel meterai di kuitansi kecil? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget.",
+      "visual": "Gelembung komentar 'ya / nggak', lalu kembali ke papan hook (loop)."
+    }
+  ]
+}

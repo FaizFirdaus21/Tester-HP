@@ -1,0 +1,33 @@
+{
+  "slug": "20261119-meterai-kuitansi",
+  "format": "reels",
+  "tipe_hook": "C (mitos)",
+  "tayang": "2026-11-19T12:00:00+07:00",
+  "kategori": "pajak / administrasi",
+  "diakses": "2026-11-15",
+  "fakta": [
+    {
+      "id": "ambang-5jt",
+      "klaim": "Objek bea meterai mencakup dokumen yang menyatakan jumlah uang dengan nilai nominal lebih dari Rp5.000.000 yang menyebutkan penerimaan uang atau pengakuan pelunasan utang (Pasal 3 ayat 2 huruf g UU 10/2020); tarif Rp10.000 per dokumen.",
+      "di_naskah": "blok 1, 2",
+      "sumber_primer": [
+        "https://www.pajak.go.id/sites/default/files/2020-11/UU%20Nomor%2010%20Tahun%202020%20tentang%20Bea%20Materai.pdf",
+        "https://peraturan.bpk.go.id/Details/149748/uu-no-10-tahun-2020",
+        "https://pajak.go.id/en/node/49921 (DJP: bea meterai atas bukti/nota pembelian)"
+      ],
+      "sumber_media": [
+        "https://news.ddtc.co.id/ini-jenis-dokumen-yang-kena-bea-meterai-rp10000-25211",
+        "https://ekonomi.bisnis.com/read/20210112/9/1341890/info-lengkap-bea-meterai-rp10000-aturan-hingga-daftar-dokumen",
+        "https://tirto.id/apa-saja-dokumen-yang-kena-bea-materai-rp10000-gaKi"
+      ],
+      "catatan": "Naskah sengaja menyebut 'kuitansi' (dokumen penerimaan uang). Dokumen lain seperti surat perjanjian tetap terutang tanpa ambang nilai, jadi naskah tidak menggeneralisasi ke semua dokumen.",
+      "status": "resmi + 3 media"
+    },
+    {
+      "id": "contoh-3jt",
+      "klaim": "Kuitansi Rp3 juta (≤ Rp5 juta) tidak terutang bea meterai",
+      "di_naskah": "blok 1",
+      "status": "contoh penerapan aturan, berlabel 'contoh' di visual"
+    }
+  ]
+}
