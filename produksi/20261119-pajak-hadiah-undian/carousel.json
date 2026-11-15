@@ -6,38 +6,263 @@
       "peran": "hook",
       "judul": "Menang Rp10 juta, {kepotong} Rp2,5 juta",
       "isi": "Hadiah undian kena PPh final 25% dari nilai brutonya.",
-      "visual": "Orang (pose jempol berubah kaget) memegang kupon besar 'Rp10 jt'; label merah besar '−Rp2,5 jt'; label kecil 'contoh'."
+      "visual": "Orang (pose jempol berubah kaget) memegang kupon besar 'Rp10 jt'; label merah besar '−Rp2,5 jt'; label kecil 'contoh'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 220,
+            "y": 450,
+            "s": 450,
+            "pose": "kaget",
+            "ekspresi": "kaget",
+            "baju": "biru"
+          },
+          {
+            "jenis": "voucher",
+            "x": 650,
+            "y": 200,
+            "s": 360,
+            "teks": "Rp10 jt"
+          },
+          {
+            "jenis": "label",
+            "x": 680,
+            "y": 440,
+            "s": 340,
+            "teks": "−Rp2,5 jt",
+            "warna": "merah",
+            "miring": -6
+          }
+        ],
+        "label": [
+          {
+            "teks": "contoh",
+            "x": 680,
+            "y": 560,
+            "ukuran": 34
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "Pajak hadiah undian: [25% final]",
       "isi": "Diatur PP 132/2000. Penyelenggara wajib memotong sebelum hadiah diserahkan.",
       "visual": "Label besar '25%'; struk berlabel 'PPh final'; panah dari kotak hadiah ke label 'dipotong penyelenggara'.",
-      "sumber": "PP 132/2000 Pasal 2–3"
+      "sumber": "PP 132/2000 Pasal 2–3",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "label",
+            "x": 250,
+            "y": 200,
+            "s": 300,
+            "teks": "25%",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "kalkulator",
+            "x": 650,
+            "y": 250,
+            "s": 260,
+            "teks": "PPh final"
+          },
+          {
+            "jenis": "label",
+            "x": 450,
+            "y": 520,
+            "s": 440,
+            "teks": "dipotong penyelenggara",
+            "warna": "biru"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 350,
+            "y1": 280,
+            "x2": 420,
+            "y2": 440,
+            "tinggi": 20,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "hadiah undian",
+            "x": 250,
+            "y": 330,
+            "ukuran": 36
+          }
+        ]
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Mirip [gaji] yang sudah dipotong",
       "isi": "Yang sampai ke kamu sudah bersih. Pajaknya dipotong di depan.",
-      "visual": "SKETSA: amplop gaji dengan potongan di depan; panah ke label 'diterima bersih'."
+      "visual": "SKETSA: amplop gaji dengan potongan di depan; panah ke label 'diterima bersih'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "uang",
+            "x": 250,
+            "y": 320,
+            "s": 380,
+            "teks": "GAJI"
+          },
+          {
+            "jenis": "label",
+            "x": 700,
+            "y": 320,
+            "s": 340,
+            "teks": "diterima bersih",
+            "warna": "hijau"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 460,
+            "y1": 320,
+            "x2": 540,
+            "y2": 320,
+            "tinggi": 25,
+            "warna": "putih"
+          }
+        ],
+        "label": [
+          {
+            "teks": "potongan di depan",
+            "x": 250,
+            "y": 530,
+            "ukuran": 38,
+            "warna": "merah"
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "Disuruh transfer {pajak} duluan?",
       "isi": "Penyelenggara resmi memotong dari hadiah. Diminta transfer dulu? Patut curiga.",
-      "visual": "HP dengan pesan kapur 'Selamat! Transfer pajak dulu ya'; tanda seru merah besar; orang (pose hp, ekspresi cemas)."
+      "visual": "HP dengan pesan kapur 'Selamat! Transfer pajak dulu ya'; tanda seru merah besar; orang (pose hp, ekspresi cemas).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 200,
+            "y": 450,
+            "s": 420,
+            "pose": "hp",
+            "ekspresi": "cemas",
+            "baju": "merah"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 640,
+            "y": 230,
+            "s": 440,
+            "teks": "Transfer pajak dulu ya"
+          }
+        ],
+        "label": [
+          {
+            "teks": "!",
+            "x": 870,
+            "y": 480,
+            "ukuran": 120,
+            "warna": "merah"
+          },
+          {
+            "teks": "patut curiga",
+            "x": 640,
+            "y": 520,
+            "ukuran": 40,
+            "warna": "merah"
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Cek ke [penyelenggara resmi]",
       "isi": "Hubungi kontak di situs atau akun resminya. Dirugikan? Lapor ke Kontak OJK 157.",
-      "visual": "Checklist kapur '☐ cek situs resmi ☐ jangan transfer ☐ lapor 157'; orang (pose tunjuk, ekspresi senyum)."
+      "visual": "Checklist kapur '☐ cek situs resmi ☐ jangan transfer ☐ lapor 157'; orang (pose tunjuk, ekspresi senyum).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 790,
+            "y": 450,
+            "s": 340,
+            "pose": "tunjuk",
+            "ekspresi": "senyum",
+            "baju": "hijau",
+            "cermin": true
+          }
+        ],
+        "label": [
+          {
+            "teks": "✓ cek situs resmi",
+            "x": 80,
+            "y": 230,
+            "ukuran": 46,
+            "warna": "hijau",
+            "rata": "left"
+          },
+          {
+            "teks": "✓ jangan transfer",
+            "x": 80,
+            "y": 350,
+            "ukuran": 46,
+            "warna": "hijau",
+            "rata": "left"
+          },
+          {
+            "teks": "✓ lapor OJK 157",
+            "x": 80,
+            "y": 470,
+            "ukuran": 46,
+            "warna": "hijau",
+            "rata": "left"
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Pernah dapat pesan menang undian? [Ya/tidak]",
       "isi": "Jawab di komen. Kirim ke orang tuamu yang sering dapat SMS hadiah.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar 'ya / tidak', label 'komen ↓ · kirim'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'ya / tidak', label 'komen ↓ · kirim'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 380,
+            "teks": "ya / tidak"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  kirim",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }
