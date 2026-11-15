@@ -30,5 +30,5 @@
       "status": "hitungan aritmetika; tidak memprediksi kapan harga naik"
     }
   ],
-  "catatan_produksi": "WAJIB pada 18 Nov pagi: (1) perbarui harga jual/buyback Logam Mulia (resmi + ≥2 media) dan tanggalnya di naskah, visual, dan caption; (2) terapkan aturan TATA_V3: angka frame 0 maks. 3 karakter (mis. '8%'), hook ucapan dibuka dengan angka, blok 2 ≤7 detik dengan 3–4 benda yang bisa digambar; (3) kabari VO blok mana yang berubah."
+  "catatan_produksi": "WAJIB pada 18 Nov pagi: (1) perbarui harga jual/buyback Logam Mulia (resmi + ≥2 media) dan tanggalnya di naskah, visual, dan caption; (2) terapkan aturan TATA_V3: angka frame 0 maks. 3 karakter (mis. '8%'), hook ucapan dibuka dengan angka, blok 2 ≤7 detik dengan 3–4 benda yang bisa digambar; (3) kabari VO blok mana yang berubah. | 15 Nov (Orchestrator): blok 3 harus menjelaskan dua persentase dalam satu napas — '8% hilang saat dijual (selisih ÷ jual)' vs 'buyback harus naik ~8,7% untuk balik modal (selisih ÷ buyback)'; papan menampilkan keduanya beserta rumusnya. Hitung ulang keduanya dari harga 18 Nov."
 }

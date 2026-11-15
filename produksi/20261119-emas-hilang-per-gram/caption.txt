@@ -4,8 +4,8 @@ Per 12 November 2026, emas Antam 1 gram di Logam Mulia dijual Rp2.518.000, buyba
 
 Trik hitung balik modal:
 ✓ Cek harga jual DAN buyback di situs Logam Mulia sebelum beli
-✓ Bagi selisihnya dengan harga buyback: Rp202 rb ÷ Rp2,316 jt ≈ 8,7%
-✓ Artinya harga buyback harus naik sekitar 8,7% dulu sebelum kamu balik modal
+✓ Hilang saat dijual: selisih ÷ harga jual = Rp202 rb ÷ Rp2,518 jt = 8,0%
+✓ Supaya balik modal: selisih ÷ harga buyback = Rp202 rb ÷ Rp2,316 jt ≈ 8,7%. Harga buyback harus naik segitu dulu
 
 Kamu cek buyback sebelum beli? Komen ya atau nggak. Simpan video ini buat dihitung sebelum beli emas.
 
