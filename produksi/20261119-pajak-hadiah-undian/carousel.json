@@ -1,0 +1,43 @@
+{
+  "judul": "Menang undian, kepotong pajak 25%",
+  "sumber": "PP 132/2000 tentang PPh atas hadiah undian; Direktorat Jenderal Pajak",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "Menang Rp10 juta, {kepotong} Rp2,5 juta",
+      "isi": "Hadiah undian kena PPh final 25% dari nilai brutonya.",
+      "visual": "Orang (pose jempol berubah kaget) memegang kupon besar 'Rp10 jt'; label merah besar '−Rp2,5 jt'; label kecil 'contoh'."
+    },
+    {
+      "peran": "penjelasan",
+      "judul": "Pajak hadiah undian: [25% final]",
+      "isi": "Diatur PP 132/2000. Penyelenggara wajib memotong sebelum hadiah diserahkan.",
+      "visual": "Label besar '25%'; struk berlabel 'PPh final'; panah dari kotak hadiah ke label 'dipotong penyelenggara'.",
+      "sumber": "PP 132/2000 Pasal 2–3"
+    },
+    {
+      "peran": "perumpamaan",
+      "judul": "Mirip [gaji] yang sudah dipotong",
+      "isi": "Yang sampai ke kamu sudah bersih. Pajaknya dipotong di depan.",
+      "visual": "SKETSA: amplop gaji dengan potongan di depan; panah ke label 'diterima bersih'."
+    },
+    {
+      "peran": "efek",
+      "judul": "Disuruh transfer {pajak} duluan?",
+      "isi": "Penyelenggara resmi memotong dari hadiah. Diminta transfer dulu? Patut curiga.",
+      "visual": "HP dengan pesan kapur 'Selamat! Transfer pajak dulu ya'; tanda seru merah besar; orang (pose hp, ekspresi cemas)."
+    },
+    {
+      "peran": "solusi",
+      "judul": "Cek ke [penyelenggara resmi]",
+      "isi": "Hubungi kontak di situs atau akun resminya. Dirugikan? Lapor ke Kontak OJK 157.",
+      "visual": "Checklist kapur '☐ cek situs resmi ☐ jangan transfer ☐ lapor 157'; orang (pose tunjuk, ekspresi senyum)."
+    },
+    {
+      "peran": "cta",
+      "judul": "Pernah dapat pesan menang undian? [Ya/tidak]",
+      "isi": "Jawab di komen. Kirim ke orang tuamu yang sering dapat SMS hadiah.",
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'ya / tidak', label 'komen ↓ · kirim'."
+    }
+  ]
+}

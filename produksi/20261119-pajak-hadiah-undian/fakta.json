@@ -1,0 +1,42 @@
+{
+  "slug": "20261119-pajak-hadiah-undian",
+  "format": "carousel",
+  "tayang": "2026-11-19T07:00:00+07:00",
+  "kategori": "pajak / penipuan",
+  "diakses": "2026-11-15",
+  "fakta": [
+    {
+      "id": "pph-25",
+      "klaim": "Atas hadiah undian dikenakan PPh final 25% dari jumlah bruto hadiah (PP 132/2000); penyelenggara wajib memotong/memungut sebelum hadiah diserahkan (Pasal 3).",
+      "di_slide": "1, 2, 3, 4",
+      "sumber_primer": [
+        "https://www.pajak.go.id/id/pajak-penghasilan-atas-hadiah-undian"
+      ],
+      "sumber_media": [
+        "https://news.ddtc.co.id/literasi/kelas-pajak/41380/pajak-atas-hadiah-undian",
+        "https://ortax.org/ketentuan-pajak-final-hadiah-undian",
+        "https://www.hukumonline.com/klinik/a/pemungutan-pph-atas-hadiah-undian-lt584127d3d0149/"
+      ],
+      "status": "resmi + 3 sumber"
+    },
+    {
+      "id": "waspada-transfer",
+      "klaim": "Permintaan transfer 'pajak' sebelum hadiah cair patut dicurigai.",
+      "di_slide": "4",
+      "status": "saran kehati-hatian yang diturunkan dari aturan pemotongan oleh penyelenggara; TIDAK diklaim sebagai pernyataan OJK/DJP"
+    },
+    {
+      "id": "kontak-157",
+      "klaim": "Laporan penipuan keuangan bisa ke Kontak OJK 157.",
+      "di_slide": "5",
+      "sumber": "Sama dengan produksi/cadangan-modus-apk-otp/fakta.json (resmi + 2 media)",
+      "status": "resmi + 2 media"
+    },
+    {
+      "id": "contoh-10jt",
+      "klaim": "Rp10 juta × 25% = Rp2,5 juta",
+      "di_slide": "1",
+      "status": "contoh hitungan, berlabel 'contoh'"
+    }
+  ]
+}
