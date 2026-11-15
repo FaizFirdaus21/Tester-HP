@@ -94,7 +94,7 @@ Catatan risiko: topik 21–22 Nov mengulang topik carousel atau Reels sebelumnya
 Sumber aturan: uji Director, disampaikan Orchestrator pada 15 Nov.
 1. **Hook ucapan langsung dibuka dengan angka.** Angka harus terdengar dalam ≤1,5 detik. Contoh: "Enam ribu lima ratus. Hilang tiap transfer." Jangan membuka dengan kata kerja, seperti "Transfer kepotong…".
 2. **Blok 2 diucapkan dalam ≤ ±7 detik.** Isinya 3–4 benda atau angka konkret yang bisa digambar, diberi jarak rata supaya visual berganti tiap ±2 detik. Hindari frasa abstrak yang tidak bisa digambar.
-3. **Angka raksasa di frame 0 maksimal 3 karakter**, misalnya "83rb", "5%", "25%". Pakai bentuk pendek selama tetap jujur. Kalau nominal rupiahnya terlalu panjang, pertimbangkan persentase.
+3. **Angka raksasa di frame 0 maksimal 3 karakter** (tapi **akurasi lebih penting daripada ukuran**: jangan membulatkan biaya/kerugian ke bawah, mis. Rp6.500 tetap '6.500' dengan 'Rp' kecil, bukan '6rb'), misalnya "83rb", "5%", "25%". Pakai bentuk pendek selama tetap jujur. Kalau nominal rupiahnya terlalu panjang, pertimbangkan persentase.
 
 Cara menerapkan ke rencana 20–22 Nov:
 - APK: hook dibuka dengan angka laporan, hanya kalau ada sumber resmi + 2 media. Kalau tidak ada, tipe B dibuka dengan "Satu file. Rekeningmu bisa terkuras." Kata "satu" di sini bukan statistik, jadi tidak perlu sumber.
@@ -103,3 +103,5 @@ Cara menerapkan ke rencana 20–22 Nov:
 - Uang rusak: "2/3".
 - Pajak hadiah: "25%".
 - Emas: "8%". Selisih jual–buyback ≈ 8% dari harga jual (dicek ulang saat harga diperbarui 18 Nov).
+
+- **Disetujui Orchestrator (15 Nov):** hook ucapan harus sama dengan angka di layar. Untuk emas: "Delapan persen. Hilang begitu emasmu dijual." Persentasenya dihitung ulang dari harga 18 Nov.
