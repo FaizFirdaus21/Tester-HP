@@ -17,7 +17,7 @@
     {
       "peran": "fakta_efek",
       "gaya": "Menjelaskan, jelas, tekankan lima juta dan sepuluh ribu",
-      "teks": "Undang-undang mewajibkan meterai sepuluh ribu hanya untuk kuitansi di atas lima juta. Di bawah itu, sepuluh ribumu terbuang.",
+      "teks": "Undang-undang mewajibkan meterai sepuluh ribu hanya untuk kuitansi di atas lima juta rupiah. Di bawah itu, sepuluh ribumu terbuang.",
       "visual": "Garis bilangan kapur: '≤ Rp5 jt: tidak terutang' (hijau) | '> Rp5 jt: meterai Rp10.000' (kuning); label kecil 'UU 10/2020'. Koin Rp10 rb jatuh ke tempat sampah."
     },
     {
