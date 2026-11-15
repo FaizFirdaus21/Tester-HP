@@ -1,0 +1,50 @@
+{
+  "slug": "20261118-uang-rusak-hangus",
+  "format": "carousel",
+  "tayang": "2026-11-18T12:00:00+07:00",
+  "kategori": "uang tunai",
+  "diakses": "2026-11-15",
+  "fakta": [
+    {
+      "id": "syarat-2-3",
+      "klaim": "Uang kertas rusak diganti senilai nominal bila fisiknya lebih dari 2/3 ukuran asli dan ciri keasliannya dapat dikenali; yang sama dengan atau kurang dari 2/3 tidak diganti.",
+      "di_slide": "1, 2, 4",
+      "sumber_primer": "https://www.bi.go.id/id/publikasi/peraturan/Documents/PADG_191317.pdf (Pasal 9)",
+      "sumber_media": [
+        "https://finansial.bisnis.com/read/20260705/90/1985619/cara-tukar-uang-rusak-dengan-uang-baru-di-bank-indonesia-dan-syaratnya",
+        "https://finance.detik.com/foto-bisnis/d-5690403/ciri-ciri-uang-rusak-yang-bisa-ditukar-di-bank",
+        "https://www.fortuneidn.com/finance/jangan-risau-ini-cara-dan-syarat-tukar-uang-rusak-ke-bank-indonesia-00-my5jv-1yz804/amp"
+      ],
+      "status": "resmi + 3 media"
+    },
+    {
+      "id": "sengaja",
+      "klaim": "BI tidak memberi penggantian bila kerusakan diduga disengaja.",
+      "di_slide": "5",
+      "sumber_primer": "https://www.bi.go.id/id/publikasi/peraturan/Documents/PADG_191317.pdf (Pasal 3)",
+      "sumber_media": [
+        "https://finansial.bisnis.com/read/20260705/90/1985619/cara-tukar-uang-rusak-dengan-uang-baru-di-bank-indonesia-dan-syaratnya",
+        "https://www.ocbc.id/id/article/2024/05/08/cara-menukar-uang-rusak-di-bank"
+      ],
+      "status": "resmi + 2 sumber"
+    },
+    {
+      "id": "pintar",
+      "klaim": "Penukaran dipesan lewat layanan PINTAR (pintar.bi.go.id).",
+      "di_slide": "5",
+      "sumber_primer": "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/BI-Buka-Kembali-Layanan-Penukaran-Uang-Rupiah-Rusak.aspx",
+      "sumber_media": [
+        "https://finansial.bisnis.com/read/20260705/90/1985619/cara-tukar-uang-rusak-dengan-uang-baru-di-bank-indonesia-dan-syaratnya",
+        "https://www.fortuneidn.com/finance/jangan-risau-ini-cara-dan-syarat-tukar-uang-rusak-ke-bank-indonesia-00-my5jv-1yz804/amp"
+      ],
+      "catatan": "Jam layanan dan kuota tidak dicantumkan (bisa berubah).",
+      "status": "resmi + 2 media"
+    },
+    {
+      "id": "contoh-100rb",
+      "klaim": "Uang Rp100 ribu tinggal setengah lembar (= ≤ 2/3) tidak diganti",
+      "di_slide": "4",
+      "status": "contoh penerapan aturan, berlabel 'contoh'"
+    }
+  ]
+}

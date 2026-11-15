@@ -1,0 +1,43 @@
+{
+  "judul": "Uang sobek, masih bisa ditukar?",
+  "sumber": "Bank Indonesia: PADG 19/13/PADG/2017 tentang penukaran uang rupiah rusak",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "Uang sobek separuh, nilainya bisa {hangus}",
+      "isi": "BI hanya mengganti uang kertas rusak yang ukurannya lebih dari 2/3 aslinya.",
+      "visual": "Orang (pose kaget, ekspresi cemas) memegang lembaran uang yang disobek dua; label merah besar 'HANGUS?'."
+    },
+    {
+      "peran": "penjelasan",
+      "judul": "Syarat diganti: [lebih dari 2/3]",
+      "isi": "Fisik lebih dari dua pertiga ukuran asli dan ciri keaslian masih bisa dikenali.",
+      "visual": "Lembaran uang kapur dibagi tiga kotak; dua pertiga lebih diarsir kuning dengan label '> 2/3 ✓'; label kecil 'Bank Indonesia'.",
+      "sumber": "PADG 19/13/PADG/2017"
+    },
+    {
+      "peran": "perumpamaan",
+      "judul": "Mirip [voucher] yang sobek",
+      "isi": "Kodenya masih terbaca, masih bisa dipakai. Hilang separuh, ditolak.",
+      "visual": "SKETSA: dua voucher kapur, satu sobek kecil (centang), satu sobek separuh (silang merah)."
+    },
+    {
+      "peran": "efek",
+      "judul": "Sisa separuh = {nggak diganti}",
+      "isi": "Uang Rp100 ribu yang tinggal setengah lembar tidak mendapat penggantian.",
+      "visual": "Setengah lembar uang kapur bertulisan '100rb' dengan panah ke label 'Rp0'; label kecil 'contoh'."
+    },
+    {
+      "peran": "solusi",
+      "judul": "Tukar di BI lewat [PINTAR]",
+      "isi": "Pesan jadwal di pintar.bi.go.id. Kerusakan yang disengaja tidak diganti.",
+      "visual": "HP dengan teks 'pintar.bi.go.id'; kalender dengan tanggal dilingkari; ikon bank berlabel 'BI'; orang (pose hp, ekspresi senyum)."
+    },
+    {
+      "peran": "cta",
+      "judul": "Pernah dapat uang sobek? [Ya/tidak]",
+      "isi": "Jawab di komen. Kirim ke teman yang suka nyimpan uang di saku celana.",
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'ya / tidak', label 'komen ↓ · kirim'."
+    }
+  ]
+}
