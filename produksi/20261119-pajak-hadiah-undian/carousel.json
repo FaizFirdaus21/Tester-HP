@@ -185,9 +185,9 @@
     },
     {
       "peran": "solusi",
-      "judul": "Cek ke [penyelenggara resmi]",
-      "isi": "Hubungi kontak di situs atau akun resminya. Dirugikan? Lapor ke Kontak OJK 157.",
-      "visual": "Checklist kapur '☐ cek situs resmi ☐ jangan transfer ☐ lapor 157'; orang (pose tunjuk, ekspresi senyum).",
+      "judul": "Cek dulu [rekening penerimanya]",
+      "isi": "Cek rekening di cekrekening.id. Telanjur transfer? Segera hubungi bankmu.",
+      "visual": "Checklist kapur '☐ cek situs resmi ☐ jangan transfer ☐ cekrekening.id'; orang (pose tunjuk, ekspresi senyum).",
       "ilustrasi": {
         "lapis": [
           {
@@ -219,7 +219,7 @@
             "rata": "left"
           },
           {
-            "teks": "✓ lapor OJK 157",
+            "teks": "✓ lapor OJK cekrekening.id",
             "x": 80,
             "y": 470,
             "ukuran": 46,

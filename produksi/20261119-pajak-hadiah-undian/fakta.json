@@ -26,17 +26,39 @@
       "status": "saran kehati-hatian yang diturunkan dari aturan pemotongan oleh penyelenggara; TIDAK diklaim sebagai pernyataan OJK/DJP"
     },
     {
-      "id": "kontak-157",
-      "klaim": "Laporan penipuan keuangan bisa ke Kontak OJK 157.",
-      "di_slide": "5",
-      "sumber": "Sama dengan produksi/cadangan-modus-apk-otp/fakta.json (resmi + 2 media)",
-      "status": "resmi + 2 media"
-    },
-    {
       "id": "contoh-10jt",
       "klaim": "Rp10 juta × 25% = Rp2,5 juta",
       "di_slide": "1",
       "status": "contoh hitungan, berlabel 'contoh'"
+    },
+    {
+      "id": "cekrekening",
+      "klaim": "CekRekening.id adalah layanan Kementerian Komdigi untuk memeriksa apakah nomor rekening bank/e-wallet pernah dilaporkan terkait dugaan penipuan, sekaligus menerima laporan.",
+      "di_slide": "5",
+      "sumber_primer": "https://jdih.komdigi.go.id/infografis/view/57 (infografis resmi Komdigi)",
+      "sumber_media": [
+        "https://rri.co.id/bengkulu/ekonomi/keuangan/2599265/cekrekeningid-bantu-cegah-penipuan",
+        "https://www.ocbc.id/id/article/2025/06/30/cara-cek-rekening-penipuan-jangan-sampai-jadi-korban",
+        "https://katadata.co.id/digital/teknologi/6ab9d4632a45d/komdigi-sebut-ada-670-ribu-laporan-penipuan-online-1-2-juta-rekening-dilaporkan"
+      ],
+      "catatan": "Hasil cek bukan bukti penipuan, dan rekening 'bersih' bukan jaminan aman — caption menyebut ini.",
+      "status": "resmi + 3 sumber"
+    },
+    {
+      "id": "hubungi-bank",
+      "klaim": "Bila telanjur transfer, segera hubungi bank.",
+      "di_slide": "5",
+      "status": "saran umum tanpa angka/klaim lembaga"
+    }
+  ],
+  "tidak_dipakai": [
+    {
+      "klaim": "Lapor ke Kontak OJK 157",
+      "alasan": "Gagal QC Orchestrator: 157 adalah layanan pengaduan konsumen sektor jasa keuangan. Catatan: OJK juga menjalankan Indonesia Anti-Scam Centre (IASC) yang menerima laporan penipuan dan memblokir dana (737.686 laporan s.d. Okt 2026, Kontan), tapi alamat/prosedur pelaporan IASC belum terverifikasi — tidak dipakai."
+    },
+    {
+      "klaim": "patrolisiber.id (Polri)",
+      "alasan": "tidak ditemukan sumber 2026 yang mengonfirmasi layanan ini"
     }
   ]
 }
