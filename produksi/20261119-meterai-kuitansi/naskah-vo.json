@@ -17,13 +17,13 @@
     {
       "peran": "fakta_efek",
       "gaya": "Menjelaskan, jelas, tekankan lima juta dan sepuluh ribu",
-      "teks": "Undang-undang bea meterai mewajibkan meterai sepuluh ribu untuk kuitansi bernilai lebih dari lima juta rupiah. Di bawah itu, sepuluh ribumu terbuang.",
+      "teks": "Undang-undang mewajibkan meterai sepuluh ribu hanya untuk kuitansi di atas lima juta. Di bawah itu, sepuluh ribumu terbuang.",
       "visual": "Garis bilangan kapur: '≤ Rp5 jt: tidak terutang' (hijau) | '> Rp5 jt: meterai Rp10.000' (kuning); label kecil 'UU 10/2020'. Koin Rp10 rb jatuh ke tempat sampah."
     },
     {
       "peran": "aksi_cta",
       "gaya": "Ramah, ceria di tagline",
-      "teks": "Cek nominal sebelum tempel. Pernah tempel meterai di kuitansi kecil? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget.",
+      "teks": "Cek nominal sebelum tempel. Pernah begitu? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget.",
       "visual": "Gelembung komentar 'ya / nggak', lalu kembali ke papan hook (loop)."
     }
   ]

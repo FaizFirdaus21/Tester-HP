@@ -81,6 +81,8 @@ Target: setiap tipe hook (A angka kejut, B panggilan langsung, C mitos, D harga 
 
 Rekap tipe: A×2, B×2, C×2, D×2.
 
+**Panjang naskah (catatan VO, 15 Nov):** Reels 12.00 (model 3.1-preview, jeda alami lebih panjang) 40–44 kata. Reels 19.00 (model 3.8) maksimal ±55 kata.
+
 **Carousel 07.00 (20–22 Nov, kandidat):**
 - Cashback dihitung bunga oleh LPS (fakta LPS sudah ada).
 - Batas BI-FAST Rp2.500 vs transfer online Rp6.500 dalam versi tabel.
