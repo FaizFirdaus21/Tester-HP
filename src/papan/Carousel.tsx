@@ -53,14 +53,14 @@ const urai = (teks: string, dasar: string): Potong[] => {
     if (WARNA_TANDA[c]) {
       const j = teks.indexOf(PASANGAN[c], i + 1);
       if (j > i) {
-        for (const kata of teks.slice(i + 1, j).split(/(\s+)/)) if (kata) hasil.push({ t: kata, warna: WARNA_TANDA[c] });
+        for (const kata of teks.slice(i + 1, j).split(/([ \t\n]+)/)) if (kata) hasil.push({ t: kata, warna: WARNA_TANDA[c] });
         i = j + 1;
         continue;
       }
     }
     const j = teks.slice(i + 1).search(/[[{<]/);
     const akhir = j < 0 ? teks.length : i + 1 + j;
-    for (const kata of teks.slice(i, akhir).split(/(\s+)/)) if (kata) hasil.push({ t: kata, warna: dasar });
+    for (const kata of teks.slice(i, akhir).split(/([ \t\n]+)/)) if (kata) hasil.push({ t: kata, warna: dasar });
     i = akhir;
   }
   return hasil;
