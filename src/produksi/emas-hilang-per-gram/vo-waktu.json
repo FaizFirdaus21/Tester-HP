@@ -1,0 +1,100 @@
+{
+  "audio": "vo/emas-hilang-per-gram.mp3",
+  "catatan": "Dibuat dengan gemini-3.8-flash-tts, suara Sulafat. Diperkaya scripts/sinkron_vo.py (bicara + jangkar kalimat).",
+  "total": 23.41,
+  "blok": [
+    {
+      "mulai": 0.0,
+      "durasi": 3.01,
+      "teks": "Dua ratus ribu. Hilang per gram.",
+      "bicara": [
+        0.0,
+        2.752
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 16,
+          "detik": 1.7
+        },
+        {
+          "huruf": 32,
+          "detik": 2.752
+        }
+      ]
+    },
+    {
+      "mulai": 3.21,
+      "durasi": 11.68,
+      "teks": "Per dua belas November, emas Antam satu gram dijual dua koma lima dua juta, buyback-nya dua koma tiga dua juta. Beli lalu langsung jual, kamu rugi sekitar dua ratus ribu.",
+      "bicara": [
+        3.324,
+        14.561
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 24,
+          "detik": 1.675
+        },
+        {
+          "huruf": 76,
+          "detik": 5.202
+        },
+        {
+          "huruf": 112,
+          "detik": 7.515
+        },
+        {
+          "huruf": 137,
+          "detik": 9.575
+        },
+        {
+          "huruf": 170,
+          "detik": 11.237
+        }
+      ]
+    },
+    {
+      "mulai": 15.09,
+      "durasi": 8.12,
+      "teks": "Cek selisih jual dan buyback sebelum beli. Selisih di tempatmu berapa? Komen angkanya. IntipDompet. Biar dompetmu nggak kaget.",
+      "bicara": [
+        15.21,
+        22.965
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 43,
+          "detik": 2.812
+        },
+        {
+          "huruf": 71,
+          "detik": 4.471
+        },
+        {
+          "huruf": 87,
+          "detik": 5.638
+        },
+        {
+          "huruf": 100,
+          "detik": 6.629
+        },
+        {
+          "huruf": 126,
+          "detik": 7.756
+        }
+      ]
+    }
+  ]
+}

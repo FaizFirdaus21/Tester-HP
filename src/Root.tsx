@@ -34,6 +34,7 @@ import { BifastReels, DURASI_BIFAST } from "./produksi/biaya-transfer-bifast/Vid
 import { DURASI_KARTU_KREDIT, KartuKreditReels } from "./produksi/kartu-kredit-bayar-minimum/Video";
 import { DURASI_UJI_V3, UjiV3Reels } from "./produksi/uji-v3/Video";
 import { DURASI_METERAI, MeteraiReels } from "./produksi/meterai-kuitansi/Video";
+import { DURASI_EMAS_PER_GRAM, EmasPerGramReels } from "./produksi/emas-hilang-per-gram/Video";
 import contohNaikBerapa from "../data/naik-berapa-contoh.json";
 
 export const RemotionRoot: React.FC = () => (
@@ -64,6 +65,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="KartuKreditReels" component={KartuKreditReels} durationInFrames={DURASI_KARTU_KREDIT} fps={30} width={1080} height={1920} />
     <Composition id="UjiV3Reels" component={UjiV3Reels} durationInFrames={DURASI_UJI_V3} fps={30} width={1080} height={1920} />
     <Composition id="MeteraiReels" component={MeteraiReels} durationInFrames={DURASI_METERAI} fps={30} width={1080} height={1920} />
+    <Composition id="EmasPerGramReels" component={EmasPerGramReels} durationInFrames={DURASI_EMAS_PER_GRAM} fps={30} width={1080} height={1920} />
     <Composition id="BungaDepositoLPSv2" component={BungaDepositoLPSv2} durationInFrames={DURASI_DEPOSITO_V2} fps={30} width={1080} height={1920} />
     <Composition id="BungaDepositoLPS" component={BungaDepositoLPS} durationInFrames={DURASI_DEPOSITO} fps={30} width={1080} height={1920} />
     <Composition id="InflasiSinematik" component={InflasiSinematik} durationInFrames={DURASI_V3} fps={30} width={1080} height={1920} />
