@@ -48,6 +48,10 @@ export const TATA_V2: OpsiReels = { bagian: [A, B, C, D], cta: { x: 1080, y0: 38
  *  Kamera pindah 0,4 s, CTA satu sel tanpa tarikan mundur, subtitel besar, SFX di detik 0, akhir kembali ke hook. */
 export const TATA_V3: OpsiReels = { bagian: [A, B], cta: { x: C.x, y0: C.y0 }, loop: true, pindah: 0.2, ctaSel: true, subUkuran: 58, sfx: "sfx/tak-kapur.wav" };
 
+/** Reels v3.1 (4 blok, 25–35 s, menggantikan v3 mulai 19 Nov; docs/pipeline-produksi.md): A angka (hook), B fakta + alasan,
+ *  C TIPS (inti, 10–14 s), D CTA satu sel. Hook tetap cepat; sesudahnya angka/langkah penting tampil ≥ 2,5 s. */
+export const TATA_V31: OpsiReels = { ...TATA_V3, bagian: [A, B, C], cta: { x: D.x, y0: D.y0 } };
+
 const KEMBALI_V2 = 0.6; // detik kamera kembali dari CTA ke hook di akhir (loop)
 
 /** Jadwal + kamera + fungsi waktu frasa untuk satu Reels. */
