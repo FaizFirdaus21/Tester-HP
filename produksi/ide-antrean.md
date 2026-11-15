@@ -132,3 +132,4 @@ Uji untuk setiap tip: "Apakah orang akan menyimpan video ini untuk dipakai nanti
 - **Suara merek:** mengikuti docs/pipeline-produksi.md, bukan ~/.claude/instagram/voice.md (file itu tidak ada).
 - **Keputusan Orchestrator (15 Nov):** versi bahasa Indonesia tidak dibuat. hookscore hanya dipakai untuk menangkap masalah struktur (tidak ada angka, hook kepanjangan), bukan untuk memutuskan. Sinyal utama tetap skip rate per tipe hook setelah 4 hari.
 - **Pola varian hook yang perlu dicoba:** lambang rupiah + angka + kata kerugian di depan, misalnya "Rp10.000 kebuang tiap tempel meterai." Polanya sama dengan konten terbaik kita (angka besar + kerugian).
+- **Kalibrasi durasi (VO, 15 Nov):** jalankan `python3 .claude/skills/ig-reel/beats.py naskah.txt --wpm 125 --target 30` (suara Sulafat ±125 kata/menit). Tambahkan ±0,9 detik untuk jeda antarblok dan +0,5 detik bila hook berisi titik atau koma. Hasil uji: meterai v3.1 diprediksi ±33,5 detik, aktualnya 34,7 detik.
