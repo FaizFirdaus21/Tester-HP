@@ -1,0 +1,146 @@
+{
+  "audio": "vo/kartu-kredit-bayar-minimum.mp3",
+  "catatan": "Dibuat dengan gemini-3.8-flash-tts, suara Sulafat. Diperkaya scripts/sinkron_vo.py (bicara + jangkar kalimat).",
+  "total": 36.18,
+  "blok": [
+    {
+      "mulai": 0.0,
+      "durasi": 3.12,
+      "teks": "Bayar minimum, utang nggak turun-turun.",
+      "bicara": [
+        0.0,
+        2.888
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 15,
+          "detik": 1.365
+        },
+        {
+          "huruf": 39,
+          "detik": 2.888
+        }
+      ]
+    },
+    {
+      "mulai": 3.42,
+      "durasi": 7.92,
+      "teks": "Bank Indonesia membolehkan bayar minimum lima persen. Tapi sisanya kena bunga, maksimal satu koma tujuh lima persen sebulan.",
+      "bicara": [
+        3.753,
+        11.13
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 54,
+          "detik": 3.353
+        },
+        {
+          "huruf": 79,
+          "detik": 5.219
+        },
+        {
+          "huruf": 124,
+          "detik": 7.377
+        }
+      ]
+    },
+    {
+      "mulai": 11.64,
+      "durasi": 9.16,
+      "teks": "Mirip menguras perahu bocor. Tagihan lima juta, bayar dua ratus lima puluh ribu, sisanya bisa kena bunga delapan puluh ribuan sebulan.",
+      "bicara": [
+        11.931,
+        20.557
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 29,
+          "detik": 2.081
+        },
+        {
+          "huruf": 48,
+          "detik": 3.5
+        },
+        {
+          "huruf": 81,
+          "detik": 5.853
+        },
+        {
+          "huruf": 134,
+          "detik": 8.626
+        }
+      ]
+    },
+    {
+      "mulai": 21.1,
+      "durasi": 7.0,
+      "teks": "Bayar lunas kalau bisa. Kalau belum, bayar jauh di atas minimum dan stop pakai kartunya dulu.",
+      "bicara": [
+        21.311,
+        27.855
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 24,
+          "detik": 2.178
+        },
+        {
+          "huruf": 37,
+          "detik": 3.031
+        },
+        {
+          "huruf": 93,
+          "detik": 6.544
+        }
+      ]
+    },
+    {
+      "mulai": 28.4,
+      "durasi": 7.48,
+      "teks": "Kamu biasa bayar lunas atau minimum? Komen satu kata. IntipDompet. Biar dompetmu nggak kaget.",
+      "bicara": [
+        28.825,
+        35.618
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 37,
+          "detik": 2.745
+        },
+        {
+          "huruf": 54,
+          "detik": 4.121
+        },
+        {
+          "huruf": 67,
+          "detik": 5.435
+        },
+        {
+          "huruf": 93,
+          "detik": 6.793
+        }
+      ]
+    }
+  ]
+}

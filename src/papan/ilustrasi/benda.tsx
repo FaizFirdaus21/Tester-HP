@@ -556,7 +556,24 @@ const Voucher: FB = ({ cx, cy, s, teks }) => {
   );
 };
 
+// Perahu kecil dengan air masuk (bocor): lambung, air biru di dasar, tetesan dari lubang.
+const Perahu: FB = ({ cx, cy, s }) => {
+  const t = tebalDari(s);
+  const S = skala(cx, cy, s);
+  return (
+    <>
+      <Bidang pts={S([[-0.4, 0.06], [0.4, 0.06], [0.3, 0.22], [-0.3, 0.22]])} warna={k.biru} isi={0.45} />
+      <Bentuk pts={S([[-0.5, -0.05], [0.5, -0.05], [0.32, 0.25], [-0.32, 0.25], [-0.5, -0.05]])} warna={k.kuning} garis={k.putih} isi={0.12} tebal={t} />
+      <Gr pts={halus(S([[-0.62, 0.3], [-0.4, 0.26], [-0.2, 0.32], [0, 0.27], [0.2, 0.32], [0.4, 0.26], [0.62, 0.3]]), false, 2)} warna={k.biru} tebal={t} />
+      {[0, 1, 2].map((i) => (
+        <Gr key={i} pts={S([[0.1 + i * 0.07, 0.3 + i * 0.03], [0.1 + i * 0.07, 0.34 + i * 0.03]])} warna={k.biru} tebal={t * 0.9} />
+      ))}
+    </>
+  );
+};
+
 export const BENDA: Record<string, FB> = {
+  perahu: Perahu,
   lembar: Lembar,
   lembarSobek: LembarSobek,
   lembarTiga: LembarTiga,
