@@ -64,3 +64,26 @@ Kolom ini hanya boleh memakai aset yang tersedia, supaya Director bisa langsung 
 ## Ditunda
 - **UMP 2027:** tunggu penetapan resmi, target akhir November. Saat itu topik ini kandidat Reels dengan skor tinggi.
 - **Upah rata-rata Agustus 2026 (Rp3,42 juta):** belum ada di rilis BPS, baru di media.
+
+## Sprint 7 hari: rencana Reels v3 (rotasi tipe hook)
+Target: setiap tipe hook (A angka kejut, B panggilan langsung, C mitos, D harga nyata) dipakai minimal 2 kali pada 19–22 Nov.
+
+| Tanggal | Slot | Tipe | Topik | Data (status) |
+|---|---|---|---|---|
+| 19 Nov | 12.00 | C | Kuitansi Rp3 juta nggak perlu meterai | UU 10/2020 (resmi + 3) ✓ diproduksi |
+| 19 Nov | 19.00 | A | Rp200 ribu hilang per gram emas | Logam Mulia 12 Nov (dikutip + ≥3) ✓ diproduksi |
+| 20 Nov | 12.00 | B | "Kamu yang dapat file undangan.apk, jangan dibuka" | BI/OJK + 2 media ✓ (fakta di cadangan-modus-apk-otp) |
+| 20 Nov | 19.00 | D | Iuran BPJS mandiri: kelas 3 Rp35 ribu, kelas 1 Rp150 ribu | Perpres 64/2020 + 3 media ✓ |
+| 21 Nov | 12.00 | A | "Seratus ribu. Denda telat bayar kartu kredit." (maks. 1%, ≤ Rp100 rb s.d. 31 Des 2026) | BI + 2 media ✓ |
+| 21 Nov | 19.00 | C | "Uang sobek separuh nggak diganti BI" | PADG 19/13/2017 + 3 media ✓ |
+| 22 Nov | 12.00 | B | "Kamu yang menang undian, jangan transfer pajak duluan" | PP 132/2000 + 3 ✓ |
+| 22 Nov | 19.00 | D | Harga emas hari ini (jual vs buyback) | harga Logam Mulia wajib diambil pada hari produksi |
+
+Rekap tipe: A×2, B×2, C×2, D×2.
+
+**Carousel 07.00 (20–22 Nov, kandidat):**
+- Cashback dihitung bunga oleh LPS (fakta LPS sudah ada).
+- Batas BI-FAST Rp2.500 vs transfer online Rp6.500 dalam versi tabel.
+- Pertalite vs harga keekonomian. Klaim "harga keekonomian >Rp20.000" baru ada di 1 media, jadi perlu dicek dulu.
+
+Catatan risiko: topik 21–22 Nov mengulang topik carousel atau Reels sebelumnya (kartu kredit, uang rusak, pajak hadiah, emas) dalam format Reels v3 yang lebih pendek. Ini sengaja, karena carousel nyaris tidak menjangkau orang (reach 2–6). Kalau ingin topik yang benar-benar baru, angka resminya perlu dicari dulu.
