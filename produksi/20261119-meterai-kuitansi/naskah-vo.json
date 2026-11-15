@@ -3,7 +3,7 @@
   "versi_struktur": 3,
   "tipe_hook": "C (mitos)",
   "judul": "Kuitansi tiga juta nggak perlu meterai",
-  "model": "gemini-3.8-flash-tts",
+  "model": "gemini-3.1-flash-tts-preview",
   "suara": "Sulafat",
   "jeda_antar_blok": 0.2,
   "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, hangat, santai, kalimat pendek. Hook dibaca langsung tanpa jeda di awal, tegas, dengan titik yang terdengar jelas. Tempo cepat.",
