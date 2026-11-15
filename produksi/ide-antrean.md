@@ -119,3 +119,8 @@ Uji untuk setiap tip: "Apakah orang akan menyimpan video ini untuk dipakai nanti
 | 21 Nov | 19.00 | C | "Dua pertiga. Kurang dari itu, uangmu hangus." (2/3) | Trik ukur: lipat uang jadi tiga bagian sama; kalau sisa fisiknya lebih dari dua lipatan, bisa ditukar via pintar.bi.go.id | aturan ✓ PADG; trik lipat = cara praktis menerapkan aturan, ditandai sebagai trik, bukan aturan BI |
 | 22 Nov | 12.00 | B | "Dua puluh lima persen. Pajak hadiahmu." (25%) | Pajak dipotong penyelenggara sebelum hadiah diserahkan → diminta transfer "pajak" dulu = curiga; cek rekening penerima di cekrekening.id | ✓ |
 | 22 Nov | 19.00 | D | Harga emas hari ini (angka % atau harga per gram) | Bandingkan harga per gram antar-pecahan (1 g vs 10 g) di daftar harga Logam Mulia | harga per pecahan wajib diverifikasi hari produksi (≥2 media) |
+
+## Proses naskah v3.1 mulai 20 Nov (skill baru, commit 59c3204)
+- **hook-write:** tulis 5–10 varian hook per naskah. Simpan di `naskah-vo.json` → `hook_varian` (teks, tipe A/B/C/D, alasan), lalu pilih satu sesuai rotasi uji.
+- **cta-craft:** CTA satu kata/angka di naskah. Ajakan simpan atau kirim cukup di caption.
+- Aturan fakta proyek (resmi + ≥2 sumber, angka contoh diberi label, tanpa membulatkan yang menyesatkan) **tetap lebih kuat** daripada saran skill.
