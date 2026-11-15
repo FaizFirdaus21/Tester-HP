@@ -11,7 +11,7 @@ import { d, font, sel } from "./tema";
 import { SuaraVO } from "../catatan/Komponen";
 import { BarisSubtitel, DataVO, jadwalVO, padaFrasa, peringatkan, perkiraanVO, rapatkanVO, subtitelDariBlok } from "../catatan/Jadwal";
 
-export type Naskah = { blok: { teks: string }[] };
+export type Naskah = { blok: { teks: string }[]; slug?: string };
 
 export const A = sel(0, 0);
 export const B = sel(1, 0);
@@ -61,7 +61,8 @@ export const buatReels = (vo: DataVO, naskah: Naskah, opsi: OpsiReels = {}) => {
   const bagian = opsi.bagian ?? [A, B, C, D, E, F];
   const cta = opsi.cta ?? G;
   const n = bagian.length + 1;
-  if (naskah.blok.length !== n) peringatkan(`naskah ${naskah.blok.length} blok, tata papan untuk ${n} blok`);
+  const tag = naskah.slug ? `{${naskah.slug}} ` : "";
+  if (naskah.blok.length !== n) peringatkan(`${tag}naskah ${naskah.blok.length} blok, tata papan untuk ${n} blok`);
   const isyarat: Record<string, number | "selesai"> = { akhir: "selesai" };
   for (let i = 0; i < n; i++) isyarat[`b${i}`] = i;
   const VO = rapatkanVO(vo, { jeda: 0.4 });
@@ -73,7 +74,7 @@ export const buatReels = (vo: DataVO, naskah: Naskah, opsi: OpsiReels = {}) => {
   /** Frame saat `frasa` diucapkan di blok i; peringatan bila elemen (`lama` frame) belum selesai saat kamera pindah. */
   const W = (i: number, frasa: string, geser = 0, lama = 0) => {
     const f = d(padaFrasa(J, i, naskah.blok[i].teks, frasa, geser));
-    if (f + lama > d(batas(i))) peringatkan(`blok ${i} "${frasa}": selesai di frame ${f + lama}, kamera pindah di ${d(batas(i))}`);
+    if (f + lama > d(batas(i))) peringatkan(`${tag}blok ${i} "${frasa}": selesai di frame ${f + lama}, kamera pindah di ${d(batas(i))}`);
     return f;
   };
   const fokus = (s: Sel) => ({ x: s.x, y: s.y0 + 880 });

@@ -33,6 +33,7 @@ ap.add_argument("--awal", type=float, default=0.4)
 ap.add_argument("--jeda", type=float, default=0.4)
 ap.add_argument("--tepi", type=float, nargs=2, default=[0.06, 0.12])
 ap.add_argument("--log")
+ap.add_argument("--slug", help="abaikan peringatan log yang ditandai {slug-lain} (dari komposisi lain di bundle yang sama)")
 a = ap.parse_args()
 
 gagal: list[str] = []
@@ -104,6 +105,10 @@ if akhir_suara > durasi - 0.2:
 if a.log and os.path.exists(a.log):
     pesan = sorted(set(re.findall(r"\[(?:jadwal|ilustrasi)\][^\n]*", open(a.log, errors="ignore").read())))
     for p in pesan:
+        m = re.search(r"\{([\w-]+)\}", p)
+        if a.slug and m and m.group(1) != a.slug:
+            catatan.append(f"diabaikan (komposisi lain): {p}")
+            continue
         gagal.append(f"log render: {p}")
 
 # 5. frame akhir
