@@ -23,10 +23,11 @@
       "status": "resmi (penetapan harga) + 4 media"
     },
     {
-      "id": "contoh-2liter",
-      "klaim": "2 liter × Rp10.000 × 30 hari = Rp600.000; Rp20.000 sekali isi",
+      "id": "contoh-1liter",
+      "klaim": "1 liter × Rp10.000 × 30 hari = Rp300.000; Rp10.000 sekali isi",
       "di_slide": "1, 3",
-      "status": "contoh hitungan, berlabel 'contoh'"
+      "status": "contoh hitungan, berlabel 'contoh'",
+      "catatan": "Diubah dari 2 liter (Rp600 rb) ke 1 liter atas keputusan Orchestrator 15 Nov 2026; 1 liter/hari lebih realistis untuk komuter motor."
     }
   ]
 }

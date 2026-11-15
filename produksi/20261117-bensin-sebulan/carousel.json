@@ -4,9 +4,9 @@
   "slide": [
     {
       "peran": "hook",
-      "judul": "Rp600 ribu sebulan {kepotong} buat bensin",
-      "isi": "Contoh: 2 liter Pertalite sehari, 30 hari. Cuma Rp20 ribu sekali isi.",
-      "visual": "Orang (pose struk, ekspresi kaget) memegang struk SPBU; angka kapur besar merah 'Rp600 rb/bulan'; label kecil 'contoh'.",
+      "judul": "Rp300 ribu sebulan {kepotong} buat bensin",
+      "isi": "Contoh: 1 liter Pertalite sehari, 30 hari. Cuma Rp10 ribu sekali isi.",
+      "visual": "Orang (pose struk, ekspresi kaget) memegang struk SPBU; angka kapur besar merah 'Rp300 rb/bulan'; label kecil 'contoh'.",
       "ilustrasi": {
         "lapis": [
           {
@@ -24,7 +24,7 @@
             "x": 720,
             "y": 250,
             "s": 360,
-            "teks": "Rp600 rb/bln",
+            "teks": "Rp300 rb/bln",
             "warna": "merah",
             "miring": -6
           },
@@ -91,8 +91,8 @@
     {
       "peran": "perumpamaan",
       "judul": "Mirip [jajan kecil] tiap hari",
-      "isi": "Rp20 ribu nggak terasa. Tiga puluh kali, jadi Rp600 ribu.",
-      "visual": "SKETSA: 30 koin kecil berjajar membentuk tumpukan; panah ke label 'Rp600 rb'; label 'contoh'.",
+      "isi": "Rp10 ribu nggak terasa. Tiga puluh kali, jadi Rp300 ribu.",
+      "visual": "SKETSA: 30 koin kecil berjajar membentuk tumpukan; panah ke label 'Rp300 rb'; label 'contoh'.",
       "ilustrasi": {
         "lapis": [
           {
@@ -154,7 +154,7 @@
             "x": 790,
             "y": 350,
             "s": 250,
-            "teks": "Rp600 rb",
+            "teks": "Rp300 rb",
             "warna": "merah"
           }
         ],
@@ -170,7 +170,7 @@
         ],
         "label": [
           {
-            "teks": "Rp20 rb × 30 hari",
+            "teks": "Rp10 rb × 30 hari",
             "x": 340,
             "y": 580,
             "ukuran": 42,
@@ -228,7 +228,7 @@
       "peran": "solusi",
       "judul": "Catat [tiap isi] seminggu",
       "isi": "Catat tiap isi, gabungkan perjalanan searah, dan cek tekanan ban rutin.",
-      "visual": "HP dengan catatan kapur 'Sen Rp20rb · Rab Rp20rb ...'; checklist '☐ catat ☐ gabung rute ☐ cek ban'; orang (pose hp, ekspresi senyum).",
+      "visual": "HP dengan catatan kapur 'Sen Rp10rb · Rab Rp10rb ...'; checklist '☐ catat ☐ gabung rute ☐ cek ban'; orang (pose hp, ekspresi senyum).",
       "ilustrasi": {
         "lapis": [
           {
@@ -236,7 +236,7 @@
             "x": 180,
             "y": 360,
             "s": 320,
-            "teks": "Sen 20rb"
+            "teks": "Sen 10rb"
           },
           {
             "jenis": "orang",
