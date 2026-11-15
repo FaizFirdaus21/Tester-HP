@@ -27,10 +27,10 @@ const IsiPapan: React.FC = () => (
     <Tulis x={A.x} y={A.y0 + 250} teks="kemasan besar," ukuran={104} gaya="tebal" mulai={SUDAH} rata="center" />
     <B_.botol cx={A.x0 + 240} cy={A.y0 + 650} s={280} teks="kecil" />
     <B_.botol cx={A.x0 + 580} cy={A.y0 + 620} s={440} teks="JUMBO" warna={k.hijauTerang} />
-    <B_.label cx={A.x0 + 890} cy={A.y0 + 560} s={280} teks="HEMAT!" warna={k.kuning} miring={-10} />
-    <Tulis x={A.x0 + 890} y={A.y0 + 800} teks="?" ukuran={170} gaya="tebal" warna={k.merah} mulai={SUDAH} rata="center" />
+    <B_.label cx={A.x0 + 850} cy={A.y0 + 560} s={250} teks="HEMAT!" warna={k.kuning} miring={-10} />
+    <Tulis x={A.x0 + 850} y={A.y0 + 800} teks="?" ukuran={170} gaya="tebal" warna={k.merah} mulai={SUDAH} rata="center" />
     <Tulis x={A.x} y={A.y0 + 1050} teks="pasti lebih hemat?" ukuran={112} gaya="tebal" warna={k.merah} mulai={SUDAH} rata="center" tebalFilter />
-    <Coret pts={lingkaran(A.x0 + 890, A.y0 + 560, 170, 90, 6)} mulai={d(0.5)} lama={12} warna={k.merah} tebal={7} />
+    <Coret pts={lingkaran(A.x0 + 850, A.y0 + 560, 150, 82, 6)} mulai={d(0.5)} lama={12} warna={k.merah} tebal={7} />
 
     {/* ===== B: rumus ===== */}
     <Tulis x={B.x} y={B.y0 + 260} teks="cara paling jujur:" ukuran={80} gaya="hias" warna={k.biru} mulai={R.tiba(1)} perHuruf={1.2} rata="center" />
