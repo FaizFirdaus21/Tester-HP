@@ -62,7 +62,18 @@ Nilai tiap kriteria 1–5, kalikan bobot, jumlahkan, lalu ubah ke skala 100.
 3. `naskah-vo.json`, dengan aturan di bagian **Struktur naskah** di bawah.
 4. Set `status.json` ke `naskah-siap`.
 
-### Reels v3 (mandatory from 19 Nov 2026, growth sprint)
+### Reels v3.1 (replaces v3 from 19 Nov 2026, after user feedback)
+User feedback on the first v3 render (meterai): too fast, and it gave no extra information or tips, so it felt like news and was boring. v3 cut the value along with the length. v3.1 keeps the fast hook and gives the time back to a practical tip.
+- **25–35 s, 4 blocks:**
+  1. Hook = the number, spoken, at most about 2.5 s (unchanged).
+  2. Fact + why it matters, about 6 s.
+  3. **TRICK / TIP**, 10–14 s: something the viewer probably did not know and can do today, concrete enough to act on (where to check, what to type or say, how to calculate quickly, how to tell real from fake). It must be verified like any fact. This is the core of the video; a viewer should be able to save it and use it.
+  4. One-word CTA + tagline.
+- **Pacing:** fast only in the first 2 s. After that, every key number or step stays on screen for at least 2.5 s, and the VO may breathe. No visual change just for the sake of change.
+- **Test before writing:** "Would someone save this to use later?" If the honest answer is no, add a better tip or pick another topic.
+- Word counts: 55–70 for 3.1-preview, up to about 80 for 3.8.
+
+### Reels v3 (superseded by v3.1)
 Supersedes v2 for new Reels. Details in `docs/sprint-7-hari.md` and `produksi/ide-antrean.md`.
 - 3 blocks, 15–25 s: (1) hook = the number itself, spoken; (2) one fact plus its effect on the wallet, at most about 7 s, with 3–4 drawable nouns or numbers; (3) one action plus a one-word CTA plus the tagline.
 - Word counts: 40–44 for the 12:00 Reels (3.1-preview), up to about 55 for the 19:00 Reels (3.8).
