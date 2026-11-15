@@ -62,7 +62,15 @@ Nilai tiap kriteria 1–5, kalikan bobot, jumlahkan, lalu ubah ke skala 100.
 3. `naskah-vo.json`, dengan aturan di bagian **Struktur naskah** di bawah.
 4. Set `status.json` ke `naskah-siap`.
 
-### Struktur naskah (wajib, versi 2 mulai 17 Nov 2026)
+### Reels v3 (mandatory from 19 Nov 2026, growth sprint)
+Supersedes v2 for new Reels. Details in `docs/sprint-7-hari.md` and `produksi/ide-antrean.md`.
+- 3 blocks, 15–25 s: (1) hook = the number itself, spoken; (2) one fact plus its effect on the wallet, at most about 7 s, with 3–4 drawable nouns or numbers; (3) one action plus a one-word CTA plus the tagline.
+- Word counts: 40–44 for the 12:00 Reels (3.1-preview), up to about 55 for the 19:00 Reels (3.8).
+- The spoken hook matches the giant number at frame 0. Never round a number in a misleading direction to make it shorter.
+- Director: TATA_V3 (`src/papan/reels.tsx`). Movement and SFX at 0 s; a visual change every 1.5–2 s; camera moves of 0.4 s or less; loop back to the hook; frame edges checked at every second.
+- Daily schedule: 07:00 carousel, 12:00 Reels, 19:00 Reels.
+
+### Struktur naskah (versi 2, 17–18 Nov 2026)
 @intipdompet adalah media edukasi. Tiap video menjelaskan satu hal, apa efeknya ke dompet, lalu apa yang bisa dilakukan penonton.
 
 **Kenapa diubah (evaluasi 14 Nov 2026).** Dua Reels pertama (66–67 detik) ditinggal **75–77% penonton di awal** dan rata-rata hanya ditonton **3–8 detik**. Frame pertama hampir kosong (hook masih ditulis kapur, baru utuh di detik ke-3 sampai ke-4), padahal penonton memutuskan scroll atau tidak dalam ±1 detik. Isi inti dan CTA baru muncul setelah detik ke-20, jadi hampir tidak ada yang melihatnya: komentar dan simpan = 0. Carousel emas (reach 101, 1 share, 1 follow) jauh mengungguli BI Rate dan diskon (reach 5) karena slide pertamanya memakai **angka nyata + kerugian langsung** ("Kok rugi?").
