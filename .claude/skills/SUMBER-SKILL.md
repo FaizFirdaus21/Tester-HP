@@ -34,3 +34,10 @@ Disalin apa adanya (lisensi MIT) pada 2026-11-09. Dua skill diganti nama karena 
 | baoyu-xhs-images | JimLiu/baoyu-skills (★27k) | Seri kartu infografis media sosial (layout, gaya, palet). Butuh backend gambar untuk ilustrasi. |
 | baoyu-infographic | JimLiu/baoyu-skills | 21 layout × 22 gaya infografis. Kerangka layout bisa dipakai tanpa API gambar. |
 | baoyu-image-gen | JimLiu/baoyu-skills | Backend gambar (Google/Gemini, OpenAI, dll.). Aktif hanya kalau billing Gemini dinyalakan; kuota gratis gambar = 0. Jangan pakai provider codex-cli (menjalankan proses dengan akses penuh). |
+
+## Added 2026-11-16
+| Repo | Commit | Skills |
+|---|---|---|
+| gokulsvision/Crewm8-Social-Media-Manager-Skill-Graph (MIT) | 6166e18 | content-pillars, cadence-timing, content-calendar, metrics-track, ab-test-analyze, profile-audit, schedule-queue, draft-review, crisis-respond, brand-voice-system, positioning-statement, hook-write, caption-draft, cta-craft, trend-monitor, trending-briefing, competitor-content-audit, news-response, visual-plan, asset-format, comment-reply, engagement-poll |
+
+Not installed: prateekjain98/social-media-manager-skills, which relies on "stealth" browser automation and violates Instagram's terms, so it risks the account being banned.

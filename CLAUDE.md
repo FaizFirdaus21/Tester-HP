@@ -7,9 +7,9 @@ Tulisan yang disimpan (kode, komentar, commit, docs, naskah VO, pesan ke sesi la
 ## Skill dipakai otomatis saat dibutuhkan
 | Peran | Skill utama |
 |---|---|
-| Orchestrator | `find-skills`, `superpowers:dispatching-parallel-agents` |
-| Media Research | `content-strategy`, `social`, `customer-research`, `marketing-psychology`, `copywriting`, `copy-editing` |
+| Orchestrator (social media lead) | `find-skills`, `superpowers:dispatching-parallel-agents`, `social`, `content-pillars`, `content-calendar`, `cadence-timing`, `metrics-track`, `ab-test-analyze`, `draft-review`, `schedule-queue`, `profile-audit`, `brand-voice-system`, `positioning-statement`, `crisis-respond`, `comment-reply`, `engagement-poll` |
+| Media Research | `content-strategy`, `social`, `customer-research`, `marketing-psychology`, `copywriting`, `copy-editing`, `hook-write`, `caption-draft`, `cta-craft`, `trend-monitor`, `trending-briefing`, `competitor-content-audit`, `news-response` |
 | VO | `copywriting` (naskah lisan), `copy-editing` (rapikan naskah) |
-| Director | `canvas-design`, `baoyu-xhs-images`, `baoyu-infographic` (carousel), `remotion-best-practices`, `remotion-markup`, `remotion-render`, `remotion-captions`, `remotion-maps`, `remotion-docs`, `video`, `motionmaxxing`, `shot-composition`, `beat-sync-editing` |
+| Director | `canvas-design`, `baoyu-xhs-images`, `baoyu-infographic` (carousel), `remotion-best-practices`, `remotion-markup`, `remotion-render`, `remotion-captions`, `remotion-maps`, `remotion-docs`, `video`, `motionmaxxing`, `shot-composition`, `beat-sync-editing`, `visual-plan`, `asset-format` |
 
 Aturan pipeline lengkap: `docs/pipeline-produksi.md`.
