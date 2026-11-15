@@ -124,3 +124,9 @@ Uji untuk setiap tip: "Apakah orang akan menyimpan video ini untuk dipakai nanti
 - **hook-write:** tulis 5–10 varian hook per naskah. Simpan di `naskah-vo.json` → `hook_varian` (teks, tipe A/B/C/D, alasan), lalu pilih satu sesuai rotasi uji.
 - **cta-craft:** CTA satu kata/angka di naskah. Ajakan simpan atau kirim cukup di caption.
 - Aturan fakta proyek (resmi + ≥2 sumber, angka contoh diberi label, tanpa membulatkan yang menyesatkan) **tetap lebih kuat** daripada saran skill.
+
+## Skill tambahan (commit bd15052): catatan pemakaian
+- **viral-hooks + hook-write:** sumber varian hook.
+- **hookscore.py (ig-reel):** sudah diuji pada 15 Nov dengan 5 hook bahasa Indonesia. Hasilnya **bias ke bahasa Inggris**: kata kerugian Indonesia ("hilang", "kebuang", "kepotong") tidak terbaca sebagai *stakes*, dan angka yang dieja ("sepuluh ribu") tidak terbaca sebagai angka konkret. Hook lunak yang buruk ("Kamu tahu nggak soal meterai?") malah mendapat skor sama dengan hook yang bagus (30,0). Karena itu skornya hanya dipakai sebagai sinyal lemah, terutama untuk mendeteksi hook yang kepanjangan atau berpembuka basa-basi. Keputusan akhir tetap memakai kriteria proyek, yaitu angka di layar ≤1,5 detik dan kerugian konkret, ditambah data skip rate.
+- **ig-human:** dijalankan pada setiap naskah dan caption untuk membuang ciri tulisan AI.
+- **Suara merek:** mengikuti docs/pipeline-produksi.md, bukan ~/.claude/instagram/voice.md (file itu tidak ada).
