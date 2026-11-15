@@ -1,6 +1,6 @@
 {
   "slug": "20261118-kartu-kredit-bayar-minimum",
-  "tahap": "vo-siap",
-  "catatan": "VO 36.18 detik, 5 blok, vo/kartu-kredit-bayar-minimum.mp3 (gemini-3.8-flash-tts, suara Sulafat).",
-  "diperbarui": "2026-11-15T08:26:41Z"
+  "tahap": "render-selesai",
+  "catatan": "VO 36.18 detik, 5 blok, vo/kartu-kredit-bayar-minimum.mp3 (gemini-3.8-flash-tts, suara Sulafat). | Director: final.mp4, 16.557.324 byte (v2, hook utuh di frame 0, elemen pertama muncul bersama judul tiap bagian, loop ke hook). qc_reels.py LOLOS: 10 sambungan bersih (puncak terburuk -51,3 dBFS), tepi blok paling keras +3,0 dB (batas +5 dB). Angka fakta.json dicek mata. Menunggu 'accept' user.",
+  "diperbarui": "2026-11-15T08:43:38Z"
 }
