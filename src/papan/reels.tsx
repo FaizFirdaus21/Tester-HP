@@ -4,7 +4,7 @@
 // Tata letak papan: A(0,0) B(1,0) C(0,1) D(1,1) E(0,2) F(1,2), G = baris 3 selebar 2 kolom.
 // Kamera: 2,5D di pembuka, di perumpamaan (C), dan tarikan mundur ke CTA.
 import React from "react";
-import { AbsoluteFill, Sequence, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame } from "remotion";
 import { Coret, FilterKapur, Titik, garis, p01 } from "./Komponen";
 import { KunciKamera, Papan } from "./Papan";
 import { d, font, sel } from "./tema";
@@ -21,7 +21,7 @@ export const E = sel(0, 2);
 export const F = sel(1, 2);
 export const G = { x: 1080, y0: 5760 };
 
-const PINDAH = 0.3; // perpindahan kamera total 0,6 s (aturan 14 Nov)
+const PINDAH_BAWAAN = 0.3; // perpindahan kamera total 0,6 s (aturan 14 Nov)
 
 type Sel = { x: number; y0: number };
 export type OpsiReels = {
@@ -31,15 +31,29 @@ export type OpsiReels = {
   cta?: Sel;
   /** Akhir video kembali ke bingkai hook (A) supaya frame terakhir menyambung ke frame 0 saat diputar ulang. */
   loop?: boolean;
+  /** Detik kamera berangkat sebelum blok berikutnya (perpindahan total = 2×). Bawaan 0,3. */
+  pindah?: number;
+  /** CTA satu sel layar (kamera langsung pindah, tanpa tarikan mundur 2 s). Bawaan false (CTA lebar 2 kolom). */
+  ctaSel?: boolean;
+  /** Ukuran subtitel (px). Bawaan 44. */
+  subUkuran?: number;
+  /** Efek suara di detik 0 (path di public/), mis. "sfx/tak-kapur.wav". */
+  sfx?: string;
 };
 
 /** Reels v2 (5 blok, mulai 17 Nov): hook, inti, perumpamaan+akibat, solusi, CTA di baris 2, akhir menyambung ke hook. */
 export const TATA_V2: OpsiReels = { bagian: [A, B, C, D], cta: { x: 1080, y0: 3840 }, loop: true };
 
-const KEMBALI = 0.6; // detik kamera kembali dari CTA ke hook di akhir (loop)
+/** Reels v3 (3 blok, 15–25 s, mulai 19 Nov; docs/sprint-7-hari.md): A angka raksasa (hook), B fakta + efek, C aksi + CTA.
+ *  Kamera pindah 0,4 s, CTA satu sel tanpa tarikan mundur, subtitel besar, SFX di detik 0, akhir kembali ke hook. */
+export const TATA_V3: OpsiReels = { bagian: [A, B], cta: { x: C.x, y0: C.y0 }, loop: true, pindah: 0.2, ctaSel: true, subUkuran: 58, sfx: "sfx/tak-kapur.wav" };
+
+const KEMBALI_V2 = 0.6; // detik kamera kembali dari CTA ke hook di akhir (loop)
 
 /** Jadwal + kamera + fungsi waktu frasa untuk satu Reels. */
 export const buatReels = (vo: DataVO, naskah: Naskah, opsi: OpsiReels = {}) => {
+  const PINDAH = opsi.pindah ?? PINDAH_BAWAAN;
+  const KEMBALI = opsi.ctaSel ? 2 * PINDAH : KEMBALI_V2;
   const bagian = opsi.bagian ?? [A, B, C, D, E, F];
   const cta = opsi.cta ?? G;
   const n = bagian.length + 1;
@@ -73,6 +87,15 @@ export const buatReels = (vo: DataVO, naskah: Naskah, opsi: OpsiReels = {}) => {
     }
   }
   const tc = MULAI[n - 1];
+  if (opsi.ctaSel) {
+    // v3: CTA satu sel, perpindahan biasa; akhir: CTA tertahan lalu kembali ke hook
+    kamera.push({ f: d(tc - PINDAH), ...fokus(bagian[bagian.length - 1]), s: 1.05, ry: 2 });
+    kamera.push({ f: d(tc + PINDAH), ...fokus(cta), s: 1.0, ry: -2 });
+    kamera.push({ f: d(akhir - KEMBALI), ...fokus(cta), s: 1.04 });
+    kamera.push({ f: d(akhir) - 1, ...fokus(A), s: 1.0 });
+    const tiba = (i: number) => d(MULAI[i] - PINDAH);
+    return { VO, J, T, MULAI, W, tiba, kamera, cta, opsi, durasi: d(akhir) };
+  }
   const tengahY = (cta.y0 + 1920) / 2;
   kamera.push({ f: d(tc - PINDAH), ...fokus(bagian[bagian.length - 1]), s: 1.05 });
   kamera.push({ f: d(tc + 0.9), x: 1080, y: tengahY, s: 0.42, rx: 20, ry: -10, rz: -1.5 });
@@ -85,7 +108,7 @@ export const buatReels = (vo: DataVO, naskah: Naskah, opsi: OpsiReels = {}) => {
   }
   /** Frame judul bagian i mulai ditulis: saat kamera berangkat, supaya papan tidak kosong saat kamera tiba. */
   const tiba = (i: number) => d(MULAI[i] - PINDAH);
-  return { VO, J, T, MULAI, W, tiba, kamera, cta, durasi: d(akhir) };
+  return { VO, J, T, MULAI, W, tiba, kamera, cta, opsi, durasi: d(akhir) };
 };
 
 // ---------------------------------------------------------------- bentuk kecil
@@ -135,11 +158,11 @@ export const Checklist: React.FC<{ x: number; y: number; jarak: number; baris: {
 );
 
 // ---------------------------------------------------------------- subtitel
-const BarisSub: React.FC<{ teks: string; lama: number; langsung?: boolean }> = ({ teks, lama, langsung }) => {
+const BarisSub: React.FC<{ teks: string; lama: number; langsung?: boolean; ukuran?: number }> = ({ teks, lama, langsung, ukuran = 44 }) => {
   const fr = useCurrentFrame();
   const o = Math.min(langsung ? 1 : p01(fr, 0, 4), 1 - p01(fr, lama - 3, 3));
   return (
-    <div style={{ position: "absolute", left: 90, right: 90, top: 1300, height: 180, display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", fontFamily: font.sans, fontWeight: 650, fontSize: 44, lineHeight: 1.3, color: "#fbfaf4", opacity: o, textShadow: "0 2px 3px rgba(0,0,0,0.8), 0 0 24px rgba(0,0,0,0.65)" }}>
+    <div style={{ position: "absolute", left: 90, right: 90, top: 1300, height: 180, display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", fontFamily: font.sans, fontWeight: ukuran > 44 ? 750 : 650, fontSize: ukuran, lineHeight: ukuran > 44 ? 1.2 : 1.3, color: "#fbfaf4", opacity: o, textShadow: "0 2px 3px rgba(0,0,0,0.8), 0 0 24px rgba(0,0,0,0.65)" }}>
       {teks}
     </div>
   );
@@ -148,7 +171,9 @@ const BarisSub: React.FC<{ teks: string; lama: number; langsung?: boolean }> = (
 /** Video lengkap: papan + kamera + subtitel (TEKS_TAMPIL per blok, "" = tanpa subtitel) + suara VO. */
 export const ReelsPapan: React.FC<{ r: ReturnType<typeof buatReels>; teksTampil: string[]; subtitel?: boolean; children: React.ReactNode }> = ({ r, teksTampil, subtitel = true, children }) => {
   // Subtitel aktif sejak frame 0 (aturan 14 Nov): potongan pertama ditarik ke detik 0 dan tampil tanpa fade.
-  const sub: BarisSubtitel[] = subtitelDariBlok(r.J, teksTampil, 38)
+  const ukuranSub = r.opsi.subUkuran ?? 44;
+  // baris subtitel lebih pendek bila hurufnya lebih besar
+  const sub: BarisSubtitel[] = subtitelDariBlok(r.J, teksTampil, Math.round((38 * 44) / ukuranSub))
     .filter((s) => s.selesai - s.mulai > 0.2)
     .map((s, i) => (i === 0 ? { ...s, mulai: 0 } : s));
   const layar = subtitel ? (
@@ -157,7 +182,7 @@ export const ReelsPapan: React.FC<{ r: ReturnType<typeof buatReels>; teksTampil:
         const lama = Math.max(1, d(s.selesai) - d(s.mulai));
         return (
           <Sequence key={i} from={d(s.mulai)} durationInFrames={lama} layout="none">
-            <BarisSub teks={s.teks} lama={lama} langsung={s.mulai === 0} />
+            <BarisSub teks={s.teks} lama={lama} langsung={s.mulai === 0} ukuran={ukuranSub} />
           </Sequence>
         );
       })}
@@ -170,6 +195,7 @@ export const ReelsPapan: React.FC<{ r: ReturnType<typeof buatReels>; teksTampil:
         {children}
       </Papan>
       {r.J.ada ? <SuaraVO vo={r.VO} awal={r.J.awal} /> : null}
+      {r.opsi.sfx ? <Audio src={staticFile(r.opsi.sfx)} volume={0.55} /> : null}
     </AbsoluteFill>
   );
 };
