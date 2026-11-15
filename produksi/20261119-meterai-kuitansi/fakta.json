@@ -8,26 +8,55 @@
   "fakta": [
     {
       "id": "ambang-5jt",
-      "klaim": "Objek bea meterai mencakup dokumen yang menyatakan jumlah uang dengan nilai nominal lebih dari Rp5.000.000 yang menyebutkan penerimaan uang atau pengakuan pelunasan utang (Pasal 3 ayat 2 huruf g UU 10/2020); tarif Rp10.000 per dokumen.",
+      "klaim": "Bea meterai Rp10.000 untuk dokumen penerimaan uang (mis. kuitansi) bernilai LEBIH DARI Rp5.000.000 (Pasal 3 ayat 2 huruf g UU 10/2020); nilai tepat Rp5.000.000 belum terutang.",
       "di_naskah": "blok 1, 2",
       "sumber_primer": [
         "https://www.pajak.go.id/sites/default/files/2020-11/UU%20Nomor%2010%20Tahun%202020%20tentang%20Bea%20Materai.pdf",
-        "https://peraturan.bpk.go.id/Details/149748/uu-no-10-tahun-2020",
-        "https://pajak.go.id/en/node/49921 (DJP: bea meterai atas bukti/nota pembelian)"
+        "https://peraturan.bpk.go.id/Details/149748/uu-no-10-tahun-2020"
       ],
       "sumber_media": [
         "https://news.ddtc.co.id/ini-jenis-dokumen-yang-kena-bea-meterai-rp10000-25211",
         "https://ekonomi.bisnis.com/read/20210112/9/1341890/info-lengkap-bea-meterai-rp10000-aturan-hingga-daftar-dokumen",
         "https://tirto.id/apa-saja-dokumen-yang-kena-bea-materai-rp10000-gaKi"
       ],
-      "catatan": "Naskah sengaja menyebut 'kuitansi' (dokumen penerimaan uang). Dokumen lain seperti surat perjanjian tetap terutang tanpa ambang nilai, jadi naskah tidak menggeneralisasi ke semua dokumen.",
+      "catatan": "'Pas lima juta belum wajib' diturunkan dari frasa 'lebih dari Rp5.000.000'. Naskah hanya menyebut kuitansi; tidak menyarankan memecah kuitansi.",
       "status": "resmi + 3 media"
     },
     {
-      "id": "contoh-3jt",
-      "klaim": "Kuitansi Rp3 juta (≤ Rp5 juta) tidak terutang bea meterai",
-      "di_naskah": "blok 1",
-      "status": "contoh penerapan aturan, berlabel 'contoh' di visual"
+      "id": "beli-resmi",
+      "klaim": "e-Meterai resmi dibeli melalui Peruri (e-meterai.co.id) atau distributor resminya; harga ditetapkan Rp10.000 (PMK 133/2021); DJP mengingatkan agar tidak membeli meterai di bawah Rp10.000.",
+      "di_naskah": "blok 3",
+      "sumber_media": [
+        "https://news.ddtc.co.id/berita/nasional/1811650/djp-wanti-wanti-jangan-tergiur-beli-meterai-murah-di-bawah-rp10000",
+        "https://finance.detik.com/berita-ekonomi-bisnis/d-6410445/daftar-distributor-resmi-meterai-elektronik-serta-cara-beli-pakainya",
+        "https://pajakku.com/artikel/tempat-beli-e-meterai-resmi-peruri-dan-harganya"
+      ],
+      "sumber_primer": "Peruri (e-meterai.co.id) dan PMK 133/2021, dikutip media",
+      "status": "resmi (dikutip) + 3 sumber"
+    },
+    {
+      "id": "cek-keaslian",
+      "klaim": "Keaslian e-meterai dapat dicek dengan mengunggah PDF ke verification.peruri.co.id (atau aplikasi pemindai resmi Peruri).",
+      "di_naskah": "blok 3",
+      "sumber_media": [
+        "https://news.ddtc.co.id/literasi/tips-trik/1804791/cara-cek-keaslian-meterai-elektronik-e-meterai",
+        "https://www.fortuneidn.com/finance/3-cara-cek-e-meterai-asli-atau-palsu-dengan-mudah-00-4vfn9-7p5w68",
+        "https://www.industry.co.id/read/125945/awas-palsu-berikut-ciri-dan-cara-cek-meterai-elektronik-resmi-peruri"
+      ],
+      "sumber_primer": "Layanan verifikasi Peruri (verification.peruri.co.id), dikutip media",
+      "status": "resmi (dikutip) + 3 media"
+    },
+    {
+      "id": "meterai-lama",
+      "klaim": "Meterai Rp3.000 dan Rp6.000 hanya berlaku sampai 31 Desember 2021 (masa transisi UU 10/2020); sejak 2022 tidak berlaku lagi.",
+      "di_naskah": "blok 3, 4",
+      "sumber_media": [
+        "https://news.ddtc.co.id/berita/nasional/35977/ingat-meterai-rp3000-dan-rp6000-sudah-tidak-lagi-berlaku",
+        "https://news.ddtc.co.id/djp-meterai-tempel-lama-masih-berlaku-26705 (DJP: berlaku s.d. 31 Des 2021)",
+        "https://ekonomi.bisnis.com/read/20210104/9/1338295/aturan-bea-meterai-2021-materai-rp3000-dan-rp6000-masih-bisa-digunakan"
+      ],
+      "sumber_primer": "UU 10/2020 Pasal 28 (ketentuan peralihan) + pernyataan DJP",
+      "status": "resmi (dikutip) + 3 media"
     }
   ]
 }

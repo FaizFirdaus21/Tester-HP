@@ -7,12 +7,27 @@
   "diakses": "2026-11-15",
   "fakta": [
     {
-      "id": "jual-buyback-12nov",
-      "klaim": "Emas Antam 1 gram di Logam Mulia, 12 Nov 2026: jual Rp2.518.000, buyback Rp2.316.000; selisih Rp202.000.",
-      "di_naskah": "blok 1 (dibulatkan 'dua ratus ribu'), blok 2 (dibulatkan 'dua koma lima dua juta', 'dua koma tiga dua juta')",
-      "sumber": "Sama dengan produksi/20261112-emas-jual-buyback/fakta.json: Logam Mulia via Kontan, IDX Channel, Katadata, Suara, IDN Times (resmi dikutip + 3–4 media).",
-      "catatan": "Tayang 19 Nov memakai data 12 Nov; naskah dan visual WAJIB menyebut tanggal 'per dua belas November'. Selisih jual–buyback relatif stabil (Rp192–202 rb pada 9–12 Nov), tapi harga hari tayang pasti berbeda.",
-      "status": "resmi (dikutip) + ≥3 media"
+      "id": "jual-buyback",
+      "klaim": "Emas Antam 1 gram di Logam Mulia, 12 Nov 2026: jual Rp2.518.000, buyback Rp2.316.000; selisih Rp202.000 = 8,0% dari harga jual; buyback harus naik 202.000/2.316.000 = 8,7% untuk menyamai harga beli.",
+      "di_naskah": "blok 1 ('delapan persen'), 2, 3 ('hampir sembilan persen')",
+      "sumber": "produksi/20261112-emas-jual-buyback/fakta.json (Logam Mulia via Kontan, IDX Channel, Katadata, Suara, IDN Times)",
+      "status": "DRAF — WAJIB diperbarui 18 Nov pagi dengan harga terbaru (resmi + ≥2 media); hitung ulang 8,0% dan 8,7%; jangan membulatkan ke bawah secara menyesatkan"
+    },
+    {
+      "id": "cek-di-logammulia",
+      "klaim": "Harga jual dan buyback emas Antam dipublikasikan di situs Logam Mulia (logammulia.com).",
+      "di_naskah": "blok 3",
+      "sumber_media": [
+        "https://www.metrotvnews.com/read/kM6CgEwO-harga-emas-antam-hari-ini-dijual-rp2-540-juta-buyback-rp2-335-juta-gram (mengutip Logammulia.com)",
+        "https://finansial.kontan.co.id/news/harga-buyback-emas-antam-hari-ini-12-november-2026-stagnan-di-angka-ini-per-gram (mengutip situs logammulia.com)"
+      ],
+      "status": "dikutip media + 2"
+    },
+    {
+      "id": "rumus-balik-modal",
+      "klaim": "Kenaikan buyback yang dibutuhkan untuk balik modal = (harga jual − buyback) ÷ buyback.",
+      "di_naskah": "blok 3",
+      "status": "hitungan aritmetika; tidak memprediksi kapan harga naik"
     }
   ],
   "catatan_produksi": "WAJIB pada 18 Nov pagi: (1) perbarui harga jual/buyback Logam Mulia (resmi + ≥2 media) dan tanggalnya di naskah, visual, dan caption; (2) terapkan aturan TATA_V3: angka frame 0 maks. 3 karakter (mis. '8%'), hook ucapan dibuka dengan angka, blok 2 ≤7 detik dengan 3–4 benda yang bisa digambar; (3) kabari VO blok mana yang berubah."

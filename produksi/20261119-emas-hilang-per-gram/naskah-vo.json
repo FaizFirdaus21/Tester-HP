@@ -1,30 +1,36 @@
 {
   "slug": "20261119-emas-hilang-per-gram",
-  "versi_struktur": 3,
+  "versi_struktur": "3.1",
   "tipe_hook": "A (angka kejut)",
   "judul": "Dua ratus ribu hilang per gram emas",
   "model": "gemini-3.8-flash-tts",
   "suara": "Sulafat",
-  "jeda_antar_blok": 0.2,
-  "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, hangat, santai, kalimat pendek. Hook dibaca langsung tanpa jeda di awal, tegas, dengan titik yang terdengar jelas. Tempo cepat.",
+  "jeda_antar_blok": 0.3,
+  "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, hangat dan santai. Hook dibaca cepat dan tegas tanpa jeda di awal. Setelah itu tempo sedang, boleh bernapas; beri jeda pendek di setiap langkah tip supaya mudah diikuti.",
   "blok": [
     {
       "peran": "hook",
       "gaya": "Tegas, berat di 'hilang'",
-      "teks": "Dua ratus ribu. Hilang per gram.",
-      "visual": "Frame 0: angka kapur raksasa 'Rp200 rb' memenuhi sepertiga layar; dalam 0,3 detik dicoret merah dan sebatang emas kapur bergetar."
+      "teks": "Delapan persen. Hilang begitu emasmu dijual.",
+      "visual": "Frame 0: angka kapur raksasa '8%' memenuhi sepertiga layar; dalam 0,3 detik sebatang emas kapur retak. [ANGKA DIHITUNG ULANG 18 NOV]"
     },
     {
-      "peran": "fakta_efek",
-      "gaya": "Menjelaskan, jelas, pelan di dua angka harga",
-      "teks": "Per dua belas November, emas Antam satu gram dijual dua koma lima dua juta, buyback-nya dua koma tiga dua juta. Beli lalu langsung jual, kamu rugi sekitar dua ratus ribu.",
-      "visual": "Dua label harga: 'jual Rp2,518 jt' dan 'buyback Rp2,316 jt' (label kecil 'Logam Mulia, 12 Nov 2026'); panah merah ke 'selisih Rp202 rb'."
+      "peran": "fakta",
+      "gaya": "Menjelaskan, pelan di dua angka harga",
+      "teks": "Per dua belas November, emas Antam satu gram dijual dua koma lima dua juta, buyback-nya dua koma tiga dua juta. Selisihnya dua ratus ribu.",
+      "visual": "Dua label harga ditahan ≥2,5 detik: 'jual Rp2,518 jt' dan 'buyback Rp2,316 jt' (label 'Logam Mulia, 12 Nov 2026'); panah ke 'selisih Rp202 rb'. [HARGA & TANGGAL DIPERBARUI 18 NOV]"
     },
     {
-      "peran": "aksi_cta",
+      "peran": "tip",
+      "gaya": "Seperti membagikan trik hitung, tempo sedang, jeda di tiap langkah",
+      "teks": "Triknya: cek dua harga ini di situs Logam Mulia. Bagi selisihnya dengan harga buyback. Dua ratus ribu dibagi dua koma tiga juta, hampir sembilan persen. Artinya buyback harus naik segitu dulu, baru kamu balik modal.",
+      "visual": "Langkah bernomor, masing-masing tahan ≥2,5 detik: '1. Cek harga jual & buyback (logammulia.com)', '2. selisih ÷ buyback', '3. Rp202 rb ÷ Rp2,316 jt ≈ 8,7%' → label 'buyback harus naik ±8,7% untuk balik modal'."
+    },
+    {
+      "peran": "cta",
       "gaya": "Ramah, ceria di tagline",
-      "teks": "Cek selisih jual dan buyback sebelum beli. Selisih di tempatmu berapa? Komen angkanya. IntipDompet. Biar dompetmu nggak kaget.",
-      "visual": "Gelembung komentar 'Rp____', lalu kembali ke papan hook (loop)."
+      "teks": "Kamu cek buyback sebelum beli? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget.",
+      "visual": "Gelembung komentar 'ya / nggak', lalu kembali ke papan hook (loop)."
     }
   ]
 }

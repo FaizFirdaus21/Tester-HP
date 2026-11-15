@@ -1,29 +1,35 @@
 {
   "slug": "20261119-meterai-kuitansi",
-  "versi_struktur": 3,
+  "versi_struktur": "3.1",
   "tipe_hook": "C (mitos)",
   "judul": "Kuitansi tiga juta nggak perlu meterai",
   "model": "gemini-3.1-flash-tts-preview",
   "suara": "Sulafat",
-  "jeda_antar_blok": 0.2,
-  "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, hangat, santai, kalimat pendek. Hook dibaca langsung tanpa jeda di awal, tegas, dengan titik yang terdengar jelas. Tempo cepat.",
+  "jeda_antar_blok": 0.3,
+  "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, hangat dan santai. Hook dibaca cepat dan tegas tanpa jeda di awal. Setelah itu tempo sedang, boleh bernapas; beri jeda pendek di setiap langkah tip supaya mudah diikuti.",
   "blok": [
     {
       "peran": "hook",
-      "gaya": "Tegas, cepat, seperti membantah",
-      "teks": "Kuitansi tiga juta nggak perlu meterai.",
-      "visual": "Frame 0: kuitansi kapur besar 'Rp3.000.000' dengan meterai Rp10.000 dicoret merah; dalam 0,3 detik coretan tergambar."
+      "gaya": "Cepat dan tegas, sedikit kesal",
+      "teks": "Sepuluh ribu. Sering kebuang percuma.",
+      "visual": "Frame 0: angka kapur raksasa '10.000' dengan 'Rp' kecil; dalam 0,3 detik dicoret merah dan sebuah meterai jatuh ke tempat sampah."
     },
     {
-      "peran": "fakta_efek",
-      "gaya": "Menjelaskan, jelas, tekankan lima juta dan sepuluh ribu",
-      "teks": "Undang-undang mewajibkan meterai sepuluh ribu hanya untuk kuitansi di atas lima juta rupiah. Di bawah itu, sepuluh ribumu terbuang.",
-      "visual": "Garis bilangan kapur: '≤ Rp5 jt: tidak terutang' (hijau) | '> Rp5 jt: meterai Rp10.000' (kuning); label kecil 'UU 10/2020'. Koin Rp10 rb jatuh ke tempat sampah."
+      "peran": "fakta",
+      "gaya": "Menjelaskan, jelas, tekankan 'di atas' dan 'pas lima juta'",
+      "teks": "Meterai cuma wajib di kuitansi di atas lima juta rupiah. Pas lima juta pun belum wajib.",
+      "visual": "Garis bilangan: 'Rp5.000.000 = belum wajib' (hijau) | '> Rp5 jt = Rp10.000' (kuning); label kecil 'UU 10/2020'. Tahan ≥2,5 detik."
     },
     {
-      "peran": "aksi_cta",
+      "peran": "tip",
+      "gaya": "Seperti membagikan trik, tempo sedang, jeda di tiap langkah",
+      "teks": "Beli e-meterai hanya di situs resmi Peruri, jangan yang di bawah sepuluh ribu. Cek keasliannya dengan mengunggah PDF ke situs verifikasi Peruri. Satu lagi, meterai lama tiga ribu dan enam ribu sudah nggak berlaku.",
+      "visual": "Tiga langkah bernomor, masing-masing tahan ≥2,5 detik: '1. Beli di e-meterai.co.id (Peruri) · jangan < Rp10.000', '2. Cek: verification.peruri.co.id → unggah PDF', '3. Meterai Rp3.000/Rp6.000 = tidak berlaku sejak 2022' (meterai lama dicoret)."
+    },
+    {
+      "peran": "cta",
       "gaya": "Ramah, ceria di tagline",
-      "teks": "Cek nominal sebelum tempel. Pernah begitu? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget.",
+      "teks": "Masih simpan meterai lama? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget.",
       "visual": "Gelembung komentar 'ya / nggak', lalu kembali ke papan hook (loop)."
     }
   ]

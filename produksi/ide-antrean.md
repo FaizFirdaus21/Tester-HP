@@ -105,3 +105,17 @@ Cara menerapkan ke rencana 20–22 Nov:
 - Emas: "8%". Selisih jual–buyback ≈ 8% dari harga jual (dicek ulang saat harga diperbarui 18 Nov).
 
 - **Disetujui Orchestrator (15 Nov):** hook ucapan harus sama dengan angka di layar. Untuk emas: "Delapan persen. Hilang begitu emasmu dijual." Persentasenya dihitung ulang dari harga 18 Nov.
+
+## Rencana Reels v3.1 untuk 19–22 Nov (setiap Reels punya blok TIP)
+Uji untuk setiap tip: "Apakah orang akan menyimpan video ini untuk dipakai nanti?" Setiap tip wajib terverifikasi (resmi + ≥2 sumber) pada hari produksi.
+
+| Tanggal | Slot | Tipe | Hook (angka di layar) | TIP (blok 3) | Status tip |
+|---|---|---|---|---|---|
+| 19 Nov | 12.00 | C | "Sepuluh ribu. Sering kebuang percuma." (10.000) | Beli e-meterai di Peruri (jangan < Rp10.000), cek keaslian di verification.peruri.co.id, meterai Rp3.000/6.000 sudah tidak berlaku | ✓ diproduksi |
+| 19 Nov | 19.00 | A | "Delapan persen. Hilang begitu emasmu dijual." (8%) | Cek jual & buyback di situs Logam Mulia; hitung balik modal = selisih ÷ buyback (≈8,7%) | ✓ draf; harga diperbarui 18 Nov |
+| 20 Nov | 12.00 | B | "Satu file. Rekeningmu bisa terkuras." (1) | Lihat akhiran nama file: ".apk" berarti aplikasi, bukan undangan/foto; jangan pasang; telanjur klik → hubungi bank lewat nomor resmi | fakta APK ✓; tip ekstensi ✓ (contoh "Undangan Pernikahan.apk", Bisnis); langkah pengaturan Android belum diverifikasi, jadi tidak dipakai |
+| 20 Nov | 19.00 | D | "Tiga puluh lima ribu. Iuran BPJS kelas tiga." (35rb, perlu bentuk ≤3 karakter → tampilkan "35" + "rb" kecil) | Cek tagihan & status kepesertaan di aplikasi Mobile JKN sebelum jatuh tempo | iuran ✓; kanal Mobile JKN ✓ (Bisnis); nomor WA BPJS belum diverifikasi |
+| 21 Nov | 12.00 | A | "Satu persen. Denda telat kartu kredit." (1%) | Hitung cepat denda: 1% tagihan, maks. Rp100 rb (s.d. 31 Des 2026); pasang pengingat sebelum tanggal jatuh tempo | ✓ BI |
+| 21 Nov | 19.00 | C | "Dua pertiga. Kurang dari itu, uangmu hangus." (2/3) | Trik ukur: lipat uang jadi tiga bagian sama; kalau sisa fisiknya lebih dari dua lipatan, bisa ditukar via pintar.bi.go.id | aturan ✓ PADG; trik lipat = cara praktis menerapkan aturan, ditandai sebagai trik, bukan aturan BI |
+| 22 Nov | 12.00 | B | "Dua puluh lima persen. Pajak hadiahmu." (25%) | Pajak dipotong penyelenggara sebelum hadiah diserahkan → diminta transfer "pajak" dulu = curiga; cek rekening penerima di cekrekening.id | ✓ |
+| 22 Nov | 19.00 | D | Harga emas hari ini (angka % atau harga per gram) | Bandingkan harga per gram antar-pecahan (1 g vs 10 g) di daftar harga Logam Mulia | harga per pecahan wajib diverifikasi hari produksi (≥2 media) |
