@@ -1,15 +1,15 @@
 {
   "audio": "vo/meterai-kuitansi.mp3",
   "catatan": "Dibuat dengan gemini-3.1-flash-tts-preview, suara Sulafat. Diperkaya scripts/sinkron_vo.py (bicara + jangkar kalimat).",
-  "total": 21.92,
+  "total": 34.68,
   "blok": [
     {
       "mulai": 0.0,
-      "durasi": 3.08,
-      "teks": "Kuitansi tiga juta nggak perlu meterai.",
+      "durasi": 3.4,
+      "teks": "Sepuluh ribu. Sering kebuang percuma.",
       "bicara": [
         0.0,
-        2.683
+        3.042
       ],
       "jangkar": [
         {
@@ -17,18 +17,22 @@
           "detik": 0.0
         },
         {
-          "huruf": 39,
-          "detik": 2.683
+          "huruf": 14,
+          "detik": 1.706
+        },
+        {
+          "huruf": 37,
+          "detik": 3.042
         }
       ]
     },
     {
-      "mulai": 3.28,
-      "durasi": 9.0,
-      "teks": "Undang-undang mewajibkan meterai sepuluh ribu hanya untuk kuitansi di atas lima juta rupiah. Di bawah itu, sepuluh ribumu terbuang.",
+      "mulai": 3.7,
+      "durasi": 6.96,
+      "teks": "Meterai cuma wajib di kuitansi di atas lima juta rupiah. Pas lima juta pun belum wajib.",
       "bicara": [
-        3.552,
-        11.904
+        4.012,
+        10.284
       ],
       "jangkar": [
         {
@@ -36,26 +40,22 @@
           "detik": 0.0
         },
         {
-          "huruf": 93,
-          "detik": 5.819
+          "huruf": 57,
+          "detik": 4.253
         },
         {
-          "huruf": 107,
-          "detik": 6.825
-        },
-        {
-          "huruf": 131,
-          "detik": 8.352
+          "huruf": 87,
+          "detik": 6.273
         }
       ]
     },
     {
-      "mulai": 12.48,
-      "durasi": 9.24,
-      "teks": "Cek nominal sebelum tempel. Pernah begitu? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget.",
+      "mulai": 10.96,
+      "durasi": 15.28,
+      "teks": "Beli e-meterai hanya di situs resmi Peruri, jangan yang di bawah sepuluh ribu. Cek keasliannya dengan mengunggah PDF ke situs verifikasi Peruri. Satu lagi, meterai lama tiga ribu dan enam ribu sudah nggak berlaku.",
       "bicara": [
-        12.793,
-        21.213
+        11.233,
+        25.909
       ],
       "jangkar": [
         {
@@ -63,24 +63,55 @@
           "detik": 0.0
         },
         {
-          "huruf": 28,
-          "detik": 2.276
+          "huruf": 44,
+          "detik": 3.198
         },
         {
-          "huruf": 43,
-          "detik": 3.582
+          "huruf": 79,
+          "detik": 5.529
         },
         {
-          "huruf": 64,
-          "detik": 5.506
+          "huruf": 145,
+          "detik": 10.165
         },
         {
-          "huruf": 77,
-          "detik": 6.9
+          "huruf": 156,
+          "detik": 11.249
         },
         {
-          "huruf": 103,
-          "detik": 8.42
+          "huruf": 213,
+          "detik": 14.676
+        }
+      ]
+    },
+    {
+      "mulai": 26.54,
+      "durasi": 7.84,
+      "teks": "Masih simpan meterai lama? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget.",
+      "bicara": [
+        26.934,
+        33.799
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 27,
+          "detik": 2.096
+        },
+        {
+          "huruf": 48,
+          "detik": 4.053
+        },
+        {
+          "huruf": 61,
+          "detik": 5.184
+        },
+        {
+          "huruf": 87,
+          "detik": 6.864
         }
       ]
     }
