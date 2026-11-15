@@ -1,22 +1,27 @@
 {
   "audio": "vo/meterai-kuitansi.mp3",
   "catatan": "Dibuat dengan gemini-3.1-flash-tts-preview, suara Sulafat.",
-  "total": 21.92,
+  "total": 34.68,
   "blok": [
     {
       "mulai": 0.0,
-      "durasi": 3.08,
-      "teks": "Kuitansi tiga juta nggak perlu meterai."
+      "durasi": 3.4,
+      "teks": "Sepuluh ribu. Sering kebuang percuma."
     },
     {
-      "mulai": 3.28,
-      "durasi": 9.0,
-      "teks": "Undang-undang mewajibkan meterai sepuluh ribu hanya untuk kuitansi di atas lima juta rupiah. Di bawah itu, sepuluh ribumu terbuang."
+      "mulai": 3.7,
+      "durasi": 6.96,
+      "teks": "Meterai cuma wajib di kuitansi di atas lima juta rupiah. Pas lima juta pun belum wajib."
     },
     {
-      "mulai": 12.48,
-      "durasi": 9.24,
-      "teks": "Cek nominal sebelum tempel. Pernah begitu? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget."
+      "mulai": 10.96,
+      "durasi": 15.28,
+      "teks": "Beli e-meterai hanya di situs resmi Peruri, jangan yang di bawah sepuluh ribu. Cek keasliannya dengan mengunggah PDF ke situs verifikasi Peruri. Satu lagi, meterai lama tiga ribu dan enam ribu sudah nggak berlaku."
+    },
+    {
+      "mulai": 26.54,
+      "durasi": 7.84,
+      "teks": "Masih simpan meterai lama? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget."
     }
   ]
 }
