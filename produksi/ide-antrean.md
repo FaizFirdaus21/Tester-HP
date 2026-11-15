@@ -89,3 +89,17 @@ Rekap tipe: A×2, B×2, C×2, D×2.
 - Pertalite vs harga keekonomian. Klaim "harga keekonomian >Rp20.000" baru ada di 1 media, jadi perlu dicek dulu.
 
 Catatan risiko: topik 21–22 Nov mengulang topik carousel atau Reels sebelumnya (kartu kredit, uang rusak, pajak hadiah, emas) dalam format Reels v3 yang lebih pendek. Ini sengaja, karena carousel nyaris tidak menjangkau orang (reach 2–6). Kalau ingin topik yang benar-benar baru, angka resminya perlu dicari dulu.
+
+## Aturan TATA_V3 untuk semua naskah v3 mulai 20 Nov
+Sumber aturan: uji Director, disampaikan Orchestrator pada 15 Nov.
+1. **Hook ucapan langsung dibuka dengan angka.** Angka harus terdengar dalam ≤1,5 detik. Contoh: "Enam ribu lima ratus. Hilang tiap transfer." Jangan membuka dengan kata kerja, seperti "Transfer kepotong…".
+2. **Blok 2 diucapkan dalam ≤ ±7 detik.** Isinya 3–4 benda atau angka konkret yang bisa digambar, diberi jarak rata supaya visual berganti tiap ±2 detik. Hindari frasa abstrak yang tidak bisa digambar.
+3. **Angka raksasa di frame 0 maksimal 3 karakter**, misalnya "83rb", "5%", "25%". Pakai bentuk pendek selama tetap jujur. Kalau nominal rupiahnya terlalu panjang, pertimbangkan persentase.
+
+Cara menerapkan ke rencana 20–22 Nov:
+- APK: hook dibuka dengan angka laporan, hanya kalau ada sumber resmi + 2 media. Kalau tidak ada, tipe B dibuka dengan "Satu file. Rekeningmu bisa terkuras." Kata "satu" di sini bukan statistik, jadi tidak perlu sumber.
+- BPJS: "35rb" (4 karakter, terlalu panjang) diganti dengan bentuk lain.
+- Denda kartu kredit: "1%".
+- Uang rusak: "2/3".
+- Pajak hadiah: "25%".
+- Emas: "8%". Selisih jual–buyback ≈ 8% dari harga jual (dicek ulang saat harga diperbarui 18 Nov).

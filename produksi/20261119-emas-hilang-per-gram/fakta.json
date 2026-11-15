@@ -14,5 +14,6 @@
       "catatan": "Tayang 19 Nov memakai data 12 Nov; naskah dan visual WAJIB menyebut tanggal 'per dua belas November'. Selisih jual–buyback relatif stabil (Rp192–202 rb pada 9–12 Nov), tapi harga hari tayang pasti berbeda.",
       "status": "resmi (dikutip) + ≥3 media"
     }
-  ]
+  ],
+  "catatan_produksi": "WAJIB pada 18 Nov pagi: (1) perbarui harga jual/buyback Logam Mulia (resmi + ≥2 media) dan tanggalnya di naskah, visual, dan caption; (2) terapkan aturan TATA_V3: angka frame 0 maks. 3 karakter (mis. '8%'), hook ucapan dibuka dengan angka, blok 2 ≤7 detik dengan 3–4 benda yang bisa digambar; (3) kabari VO blok mana yang berubah."
 }
