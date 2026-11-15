@@ -1,0 +1,28 @@
+{
+  "slug": "20261118-iuran-bpjs-sekeluarga",
+  "format": "carousel",
+  "tayang": "2026-11-18T07:00:00+07:00",
+  "kategori": "kesehatan / jaminan sosial",
+  "diakses": "2026-11-15",
+  "fakta": [
+    {
+      "id": "iuran-mandiri",
+      "klaim": "Iuran peserta mandiri (PBPU/BP) per orang per bulan: kelas 1 Rp150.000, kelas 2 Rp100.000, kelas 3 Rp35.000 (tarif Rp42.000 dengan bantuan pemerintah Rp7.000).",
+      "di_slide": "1, 2, 4",
+      "sumber_primer": "https://peraturan.bpk.go.id/Details/136650/perpres-no-64-tahun-2020 (Perpres 64/2020)",
+      "sumber_media": [
+        "https://finansial.bisnis.com/read/20261105/215/2018580/segini-iuran-terbaru-bpjs-kesehatan-november-2026-untuk-kelas-123-dan-pbi",
+        "https://www.metrotvnews.com/read/KYVC0xMZ-cek-iuran-semua-kelas-bpjs-kesehatan-oktober-2026",
+        "https://finansial.bisnis.com/read/20260814/215/1996495/tok-menkes-pastikan-tak-ada-kenaikan-iuran-bpjs-kesehatan-di-2027"
+      ],
+      "catatan": "Ada rencana penggantian kelas 1–3 dengan KRIS (Perpres 59/2024), namun per November 2026 media masih mencantumkan iuran per kelas. Caption menyebut 'selama sistem kelas masih berlaku'. Klaim 'semua anggota KK wajib didaftarkan' TIDAK dipakai (tidak terverifikasi).",
+      "status": "resmi + 3 media"
+    },
+    {
+      "id": "contoh-keluarga",
+      "klaim": "4 × Rp150.000 = Rp600.000/bulan, × 12 = Rp7,2 juta; 4 × Rp35.000 = Rp140.000; selisih Rp460.000",
+      "di_slide": "1, 4",
+      "status": "contoh hitungan, berlabel 'contoh'"
+    }
+  ]
+}

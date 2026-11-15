@@ -1,0 +1,43 @@
+{
+  "judul": "Iuran BPJS sekeluarga",
+  "sumber": "Perpres 64/2020; iuran peserta mandiri per November 2026",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "BPJS kelas 1 sekeluarga {kepotong} Rp600 ribu",
+      "isi": "Contoh: 4 orang × Rp150 ribu sebulan. Setahun Rp7,2 juta.",
+      "visual": "Empat orang kecil berjajar (orang pose netral, cermin bergantian); angka kapur besar merah 'Rp600 rb/bulan'; label kecil 'contoh'."
+    },
+    {
+      "peran": "penjelasan",
+      "judul": "Iuran mandiri dihitung [per orang]",
+      "isi": "Kelas 1 Rp150 ribu, kelas 2 Rp100 ribu, kelas 3 Rp35 ribu per bulan.",
+      "visual": "Tiga label harga berjajar: 'K1 Rp150 rb', 'K2 Rp100 rb', 'K3 Rp35 rb'; label kecil 'per orang per bulan'.",
+      "sumber": "Perpres 64/2020; Bisnis.com Nov 2026"
+    },
+    {
+      "peran": "perumpamaan",
+      "judul": "Mirip [tiket konser] per kepala",
+      "isi": "Datang sekeluarga, tapi tiap orang tetap bayar tiketnya sendiri.",
+      "visual": "SKETSA: empat label tiket kapur berjajar dengan nama 'ayah', 'ibu', 'kakak', 'adik'."
+    },
+    {
+      "peran": "efek",
+      "judul": "Kelas 3 sekeluarga: [Rp140 ribu]",
+      "isi": "4 orang × Rp35 ribu. Selisih dengan kelas 1: Rp460 ribu sebulan.",
+      "visual": "Timbangan: kiri label 'K1 Rp600 rb', kanan 'K3 Rp140 rb'; label 'selisih Rp460 rb' dan label kecil 'contoh'."
+    },
+    {
+      "peran": "solusi",
+      "judul": "Pilih kelas [sesuai kemampuan]",
+      "isi": "Yang penting rutin dan tidak menunggak. Cek tagihan di aplikasi Mobile JKN.",
+      "visual": "HP dengan teks 'Mobile JKN'; kalender dengan tanggal bayar dicentang tiap bulan; orang (pose hp, ekspresi senyum)."
+    },
+    {
+      "peran": "cta",
+      "judul": "Keluargamu pakai BPJS [kelas berapa]?",
+      "isi": "Jawab pakai angka di komen. Kirim ke kakak yang ngurus iuran keluarga.",
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'kelas __', label 'komen ↓ · kirim'."
+    }
+  ]
+}
