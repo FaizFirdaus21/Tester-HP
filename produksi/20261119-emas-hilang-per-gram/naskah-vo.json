@@ -1,0 +1,30 @@
+{
+  "slug": "20261119-emas-hilang-per-gram",
+  "versi_struktur": 3,
+  "tipe_hook": "A (angka kejut)",
+  "judul": "Dua ratus ribu hilang per gram emas",
+  "model": "gemini-3.8-flash-tts",
+  "suara": "Sulafat",
+  "jeda_antar_blok": 0.2,
+  "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, hangat, santai, kalimat pendek. Hook dibaca langsung tanpa jeda di awal, tegas, dengan titik yang terdengar jelas. Tempo cepat.",
+  "blok": [
+    {
+      "peran": "hook",
+      "gaya": "Tegas, berat di 'hilang'",
+      "teks": "Dua ratus ribu. Hilang per gram.",
+      "visual": "Frame 0: angka kapur raksasa 'Rp200 rb' memenuhi sepertiga layar; dalam 0,3 detik dicoret merah dan sebatang emas kapur bergetar."
+    },
+    {
+      "peran": "fakta_efek",
+      "gaya": "Menjelaskan, jelas, pelan di dua angka harga",
+      "teks": "Per dua belas November, emas Antam satu gram dijual dua koma lima dua juta, buyback-nya dua koma tiga dua juta. Beli lalu langsung jual, kamu rugi sekitar dua ratus ribu.",
+      "visual": "Dua label harga: 'jual Rp2,518 jt' dan 'buyback Rp2,316 jt' (label kecil 'Logam Mulia, 12 Nov 2026'); panah merah ke 'selisih Rp202 rb'."
+    },
+    {
+      "peran": "aksi_cta",
+      "gaya": "Ramah, ceria di tagline",
+      "teks": "Cek selisih jual dan buyback sebelum beli. Selisih di tempatmu berapa? Komen angkanya. IntipDompet. Biar dompetmu nggak kaget.",
+      "visual": "Gelembung komentar 'Rp____', lalu kembali ke papan hook (loop)."
+    }
+  ]
+}

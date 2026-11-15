@@ -1,0 +1,18 @@
+{
+  "slug": "20261119-emas-hilang-per-gram",
+  "format": "reels",
+  "tipe_hook": "A (angka kejut)",
+  "tayang": "2026-11-19T19:00:00+07:00",
+  "kategori": "emas / investasi",
+  "diakses": "2026-11-15",
+  "fakta": [
+    {
+      "id": "jual-buyback-12nov",
+      "klaim": "Emas Antam 1 gram di Logam Mulia, 12 Nov 2026: jual Rp2.518.000, buyback Rp2.316.000; selisih Rp202.000.",
+      "di_naskah": "blok 1 (dibulatkan 'dua ratus ribu'), blok 2 (dibulatkan 'dua koma lima dua juta', 'dua koma tiga dua juta')",
+      "sumber": "Sama dengan produksi/20261112-emas-jual-buyback/fakta.json: Logam Mulia via Kontan, IDX Channel, Katadata, Suara, IDN Times (resmi dikutip + 3–4 media).",
+      "catatan": "Tayang 19 Nov memakai data 12 Nov; naskah dan visual WAJIB menyebut tanggal 'per dua belas November'. Selisih jual–buyback relatif stabil (Rp192–202 rb pada 9–12 Nov), tapi harga hari tayang pasti berbeda.",
+      "status": "resmi (dikutip) + ≥3 media"
+    }
+  ]
+}
