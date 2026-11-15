@@ -4,40 +4,307 @@
   "slide": [
     {
       "peran": "hook",
-      "judul": "BPJS kelas 1 sekeluarga {kepotong} Rp600 ribu",
+      "judul": "BPJS kelas 1 sekeluarga {kepotong} Rp600 rb",
       "isi": "Contoh: 4 orang × Rp150 ribu sebulan. Setahun Rp7,2 juta.",
-      "visual": "Empat orang kecil berjajar (orang pose netral, cermin bergantian); angka kapur besar merah 'Rp600 rb/bulan'; label kecil 'contoh'."
+      "visual": "Empat orang kecil berjajar (orang pose netral, cermin bergantian); angka kapur besar merah 'Rp600 rb/bulan'; label kecil 'contoh'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 130,
+            "y": 480,
+            "s": 230,
+            "pose": "netral",
+            "ekspresi": "senyum",
+            "baju": "biru",
+            "cermin": false
+          },
+          {
+            "jenis": "orang",
+            "x": 330,
+            "y": 480,
+            "s": 230,
+            "pose": "netral",
+            "ekspresi": "datar",
+            "baju": "merah",
+            "cermin": true
+          },
+          {
+            "jenis": "orang",
+            "x": 530,
+            "y": 480,
+            "s": 230,
+            "pose": "netral",
+            "ekspresi": "senyum",
+            "baju": "kuning",
+            "cermin": false
+          },
+          {
+            "jenis": "orang",
+            "x": 730,
+            "y": 480,
+            "s": 230,
+            "pose": "netral",
+            "ekspresi": "kaget",
+            "baju": "hijau",
+            "cermin": true
+          },
+          {
+            "jenis": "label",
+            "x": 450,
+            "y": 170,
+            "s": 420,
+            "teks": "Rp600 rb/bln",
+            "warna": "merah",
+            "miring": -5
+          }
+        ],
+        "label": [
+          {
+            "teks": "contoh",
+            "x": 450,
+            "y": 290,
+            "ukuran": 34
+          },
+          {
+            "teks": "4 orang × Rp150 rb",
+            "x": 450,
+            "y": 660,
+            "ukuran": 38,
+            "warna": "kuning"
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "Iuran mandiri dihitung [per orang]",
       "isi": "Kelas 1 Rp150 ribu, kelas 2 Rp100 ribu, kelas 3 Rp35 ribu per bulan.",
       "visual": "Tiga label harga berjajar: 'K1 Rp150 rb', 'K2 Rp100 rb', 'K3 Rp35 rb'; label kecil 'per orang per bulan'.",
-      "sumber": "Perpres 64/2020; Bisnis.com Nov 2026"
+      "sumber": "Perpres 64/2020; Bisnis.com Nov 2026",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "label",
+            "x": 450,
+            "y": 160,
+            "s": 460,
+            "teks": "K1 Rp150 rb",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "label",
+            "x": 450,
+            "y": 330,
+            "s": 460,
+            "teks": "K2 Rp100 rb",
+            "warna": "biru"
+          },
+          {
+            "jenis": "label",
+            "x": 450,
+            "y": 500,
+            "s": 460,
+            "teks": "K3 Rp35 rb",
+            "warna": "hijau"
+          }
+        ],
+        "label": [
+          {
+            "teks": "per orang per bulan",
+            "x": 450,
+            "y": 640,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Mirip [tiket konser] per kepala",
       "isi": "Datang sekeluarga, tapi tiap orang tetap bayar tiketnya sendiri.",
-      "visual": "SKETSA: empat label tiket kapur berjajar dengan nama 'ayah', 'ibu', 'kakak', 'adik'."
+      "visual": "SKETSA: empat label tiket kapur berjajar dengan nama 'ayah', 'ibu', 'kakak', 'adik'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "label",
+            "x": 260,
+            "y": 200,
+            "s": 300,
+            "teks": "ayah",
+            "warna": "biru",
+            "miring": -4
+          },
+          {
+            "jenis": "label",
+            "x": 640,
+            "y": 200,
+            "s": 300,
+            "teks": "ibu",
+            "warna": "merah",
+            "miring": 3
+          },
+          {
+            "jenis": "label",
+            "x": 260,
+            "y": 430,
+            "s": 300,
+            "teks": "kakak",
+            "warna": "kuning",
+            "miring": 3
+          },
+          {
+            "jenis": "label",
+            "x": 640,
+            "y": 430,
+            "s": 300,
+            "teks": "adik",
+            "warna": "hijau",
+            "miring": -4
+          }
+        ],
+        "label": [
+          {
+            "teks": "1 tiket per orang",
+            "x": 450,
+            "y": 620,
+            "ukuran": 40,
+            "warna": "kuning"
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "Kelas 3 sekeluarga: [Rp140 ribu]",
       "isi": "4 orang × Rp35 ribu. Selisih dengan kelas 1: Rp460 ribu sebulan.",
-      "visual": "Timbangan: kiri label 'K1 Rp600 rb', kanan 'K3 Rp140 rb'; label 'selisih Rp460 rb' dan label kecil 'contoh'."
+      "visual": "Timbangan: kiri label 'K1 Rp600 rb', kanan 'K3 Rp140 rb'; label 'selisih Rp460 rb' dan label kecil 'contoh'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "timbangan",
+            "x": 450,
+            "y": 380,
+            "s": 420,
+            "miring": -12
+          },
+          {
+            "jenis": "label",
+            "x": 230,
+            "y": 190,
+            "s": 300,
+            "teks": "K1 Rp600 rb",
+            "warna": "merah"
+          },
+          {
+            "jenis": "label",
+            "x": 680,
+            "y": 150,
+            "s": 300,
+            "teks": "K3 Rp140 rb",
+            "warna": "hijau"
+          }
+        ],
+        "label": [
+          {
+            "teks": "selisih Rp460 rb",
+            "x": 450,
+            "y": 630,
+            "ukuran": 46,
+            "warna": "kuning"
+          },
+          {
+            "teks": "contoh",
+            "x": 450,
+            "y": 685,
+            "ukuran": 30
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Pilih kelas [sesuai kemampuan]",
       "isi": "Yang penting rutin dan tidak menunggak. Cek tagihan di aplikasi Mobile JKN.",
-      "visual": "HP dengan teks 'Mobile JKN'; kalender dengan tanggal bayar dicentang tiap bulan; orang (pose hp, ekspresi senyum)."
+      "visual": "HP dengan teks 'Mobile JKN'; kalender dengan tanggal bayar dicentang tiap bulan; orang (pose hp, ekspresi senyum).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "hp",
+            "x": 190,
+            "y": 360,
+            "s": 330,
+            "teks": "Mobile JKN"
+          },
+          {
+            "jenis": "kalender",
+            "x": 480,
+            "y": 300,
+            "s": 220,
+            "teks": "BAYAR"
+          },
+          {
+            "jenis": "centang",
+            "x": 560,
+            "y": 340,
+            "s": 110
+          },
+          {
+            "jenis": "orang",
+            "x": 780,
+            "y": 450,
+            "s": 340,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "hijau"
+          }
+        ],
+        "label": [
+          {
+            "teks": "rutin, jangan nunggak",
+            "x": 360,
+            "y": 620,
+            "ukuran": 40,
+            "warna": "kuning"
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Keluargamu pakai BPJS [kelas berapa]?",
       "isi": "Jawab pakai angka di komen. Kirim ke kakak yang ngurus iuran keluarga.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar 'kelas __', label 'komen ↓ · kirim'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'kelas __', label 'komen ↓ · kirim'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 380,
+            "teks": "kelas __"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  kirim",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }

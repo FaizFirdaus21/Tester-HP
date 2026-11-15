@@ -6,38 +6,255 @@
       "peran": "hook",
       "judul": "Uang sobek separuh, nilainya bisa {hangus}",
       "isi": "BI hanya mengganti uang kertas rusak yang ukurannya lebih dari 2/3 aslinya.",
-      "visual": "Orang (pose kaget, ekspresi cemas) memegang lembaran uang yang disobek dua; label merah besar 'HANGUS?'."
+      "visual": "Orang (pose kaget, ekspresi cemas) memegang lembaran uang yang disobek dua; label merah besar 'HANGUS?'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 220,
+            "y": 450,
+            "s": 460,
+            "pose": "kaget",
+            "ekspresi": "cemas",
+            "baju": "biru"
+          },
+          {
+            "jenis": "lembarSobek",
+            "x": 640,
+            "y": 450,
+            "s": 340,
+            "teks": "100rb"
+          },
+          {
+            "jenis": "label",
+            "x": 700,
+            "y": 200,
+            "s": 340,
+            "teks": "HANGUS?",
+            "warna": "merah",
+            "miring": -8
+          }
+        ],
+        "label": [
+          {
+            "teks": "sobek separuh",
+            "x": 640,
+            "y": 600,
+            "ukuran": 36,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "Syarat diganti: [lebih dari 2/3]",
       "isi": "Fisik lebih dari dua pertiga ukuran asli dan ciri keaslian masih bisa dikenali.",
       "visual": "Lembaran uang kapur dibagi tiga kotak; dua pertiga lebih diarsir kuning dengan label '> 2/3 ✓'; label kecil 'Bank Indonesia'.",
-      "sumber": "PADG 19/13/PADG/2017"
+      "sumber": "PADG 19/13/PADG/2017",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "lembarTiga",
+            "x": 450,
+            "y": 250,
+            "s": 560
+          },
+          {
+            "jenis": "label",
+            "x": 320,
+            "y": 520,
+            "s": 290,
+            "teks": "> 2/3 ✓",
+            "warna": "hijau"
+          },
+          {
+            "jenis": "bank",
+            "x": 740,
+            "y": 520,
+            "s": 200,
+            "teks": "BI"
+          }
+        ],
+        "label": []
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Mirip [voucher] yang sobek",
       "isi": "Kodenya masih terbaca, masih bisa dipakai. Hilang separuh, ditolak.",
-      "visual": "SKETSA: dua voucher kapur, satu sobek kecil (centang), satu sobek separuh (silang merah)."
+      "visual": "SKETSA: dua voucher kapur, satu sobek kecil (centang), satu sobek separuh (silang merah).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "voucher",
+            "x": 250,
+            "y": 260,
+            "s": 360,
+            "teks": "AB12CD"
+          },
+          {
+            "jenis": "centang",
+            "x": 250,
+            "y": 470,
+            "s": 120
+          },
+          {
+            "jenis": "voucher",
+            "x": 680,
+            "y": 260,
+            "s": 360,
+            "teks": "AB1"
+          },
+          {
+            "jenis": "silang",
+            "x": 680,
+            "y": 260,
+            "s": 260
+          }
+        ],
+        "label": [
+          {
+            "teks": "sobek kecil: terbaca",
+            "x": 250,
+            "y": 600,
+            "ukuran": 36,
+            "warna": "hijau"
+          },
+          {
+            "teks": "hilang separuh",
+            "x": 680,
+            "y": 470,
+            "ukuran": 36,
+            "warna": "merah"
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "Sisa separuh = {nggak diganti}",
       "isi": "Uang Rp100 ribu yang tinggal setengah lembar tidak mendapat penggantian.",
-      "visual": "Setengah lembar uang kapur bertulisan '100rb' dengan panah ke label 'Rp0'; label kecil 'contoh'."
+      "visual": "Setengah lembar uang kapur bertulisan '100rb' dengan panah ke label 'Rp0'; label kecil 'contoh'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "lembarSobek",
+            "x": 250,
+            "y": 330,
+            "s": 420,
+            "teks": "100rb"
+          },
+          {
+            "jenis": "label",
+            "x": 730,
+            "y": 330,
+            "s": 280,
+            "teks": "Rp0",
+            "warna": "merah"
+          }
+        ],
+        "panah": [
+          {
+            "x1": 440,
+            "y1": 330,
+            "x2": 580,
+            "y2": 330,
+            "tinggi": 25,
+            "warna": "merah"
+          }
+        ],
+        "label": [
+          {
+            "teks": "tinggal setengah",
+            "x": 250,
+            "y": 520,
+            "ukuran": 36,
+            "warna": "biru"
+          },
+          {
+            "teks": "contoh",
+            "x": 730,
+            "y": 450,
+            "ukuran": 32
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Tukar di BI lewat [PINTAR]",
       "isi": "Pesan jadwal di pintar.bi.go.id. Kerusakan yang disengaja tidak diganti.",
-      "visual": "HP dengan teks 'pintar.bi.go.id'; kalender dengan tanggal dilingkari; ikon bank berlabel 'BI'; orang (pose hp, ekspresi senyum)."
+      "visual": "HP dengan teks 'pintar.bi.go.id'; kalender dengan tanggal dilingkari; ikon bank berlabel 'BI'; orang (pose hp, ekspresi senyum).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "hp",
+            "x": 190,
+            "y": 360,
+            "s": 330,
+            "teks": "pintar.bi.go.id"
+          },
+          {
+            "jenis": "kalender",
+            "x": 480,
+            "y": 270,
+            "s": 210,
+            "teks": "JADWAL"
+          },
+          {
+            "jenis": "bank",
+            "x": 480,
+            "y": 520,
+            "s": 200,
+            "teks": "BI"
+          },
+          {
+            "jenis": "orang",
+            "x": 780,
+            "y": 450,
+            "s": 340,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "hijau"
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Pernah dapat uang sobek? [Ya/tidak]",
       "isi": "Jawab di komen. Kirim ke teman yang suka nyimpan uang di saku celana.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar 'ya / tidak', label 'komen ↓ · kirim'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar 'ya / tidak', label 'komen ↓ · kirim'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 380,
+            "teks": "ya / tidak"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  kirim",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }

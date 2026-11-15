@@ -490,7 +490,77 @@ const Argo: FB = ({ cx, cy, s, teks }) => {
   );
 };
 
+// Satu lembar uang kertas. `teks` di tengah (bawaan "Rp").
+const Lembar: FB = ({ cx, cy, s, teks }) => {
+  const t = tebalDari(s);
+  const w = s;
+  const h = s * 0.5;
+  return (
+    <>
+      <Bentuk pts={persegi(cx - w / 2, cy - h / 2, w, h)} warna={k.hijauTerang} garis={k.hijauTerang} isi={0.3} tebal={t} />
+      <Gr pts={persegi(cx - w / 2 + s * 0.05, cy - h / 2 + s * 0.05, w - s * 0.1, h - s * 0.1)} warna={k.putih} tebal={t * 0.5} />
+      <Tulis x={cx} y={cy + s * 0.05} teks={teks ?? "Rp"} ukuran={Math.min(s * 0.16, (w * 0.6) / ((teks ?? "Rp").length * 0.5))} gaya="tebal" warna={k.putih} mulai={SUDAH} rata="center" />
+    </>
+  );
+};
+
+// Setengah lembar uang dengan tepi sobek bergerigi di kanan.
+const LembarSobek: FB = ({ cx, cy, s, teks }) => {
+  const t = tebalDari(s);
+  const w = s * 0.5;
+  const h = s * 0.5;
+  const x = cx - w / 2;
+  const y = cy - h / 2;
+  const gigi: P[] = Array.from({ length: 9 }, (_, i) => [x + w + (i % 2 ? -s * 0.05 : s * 0.02), y + (h * i) / 8] as P);
+  return (
+    <>
+      <Bentuk pts={[[x, y], ...gigi, [x, y + h], [x, y]]} warna={k.hijauTerang} garis={k.hijauTerang} isi={0.3} tebal={t} />
+      <Tulis x={x + w * 0.45} y={cy + s * 0.05} teks={teks ?? "Rp"} ukuran={Math.min(s * 0.14, (w * 0.75) / ((teks ?? "Rp").length * 0.5))} gaya="tebal" warna={k.putih} mulai={SUDAH} rata="center" />
+    </>
+  );
+};
+
+// Lembar uang dibagi tiga; bagian kiri lebih dari 2/3 diarsir kuning (syarat penggantian BI).
+const LembarTiga: FB = ({ cx, cy, s }) => {
+  const t = tebalDari(s);
+  const w = s;
+  const h = s * 0.5;
+  const x = cx - w / 2;
+  const y = cy - h / 2;
+  return (
+    <>
+      <Bidang pts={persegi(x, y, w * 0.74, h)} warna={k.kuning} isi={0.4} arsir={0.5} />
+      <Bentuk pts={persegi(x, y, w, h)} warna={k.hijauTerang} garis={k.putih} isi={0.12} tebal={t} />
+      <Gr pts={[[x + w / 3, y], [x + w / 3, y + h]]} tebal={t * 0.6} />
+      <Gr pts={[[x + (w * 2) / 3, y], [x + (w * 2) / 3, y + h]]} tebal={t * 0.6} />
+    </>
+  );
+};
+
+// Voucher berlubang-lubang dengan kode; `teks` = kode.
+const Voucher: FB = ({ cx, cy, s, teks }) => {
+  const t = tebalDari(s);
+  const w = s;
+  const h = s * 0.45;
+  const x = cx - w / 2;
+  const y = cy - h / 2;
+  return (
+    <>
+      <Bentuk pts={persegiBulat(x, y, w, h, s * 0.04)} warna={k.kuning} garis={k.putih} isi={0.25} tebal={t} />
+      {Array.from({ length: 6 }, (_, i) => (
+        <Gr key={i} pts={[[x + w * 0.28, y + (h * (i + 0.2)) / 6], [x + w * 0.28, y + (h * (i + 0.7)) / 6]]} tebal={t * 0.6} />
+      ))}
+      <Tulis x={x + w * 0.14} y={cy + s * 0.04} teks="%" ukuran={s * 0.14} gaya="tebal" warna={k.putih} mulai={SUDAH} rata="center" />
+      <Tulis x={x + w * 0.64} y={cy + s * 0.04} teks={teks ?? "KODE"} ukuran={Math.min(s * 0.12, (w * 0.6) / ((teks ?? "KODE").length * 0.5))} gaya="tebal" warna={k.putih} mulai={SUDAH} rata="center" />
+    </>
+  );
+};
+
 export const BENDA: Record<string, FB> = {
+  lembar: Lembar,
+  lembarSobek: LembarSobek,
+  lembarTiga: LembarTiga,
+  voucher: Voucher,
   ac: Ac,
   argo: Argo,
   botol: Botol,
