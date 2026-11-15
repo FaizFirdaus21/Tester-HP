@@ -41,3 +41,5 @@ Disalin apa adanya (lisensi MIT) pada 2026-11-09. Dua skill diganti nama karena 
 | gokulsvision/Crewm8-Social-Media-Manager-Skill-Graph (MIT) | 6166e18 | content-pillars, cadence-timing, content-calendar, metrics-track, ab-test-analyze, profile-audit, schedule-queue, draft-review, crisis-respond, brand-voice-system, positioning-statement, hook-write, caption-draft, cta-craft, trend-monitor, trending-briefing, competitor-content-audit, news-response, visual-plan, asset-format, comment-reply, engagement-poll |
 
 Not installed: prateekjain98/social-media-manager-skills, which relies on "stealth" browser automation and violates Instagram's terms, so it risks the account being banned.
+| Jakeschincariol/instagram-agent-skill (MIT) | d03c56b | ig-audit, ig-caption, ig-carousel, ig-comment, ig-dm, ig-human, ig-plan, ig-profile, ig-reel, ig-reply, ig-repurpose, ig-story, ig-viral (includes offline Python helpers: hookscore.py, beats.py, caption.py, humanize.py, detect.py, swipe.py; no network imports) |
+| rediumvex/viral-hooks-skill (MIT) | e26b339 | viral-hooks (100 hook formulas) |
