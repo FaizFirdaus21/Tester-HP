@@ -1,0 +1,45 @@
+{
+  "slug": "20261118-kartu-kredit-bayar-minimum",
+  "format": "reels",
+  "tayang": "2026-11-18T19:00:00+07:00",
+  "kategori": "utang / kartu kredit",
+  "diakses": "2026-11-15",
+  "fakta": [
+    {
+      "id": "minimum-5",
+      "klaim": "BI memperpanjang kebijakan kartu kredit hingga 31 Desember 2026: batas minimum pembayaran 5% dari total tagihan; denda keterlambatan maks. 1% dari total tagihan, tidak melebihi Rp100.000.",
+      "di_naskah": "blok 2",
+      "sumber_primer": [
+        "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2812626.aspx (RDG Juni 2026)",
+        "https://www.bi.go.id/id/fungsi-utama/sistem-pembayaran/ritel/instrumen/default.aspx (keterangan 's.d. 31 Des 2026')"
+      ],
+      "sumber_media": [
+        "https://keuangan.kontan.co.id/news/bi-perpanjang-relaksasi-kartu-kredit-hingga-akhir-2026-ini-penjelasannya",
+        "https://www.rctiplus.com/news/detail/ekonomi/5409179/bi-perpanjang-keringanan-bayar-tagihan-kartu-kredit-hingga-akhir-2026"
+      ],
+      "catatan": "Konten tayang 18 Nov, kebijakan berlaku sampai 31 Des 2026. Naskah tidak menyebut tanggal agar tidak terkesan permanen; caption menyebut 'berlaku sampai 31 Desember 2026'.",
+      "status": "resmi + 2 media"
+    },
+    {
+      "id": "bunga-175",
+      "klaim": "Batas maksimum suku bunga kartu kredit 1,75% per bulan (21% per tahun), berlaku sejak 1 Juli 2021.",
+      "di_naskah": "blok 2, 3",
+      "sumber_primer": [
+        "https://www.bi.go.id/id/fungsi-utama/sistem-pembayaran/ritel/instrumen/default.aspx",
+        "https://www.bi.go.id/id/publikasi/laporan/Pages/Tinjauan-Kebijakan-Moneter-Desember-2022.aspx"
+      ],
+      "sumber_media": [
+        "https://www.kompas.tv/bisnis/177542/bi-turunkan-batas-maksimum-bunga-kartu-kredit-jadi-1-75-persen",
+        "https://emitennews.com/news/bi-pertahankan-batas-maksimum-suku-bunga-kartu-kredit-175-persen",
+        "https://pustaka.bca.co.id/individu/produk/Kartu-Kredit/kartu-kredit-indonesia/20260819-riplay-kartu-kredit-bca.pdf (RIPLAY bank, Agu 2026)"
+      ],
+      "status": "resmi + 3 sumber"
+    },
+    {
+      "id": "contoh-5jt",
+      "klaim": "Tagihan Rp5 juta; minimum 5% = Rp250.000; sisa Rp4.750.000 × 1,75% = Rp83.125 ('delapan puluh ribuan')",
+      "di_naskah": "blok 3",
+      "status": "contoh hitungan dengan bunga maksimum, berlabel 'contoh'; naskah memakai 'bisa' karena cara hitung bunga tiap penerbit dapat berbeda"
+    }
+  ]
+}

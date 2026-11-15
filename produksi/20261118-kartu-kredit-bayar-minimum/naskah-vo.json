@@ -1,0 +1,41 @@
+{
+  "slug": "20261118-kartu-kredit-bayar-minimum",
+  "versi_struktur": 2,
+  "judul": "Bayar minimum kartu kredit",
+  "model": "gemini-3.8-flash-tts",
+  "suara": "Sulafat",
+  "jeda_antar_blok": 0.3,
+  "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, seperti teman yang paham keuangan sedang menjelaskan di Instagram Reels: hangat, santai, kalimat pendek. Tempo cepat, hook langsung tegas tanpa jeda di awal, beri jeda pendek sebelum angka penting.",
+  "blok": [
+    {
+      "peran": "hook",
+      "gaya": "Tegas dan cepat, sedikit heran",
+      "teks": "Bayar minimum, utang nggak turun-turun.",
+      "visual": "Frame 0 utuh: kartu kapur bertulisan 'BAYAR MINIMUM' dan grafik utang datar dengan kata merah 'NGGAK TURUN'."
+    },
+    {
+      "peran": "inti",
+      "gaya": "Menjelaskan, jelas, tekankan lima persen dan satu koma tujuh lima",
+      "teks": "Bank Indonesia membolehkan bayar minimum lima persen. Tapi sisanya kena bunga, maksimal satu koma tujuh lima persen sebulan.",
+      "visual": "Dua angka kapur: 'min. bayar 5%' (kuning) dan 'bunga maks. 1,75%/bulan' (merah); label kecil 'Bank Indonesia'."
+    },
+    {
+      "peran": "perumpamaan_akibat",
+      "gaya": "Bercerita lalu pelan di angka delapan puluh ribuan",
+      "teks": "Mirip menguras perahu bocor. Tagihan lima juta, bayar dua ratus lima puluh ribu, sisanya bisa kena bunga delapan puluh ribuan sebulan.",
+      "visual": "Sketsa perahu kapur dengan ember; hitungan 'Rp5 jt − Rp250 rb = Rp4,75 jt × 1,75% ≈ Rp83 rb/bulan' dengan label 'contoh'."
+    },
+    {
+      "peran": "solusi",
+      "gaya": "Menekankan, jelas, seperti memberi checklist",
+      "teks": "Bayar lunas kalau bisa. Kalau belum, bayar jauh di atas minimum dan stop pakai kartunya dulu.",
+      "visual": "Checklist kapur: '☐ bayar lunas', '☐ bayar > minimum', '☐ stop pakai dulu'; kartu dicoret tipis."
+    },
+    {
+      "peran": "cta",
+      "gaya": "Ceria dan ramah, tersenyum di tagline",
+      "teks": "Kamu biasa bayar lunas atau minimum? Komen satu kata. IntipDompet. Biar dompetmu nggak kaget.",
+      "visual": "Gelembung komentar kapur 'lunas / minimum', lalu tagline di tengah papan."
+    }
+  ]
+}
