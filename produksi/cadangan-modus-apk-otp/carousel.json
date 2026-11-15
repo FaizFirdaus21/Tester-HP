@@ -1,6 +1,6 @@
 {
   "judul": "Modus file APK dan OTP",
-  "sumber": "OJK & Bank Indonesia (imbauan modus APK dan kerahasiaan OTP); Kontak OJK 157",
+  "sumber": "OJK & Bank Indonesia (imbauan modus APK dan kerahasiaan OTP)",
   "slide": [
     {
       "peran": "hook",
@@ -223,8 +223,8 @@
     {
       "peran": "solusi",
       "judul": "Telanjur klik? [Hubungi bank]",
-      "isi": "Hubungi bank lewat nomor resmi, lalu lapor ke Kontak OJK 157.",
-      "visual": "HP dengan teks '157'; ikon bank; checklist '☐ hubungi bank ☐ lapor 157'. Orang (pose hp, ekspresi datar).",
+      "isi": "Hubungi bank lewat nomor resmi. Blokir kartu dan ganti PIN serta password.",
+      "visual": "HP dengan ikon telepon; ikon bank; checklist '☐ hubungi bank ☐ ganti PIN'. Orang (pose hp, ekspresi datar).",
       "ilustrasi": {
         "lapis": [
           {
@@ -241,7 +241,7 @@
             "x": 520,
             "y": 300,
             "s": 290,
-            "teks": "157"
+            "teks": "hubungi bank"
           },
           {
             "jenis": "bank",
@@ -260,7 +260,7 @@
             "rata": "left"
           },
           {
-            "teks": "2. lapor 157",
+            "teks": "2. ganti PIN",
             "x": 450,
             "y": 605,
             "ukuran": 38,
