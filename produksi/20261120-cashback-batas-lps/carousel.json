@@ -30,8 +30,8 @@
     {
       "peran": "solusi",
       "judul": "Cek di [Kalkulator 3T] LPS",
-      "isi": "Masukkan bunga + cashback di apps.lps.go.id/kalkulator3T sebelum menaruh uang.",
-      "visual": "HP dengan teks 'Kalkulator 3T · apps.lps.go.id'; checklist '☐ bunga ☐ + cashback ☐ ≤ 3,75%?'. Orang (pose tunjuk, ekspresi senyum)."
+      "isi": "Pakai kalkulator 3T di situs resmi LPS (lps.go.id) sebelum menaruh uang.",
+      "visual": "HP dengan teks 'Kalkulator 3T · lps.go.id'; checklist '☐ bunga ☐ + cashback ☐ ≤ 3,75%?'. Orang (pose tunjuk, ekspresi senyum)."
     },
     {
       "peran": "cta",

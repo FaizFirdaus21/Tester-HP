@@ -23,7 +23,8 @@
       "sumber_media": [
         "https://lps.go.id/lps-bayar-klaim-simpanan-nasabah-bank-yang-dilikuidasi-sebesar-rp15-triliun/ (PLPS 2/2018 Pasal 42 ayat 3)"
       ],
-      "status": "resmi (2 halaman LPS + dasar PLPS)"
+      "status": "resmi (2 halaman LPS + dasar PLPS)",
+      "catatan": "URL dalam slide/caption sengaja ditulis umum ('kalkulator 3T di situs resmi LPS, lps.go.id'), bukan deep link apps.lps.go.id/kalkulator3T: halaman itu muncul di indeks pencarian domain LPS, tapi tidak bisa dibuka dari sesi ini dan tidak ada 2 media yang mengutip path persisnya (cek 16 Nov)."
     },
     {
       "id": "seluruhnya",
