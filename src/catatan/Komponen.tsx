@@ -509,7 +509,9 @@ export const SuaraVO: React.FC<{ vo: DataVO; awal: number }> = ({ vo, awal }) =>
       {vo.blok.map((b, i) =>
         b.sumber && !b.buang ? (
           <Sequence key={i} from={d(awal + (b.putar ?? b.mulai))} durationInFrames={d(b.sumber[1] - b.sumber[0]) + 1} layout="none">
-            <Audio src={src} trimBefore={d(b.sumber[0])} trimAfter={d(b.sumber[1]) + 1} />
+            {/* frame pertama tiap blok dibisukan: membuang klik di awal file TTS (0–20 ms); blok mulai ±60 ms sebelum ucapan,
+                dan ucapan blok 0 paling cepat ±40 ms, jadi tidak ada suara bicara yang hilang */}
+            <Audio src={src} trimBefore={d(b.sumber[0])} trimAfter={d(b.sumber[1]) + 1} volume={(f) => (f === 0 ? 0 : 1)} />
           </Sequence>
         ) : null,
       )}

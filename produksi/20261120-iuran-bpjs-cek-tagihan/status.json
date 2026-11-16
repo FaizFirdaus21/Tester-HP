@@ -1,6 +1,6 @@
 {
   "slug": "20261120-iuran-bpjs-cek-tagihan",
-  "tahap": "vo-siap",
-  "catatan": "VO 32.12 detik, 4 blok, vo/iuran-bpjs-cek-tagihan.mp3 (gemini-3.8-flash-tts, suara Sulafat).",
-  "diperbarui": "2026-11-16T08:28:26Z"
+  "tahap": "render-selesai",
+  "catatan": "VO 32.12 detik, 4 blok, vo/iuran-bpjs-cek-tagihan.mp3 (gemini-3.8-flash-tts, suara Sulafat). | Director (v3.1): final.mp4 14542021 byte; qc_reels.py LOLOS (sambungan, tepi blok, tepi layar sepanjang video). Menunggu 'accept' user.",
+  "diperbarui": "2026-11-16T08:51:39Z"
 }
