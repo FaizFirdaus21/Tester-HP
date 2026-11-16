@@ -5,7 +5,7 @@
 // Kamera: 2,5D di pembuka, di perumpamaan (C), dan tarikan mundur ke CTA.
 import React from "react";
 import { AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame } from "remotion";
-import { Coret, FilterKapur, Titik, garis, p01 } from "./Komponen";
+import { Coret, FilterKapur, Titik, Tulis, garis, p01, ukurLebar } from "./Komponen";
 import { KunciKamera, Papan } from "./Papan";
 import { d, font, sel } from "./tema";
 import { SuaraVO } from "../catatan/Komponen";
@@ -204,3 +204,19 @@ export const ReelsPapan: React.FC<{ r: ReturnType<typeof buatReels>; teksTampil:
     </AbsoluteFill>
   );
 };
+
+/** Satu langkah tips (Reels v3.1): nomor dalam lingkaran + judul + baris kecil, muncul pada frame `mulai`.
+ *  `x0` = tepi kiri sel papan. Baris kecil dikecilkan otomatis agar muat lebar 820 px. */
+export const Langkah: React.FC<{ x0: number; n: number; y: number; judul: string; kecil?: string; mulai: number; warnaKecil?: string }> = ({ x0, n, y, judul, kecil, mulai, warnaKecil = "#9CCBEA" }) => (
+  <>
+    <Coret pts={lingkaranLangkah(x0 + 120, y - 20, n)} mulai={mulai} lama={8} warna="#F4D46A" tebal={6} />
+    <Tulis x={x0 + 120} y={y + 5} teks={String(n)} ukuran={70} gaya="tebal" warna="#F4D46A" mulai={mulai} perHuruf={2} rata="center" />
+    <Tulis x={x0 + 200} y={y - 10} teks={judul} ukuran={Math.min(66, (820 * 66) / ukurLebar(judul, 66, "tebal"))} gaya="tebal" mulai={mulai + 4} perHuruf={0.7} />
+    {kecil ? <Tulis x={x0 + 200} y={y + 75} teks={kecil} ukuran={Math.min(52, (820 * 52) / ukurLebar(kecil, 52, "tangan"))} warna={warnaKecil} mulai={mulai + 12} perHuruf={0.5} /> : null}
+  </>
+);
+const lingkaranLangkah = (cx: number, cy: number, n: number): Titik[] =>
+  Array.from({ length: 25 }, (_, i) => {
+    const a = (i / 24) * Math.PI * 2 + n;
+    return [cx + Math.cos(a) * 50, cy + Math.sin(a) * 50] as Titik;
+  });

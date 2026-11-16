@@ -1,0 +1,135 @@
+{
+  "audio": "vo/file-apk-undangan.mp3",
+  "catatan": "Dibuat dengan gemini-3.1-flash-tts-preview, suara Sulafat. Diperkaya scripts/sinkron_vo.py (bicara + jangkar kalimat).",
+  "total": 34.76,
+  "blok": [
+    {
+      "mulai": 0.0,
+      "durasi": 3.08,
+      "teks": "Undangan di WA? Jangan dibuka.",
+      "bicara": [
+        0.0,
+        2.752
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 16,
+          "detik": 1.61
+        },
+        {
+          "huruf": 30,
+          "detik": 2.752
+        }
+      ]
+    },
+    {
+      "mulai": 3.38,
+      "durasi": 9.64,
+      "teks": "File berakhiran apk itu aplikasi, bukan undangan. Kalau dipasang, penipu bisa mengambil alih HP dan aplikasi bankmu.",
+      "bicara": [
+        3.67,
+        12.665
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 34,
+          "detik": 3.088
+        },
+        {
+          "huruf": 50,
+          "detik": 4.721
+        },
+        {
+          "huruf": 66,
+          "detik": 5.876
+        },
+        {
+          "huruf": 116,
+          "detik": 8.995
+        }
+      ]
+    },
+    {
+      "mulai": 13.32,
+      "durasi": 13.28,
+      "teks": "Triknya, lihat tiga huruf terakhir nama file. Kalau apk, hapus. Pasang aplikasi cuma dari Play Store. Telanjur klik? Langsung hubungi bank lewat nomor resmi.",
+      "bicara": [
+        13.598,
+        26.24
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 9,
+          "detik": 0.818
+        },
+        {
+          "huruf": 46,
+          "detik": 3.825
+        },
+        {
+          "huruf": 57,
+          "detik": 5.11
+        },
+        {
+          "huruf": 64,
+          "detik": 6.311
+        },
+        {
+          "huruf": 102,
+          "detik": 9.139
+        },
+        {
+          "huruf": 117,
+          "detik": 9.894
+        },
+        {
+          "huruf": 157,
+          "detik": 12.641
+        }
+      ]
+    },
+    {
+      "mulai": 26.9,
+      "durasi": 7.56,
+      "teks": "Pernah dapat undangan begini? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget.",
+      "bicara": [
+        27.238,
+        34.197
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 30,
+          "detik": 2.19
+        },
+        {
+          "huruf": 51,
+          "detik": 4.187
+        },
+        {
+          "huruf": 64,
+          "detik": 5.386
+        },
+        {
+          "huruf": 90,
+          "detik": 6.959
+        }
+      ]
+    }
+  ]
+}
