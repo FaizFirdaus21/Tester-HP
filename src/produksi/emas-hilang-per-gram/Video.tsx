@@ -13,7 +13,7 @@ import { d, k } from "../../papan/tema";
 import { BENDA } from "../../papan/ilustrasi";
 import { BatangEmas } from "../../papan/ilustrasi/benda";
 import { DataVO } from "../../catatan/Jadwal";
-import { A, B, Muncul, ReelsPapan, TATA_V3, buatReels } from "../../papan/reels";
+import { A, B, Muncul, ReelsPapan, TATA_V31, buatReels } from "../../papan/reels";
 import { useCurrentFrame } from "remotion";
 
 // ---- data harga (fakta.json); ubah di sini saat harga diperbarui ----
@@ -21,7 +21,7 @@ const HARGA = { tanggal: "12 Nov 2026", jual: "Rp2,518 jt", buyback: "Rp2,316 jt
 // frasa VO tempat tiap elemen muncul (sesuaikan bila naskah berubah)
 const FRASA = { tanggal: "Per dua belas November", jual: "dijual", buyback: "buyback", rugi: "kamu rugi" };
 
-const R = buatReels(vo as DataVO, naskah, TATA_V3);
+const R = buatReels(vo as DataVO, naskah, TATA_V31);
 const { W } = R;
 const C = { ...R.cta, x0: R.cta.x - 540 };
 export const DURASI_EMAS_PER_GRAM = R.durasi;

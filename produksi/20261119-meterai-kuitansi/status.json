@@ -1,6 +1,6 @@
 {
   "slug": "20261119-meterai-kuitansi",
-  "tahap": "vo-siap",
-  "catatan": "VO 25.16 detik, 3 blok, vo/meterai-kuitansi.mp3 (gemini-3.1-flash-tts-preview, suara Sulafat). Model naskah diganti ke gemini-3.1-flash-tts-preview sesuai aturan sprint (Reels 12.00 = 3.1-preview). | VO 21.92 detik, 3 blok, vo/meterai-kuitansi.mp3 (gemini-3.1-flash-tts-preview, suara Sulafat). | Director: final.mp4 22,93 s, 9.636.873 byte (v3, TATA_V3). qc_reels.py LOLOS: 6 sambungan bersih (puncak terburuk -54,9 dBFS), tepi blok +1,9 dB (batas +5 dB). Angka dicek mata. | VO 34.68 detik, 4 blok, vo/meterai-kuitansi.mp3 (gemini-3.1-flash-tts-preview, suara Sulafat). | Tahap dikembalikan ke vo-siap: naskah ditulis ulang total ke format v3.1 (207745d), render lama tidak berlaku.",
-  "diperbarui": "2026-11-15T18:20:26Z"
+  "tahap": "render-selesai",
+  "catatan": "VO 25.16 detik, 3 blok, vo/meterai-kuitansi.mp3 (gemini-3.1-flash-tts-preview, suara Sulafat). Model naskah diganti ke gemini-3.1-flash-tts-preview sesuai aturan sprint (Reels 12.00 = 3.1-preview). | VO 21.92 detik, 3 blok, vo/meterai-kuitansi.mp3 (gemini-3.1-flash-tts-preview, suara Sulafat). | Director: final.mp4 22,93 s, 9.636.873 byte (v3, TATA_V3). qc_reels.py LOLOS: 6 sambungan bersih (puncak terburuk -54,9 dBFS), tepi blok +1,9 dB (batas +5 dB). Angka dicek mata. | VO 34.68 detik, 4 blok, vo/meterai-kuitansi.mp3 (gemini-3.1-flash-tts-preview, suara Sulafat). | Tahap dikembalikan ke vo-siap: naskah ditulis ulang total ke format v3.1 (207745d), render lama tidak berlaku. | Director (v3.1): final.mp4 34,90 s, 14.838.873 byte. qc_reels.py: 8 sambungan bersih (puncak terburuk -54,3 dBFS), tepi blok +2,0 dB, tepi layar sepanjang video bersih. Peringatan [jadwal] di log berasal dari komposisi emas (VO draf 3 blok vs naskah 4 blok), sudah dibersihkan; bundle kini tanpa peringatan. Menunggu 'accept' user.",
+  "diperbarui": "2026-11-16T06:07:22Z"
 }
