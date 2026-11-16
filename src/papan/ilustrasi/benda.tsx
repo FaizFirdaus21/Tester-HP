@@ -83,7 +83,8 @@ const Hp: FB = ({ cx, cy, s, teks }) => {
       {[0, 1, 2].map((i) => (
         <Bidang key={i} pts={persegi(cx - w / 2 + s * 0.08 + i * s * 0.13, cy + s * 0.12, s * 0.09, s * 0.07)} warna={k.putih} isi={0.35} />
       ))}
-      {teks ? <Tulis x={cx} y={cy - s * 0.26} teks={teks} ukuran={s * 0.09} gaya="tebal" warna={k.putih} mulai={SUDAH} rata="center" /> : null}
+      {/* teks layar diukur sungguhan dan dimuatkan di lebar layar (w − 0,12·s), seperti teks label */}
+      {teks ? <Tulis x={cx} y={cy - s * 0.26} teks={teks} ukuran={Math.min(s * 0.09, (s * 0.09 * (w - s * 0.12)) / Math.max(1, ukurLebar(teks, s * 0.09, "tebal")))} gaya="tebal" warna={k.putih} mulai={SUDAH} rata="center" /> : null}
     </>
   );
 };
