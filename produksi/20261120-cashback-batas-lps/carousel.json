@@ -6,38 +6,307 @@
       "peran": "hook",
       "judul": "Lewat 3,75%, jaminan LPS bisa {hangus}",
       "isi": "Bunga + cashback simpanan di bank umum di atas batas = tidak dijamin.",
-      "visual": "Orang (pose hp, ekspresi kaget) melihat HP berlabel 'bunga 3% + cashback 1%'; angka kapur besar merah '3,75%' dengan garis batas."
+      "visual": "Orang (pose hp, ekspresi kaget) melihat HP berlabel 'bunga 3% + cashback 1%'; angka kapur besar merah '3,75%' dengan garis batas.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 210,
+            "y": 450,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "kaget",
+            "baju": "biru"
+          },
+          {
+            "jenis": "hp",
+            "x": 520,
+            "y": 330,
+            "s": 300,
+            "teks": "3% + 1%"
+          },
+          {
+            "jenis": "label",
+            "x": 780,
+            "y": 240,
+            "s": 260,
+            "teks": "3,75%",
+            "warna": "merah",
+            "miring": -6
+          }
+        ],
+        "label": [
+          {
+            "teks": "batas LPS",
+            "x": 780,
+            "y": 350,
+            "ukuran": 34,
+            "warna": "merah"
+          },
+          {
+            "teks": "bunga + cashback",
+            "x": 520,
+            "y": 520,
+            "ukuran": 34,
+            "warna": "kuning"
+          },
+          {
+            "teks": "contoh",
+            "x": 780,
+            "y": 410,
+            "ukuran": 30
+          }
+        ]
+      }
     },
     {
       "peran": "penjelasan",
       "judul": "Batas LPS bank umum: [3,75%]",
       "isi": "Berlaku 1 Okt 2026–31 Jan 2027. Untuk BPR batasnya 6,25%.",
       "visual": "Dua label: 'Bank umum 3,75%' (kuning) dan 'BPR 6,25%' (biru); kalender 'Okt 2026–Jan 2027'.",
-      "sumber": "LPS, RDK 28 Sep 2026"
+      "sumber": "LPS, RDK 28 Sep 2026",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "label",
+            "x": 260,
+            "y": 200,
+            "s": 480,
+            "teks": "Bank umum 3,75%",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "label",
+            "x": 710,
+            "y": 200,
+            "s": 340,
+            "teks": "BPR 6,25%",
+            "warna": "biru"
+          },
+          {
+            "jenis": "kalender",
+            "x": 450,
+            "y": 470,
+            "s": 250,
+            "teks": "OKT–JAN"
+          }
+        ],
+        "label": [
+          {
+            "teks": "1 Okt 2026 – 31 Jan 2027",
+            "x": 450,
+            "y": 640,
+            "ukuran": 36,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "perumpamaan",
       "judul": "Cashback = [bunga] di mata LPS",
       "isi": "Bunga 3% plus cashback 1% dihitung 4%. Sudah lewat batas.",
-      "visual": "Persamaan kapur '3% + 1% = 4% > 3,75%' dilingkari merah; label kecil 'contoh'."
+      "visual": "Persamaan kapur '3% + 1% = 4% > 3,75%' dilingkari merah; label kecil 'contoh'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "label",
+            "x": 180,
+            "y": 260,
+            "s": 220,
+            "teks": "3%",
+            "warna": "kuning"
+          },
+          {
+            "jenis": "label",
+            "x": 450,
+            "y": 260,
+            "s": 220,
+            "teks": "+ 1%",
+            "warna": "biru"
+          },
+          {
+            "jenis": "label",
+            "x": 730,
+            "y": 260,
+            "s": 240,
+            "teks": "= 4%",
+            "warna": "merah"
+          }
+        ],
+        "label": [
+          {
+            "teks": "> 3,75% → lewat batas",
+            "x": 450,
+            "y": 460,
+            "ukuran": 46,
+            "warna": "merah"
+          },
+          {
+            "teks": "bunga + cashback",
+            "x": 450,
+            "y": 560,
+            "ukuran": 36
+          },
+          {
+            "teks": "contoh",
+            "x": 450,
+            "y": 620,
+            "ukuran": 30
+          }
+        ]
+      }
     },
     {
       "peran": "efek",
       "judul": "Lewat batas: {pokoknya} ikut tak dijamin",
       "isi": "Menurut LPS, pokok dan bunganya sama-sama tidak dijamin.",
-      "visual": "Tumpukan uang 'pokok' dan koin 'bunga' sama-sama dicoret silang merah; label kecil 'FAQ LPS'."
+      "visual": "Tumpukan uang 'pokok' dan koin 'bunga' sama-sama dicoret silang merah; label kecil 'FAQ LPS'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "uang",
+            "x": 260,
+            "y": 330,
+            "s": 340,
+            "teks": "pokok"
+          },
+          {
+            "jenis": "silang",
+            "x": 260,
+            "y": 330,
+            "s": 300
+          },
+          {
+            "jenis": "koin",
+            "x": 680,
+            "y": 340,
+            "s": 220
+          },
+          {
+            "jenis": "silang",
+            "x": 680,
+            "y": 340,
+            "s": 250
+          }
+        ],
+        "label": [
+          {
+            "teks": "pokok",
+            "x": 260,
+            "y": 560,
+            "ukuran": 40
+          },
+          {
+            "teks": "bunga",
+            "x": 680,
+            "y": 560,
+            "ukuran": 40
+          },
+          {
+            "teks": "FAQ LPS",
+            "x": 450,
+            "y": 640,
+            "ukuran": 32,
+            "warna": "biru"
+          }
+        ]
+      }
     },
     {
       "peran": "solusi",
       "judul": "Cek di [Kalkulator 3T] LPS",
       "isi": "Pakai kalkulator 3T di situs resmi LPS (lps.go.id) sebelum menaruh uang.",
-      "visual": "HP dengan teks 'Kalkulator 3T · lps.go.id'; checklist '☐ bunga ☐ + cashback ☐ ≤ 3,75%?'. Orang (pose tunjuk, ekspresi senyum)."
+      "visual": "HP dengan teks 'Kalkulator 3T · lps.go.id'; checklist '☐ bunga ☐ + cashback ☐ ≤ 3,75%?'. Orang (pose tunjuk, ekspresi senyum).",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "hp",
+            "x": 190,
+            "y": 360,
+            "s": 340,
+            "teks": "Kalkulator 3T"
+          },
+          {
+            "jenis": "orang",
+            "x": 780,
+            "y": 450,
+            "s": 320,
+            "pose": "jempol",
+            "ekspresi": "senyum",
+            "baju": "hijau",
+            "cermin": true
+          }
+        ],
+        "label": [
+          {
+            "teks": "lps.go.id",
+            "x": 190,
+            "y": 580,
+            "ukuran": 34,
+            "warna": "biru"
+          },
+          {
+            "teks": "✓ bunga",
+            "x": 350,
+            "y": 230,
+            "ukuran": 44,
+            "warna": "hijau",
+            "rata": "left"
+          },
+          {
+            "teks": "✓ + cashback",
+            "x": 350,
+            "y": 340,
+            "ukuran": 44,
+            "warna": "hijau",
+            "rata": "left"
+          },
+          {
+            "teks": "✓ ≤ 3,75%?",
+            "x": 350,
+            "y": 450,
+            "ukuran": 44,
+            "warna": "hijau",
+            "rata": "left"
+          }
+        ]
+      }
     },
     {
       "peran": "cta",
       "judul": "Bunga tabunganmu [berapa persen]?",
       "isi": "Tulis angkanya di komen. Kirim ke teman yang lagi cari bunga tinggi.",
-      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ %', label 'komen ↓ · kirim'."
+      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ %', label 'komen ↓ · kirim'.",
+      "ilustrasi": {
+        "lapis": [
+          {
+            "jenis": "orang",
+            "x": 260,
+            "y": 320,
+            "s": 440,
+            "pose": "hp",
+            "ekspresi": "senyum",
+            "baju": "biru"
+          },
+          {
+            "jenis": "gelembung",
+            "x": 670,
+            "y": 200,
+            "s": 380,
+            "teks": "__ %"
+          }
+        ],
+        "label": [
+          {
+            "teks": "komen ↓  ·  kirim",
+            "x": 670,
+            "y": 420,
+            "ukuran": 38,
+            "warna": "biru"
+          }
+        ]
+      }
     }
   ]
 }
