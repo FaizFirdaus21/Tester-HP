@@ -1,0 +1,43 @@
+{
+  "judul": "Cashback bisa bikin jaminan LPS hangus",
+  "sumber": "LPS: tingkat bunga penjaminan 1 Okt 2026–31 Jan 2027; Kalkulator 3T dan FAQ LPS",
+  "slide": [
+    {
+      "peran": "hook",
+      "judul": "Lewat 3,75%, jaminan LPS bisa {hangus}",
+      "isi": "Bunga + cashback simpanan di bank umum di atas batas = tidak dijamin.",
+      "visual": "Orang (pose hp, ekspresi kaget) melihat HP berlabel 'bunga 3% + cashback 1%'; angka kapur besar merah '3,75%' dengan garis batas."
+    },
+    {
+      "peran": "penjelasan",
+      "judul": "Batas LPS bank umum: [3,75%]",
+      "isi": "Berlaku 1 Okt 2026–31 Jan 2027. Untuk BPR batasnya 6,25%.",
+      "visual": "Dua label: 'Bank umum 3,75%' (kuning) dan 'BPR 6,25%' (biru); kalender 'Okt 2026–Jan 2027'.",
+      "sumber": "LPS, RDK 28 Sep 2026"
+    },
+    {
+      "peran": "perumpamaan",
+      "judul": "Cashback = [bunga] di mata LPS",
+      "isi": "Bunga 3% plus cashback 1% dihitung 4%. Sudah lewat batas.",
+      "visual": "Persamaan kapur '3% + 1% = 4% > 3,75%' dilingkari merah; label kecil 'contoh'."
+    },
+    {
+      "peran": "efek",
+      "judul": "Lewat batas: {pokoknya} ikut tak dijamin",
+      "isi": "Menurut LPS, pokok dan bunganya sama-sama tidak dijamin.",
+      "visual": "Tumpukan uang 'pokok' dan koin 'bunga' sama-sama dicoret silang merah; label kecil 'FAQ LPS'."
+    },
+    {
+      "peran": "solusi",
+      "judul": "Cek di [Kalkulator 3T] LPS",
+      "isi": "Masukkan bunga + cashback di apps.lps.go.id/kalkulator3T sebelum menaruh uang.",
+      "visual": "HP dengan teks 'Kalkulator 3T · apps.lps.go.id'; checklist '☐ bunga ☐ + cashback ☐ ≤ 3,75%?'. Orang (pose tunjuk, ekspresi senyum)."
+    },
+    {
+      "peran": "cta",
+      "judul": "Bunga tabunganmu [berapa persen]?",
+      "isi": "Tulis angkanya di komen. Kirim ke teman yang lagi cari bunga tinggi.",
+      "visual": "Orang memegang HP tersenyum, gelembung komentar '__ %', label 'komen ↓ · kirim'."
+    }
+  ]
+}

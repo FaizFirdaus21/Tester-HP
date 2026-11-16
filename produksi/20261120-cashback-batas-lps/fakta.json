@@ -1,0 +1,45 @@
+{
+  "slug": "20261120-cashback-batas-lps",
+  "format": "carousel",
+  "tayang": "2026-11-20T07:00:00+07:00",
+  "kategori": "tabungan / penjaminan",
+  "diakses": "2026-11-16",
+  "fakta": [
+    {
+      "id": "tbp",
+      "klaim": "TBP LPS 1 Okt 2026–31 Jan 2027: bank umum 3,75%, BPR 6,25%.",
+      "di_slide": "1, 2, 3, 5",
+      "sumber": "produksi/20261109-bunga-deposito-lps/fakta.json (id tbp-bank-umum, tbp-bpr): lps.go.id + Kontan, Bisnis, Pasardana, Investortrust",
+      "status": "resmi + ≥2 media"
+    },
+    {
+      "id": "cashback",
+      "klaim": "Cashback diperhitungkan sebagai komponen bunga; bunga + cashback di atas TBP membuat simpanan tidak dijamin.",
+      "di_slide": "1, 3, 5",
+      "sumber_primer": [
+        "https://apps.lps.go.id/kalkulator3T",
+        "https://lps.go.id/faq/"
+      ],
+      "sumber_media": [
+        "https://lps.go.id/lps-bayar-klaim-simpanan-nasabah-bank-yang-dilikuidasi-sebesar-rp15-triliun/ (PLPS 2/2018 Pasal 42 ayat 3)"
+      ],
+      "status": "resmi (2 halaman LPS + dasar PLPS)"
+    },
+    {
+      "id": "seluruhnya",
+      "klaim": "Simpanan dengan bunga melebihi TBP tidak dijamin secara keseluruhan (pokok dan bunga).",
+      "di_slide": "4",
+      "sumber_primer": "https://lps.go.id/faq/",
+      "sumber_media": [
+        "https://lps.go.id/ketua-dk-lps-bunga-khusus-tidak-dilarang-tetapi-nasabah-harus-pahami-risikonya-2/"
+      ],
+      "status": "resmi"
+    },
+    {
+      "id": "contoh-3-1",
+      "klaim": "Bunga 3% + cashback 1% = 4% > 3,75%",
+      "di_slide": "1, 3",
+      "status": "contoh hitungan, berlabel 'contoh'"
+    }
+  ]
+}
