@@ -1,0 +1,68 @@
+{
+  "slug": "20261120-iuran-bpjs-cek-tagihan",
+  "versi_struktur": "3.1",
+  "tipe_hook": "D (harga nyata)",
+  "judul": "Iuran BPJS kelas 3 Rp35 ribu",
+  "model": "gemini-3.8-flash-tts",
+  "suara": "Sulafat",
+  "jeda_antar_blok": 0.3,
+  "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, hangat dan santai. Hook dibaca cepat dan tegas tanpa jeda di awal. Setelah itu tempo sedang, boleh bernapas; beri jeda pendek di setiap langkah tip supaya mudah diikuti.",
+  "hook_varian": [
+    {
+      "teks": "Tiga puluh lima ribu. Iuran BPJS.",
+      "tipe": "D",
+      "catatan": "dipilih: versi ≤6 kata hasil cek beats.py (hook sebelumnya 3,4–4,3 detik)"
+    },
+    {
+      "teks": "Tiga puluh lima ribu. Iuran BPJS kelas tiga sebulan.",
+      "tipe": "D",
+      "catatan": "angka resmi yang bisa dicek sendiri"
+    },
+    {
+      "teks": "Rp150 ribu per orang. Iuran BPJS kelas satu.",
+      "tipe": "D",
+      "catatan": "angka lebih besar, tapi lebih sedikit penonton yang di kelas 1"
+    },
+    {
+      "teks": "BPJS-mu bisa nonaktif tanpa kamu sadar.",
+      "tipe": "B",
+      "catatan": "kuat, tapi syarat nonaktif belum terverifikasi"
+    },
+    {
+      "teks": "Sekeluarga empat orang, Rp600 ribu sebulan.",
+      "tipe": "A",
+      "catatan": "sudah dipakai di carousel 18 Nov"
+    },
+    {
+      "teks": "Kamu terakhir cek tagihan BPJS kapan?",
+      "tipe": "B",
+      "catatan": "pertanyaan lunak, tanpa angka"
+    }
+  ],
+  "blok": [
+    {
+      "peran": "hook",
+      "gaya": "Tegas, jelas di angka",
+      "teks": "Tiga puluh lima ribu. Iuran BPJS.",
+      "visual": "Frame 0: angka kapur raksasa '35' dengan 'rb' kecil di sampingnya; dalam 0,3 detik kartu BPJS kapur muncul berlabel 'kelas 3'."
+    },
+    {
+      "peran": "fakta",
+      "gaya": "Menjelaskan, pelan di tiga angka",
+      "teks": "Peserta mandiri bayar per orang: kelas satu seratus lima puluh ribu, kelas dua seratus ribu, kelas tiga tiga puluh lima ribu.",
+      "visual": "Tiga label harga ditahan ≥2,5 detik: 'K1 Rp150 rb', 'K2 Rp100 rb', 'K3 Rp35 rb'; label kecil 'per orang per bulan · peserta mandiri'."
+    },
+    {
+      "peran": "tip",
+      "gaya": "Seperti membagikan trik, tempo sedang, jeda di tiap langkah",
+      "teks": "Triknya, buka Mobile JKN. Menu Info Iuran untuk tagihan, Info Peserta untuk cek status aktif. Cek sekarang, jangan tunggu di rumah sakit.",
+      "visual": "HP kapur dengan layar 'Mobile JKN'; dua tombol bernomor ditahan ≥2,5 detik: '1. Info Iuran → tagihan', '2. Info Peserta → status aktif'; ikon rumah sakit dengan tanda seru."
+    },
+    {
+      "peran": "cta",
+      "gaya": "Ramah, ceria di tagline",
+      "teks": "Keluargamu pakai BPJS kelas berapa? Komen angkanya. IntipDompet. Biar dompetmu nggak kaget.",
+      "visual": "Gelembung komentar 'kelas __', lalu kembali ke papan hook (loop)."
+    }
+  ]
+}

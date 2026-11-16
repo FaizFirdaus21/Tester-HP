@@ -1,0 +1,30 @@
+{
+  "slug": "20261120-iuran-bpjs-cek-tagihan",
+  "format": "reels",
+  "tipe_hook": "D (harga nyata)",
+  "tayang": "2026-11-20T19:00:00+07:00",
+  "kategori": "kesehatan / jaminan sosial",
+  "diakses": "2026-11-16",
+  "fakta": [
+    {
+      "id": "iuran-mandiri",
+      "klaim": "Iuran peserta mandiri per orang per bulan: kelas 1 Rp150.000, kelas 2 Rp100.000, kelas 3 Rp35.000.",
+      "di_naskah": "blok 1, 2",
+      "sumber": "Sama dengan produksi/20261118-iuran-bpjs-sekeluarga/fakta.json (Perpres 64/2020 + Bisnis Nov 2026, Metro Okt 2026, Bisnis Agu 2026)",
+      "status": "resmi + 3 media"
+    },
+    {
+      "id": "mobile-jkn-menu",
+      "klaim": "Di aplikasi Mobile JKN, tagihan dapat dicek di menu Info Iuran dan status kepesertaan di menu Info Peserta.",
+      "di_naskah": "blok 3",
+      "sumber_media": [
+        "https://kabar24.bisnis.com/read/20260129/79/1948369/cara-cek-tagihan-dan-iuran-bpjs-kesehatan-kelas-1-2-dan-3",
+        "https://finansial.bisnis.com/read/20261027/215/2016212/isu-penonaktifan-pbi-bpjs-dorong-peserta-cek-keaktifan-status",
+        "https://www.goodnewsfromindonesia.id/2025/04/30/3-cara-mudah-cek-tagihan-bpjs-kesehatan-langsung-dari-ponsel"
+      ],
+      "sumber_primer": "Aplikasi Mobile JKN (BPJS Kesehatan); BPJS mendorong peserta mengecek status (Bisnis, 27 Okt 2026)",
+      "catatan": "Nama menu dapat berubah mengikuti pembaruan aplikasi. Nomor WhatsApp PANDAWA tidak dipakai karena statusnya berbeda antarsumber.",
+      "status": "resmi (aplikasi) + 3 media"
+    }
+  ]
+}
