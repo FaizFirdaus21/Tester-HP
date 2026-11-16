@@ -1,0 +1,58 @@
+{
+  "slug": "20261120-file-apk-undangan",
+  "format": "reels",
+  "tipe_hook": "B (panggilan langsung)",
+  "tayang": "2026-11-20T12:00:00+07:00",
+  "kategori": "keamanan digital / penipuan",
+  "diakses": "2026-11-16",
+  "fakta": [
+    {
+      "id": "modus-apk",
+      "klaim": "Penipu mengirim file APK yang disamarkan sebagai undangan pernikahan/foto lewat WhatsApp; bila dipasang, pelaku bisa mengambil alih ponsel dan mengakses aplikasi bank.",
+      "di_naskah": "blok 1, 2",
+      "sumber_primer": [
+        "https://www.bi.go.id/id/publikasi/ruang-media/cerita-bi/Pages/modus-penipuan-online-apk.aspx",
+        "https://www.ojk.go.id/id/berita-dan-kegiatan/info-terkini/Documents/Pages/Booklet-Waspada-Penipuan-Scam-OJK/Booklet%20Waspada%20Penipuan%20Mengintai%20Kita%2c%20Ayo%20Lawan%20dan%20Hindari%21.pdf"
+      ],
+      "sumber_media": [
+        "https://finansial.bisnis.com/read/20230712/90/1673998/ojk-ingatkan-modus-penipuan-sniffing-bisa-kuras-isi-rekening",
+        "https://finansial.bisnis.com/read/20240115/90/1732310/waspada-modus-penipuan-undangan-pps-pemilu-di-wa-lakukan-ini-jika-telanjur-klik",
+        "https://inet.detik.com/security/d-6537689/awas-penipuan-undangan-pernikahan-di-wa-bisa-kuras-rekening"
+      ],
+      "status": "resmi + 3 media"
+    },
+    {
+      "id": "apk-aplikasi",
+      "klaim": "File berakhiran .apk adalah paket aplikasi Android, bukan dokumen/undangan.",
+      "di_naskah": "blok 2, 3",
+      "sumber_media": [
+        "https://www.bi.go.id/id/publikasi/ruang-media/cerita-bi/Pages/modus-penipuan-online-apk.aspx",
+        "https://www.bca.co.id/id/informasi/awas-modus/2022/12/14/10/11/waspadai-penipuan-dengan-modus-kurir-paket-yang-mengirimkan-file-apk",
+        "https://www.kompas.tv/article/372543/awas-file-apk-undangannikah-bisa-jadi-modus-baru-bobol-rekening-ini-tips-agar-takjadi-korban"
+      ],
+      "catatan": "Trik 'cek tiga huruf terakhir' adalah cara praktis menerapkan fakta ini; disebut 'trik', bukan imbauan lembaga.",
+      "status": "resmi + 2 sumber"
+    },
+    {
+      "id": "play-store",
+      "klaim": "Bank mengimbau agar tidak memasang aplikasi dari sumber tidak resmi, termasuk APK kiriman WhatsApp.",
+      "di_naskah": "blok 3",
+      "sumber_media": [
+        "https://infobanknews.com/waspada-penipuan-undangan-pernikahan-bri-bagikan-tips-menghindarinya/",
+        "https://momsmoney.kontan.co.id/news/penipuan-modus-undangan-pernikahan-bri-bagikan-tips-bila-terlanjur-klik-aplikasi",
+        "https://www.bca.co.id/id/informasi/awas-modus/2022/12/14/10/11/waspadai-penipuan-dengan-modus-kurir-paket-yang-mengirimkan-file-apk"
+      ],
+      "status": "imbauan bank (BRI, BCA) + 2 media"
+    },
+    {
+      "id": "telanjur-klik",
+      "klaim": "Bila telanjur klik, segera hubungi bank lewat kanal resmi.",
+      "di_naskah": "blok 3",
+      "sumber_media": [
+        "https://www.kompas.tv/ekonomi/425565/ini-yang-harus-dilakukan-jika-terlanjur-mengunduh-file-apk-di-whatsapp-dari-penipu",
+        "https://momsmoney.kontan.co.id/news/penipuan-modus-undangan-pernikahan-bri-bagikan-tips-bila-terlanjur-klik-aplikasi"
+      ],
+      "status": "2 media (saran umum)"
+    }
+  ]
+}

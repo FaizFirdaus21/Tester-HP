@@ -1,0 +1,73 @@
+{
+  "slug": "20261120-file-apk-undangan",
+  "versi_struktur": "3.1",
+  "tipe_hook": "B (panggilan langsung)",
+  "judul": "File undangan .apk",
+  "model": "gemini-3.1-flash-tts-preview",
+  "suara": "Sulafat",
+  "jeda_antar_blok": 0.3,
+  "gaya_umum": "Bacakan dalam bahasa Indonesia lisan anak muda yang natural, hangat dan santai. Hook dibaca cepat dan tegas tanpa jeda di awal. Setelah itu tempo sedang, boleh bernapas; beri jeda pendek di setiap langkah tip supaya mudah diikuti.",
+  "hook_varian": [
+    {
+      "teks": "Undangan di WA? Jangan dibuka.",
+      "tipe": "B",
+      "catatan": "dipilih: versi ≤6 kata hasil cek beats.py (hook sebelumnya 3,4–4,3 detik)"
+    },
+    {
+      "teks": "Dapat file undangan di WA? Jangan dibuka.",
+      "tipe": "B",
+      "catatan": "langsung menyapa situasi penonton, 7 kata"
+    },
+    {
+      "teks": "Undangan nikah ini bisa kuras rekeningmu.",
+      "tipe": "C",
+      "catatan": "kuat, tapi menakut-nakuti tanpa angka"
+    },
+    {
+      "teks": "Satu file. Rekening bisa terkuras.",
+      "tipe": "A",
+      "catatan": "angka 'satu' tidak informatif"
+    },
+    {
+      "teks": "Kamu yang suka buka file dari WA, stop.",
+      "tipe": "B",
+      "catatan": "agak menggurui"
+    },
+    {
+      "teks": "Akhiran tiga huruf ini bikin HP diambil alih.",
+      "tipe": "C",
+      "catatan": "open loop bagus, cadangan uji berikutnya"
+    },
+    {
+      "teks": "Rp1,4 miliar hilang gara-gara undangan nikah.",
+      "tipe": "A",
+      "catatan": "kasus Malang 2023 hanya dari 1–2 sumber dan berumur 3 tahun → tidak dipakai"
+    }
+  ],
+  "blok": [
+    {
+      "peran": "hook",
+      "gaya": "Cepat, tegas, seperti memperingatkan teman",
+      "teks": "Undangan di WA? Jangan dibuka.",
+      "visual": "Frame 0: gelembung chat WA kapur 'Undangan Pernikahan.apk' dengan tanda silang merah besar; dalam 0,3 detik silang tergambar."
+    },
+    {
+      "peran": "fakta",
+      "gaya": "Menjelaskan, jelas",
+      "teks": "File berakhiran apk itu aplikasi, bukan undangan. Kalau dipasang, penipu bisa mengambil alih HP dan aplikasi bankmu.",
+      "visual": "Nama file diperbesar, akhiran '.apk' dilingkari kuning dengan label 'APLIKASI ≠ undangan'; panah ke ikon HP dan ikon bank."
+    },
+    {
+      "peran": "tip",
+      "gaya": "Seperti membagikan trik, tempo sedang, jeda di tiap langkah",
+      "teks": "Triknya, lihat tiga huruf terakhir nama file. Kalau apk, hapus. Pasang aplikasi cuma dari Play Store. Telanjur klik? Langsung hubungi bank lewat nomor resmi.",
+      "visual": "Tiga langkah bernomor, tiap langkah tahan ≥2,5 detik: '1. Cek akhiran: .apk = hapus', '2. Pasang aplikasi hanya dari Play Store', '3. Telanjur klik → hubungi bank (nomor resmi)'."
+    },
+    {
+      "peran": "cta",
+      "gaya": "Ramah, ceria di tagline",
+      "teks": "Pernah dapat undangan begini? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget.",
+      "visual": "Gelembung komentar 'ya / nggak', lalu kembali ke papan hook (loop)."
+    }
+  ]
+}
