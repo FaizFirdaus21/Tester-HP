@@ -1,0 +1,27 @@
+{
+  "audio": "vo/iuran-bpjs-cek-tagihan.mp3",
+  "catatan": "Dibuat dengan gemini-3.8-flash-tts, suara Sulafat.",
+  "total": 32.12,
+  "blok": [
+    {
+      "mulai": 0.0,
+      "durasi": 3.0,
+      "teks": "Tiga puluh lima ribu. Iuran BPJS."
+    },
+    {
+      "mulai": 3.3,
+      "durasi": 10.72,
+      "teks": "Peserta mandiri bayar per orang: kelas satu seratus lima puluh ribu, kelas dua seratus ribu, kelas tiga tiga puluh lima ribu."
+    },
+    {
+      "mulai": 14.32,
+      "durasi": 10.8,
+      "teks": "Triknya, buka Mobile JKN. Menu Info Iuran untuk tagihan, Info Peserta untuk cek status aktif. Cek sekarang, jangan tunggu di rumah sakit."
+    },
+    {
+      "mulai": 25.42,
+      "durasi": 6.4,
+      "teks": "Keluargamu pakai BPJS kelas berapa? Komen angkanya. IntipDompet. Biar dompetmu nggak kaget."
+    }
+  ]
+}

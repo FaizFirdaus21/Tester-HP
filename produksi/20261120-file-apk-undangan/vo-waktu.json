@@ -1,0 +1,27 @@
+{
+  "audio": "vo/file-apk-undangan.mp3",
+  "catatan": "Dibuat dengan gemini-3.1-flash-tts-preview, suara Sulafat.",
+  "total": 34.76,
+  "blok": [
+    {
+      "mulai": 0.0,
+      "durasi": 3.08,
+      "teks": "Undangan di WA? Jangan dibuka."
+    },
+    {
+      "mulai": 3.38,
+      "durasi": 9.64,
+      "teks": "File berakhiran apk itu aplikasi, bukan undangan. Kalau dipasang, penipu bisa mengambil alih HP dan aplikasi bankmu."
+    },
+    {
+      "mulai": 13.32,
+      "durasi": 13.28,
+      "teks": "Triknya, lihat tiga huruf terakhir nama file. Kalau apk, hapus. Pasang aplikasi cuma dari Play Store. Telanjur klik? Langsung hubungi bank lewat nomor resmi."
+    },
+    {
+      "mulai": 26.9,
+      "durasi": 7.56,
+      "teks": "Pernah dapat undangan begini? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget."
+    }
+  ]
+}
