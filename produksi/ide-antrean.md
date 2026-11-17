@@ -134,3 +134,18 @@ Uji untuk setiap tip: "Apakah orang akan menyimpan video ini untuk dipakai nanti
 - **Pola varian hook yang perlu dicoba:** lambang rupiah + angka + kata kerugian di depan, misalnya "Rp10.000 kebuang tiap tempel meterai." Polanya sama dengan konten terbaik kita (angka besar + kerugian).
 - **Kalibrasi durasi (VO, 15 Nov):** jalankan `python3 .claude/skills/ig-reel/beats.py naskah.txt --wpm 125 --target 30` (suara Sulafat ±125 kata/menit). Tambahkan ±0,9 detik untuk jeda antarblok dan +0,5 detik bila hook berisi titik atau koma. Hasil uji: meterai v3.1 diprediksi ±33,5 detik, aktualnya 34,7 detik.
 - **Kalibrasi kedua (VO, 16 Nov):** Reels 12.00 (model 3.1-preview) memakai `--wpm 110`, karena hasil aktualnya 17% lebih lama dari perhitungan 125 wpm. Reels 19.00 (model 3.8) tetap `--wpm 125`. Kata "apk" diucapkan "a-pe-ka".
+
+## Sinyal pertama sprint (17 Nov) dan penyesuaian 21–22 Nov
+Reels "harga per satuan" (hook C, pertanyaan mitos) mencatat skip 42,9%, tonton rata-rata 12,4 detik, dan 1 save. Reels lain di angka 77–82% skip. Unsur yang membuatnya beda:
+1. Ada benda sehari-hari yang langsung dikenali.
+2. Ada keyakinan penonton yang dibantah.
+3. Bisa langsung dipraktikkan.
+
+Sampel baru 1, jadi ini belum kesimpulan.
+
+| Tanggal | Slot | Tipe | Penyesuaian |
+|---|---|---|---|
+| 21 Nov | 12.00 | A | Denda kartu kredit "1%". Frame 0: kartu kredit + kalender jatuh tempo (benda sehari-hari). |
+| 21 Nov | 19.00 | **C** | Uang rusak, dengan hook pertanyaan mitos: "Uang sobek, pasti hangus?" Frame 0: selembar uang kertas yang sobek. Tip: lipat jadi tiga untuk mengukur aturan 2/3. Ini C kedua untuk melihat apakah efeknya terulang. |
+| 22 Nov | 12.00 | B | Pajak hadiah (tetap). Frame 0: SMS "Selamat, Anda menang!" di HP. |
+| 22 Nov | 19.00 | D | Emas: perbandingan batang 1 g vs 10 g ("kecil vs besar", mirip botol kecil vs JUMBO) dengan harga per gram dari daftar Logam Mulia hari produksi. Kalau harga per pecahan tidak bisa diverifikasi resmi + 2 media, topik diganti. |
