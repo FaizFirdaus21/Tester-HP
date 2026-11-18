@@ -1,6 +1,6 @@
 {
   "slug": "20261119-emas-hilang-per-gram",
-  "tahap": "vo-siap",
-  "catatan": "VO 23.41 detik, 3 blok, vo/emas-hilang-per-gram.mp3 (gemini-3.8-flash-tts, suara Sulafat). | VO 30.04 detik, 4 blok, vo/emas-hilang-per-gram.mp3 (gemini-3.8-flash-tts, suara Sulafat).",
-  "diperbarui": "2026-11-18T00:33:35Z"
+  "tahap": "render-selesai",
+  "catatan": "VO 23.41 detik, 3 blok, vo/emas-hilang-per-gram.mp3 (gemini-3.8-flash-tts, suara Sulafat). | VO 30.04 detik, 4 blok, vo/emas-hilang-per-gram.mp3 (gemini-3.8-flash-tts, suara Sulafat). | Director (v3.1, harga 17 Nov): final.mp4 30,95 s, 12643725 byte. qc_reels.py LOLOS: 8 sambungan bersih (puncak terburuk -51,9 dBFS), tepi blok +0,8 dB, tepi layar bersih. Menunggu 'accept' user.",
+  "diperbarui": "2026-11-18T00:44:18Z"
 }
