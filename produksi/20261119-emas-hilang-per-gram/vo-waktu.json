@@ -1,22 +1,27 @@
 {
   "audio": "vo/emas-hilang-per-gram.mp3",
   "catatan": "Dibuat dengan gemini-3.8-flash-tts, suara Sulafat.",
-  "total": 23.41,
+  "total": 30.04,
   "blok": [
     {
       "mulai": 0.0,
-      "durasi": 3.01,
-      "teks": "Dua ratus ribu. Hilang per gram."
+      "durasi": 3.72,
+      "teks": "Sembilan koma empat persen. Hilang saat dijual."
     },
     {
-      "mulai": 3.21,
-      "durasi": 11.68,
-      "teks": "Per dua belas November, emas Antam satu gram dijual dua koma lima dua juta, buyback-nya dua koma tiga dua juta. Beli lalu langsung jual, kamu rugi sekitar dua ratus ribu."
+      "mulai": 4.02,
+      "durasi": 6.52,
+      "teks": "Per tujuh belas November, selisih harga jual dan buyback emas Antam dua ratus tiga puluh tujuh ribu per gram."
     },
     {
-      "mulai": 15.09,
-      "durasi": 8.12,
-      "teks": "Cek selisih jual dan buyback sebelum beli. Selisih di tempatmu berapa? Komen angkanya. IntipDompet. Biar dompetmu nggak kaget."
+      "mulai": 10.84,
+      "durasi": 11.84,
+      "teks": "Triknya: cek dua harga di situs Logam Mulia. Sembilan koma empat persen itu yang hilang saat dijual. Supaya balik modal, buyback harus naik sepuluh koma empat persen dulu."
+    },
+    {
+      "mulai": 22.98,
+      "durasi": 6.76,
+      "teks": "Kamu cek buyback sebelum beli? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget."
     }
   ]
 }
