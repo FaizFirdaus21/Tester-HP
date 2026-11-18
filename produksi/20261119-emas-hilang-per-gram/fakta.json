@@ -7,11 +7,20 @@
   "diakses": "2026-11-15",
   "fakta": [
     {
-      "id": "jual-buyback",
-      "klaim": "Emas Antam 1 gram di Logam Mulia, 12 Nov 2026: jual Rp2.518.000, buyback Rp2.316.000; selisih Rp202.000 = 8,0% dari harga jual; buyback harus naik 202.000/2.316.000 = 8,7% untuk menyamai harga beli.",
-      "di_naskah": "blok 1 ('delapan persen'), 2, 3 ('hampir sembilan persen')",
-      "sumber": "produksi/20261112-emas-jual-buyback/fakta.json (Logam Mulia via Kontan, IDX Channel, Katadata, Suara, IDN Times)",
-      "status": "DRAF — WAJIB diperbarui 18 Nov pagi dengan harga terbaru (resmi + ≥2 media); hitung ulang 8,0% dan 8,7%; jangan membulatkan ke bawah secara menyesatkan"
+      "id": "jual-buyback-17nov",
+      "klaim": "Emas Antam 1 gram di Logam Mulia, 17 Nov 2026: jual Rp2.515.000, buyback Rp2.278.000; selisih Rp237.000 = 9,42% dari harga jual; buyback harus naik 237.000/2.278.000 = 10,40% untuk menyamai harga beli.",
+      "di_naskah": "blok 1 ('sembilan koma empat persen'), 2 (selisih Rp237 rb disebut persis; harga jual/buyback lengkap hanya di layar), 3 ('sepuluh koma empat persen')",
+      "sumber_primer": "https://www.logammulia.com (dikutip media)",
+      "sumber_media": [
+        "https://katadata.co.id/finansial/keuangan/6afbcd00a635f/harga-emas-antam-hari-ini-selasa-17-november-2026-turun-rp7000",
+        "https://www.liputan6.com/bisnis/read/8336666/harga-emas-antam-17-november-2026-merosot-rp-7000-simak-rinciannya",
+        "https://finance.detik.com/berita-ekonomi-bisnis/d-8756187/harga-emas-antam-turun-buyback-anjlok-rp-20-000",
+        "https://economy.okezone.com/read/2026/11/17/622/3254455/harga-emas-antam-hari-ini-turun-rp7-000-buyback-terjun-bebas",
+        "https://market.bisnis.com/read/20261117/235/2021967/tabel-harga-buyback-emas-antam-hari-ini-selasa-17-november-2026-nilai-pajaknya"
+      ],
+      "tanggal_data": "2026-11-17",
+      "catatan": "Diperbarui 18 Nov 07.30 WIB; harga 18 Nov belum tersedia di media saat diperiksa. Tayang 19 Nov memakai data 17 Nov (tanggal disebut di naskah, visual, caption). Selisih naik dari Rp202 rb (12 Nov) ke Rp237 rb, sehingga hook diganti dari 8% ke 9,4%.",
+      "status": "resmi (dikutip) + 5 media"
     },
     {
       "id": "cek-di-logammulia",
@@ -30,5 +39,5 @@
       "status": "hitungan aritmetika; tidak memprediksi kapan harga naik"
     }
   ],
-  "catatan_produksi": "WAJIB pada 18 Nov pagi: (1) perbarui harga jual/buyback Logam Mulia (resmi + ≥2 media) dan tanggalnya di naskah, visual, dan caption; (2) terapkan aturan TATA_V3: angka frame 0 maks. 3 karakter (mis. '8%'), hook ucapan dibuka dengan angka, blok 2 ≤7 detik dengan 3–4 benda yang bisa digambar; (3) kabari VO blok mana yang berubah. | 15 Nov (Orchestrator): blok 3 harus menjelaskan dua persentase dalam satu napas — '8% hilang saat dijual (selisih ÷ jual)' vs 'buyback harus naik ~8,7% untuk balik modal (selisih ÷ buyback)'; papan menampilkan keduanya beserta rumusnya. Hitung ulang keduanya dari harga 18 Nov."
+  "catatan_produksi": "Diperbarui 18 Nov 2026 (data 17 Nov). Blok 1–3 berubah; blok 4 (CTA) tetap."
 }

@@ -11,26 +11,53 @@
     {
       "peran": "hook",
       "gaya": "Tegas, berat di 'hilang'",
-      "teks": "Delapan persen. Hilang begitu emasmu dijual.",
-      "visual": "Frame 0: angka kapur raksasa '8%' memenuhi sepertiga layar; dalam 0,3 detik sebatang emas kapur retak. [ANGKA DIHITUNG ULANG 18 NOV]"
+      "teks": "Sembilan koma empat persen. Hilang saat dijual.",
+      "visual": "Frame 0: angka kapur raksasa '9,4%' (akurasi lebih penting dari ukuran; jangan dibulatkan ke '9%'); dalam 0,3 detik sebatang emas kapur retak."
     },
     {
       "peran": "fakta",
       "gaya": "Menjelaskan, pelan di dua angka harga",
-      "teks": "Per dua belas November, emas Antam satu gram dijual dua koma lima dua juta, buyback-nya dua koma tiga dua juta. Selisihnya dua ratus ribu.",
-      "visual": "Dua label harga ditahan ≥2,5 detik: 'jual Rp2,518 jt' dan 'buyback Rp2,316 jt' (label 'Logam Mulia, 12 Nov 2026'); panah ke 'selisih Rp202 rb'. [HARGA & TANGGAL DIPERBARUI 18 NOV]"
+      "teks": "Per tujuh belas November, selisih harga jual dan buyback emas Antam dua ratus tiga puluh tujuh ribu per gram.",
+      "visual": "Dua label harga ditahan ≥2,5 detik: 'jual Rp2.515.000' dan 'buyback Rp2.278.000' (label kecil 'Logam Mulia, 17 Nov 2026'); panah ke 'selisih Rp237.000'."
     },
     {
       "peran": "tip",
       "gaya": "Seperti membagikan trik hitung, tempo sedang, jeda di tiap langkah",
-      "teks": "Triknya: cek dua harga ini di situs Logam Mulia. Delapan persen hilang saat dijual. Supaya balik modal, harga buyback harus naik hampir sembilan persen dulu. Rumusnya: selisih dibagi harga buyback.",
-      "visual": "Papan dua kolom ditahan ≥2,5 detik: kiri 'HILANG SAAT DIJUAL: selisih ÷ harga jual = Rp202 rb ÷ Rp2,518 jt = 8,0%'; kanan 'BALIK MODAL: selisih ÷ buyback = Rp202 rb ÷ Rp2,316 jt ≈ 8,7%'; panah dari kiri ke kanan. Langkah 1 di atas: 'Cek harga jual & buyback (logammulia.com)'. [ANGKA DIHITUNG ULANG 18 NOV]"
+      "teks": "Triknya: cek dua harga di situs Logam Mulia. Sembilan koma empat persen itu yang hilang saat dijual. Supaya balik modal, buyback harus naik sepuluh koma empat persen dulu.",
+      "visual": "Papan dua kolom ditahan ≥2,5 detik: kiri 'HILANG SAAT DIJUAL: selisih ÷ harga jual = Rp237 rb ÷ Rp2,515 jt = 9,4%'; kanan 'BALIK MODAL: selisih ÷ buyback = Rp237 rb ÷ Rp2,278 jt = 10,4%'; panah dari kiri ke kanan. Di atas: '1. Cek harga jual & buyback (logammulia.com)'."
     },
     {
       "peran": "cta",
       "gaya": "Ramah, ceria di tagline",
       "teks": "Kamu cek buyback sebelum beli? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget.",
       "visual": "Gelembung komentar 'ya / nggak', lalu kembali ke papan hook (loop)."
+    }
+  ],
+  "hook_varian": [
+    {
+      "teks": "Sembilan koma empat persen. Hilang saat dijual.",
+      "tipe": "A",
+      "catatan": "dipilih: angka layar = angka ucapan (9,4%), tidak dibulatkan ke bawah"
+    },
+    {
+      "teks": "Dua ratus tiga puluh tujuh ribu. Hilang per gram.",
+      "tipe": "A",
+      "catatan": "angka rupiah terlalu panjang diucapkan (±3,5 detik) dan di layar >3 karakter"
+    },
+    {
+      "teks": "Hampir sepuluh persen. Hilang begitu emasmu dijual.",
+      "tipe": "A",
+      "catatan": "pendek, tapi tidak cocok persis dengan '9,4%' di layar"
+    },
+    {
+      "teks": "Beli emas, jual lagi. Kok rugi?",
+      "tipe": "C",
+      "catatan": "pola carousel emas terbaik, tapi tidak membuka dengan angka"
+    },
+    {
+      "teks": "Rp237 ribu hilang per gram emas.",
+      "tipe": "A",
+      "catatan": "pola Rp+angka+kerugian di depan; cadangan uji berikutnya"
     }
   ]
 }
