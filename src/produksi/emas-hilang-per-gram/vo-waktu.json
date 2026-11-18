@@ -1,1 +1,119 @@
-{"audio": null, "total": 0, "blok": [], "catatan": "DITAHAN: VO draf lama (3 blok) dilepas sampai VO harga 18 Nov masuk; sinkron ulang dengan scripts/sinkron_vo.py."}
+{
+  "audio": "vo/emas-hilang-per-gram.mp3",
+  "catatan": "Dibuat dengan gemini-3.8-flash-tts, suara Sulafat. Diperkaya scripts/sinkron_vo.py (bicara + jangkar kalimat).",
+  "total": 30.04,
+  "blok": [
+    {
+      "mulai": 0.0,
+      "durasi": 3.72,
+      "teks": "Sembilan koma empat persen. Hilang saat dijual.",
+      "bicara": [
+        0.0,
+        3.477
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 28,
+          "detik": 2.221
+        },
+        {
+          "huruf": 47,
+          "detik": 3.477
+        }
+      ]
+    },
+    {
+      "mulai": 4.02,
+      "durasi": 6.52,
+      "teks": "Per tujuh belas November, selisih harga jual dan buyback emas Antam dua ratus tiga puluh tujuh ribu per gram.",
+      "bicara": [
+        4.263,
+        10.227
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 26,
+          "detik": 1.318
+        },
+        {
+          "huruf": 109,
+          "detik": 5.963
+        }
+      ]
+    },
+    {
+      "mulai": 10.84,
+      "durasi": 11.84,
+      "teks": "Triknya: cek dua harga di situs Logam Mulia. Sembilan koma empat persen itu yang hilang saat dijual. Supaya balik modal, buyback harus naik sepuluh koma empat persen dulu.",
+      "bicara": [
+        11.149,
+        22.302
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 9,
+          "detik": 1.003
+        },
+        {
+          "huruf": 45,
+          "detik": 3.654
+        },
+        {
+          "huruf": 101,
+          "detik": 7.131
+        },
+        {
+          "huruf": 121,
+          "detik": 8.509
+        },
+        {
+          "huruf": 171,
+          "detik": 11.153
+        }
+      ]
+    },
+    {
+      "mulai": 22.98,
+      "durasi": 6.76,
+      "teks": "Kamu cek buyback sebelum beli? Komen ya atau nggak. IntipDompet. Biar dompetmu nggak kaget.",
+      "bicara": [
+        23.172,
+        29.443
+      ],
+      "jangkar": [
+        {
+          "huruf": 0,
+          "detik": 0.0
+        },
+        {
+          "huruf": 31,
+          "detik": 1.859
+        },
+        {
+          "huruf": 52,
+          "detik": 3.712
+        },
+        {
+          "huruf": 65,
+          "detik": 4.714
+        },
+        {
+          "huruf": 91,
+          "detik": 6.271
+        }
+      ]
+    }
+  ]
+}
